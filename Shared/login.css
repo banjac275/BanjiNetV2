@@ -1,0 +1,33 @@
+.nav-tabs > li
+{
+    display: inline-block;
+    float: none;
+    vertical-align: top;
+}
+
+.nav-tabs
+{
+    text-align: center;
+    background-color: #d9edf7;
+}
+
+body
+{
+    background-size: 100%;
+    background-repeat: space;
+}
+
+#fields
+{
+    background-color: #d9edf7;
+}
+
+#msgsignin
+{
+    display: none;
+}
+
+#msgsignup
+{
+    display: none;
+}
