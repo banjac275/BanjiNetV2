@@ -8,6 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="Shared/login.css">
+    <script src="Scripts/loginform.js"></script>
 </head>
 <body> <!--background="src/backgroundlogin.jpg"-->
     <form id="form1" runat="server">
@@ -50,7 +51,7 @@
         </div>
         <!--sign up-->
         <div class="tab-pane" id="tab2">
-            <div class="col-lg-6 center-block"><!-- using 1000hz form validator -->
+            <div class="col-lg-6 center-block">
                 <form id="signup-form" class="form-vertical" role="form" method="post" data-toggle="validator">
                     <div class="form-group">
                         <label for="email" class="control-label">Your email address: </label>
