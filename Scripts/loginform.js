@@ -3,29 +3,32 @@ $(document).ready(function() {
 
         e.preventDefault();
 
-        var email = $("#emailsignin").val();
-        var password = $("#passwordsignin").val();
-        var checkbox = $("#remember").val();
+        var Email = $("#emailsignin").val();
+        var Password = $("#passwordsignin").val();
+        var Checkbox = $("#remember").val();
 
         //pravimo data string
-        //var dataString = 'email1='+email+'&password1='+password+'&check='+checkbox;
+        //var dataString = {'Email': Email,'Password': Password,'Checkbox': Checkbox};
 
-        if (email == ''||password == '')
+        if (Email == ''||Password == '')
         {
             alert("Please fill all fields!");
         }
         else {
             $.ajax({
                 type: "POST",
-                url: "./php/login.php",
+                url: "./MongoService.asmx/returnWorkerFromEmail",
                 data: {
-                    'email': email,
-                    'password': password,
-                    'remember': checkbox
+                    'Email': Email,
+                    'Password': Password,
+                    'Checkbox': Checkbox
                 },
                 success: [function (data) {
                     alert(data);
-                }]
+                }],
+                error: function (result) {
+                    alert(result);
+                }
             });
         }
 

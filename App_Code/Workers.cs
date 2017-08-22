@@ -13,14 +13,27 @@ using RaptorDB.Common;
 public class Workers
 {
     public ObjectId Id { get; set; }
-    [BsonElement("WorkerId")]
-    public int WorkerId { get; set; }
-    [BsonElement("FirstName")]
+  
+    public int CompanyId { get; set; }
+    
     public string FirstName { get; set; }
-    [BsonElement("LastName")]
+    
     public string LastName { get; set; }
-    [BsonElement("Password")]
+  
     public string Password { get; set; }
-    [BsonElement("Email")]
+  
     public string Email { get; set; }
+
+    public bool Checkbox { get; set; }
+}
+
+public class Worker
+{
+    public ObjectId Id { get; set; }
+
+    public string Password { get; set; }
+
+    public string Email { get; set; }
+
+    public bool Checkbox { get; set; }
 }

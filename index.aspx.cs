@@ -7,8 +7,11 @@ using System.Web.UI.WebControls;
 
 public partial class index : System.Web.UI.Page
 {
+    MongoService ms;
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        ms = new MongoService();
     }
+
+
 }
