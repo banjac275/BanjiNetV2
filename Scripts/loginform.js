@@ -18,11 +18,7 @@ $(document).ready(function() {
             $.ajax({
                 type: "POST",
                 url: "./MongoService.asmx/returnWorkerFromEmail",
-                data: {
-                    'Email': Email,
-                    'Password': Password,
-                    'Checkbox': Checkbox
-                },
+                data: { 'mail': Email },
                 success: [function (data) {
                     alert(data);
                 }],

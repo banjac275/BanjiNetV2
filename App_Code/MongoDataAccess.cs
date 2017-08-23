@@ -37,12 +37,12 @@ public class MongoDataAccess
         return (Workers) result;
     }
 
-    public Workers getWorkerByEmail(string email)
+    public List<Workers> getWorkerByEmail(string email)
     {
         var res = _dbase.GetCollection<Workers>("workers");
-        var filter = Builders<Workers>.Filter.Eq("Email", email);
-        var result = res.Find(filter);
-        return (Workers)result;
+        //var filter = Builders<Workers>.Filter.Eq("Email", email);
+        var result = res.Find(w => w.Email == email).ToList();
+        return result;
     }
 
     public async System.Threading.Tasks.Task<IEnumerable<Workers>> Create(Workers w)

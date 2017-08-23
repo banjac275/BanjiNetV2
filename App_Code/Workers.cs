@@ -24,7 +24,7 @@ public class Workers
   
     public string Email { get; set; }
 
-    public bool Checkbox { get; set; }
+    public string Checkbox { get; set; }
 }
 
 public class Worker
