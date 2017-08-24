@@ -18,21 +18,41 @@ using System.Web.Script.Serialization;
 public class MongoService : System.Web.Services.WebService
 {
     MongoDataAccess mongoDbase;
+    string badp = "Bad password, please try again!";
+    string badm = "No users were found with this email, please sign up!";
 
     public MongoService()
     {
         mongoDbase = new MongoDataAccess();
     }
 
+    //trazi radnika u bazi i proverava da li mu je dobra sifra
     [System.Web.Services.WebMethod]
-    public string returnWorkerFromEmail(string mail)
+    public string returnWorkerFromEmail(string mail, string pass)
     {
         //var obj = JObject.Parse(jsons);
         //var mail = (string)obj.SelectToken("Email");
         List<Workers> w = mongoDbase.getWorkerByEmail(mail);
-        //JavaScriptSerializer jserial = new JavaScriptSerializer();
-        return JsonConvert.SerializeObject(w[0]);
+        JavaScriptSerializer jserial = new JavaScriptSerializer();
+        if (w.Count != 0)
+        {
+            if (w[0].Password == pass)
+                return JsonConvert.SerializeObject(w[0]);
+            else
+                return badp;
+        }
+        else
+            return badm;
         //return w.ToString();
     }
+
+    [System.Web.Services.WebMethod]
+    public string enterNewWorkerInDb(string mail, string pass, string name, string last, string check)
+    {
+        Workers w;
+        w.FirstName = name;
+
+    }
+
 
 }

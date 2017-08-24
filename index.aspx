@@ -80,7 +80,7 @@
                     </div>
                     <div class="form-group">
                         <input id="signupbtn" type="button" class="btn btn-default" value="Sign Up">
-                        <span id="msgsignup">You already have an account please <a href="#tab1">Sign in</a></span>
+                        <span id="msgsignup">You already have an account please <a id="trans2" href="#tab1">Sign in</a></span>
                     </div>
                 </form>
             </div>
