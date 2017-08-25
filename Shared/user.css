@@ -1,0 +1,48 @@
+﻿.navbar-black {
+    border-width: 0;
+    background-color: #d9edf7;
+    background-image: -webkit-linear-gradient(top, #696969 0%,#3f3f3f 100%);
+    background-image: -moz-linear-gradient(top, #696969 0%,#3f3f3f 100%);
+    background-image: -o-linear-gradient(top, #696969 0%,#3f3f3f 100%);
+    background-image: linear-gradient(top, #696969 0%,#3f3f3f 100%);
+    color: #ffffff;
+    font-family: arial,sans-serif;
+    top: 0;
+    position: fixed;
+    width: inherit;
+}
+
+.nav-tabs > li {
+    display: inline-block;
+    float: none;
+    vertical-align: top;
+}
+
+.nav-tabs {
+    text-align: right;
+    background-color: #d9edf7;
+}
+
+#navic {
+    display:inline-block;
+    float:none;
+    vertical-align:top;
+    align-content:center;
+}
+
+.logo {
+    display: block;
+    padding: 3px;
+    color: #3B5999;
+    height: 28px;
+    width: 28px;
+    margin: 5px;
+    margin-right: 15px;
+    margin-left: 15px;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 0 1px;
+    border-radius: 2px;
+}

@@ -6,6 +6,8 @@ using System.Web.Services;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Web.Script.Serialization;
+using System.Threading.Tasks;
+using System.Threading;
 
 
 /// <summary>
@@ -20,6 +22,8 @@ public class MongoService : System.Web.Services.WebService
     MongoDataAccess mongoDbase;
     string badp = "Bad password, please try again!";
     string badm = "No users were found with this email, please sign up!";
+    string succ = "User database entry was a success!";
+    string fail = "User database entry failed!";
 
     public MongoService()
     {
@@ -33,7 +37,7 @@ public class MongoService : System.Web.Services.WebService
         //var obj = JObject.Parse(jsons);
         //var mail = (string)obj.SelectToken("Email");
         List<Workers> w = mongoDbase.getWorkerByEmail(mail);
-        JavaScriptSerializer jserial = new JavaScriptSerializer();
+        //JavaScriptSerializer jserial = new JavaScriptSerializer();
         if (w.Count != 0)
         {
             if (w[0].Password == pass)
@@ -49,9 +53,20 @@ public class MongoService : System.Web.Services.WebService
     [System.Web.Services.WebMethod]
     public string enterNewWorkerInDb(string mail, string pass, string name, string last, string check)
     {
-        Workers w;
+        Workers w = new Workers();
         w.FirstName = name;
+        w.LastName = last;
+        w.Email = mail;
+        w.Password = pass;
+        w.Checkbox = check;
 
+        var ret = mongoDbase.Create(w);
+
+        if(ret != null)
+        {
+            return succ;
+        }
+        return fail;
     }
 
 

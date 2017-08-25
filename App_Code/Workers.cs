@@ -25,15 +25,16 @@ public class Workers
     public string Email { get; set; }
 
     public string Checkbox { get; set; }
-}
 
-public class Worker
-{
-    public ObjectId Id { get; set; }
+    public Workers()
+    {
+        Random rnd = new Random();
 
-    public string Password { get; set; }
-
-    public string Email { get; set; }
-
-    public bool Checkbox { get; set; }
+        CompanyId = rnd.Next(10);
+        FirstName = null;
+        LastName = null;
+        Password = null;
+        Email = null;
+        Checkbox = null;
+    }
 }

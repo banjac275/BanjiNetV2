@@ -22,10 +22,10 @@ public class MongoDataAccess
         _dbase = _client.GetDatabase("userdb");
     }
 
-    public async System.Threading.Tasks.Task<IEnumerable<Workers>> GetWorkersAsync()
+    public List<Workers> GetWorkers()
     {
         var collection = _dbase.GetCollection<Workers>("workers");
-        var users = await collection.Find(Builders<Workers>.Filter.Empty).ToListAsync();
+        var users = collection.Find(Builders<Workers>.Filter.Empty).ToList();
         return users;
     }
 
@@ -45,26 +45,27 @@ public class MongoDataAccess
         return result;
     }
 
-    public async System.Threading.Tasks.Task<IEnumerable<Workers>> Create(Workers w)
+    public Workers Create(Workers w)
     {
         var collection = _dbase.GetCollection<Workers>("workers");
-        await collection.InsertOneAsync(w);
-        IEnumerable<Workers> users = (IEnumerable < Workers >)w;
-        return users;
+        collection.InsertOne(w);
+        return w;
     }
 
-    public async System.Threading.Tasks.Task updateWorkerAsync(ObjectId id, Workers w)
+    public Workers updateWorker(ObjectId id, Workers w)
     {
         w.Id = id;
         var collection = _dbase.GetCollection<Workers>("workers");
         var query_id = Builders<Workers>.Filter.Eq("_id", w.Id);
-        var operation = await collection.ReplaceOneAsync(query_id, w);
+        var operation = collection.ReplaceOne(query_id, w);
+        return w;
     }
 
-    public async System.Threading.Tasks.Task removeWorkerAsync(ObjectId id)
+    public string removeWorker(ObjectId id)
     {
         var collection = _dbase.GetCollection<Workers>("workers");
         var query_id = Builders<Workers>.Filter.Eq("_id", id);
-        var remove = await collection.DeleteOneAsync(query_id);
+        var remove = collection.DeleteOne(query_id);
+        return "Worker deleted!";
     }
 }

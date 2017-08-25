@@ -91,10 +91,10 @@ $(document).ready(function() {
                     $xml = $(xmlDoc),
                     $title = $xml.find("string");
                 alert($title.text());
-                var sign = "No users were found with this email, please sign up!";
+                var sign = "There already is a user with this email, please sign in!";
                 if ($title.text() == sign) {
-                    $("#signinbtn").css("display", "none");
-                    $("#msgsignin").css("display", "inline");
+                    $("#signupbtn").css("display", "none");
+                    $("#msgsignup").css("display", "inline");
                 }
             });
         }
