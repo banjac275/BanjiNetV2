@@ -20,14 +20,14 @@
                     $xml = $(xmldoc),
                     $title = $xml.find("string");
                 console.log($title.text());
-                //$("#res").append($title.text());
-                //setsession(title.text());
+                
                 var sign = "no users were found with this email, please sign up!";
                 if ($title.text() == sign) {
                     $("#signinbtn").css("display", "none");
                     $("#msgsignin").css("display", "inline");
                 }
                 else {
+                    alert("Login Success!");
                     window.location.assign("./userprofile.aspx");
                 }
             });

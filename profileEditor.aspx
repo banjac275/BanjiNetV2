@@ -1,12 +1,14 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="UserProfile.aspx.cs" Inherits="UserProfile" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="profileEditor.aspx.cs" Inherits="profileEditor" %>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml>
     <head runat="server">
-        <title>BanjiNet - User Profile</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <title>BanjiNet - Edit Profile</title>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="~/Shared/user.css"/>
+        <%--<script type="text/javascript" src="Scripts/workers.js"></script>--%>
     </head>
     <body>
         <!-- top nav -->
@@ -20,8 +22,8 @@
                       <li><a href="#">Search</a></li>
                       <li><a href="workerslist.aspx">Workers</a></li>
                       <li><a href="#">Companies</a></li>
-                      <li><a href="profileEditor.aspx">Edit Profile</a></li>
-                      <li class="active"><a href="UserProfile.aspx">User Profile</a></li>
+                      <li class="active"><a href="profileEditor.aspx">Edit Profile</a></li>
+                      <li><a href="UserProfile.aspx">User Profile</a></li>
                       <li><a href="#">Log Out</a></li>
                     </ul>
                   </div>
@@ -31,21 +33,19 @@
               </nav>
             </div> 
 
-            <div class="container">
+           <div class="container">
                 <div class="row">
-                    <div class="col-4 panel panel-info">
-                       <div class="panel-title">User Info: </div><hr />
-                       <div class="panel-body" id="personal" runat="server">
+                    <div class="panel panel-info">
+                       <div class="panel-title text-center">User Info: </div><hr />
+                       <div class="panel-body text-center" id="personalp" runat="server">
 
                        </div>
                     </div>
-                    <div class="col-8" id="firm" runat="server">
+                    <div class="text-center hide" id="firmp" runat="server">
 
                     </div>                    
                 </div>
-            </div>
-        
-           
+            </div>           
 
         <!-- /top nav -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

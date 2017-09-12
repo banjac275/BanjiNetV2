@@ -20,9 +20,9 @@
                       <li class="navbar-brand navbar-left"><a href="#">BanjiNet</a></li>
                       <li><a href="#">Home</a></li>
                       <li><a href="#">Search</a></li>
-                      <li class="active"><a href="#">Workers</a></li>
+                      <li class="active"><a href="workerslist.aspx">Workers</a></li>
                       <li><a href="#">Companies</a></li>
-                      <li><a href="#">Edit Profile</a></li>
+                      <li><a href="profileEditor.aspx">Edit Profile</a></li>
                       <li><a href="UserProfile.aspx">User Profile</a></li>
                       <li><a href="#">Log Out</a></li>
                     </ul>

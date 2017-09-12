@@ -28,7 +28,7 @@
     <div id="fields" class="tab-content nav-tabs container">
         <div class="tab-pane active" id="tab1">
             <div class="col-lg-6 center-block">
-                <form action="php/login.php" id="signin" class="form-vertical" role="form" method="post">
+                <form id="signin" class="form-vertical" role="form" method="post">
                     <div class="form-group">
                         <label for="emailsignin" class="control-label">E-mail: </label>
                         <input type="email" name="email" class="form-control" id="emailsignin" required>

@@ -31,7 +31,7 @@
                       <li><a href="#">Search</a></li>
                       <li><a href="workerslist.aspx">Workers</a></li>
                       <li><a href="#">Companies</a></li>
-                      <li><a href="#">Edit Profile</a></li>
+                      <li><a href="profileEditor.aspx">Edit Profile</a></li>
                       <li><a href="UserProfile.aspx">User Profile</a></li>
                       <li><a href="#">Log Out</a></li>
                     </ul>

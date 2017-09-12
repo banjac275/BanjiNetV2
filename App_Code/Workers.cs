@@ -14,7 +14,7 @@ public class Workers
 {
     public ObjectId Id { get; set; }
   
-    public int CompanyId { get; set; }
+    public string CompanyId { get; set; }
     
     public string FirstName { get; set; }
     
@@ -28,9 +28,6 @@ public class Workers
 
     public Workers()
     {
-        Random rnd = new Random();
-
-        CompanyId = rnd.Next(10);
         FirstName = null;
         LastName = null;
         Password = null;
