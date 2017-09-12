@@ -68,4 +68,5 @@ public class MongoDataAccess
         var remove = collection.DeleteOne(query_id);
         return "Worker deleted!";
     }
+
 }

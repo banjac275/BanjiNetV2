@@ -31,7 +31,7 @@ public class MongoService : System.Web.Services.WebService
     }
 
     //trazi radnika u bazi i proverava da li mu je dobra sifra
-    [System.Web.Services.WebMethod]
+    [System.Web.Services.WebMethod(EnableSession = true)]
     public string returnWorkerFromEmail(string mail, string pass)
     {
         //var obj = JObject.Parse(jsons);
@@ -41,7 +41,10 @@ public class MongoService : System.Web.Services.WebService
         if (w.Count != 0)
         {
             if (w[0].Password == pass)
+            {
+                HttpContext.Current.Session.Add("user", w[0]);
                 return JsonConvert.SerializeObject(w[0]);
+            }
             else
                 return badp;
         }
@@ -69,5 +72,11 @@ public class MongoService : System.Web.Services.WebService
         return fail;
     }
 
+    [System.Web.Services.WebMethod]
+    public List<Workers> retAllWorkersFromCollection()
+    {
+        List<Workers> w = mongoDbase.GetWorkers();
+        return w;
+    }
 
 }

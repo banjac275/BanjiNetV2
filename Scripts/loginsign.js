@@ -1,36 +1,44 @@
-$(document).ready(function() {
+﻿$(document).ready(function() {
     $("#signinbtn").click(function (e) {
 
         e.preventDefault();
 
-        var Email = $("#emailsignin").val();
-        var Password = $("#passwordsignin").val();
-        var Checkbox = $("#remember").val();
+        var email = $("#emailsignin").val();
+        var password = $("#passwordsignin").val();
+        var checkbox = $("#remember").val();
 
         //pravimo data string
-        var dataString = { 'mail': Email, 'pass': Password };//'Checkbox': Checkbox};
+        var datastring = { 'mail': email, 'pass': password };//'checkbox': checkbox};
 
-        if (Email == ''||Password == '')
-        {
-            alert("Please fill all fields!");
+        if (email == '' || password == '') {
+            alert("please fill all fields!");
         }
         else {
-            getAjaxResponse(dataString, function (data) {
-                var xmlDoc = $.parseXML(data),
-                    $xml = $(xmlDoc),
+            
+            getAjaxResponse(datastring, function (data) {
+                var xmldoc = $.parseXML(data),
+                    $xml = $(xmldoc),
                     $title = $xml.find("string");
-                alert($title.text());
-                var sign = "No users were found with this email, please sign up!";
-                if ($title.text() == sign)
-                {
+                console.log($title.text());
+                //$("#res").append($title.text());
+                //setsession(title.text());
+                var sign = "no users were found with this email, please sign up!";
+                if ($title.text() == sign) {
                     $("#signinbtn").css("display", "none");
                     $("#msgsignin").css("display", "inline");
+                }
+                else {
+                    window.location.assign("./userprofile.aspx");
                 }
             });
         }
 
         return false;
     });
+        
+
+       
+    
 
     function getAjaxResponse(sstring, fn) {
 
@@ -40,10 +48,27 @@ $(document).ready(function() {
             type: "POST",
             data: sstring,
             error: function (err) {
-                alert("Error", err.toString());
+                alert("Error",err);
             },
             success: function (data) {
                 fn(data);
+            }
+        });
+    }
+
+    function SetSession(sstring) {
+
+        $.ajax({
+            url: "./index.aspx.cs/addSession",
+            dataType: "text",
+            type: "POST",
+            data: sstring,
+            error: function (err) {
+                alert("Error", err.toString());
+            },
+            success: function (data) {
+                console.log(data);
+                window.location.href = "UserProfile.aspx";
             }
         });
     }
@@ -81,8 +106,7 @@ $(document).ready(function() {
         if (Email == '' || Password == '' || Name == '' || Surname == '' || Reppass == '') {
             alert("Please fill all fields!");
         }
-        else if (Password != Reppass)
-        {
+        else if (Password != Reppass) {
             alert("Password doesn't match, enter it again!");
         }
         else {
@@ -90,7 +114,7 @@ $(document).ready(function() {
                 var xmlDoc = $.parseXML(data),
                     $xml = $(xmlDoc),
                     $title = $xml.find("string");
-                alert($title.text());
+
                 var sign = "There already is a user with this email, please sign in!";
                 if ($title.text() == sign) {
                     $("#signupbtn").css("display", "none");
@@ -98,6 +122,7 @@ $(document).ready(function() {
                 }
             });
         }
+        
 
         return false;
     });

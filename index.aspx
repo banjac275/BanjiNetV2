@@ -8,7 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="Shared/login.css">
-    <script src="Scripts/loginform.js"></script>
+    <script src="Scripts/loginsign.js"></script>
 </head>
 <body> <!--background="src/backgroundlogin.jpg"-->
     <form id="form1" runat="server">
@@ -86,6 +86,7 @@
             </div>
         </div>
     </div>
+        <div id="res" class="hide" runat="server"></div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     </form>
