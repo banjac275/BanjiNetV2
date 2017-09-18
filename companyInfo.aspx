@@ -1,9 +1,9 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="fellowworker.aspx.cs" Inherits="fellowworker" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="companyInfo.aspx.cs" Inherits="companyInfo" %>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml>
     <head runat="server">
-        <title>BanjiNet - Fellow Worker Profile</title>
+        <title>BanjiNet - Company Info</title>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
@@ -88,13 +88,13 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-4 panel panel-info">
-                       <div class="panel-title"> User Info: </div><hr />
+                       <div class="panel-title"> Company Info: </div><hr />
                        <div class="panel-body" id="personal" runat="server">
 
                        </div>
                     </div>
                     <div class="col-lg-8 panel panel-info">
-                        <div class="panel-title"> Company Info: </div><hr />
+                        <div class="panel-title"> Company Workers: </div><hr />
                         <div class="panel-body" id="firm" runat="server">
 
                        </div>

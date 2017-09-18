@@ -5,8 +5,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>BanjiNet - Login</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="Shared/login.css">
     <script src="Scripts/loginsign.js"></script>
 </head>
@@ -25,8 +27,9 @@
         </ul>
     </div>
     <!--login-->
-    <div id="fields" class="tab-content nav-tabs container">
+    <div id="fields" class="tab-content nav-tabs container text-center">
         <div class="tab-pane active" id="tab1">
+            <div class="col-lg-3"></div>
             <div class="col-lg-6 center-block">
                 <form id="signin" class="form-vertical" role="form" method="post">
                     <div class="form-group">
@@ -48,9 +51,11 @@
                     </div>
                 </form>
             </div>
+            <div class="col-lg-3"></div>
         </div>
         <!--sign up-->
-        <div class="tab-pane" id="tab2">
+        <div class="tab-pane text-center" id="tab2">
+            <div class="col-lg-3"></div>
             <div class="col-lg-6 center-block">
                 <form id="signup-form" class="form-vertical" role="form" method="post" data-toggle="validator">
                     <div class="form-group">
@@ -84,11 +89,12 @@
                     </div>
                 </form>
             </div>
+            <div class="col-lg-3"></div>
         </div>
     </div>
-        <div id="res" class="hide" runat="server"></div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
+        
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
     </form>
 </body>
 </html>

@@ -15,9 +15,10 @@ public partial class UserProfile : System.Web.UI.Page
         {
             recv = (Workers)Session["user"];
             Response.Write("<script>console.log('" + recv.FirstName + "');</script>");
+            Response.Write("<script>localStorage.setItem('job', '"+ recv.CompanyName +"');</script>");
             personal.InnerHtml = "<div>Name: " + recv.FirstName + " " + recv.LastName + "</div><hr/>" +
                 "<div>Email: " + recv.Email + "</div><hr/>" +
-                "<div>Company: " + recv.CompanyId + "</div><hr/>";
+                "<div id='cname'>Company: " + recv.CompanyName + "</div>";
         }
     }
 }

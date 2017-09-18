@@ -6,13 +6,13 @@
             $xml = $(xmldoc),
             $title = $xml.find("Workers");
         received = $title;
-        //console.log($title[0]);
+        console.log($title[0]);
         var j = 1;
         for (var i = 0; i < $title.length; i++) {
-            var mail = $title[i].children[5].innerHTML;
-            var first = $title[i].children[2].innerHTML;
-            var last = $title[i].children[3].innerHTML;
-            var company = $title[i].children[1].innerHTML;
+            var mail = $title[i].children[6].innerHTML;
+            var first = $title[i].children[3].innerHTML;
+            var last = $title[i].children[4].innerHTML;
+            var company = $title[i].children[2].innerHTML;
             var table = '<tr><th scope= "row">' + j + '</th>'
                 + '<td>' + first + '</td>'
                 + '<td>' + last + '</td>'
@@ -26,16 +26,16 @@
 
     $('#listing').on('click','tr', function () {
         console.log(this);
-        $(this).toggleClass("selected");
+        //$(this).toggleClass("selected");
         console.log(this.children[3].innerHTML);
         for (var i = 0; i < received.length; i++)
         {
-            if (received[i].children[5].innerHTML == this.children[3].innerHTML)
+            if (received[i].children[6].innerHTML == this.children[3].innerHTML)
             {
-                var mail = received[i].children[5].innerHTML;
-                var first = received[i].children[2].innerHTML;
-                var last = received[i].children[3].innerHTML;
-                var company = received[i].children[1].innerHTML;
+                var mail = received[i].children[6].innerHTML;
+                var first = received[i].children[3].innerHTML;
+                var last = received[i].children[4].innerHTML;
+                var company = received[i].children[2].innerHTML;
                 var forSend = { first: first, last: last, mail: mail, company: company };
                 localStorage.setItem("workerView", JSON.stringify(forSend));
             }

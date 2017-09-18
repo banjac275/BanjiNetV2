@@ -23,7 +23,7 @@ public class Companies
 
     public string Location { get; set; }
 
-    public string[] Employees { get; set; }
+    public ObjectId[] Employees { get; set; }
 
     public string Email { get; set; }
 

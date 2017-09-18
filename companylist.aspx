@@ -1,15 +1,15 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="profileEditor.aspx.cs" Inherits="profileEditor" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="companylist.aspx.cs" Inherits="companylist" %>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml>
     <head runat="server">
-        <title>BanjiNet - Edit Profile</title>
+        <title>BanjiNet - Companies</title>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="~/Shared/user.css"/>
-        <script src="Scripts/peditorjs.js"></script>
+        <script type="text/javascript" src="Scripts/companies.js"></script>
     </head>
     <body>
         <!-- top nav -->
@@ -22,8 +22,8 @@
                       <li><a href="#">Home</a></li>
                       <li><a href="#">Search</a></li>
                       <li><a href="workerslist.aspx">Workers</a></li>
-                      <li><a href="companylist.aspx">Companies</a></li>
-                      <li class="active"><a href="profileEditor.aspx">Edit Profile</a></li>
+                      <li class="active"><a href="companylist.aspx">Companies</a></li>
+                      <li><a href="profileEditor.aspx">Edit Profile</a></li>
                       <li><a href="UserProfile.aspx">User Profile</a></li>
                       <li><a href="logout.aspx">Log Out</a></li>
                     </ul>
@@ -34,24 +34,26 @@
               </nav>
             </div> 
 
-           <div class="container">
-                <div class="row">
-                    <div class="col-lg-3"></div>
-                    <div class="panel panel-info col-lg-6 text-center">
-                       <div class="panel-title text-center">User Info: </div><hr />
-                       <div class="panel-body text-center" id="personalp" runat="server">
-
-                       </div>
-                    </div>
-                    <div class="text-center hide" id="firmp" runat="server">
-
-                    </div>
-                    <div class="col-lg-3"></div>
-                </div>
-            </div>           
+           <div>
+               <h3 class="text-center">Workers: </h3>
+               <table id="list" class="table table-hover">
+                  <thead class="thead-inverse">
+                    <tr>
+                      <th>#</th>
+                      <th>Company Name</th>
+                      <th>Email</th>
+                      <th>Type</th>
+                      <th>Location</th>
+                    </tr>
+                  </thead>
+                  <tbody id="listing">
+                                        
+                  </tbody>
+                </table>
+           </div>           
 
         <!-- /top nav -->
-        <<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
     </body>
 </html>

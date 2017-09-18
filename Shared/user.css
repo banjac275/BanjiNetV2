@@ -17,6 +17,10 @@
     float: none;
     vertical-align: top;
     padding: 3px;
+    position: fixed;
+    width: 183px;
+    top: 8px;
+    left: -15px;
 }
 
 .nav-tabs {
@@ -26,7 +30,7 @@
 }
 
 .logo {
-    display: block;
+    display: inline-block;
     padding: 3px;
     color: #d9edf7;
     height: 28px;
