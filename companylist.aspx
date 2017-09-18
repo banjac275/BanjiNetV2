@@ -35,7 +35,7 @@
             </div> 
 
            <div>
-               <h3 class="text-center">Workers: </h3>
+               <h3 class="text-center">Companies: </h3>
                <table id="list" class="table table-hover">
                   <thead class="thead-inverse">
                     <tr>

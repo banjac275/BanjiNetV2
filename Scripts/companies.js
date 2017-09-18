@@ -6,7 +6,7 @@
             $xml = $(xmldoc),
             $title = $xml.find("Companies");
         received = $title;
-        console.log($title[0].children[5].innerHTML;);
+        console.log($title[0].children[5].innerHTML);
         var j = 1;
         for (var i = 0; i < $title.length; i++) {
             var company = $title[i].children[1].innerHTML;
@@ -27,9 +27,9 @@
     $('#listing').on('click', 'tr', function () {
         console.log(this);
         //$(this).toggleClass("selected");
-        console.log(this.children[3].innerHTML);
+        console.log(this.children[1].innerHTML);
         for (var i = 0; i < received.length; i++) {
-            if (received[i].children[6].innerHTML == this.children[3].innerHTML) {
+            if (received[i].children[1].innerHTML == this.children[1].innerHTML) {
                 var company = received[i].children[1].innerHTML;
                 var mail = received[i].children[6].innerHTML;
                 var type = received[i].children[3].innerHTML;

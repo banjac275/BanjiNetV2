@@ -163,22 +163,43 @@ public class MongoService : System.Web.Services.WebService
     }
 
     [System.Web.Services.WebMethod]
-    public string retWorkerFromId(string wId)
+    public string retCompanyWorkers(string name)
     {
+        List<Companies> c = mongoDbase.getCompanyByName(name);
 
-        List<Workers> c = mongoDbase.getWorkerById(ObjectId.Parse(wId));
+        List<ObjectId> objects = new List<ObjectId>();
 
         for (int i = 0; i < c.Count; i++)
         {
-            if (c[i] != null || c[i].Id == ObjectId.Parse(wId))
+            if (c[i] != null || c[i].CompanyName == name)
             {
-                return JsonConvert.SerializeObject(c);
+                for(int j = 0; j<c[i].Employees.Length; j++)
+                {
+                    objects.Add(c[i].Employees[j]);
+                }
+                return JsonConvert.SerializeObject(objects);
             }
             else
-                return "User with that name doesn't exist in our registry!";
+                return "Company with that name doesn't exist in our registry!";
         }
 
         return null;
+
+    }
+
+    [System.Web.Services.WebMethod]
+    public string retWorkerFromId(string id)
+    {
+
+        List<Workers> c = mongoDbase.getWorkerById(ObjectId.Parse(id));
+
+    
+        if (c[0] != null || c[0].Id == ObjectId.Parse(id))
+        {
+            return JsonConvert.SerializeObject(c);
+        }
+        else
+            return "User with that name doesn't exist in our registry!";
 
     }
 

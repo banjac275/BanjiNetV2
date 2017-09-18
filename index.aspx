@@ -55,8 +55,9 @@
         </div>
         <!--sign up-->
         <div class="tab-pane text-center" id="tab2">
-            <div class="col-lg-3"></div>
+            <%--<div class="col-lg-3"></div>--%>
             <div class="col-lg-6 center-block">
+                <h3 class="control-label">User Sign Up </h3><hr />
                 <form id="signup-form" class="form-vertical" role="form" method="post" data-toggle="validator">
                     <div class="form-group">
                         <label for="email" class="control-label">Your email address: </label>
@@ -84,12 +85,55 @@
                         <div class="help-block with-errors"></div>
                     </div>
                     <div class="form-group">
-                        <input id="signupbtn" type="button" class="btn btn-default" value="Sign Up">
+                        <input id="signupbtn" type="button" class="btn btn-default" value="Sign Up User">
                         <span id="msgsignup">You already have an account please <a id="trans2" href="#tab1">Sign in</a></span>
                     </div>
                 </form>
             </div>
-            <div class="col-lg-3"></div>
+            <div class="col-lg-6 center-block">
+                <h3 class="control-label">Company Sign Up </h3><hr />
+                <form id="signup-form-company" class="form-vertical" role="form" method="post" data-toggle="validator">
+                    <div class="form-group">
+                        <label for="emailc" class="control-label">Your email address: </label>
+                        <input type="email" name="emailc" class="form-control" id="email-company" placeholder="e.g. office@gmail.com" value="" required>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="companyname" class="control-label">Company name: </label>
+                        <input type="text" name="companyname" class="form-control" id="companyname" placeholder="e.g. BanjiSoft" data-minlength="2" value="" required>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="ceo" class="control-label">Owner: </label>
+                        <input type="text" name="ceo" class="form-control" id="ceo" placeholder="e.g. Nikola Stevanovic" data-minlength="2" value="" required>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="typec" class="control-label">Company type: </label>
+                        <input type="text" name="typec" class="form-control" id="typec" placeholder="e.g. Software Development" data-minlength="2" value="" required>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="located" class="control-label">Location: </label>
+                        <input type="text" name="located" class="form-control" id="located" placeholder="e.g. Nis" data-minlength="2" value="" required>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="passwordc" class="control-label">Choose a password: </label>
+                        <input type="password" name="passwordc" class="form-control" id="passwordc" data-minlength="5" required>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="repeatedpwdc" class="control-label">Confirm a password: </label>
+                        <input type="password" name="repeatedpwdc" class="form-control" id="repeatedpwdc" data-minlength="5" data-match="#password" required>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group">
+                        <input id="signupbtnc" type="button" class="btn btn-default" value="Sign Up Company">
+                        <span id="msgsignupc">You already have an account please <a id="trans3" href="#tab1">Sign in</a></span>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
         
