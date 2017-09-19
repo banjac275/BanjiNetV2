@@ -9,7 +9,6 @@ using System.Web.Script.Serialization;
 using System.Threading.Tasks;
 using System.Threading;
 using MongoDB.Bson;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -47,6 +46,7 @@ public class MongoService : System.Web.Services.WebService
             if (w[0].Password == pass)
             {
                 HttpContext.Current.Session.Add("user", w[0]);
+                HttpContext.Current.Session.Add("company", null);
                 return JsonConvert.SerializeObject(w[0]);
             }
             else
@@ -57,7 +57,27 @@ public class MongoService : System.Web.Services.WebService
         //return w.ToString();
     }
 
-    [System.Web.Services.WebMethod]
+    [System.Web.Services.WebMethod(EnableSession = true)]
+    public string returnCompanyFromEmail(string mail, string pass)
+    {
+        List<Companies> w = mongoDbase.getCompanyByEmail(mail);
+        
+        if (w.Count != 0)
+        {
+            if (w[0].Password == pass)
+            {
+                HttpContext.Current.Session.Add("company", w[0]);
+                HttpContext.Current.Session.Add("user", null);
+                return JsonConvert.SerializeObject(w[0]);
+            }
+            else
+                return badp;
+        }
+        else
+            return badm;
+    }
+
+    [System.Web.Services.WebMethod(EnableSession = true)]
     public string enterNewWorkerInDb(string mail, string pass, string name, string last, string check)
     {
         Workers w = new Workers();
@@ -71,6 +91,29 @@ public class MongoService : System.Web.Services.WebService
 
         if (ret != null)
         {
+            HttpContext.Current.Session.Add("user", ret);
+            return succ;
+        }
+        return fail;
+    }
+
+    [System.Web.Services.WebMethod(EnableSession = true)]
+    public string enterNewCompanyInDb(string company, string owner, string type, string location, string mail, string pass, string check)
+    {
+        Companies c = new Companies();
+        c.CompanyName = company;
+        c.Owner = owner;
+        c.Type = type;
+        c.Location = location;
+        c.Email = mail;
+        c.Password = pass;
+        c.Checkbox = check;
+
+        var ret = mongoDbase.CreateCompany(c);
+
+        if (ret != null)
+        {
+            HttpContext.Current.Session.Add("company", ret);
             return succ;
         }
         return fail;
@@ -109,6 +152,65 @@ public class MongoService : System.Web.Services.WebService
         var res = mongoDbase.updateWorker(recvv[0].Id, recvv[0]);
 
         if (res != null)
+        {
+            HttpContext.Current.Session.Add("user", res);
+            return "Update successfull!";
+        }
+        return fail;
+    }
+
+    [System.Web.Services.WebMethod(EnableSession = true)]
+    public string updateCompanyInDb(string id, string mail, string pass, string name, string owner, string type, string loc, string check)
+    {
+        List<Companies> recvv = mongoDbase.getCompanyById(ObjectId.Parse(id));
+
+
+        recvv[0].Email = mail;
+        recvv[0].Password = pass;
+        recvv[0].Owner = owner;
+        recvv[0].Type = type;
+        recvv[0].Location = loc;
+        recvv[0].Checkbox = check;
+
+        var temp = recvv[0].CompanyName;
+
+        var cId = mongoDbase.getCompanyByName(name);
+
+        Companies res = new Companies();
+        string ret = "";
+
+        if (temp != name)
+        {
+            if (cId.Count == 0)
+            {
+                recvv[0].CompanyName = name;
+                if(recvv[0].Employees.Length != 0)
+                {
+                    for (int i = 0; i < recvv[0].Employees.Length; i++)
+                    {
+                        var tempW = mongoDbase.getWorkerById(recvv[0].Employees[i]);
+                        tempW[0].CompanyName = name;
+                        mongoDbase.updateWorker(tempW[0].Id, tempW[0]);
+                    }
+                }
+                res = mongoDbase.updateCompany(recvv[0].Id, recvv[0]);
+            }
+            else
+            {
+                if (recvv[0].Employees.Length != 0)
+                {
+                    for (int i = 0; i < recvv[0].Employees.Length; i++)
+                    {
+                        var rets = mongoDbase.removeWorkerFromCompany(recvv[0].Employees[i], recvv[0]);
+                        var com = mongoDbase.addWorkerToCompany(recvv[0].Employees[i], cId[0]);
+                    }
+                }
+                ret = mongoDbase.removeCompany(recvv[0].Id);
+            }
+        }
+
+
+        if (res != null && ret != "Company deleted!")
         {
             HttpContext.Current.Session.Add("user", res);
             return "Update successfull!";
@@ -173,11 +275,14 @@ public class MongoService : System.Web.Services.WebService
         {
             if (c[i] != null || c[i].CompanyName == name)
             {
-                for(int j = 0; j<c[i].Employees.Length; j++)
+                if (c[i].Employees != null)
                 {
-                    objects.Add(c[i].Employees[j]);
+                    for (int j = 0; j < c[i].Employees.Length; j++)
+                    {
+                        objects.Add(c[i].Employees[j]);
+                    }
+                    return JsonConvert.SerializeObject(objects);
                 }
-                return JsonConvert.SerializeObject(objects);
             }
             else
                 return "Company with that name doesn't exist in our registry!";

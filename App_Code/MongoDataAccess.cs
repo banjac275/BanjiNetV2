@@ -69,6 +69,13 @@ public class MongoDataAccess
         return result;
     }
 
+    public List<Companies> getCompanyByEmail(string email)
+    {
+        var res = _dbase.GetCollection<Companies>("companies");
+        var result = res.Find(w => w.Email == email).ToList();
+        return result;
+    }
+
     public List<Workers> getWorkerByName(string name)
     {
         var res = _dbase.GetCollection<Workers>("workers");
@@ -83,7 +90,7 @@ public class MongoDataAccess
         return w;
     }
 
-    public Companies Create(Companies c)
+    public Companies CreateCompany(Companies c)
     {
         var collection = _dbase.GetCollection<Companies>("companies");
         collection.InsertOne(c);
@@ -133,6 +140,14 @@ public class MongoDataAccess
         var query_id = Builders<Workers>.Filter.Eq("_id", id);
         var remove = collection.DeleteOne(query_id);
         return "Worker deleted!";
+    }
+
+    public string removeCompany(ObjectId id)
+    {
+        var collection = _dbase.GetCollection<Companies>("companies");
+        var query_id = Builders<Companies>.Filter.Eq("_id", id);
+        var remove = collection.DeleteOne(query_id);
+        return "Company deleted!";
     }
 
 }
