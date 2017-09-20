@@ -20,7 +20,7 @@
                     <ul class="nav navbar-nav">
                       <li class="navbar-brand navbar-left"><a href="#">BanjiNet</a></li>
                       <li><a href="#">Home</a></li>
-                      <li><a href="#">Search</a></li>
+                      <li><a href="Search.aspx">Search</a></li>
                       <li><a href="workerslist.aspx">Workers</a></li>
                       <li><a href="companylist.aspx">Companies</a></li>
                       <li class="active"><a href="profileEditor.aspx">Edit Profile</a></li>

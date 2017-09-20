@@ -45,7 +45,7 @@
                         }
                     });
                 }
-                else if ($titles.text() == badp) {
+                else if ($title.text() == badp) {
                     alert(badp);
                 }
                 else {

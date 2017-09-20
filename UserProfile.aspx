@@ -16,7 +16,7 @@
                 console.log(localStorage.getItem("firm"));                  
 
 
-                    if (localStorage.getItem("job") === null) {
+                    if (localStorage.getItem("job") !== null) {
                         document.getElementById("write1").innerHTML = "User Info:";
                         document.getElementById("write2").innerHTML = "Company Info:";
                         var res = localStorage.getItem("job");
@@ -140,7 +140,7 @@
                     <ul class="nav navbar-nav">
                       <li class="navbar-brand navbar-left"><a href="#">BanjiNet</a></li>
                       <li><a href="#">Home</a></li>
-                      <li><a href="#">Search</a></li>
+                      <li><a href="Search.aspx">Search</a></li>
                       <li><a href="workerslist.aspx">Workers</a></li>
                       <li><a href="companylist.aspx">Companies</a></li>
                       <li><a href="profileEditor.aspx">Edit Profile</a></li>

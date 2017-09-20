@@ -22,7 +22,7 @@ public class Companies
     public string Type { get; set; }
 
     public string Location { get; set; }
-
+    [BsonIgnoreIfNullAttribute]
     public ObjectId[] Employees { get; set; }
 
     public string Email { get; set; }
@@ -33,6 +33,5 @@ public class Companies
 
     public Companies()
     {
-       
     }
 }

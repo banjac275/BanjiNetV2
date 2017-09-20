@@ -55,8 +55,6 @@ public class MongoDataAccess
     public List<Companies> getCompanyByName(string name)
     {
         var res = _dbase.GetCollection<Companies>("companies");
-        //var filter = Builders<Companies>.Filter.Eq("CompanyName", name);
-        //var result = res.Find(filter);
         var result = res.Find(n => n.CompanyName == name).ToList();
         return result;
     }
@@ -80,6 +78,13 @@ public class MongoDataAccess
     {
         var res = _dbase.GetCollection<Workers>("workers");
         var result = res.Find(w => w.FirstName == name).ToList();
+        return result;
+    }
+
+    public List<Workers> getWorkerByLastName(string name)
+    {
+        var res = _dbase.GetCollection<Workers>("workers");
+        var result = res.Find(w => w.LastName == name).ToList();
         return result;
     }
 

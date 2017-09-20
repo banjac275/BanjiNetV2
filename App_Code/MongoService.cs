@@ -77,6 +77,33 @@ public class MongoService : System.Web.Services.WebService
             return badm;
     }
 
+    [System.Web.Services.WebMethod]
+    public string returnWorkerFromEmailNoPass(string mail)
+    {
+        List<Workers> w = mongoDbase.getWorkerByEmail(mail);
+        
+        if (w.Count != 0)
+        {
+             return JsonConvert.SerializeObject(w[0]);            
+        }
+        else
+            return "Worker not found with mail!";
+        
+    }
+
+    [System.Web.Services.WebMethod]
+    public string returnCompanyFromEmailNoPass(string mail)
+    {
+        List<Companies> w = mongoDbase.getCompanyByEmail(mail);
+
+        if (w.Count != 0)
+        {
+            return JsonConvert.SerializeObject(w[0]);   
+        }
+        else
+            return "Company not found with mail!";
+    }
+
     [System.Web.Services.WebMethod(EnableSession = true)]
     public string enterNewWorkerInDb(string mail, string pass, string name, string last, string check)
     {
@@ -140,10 +167,16 @@ public class MongoService : System.Web.Services.WebService
             return "There is no such company!";
         }
 
-        if (temp != company)
+        if (temp != company && temp != null)
         {
             var tempC = mongoDbase.getCompanyByName(temp);
             var ret = mongoDbase.removeWorkerFromCompany(recvv[0].Id, tempC[0]);
+            var com = mongoDbase.addWorkerToCompany(recvv[0].Id, cId[0]);
+            recvv[0].CompanyId = cId[0].Id;
+            recvv[0].CompanyName = cId[0].CompanyName;
+        }
+        else
+        {
             var com = mongoDbase.addWorkerToCompany(recvv[0].Id, cId[0]);
             recvv[0].CompanyId = cId[0].Id;
             recvv[0].CompanyName = cId[0].CompanyName;
@@ -212,7 +245,7 @@ public class MongoService : System.Web.Services.WebService
 
         if (res != null && ret != "Company deleted!")
         {
-            HttpContext.Current.Session.Add("user", res);
+            HttpContext.Current.Session.Add("company", res);
             return "Update successfull!";
         }
         return fail;
@@ -250,17 +283,34 @@ public class MongoService : System.Web.Services.WebService
     {
         List<Companies> c = mongoDbase.getCompanyByName(name);
 
-        for (int i = 0; i < c.Count; i++)
-        {
-            if (c[i] != null || c[i].CompanyName == name)
-            {
-                return JsonConvert.SerializeObject(c);
-            }
-            else
-                return "Company with that name doesn't exist in our registry!";
-        }
+        if (c.Count != 0)
+           return JsonConvert.SerializeObject(c);
+        else
+           return "Company with that name doesn't exist in our registry!";
 
-        return null;
+    }
+
+    [System.Web.Services.WebMethod]
+    public string retWorkerFromName(string name)
+    {
+        List<Workers> w = mongoDbase.getWorkerByName(name);
+
+        if(w.Count != 0)
+           return JsonConvert.SerializeObject(w);
+        else
+           return "Worker with that name doesn't exist in our registry!";
+            
+    }
+
+    [System.Web.Services.WebMethod]
+    public string retWorkerFromLastName(string name)
+    {
+        List<Workers> w = mongoDbase.getWorkerByLastName(name);
+
+        if(w.Count != 0)
+           return JsonConvert.SerializeObject(w);
+        else
+           return "Worker with that last name doesn't exist in our registry!";
 
     }
 
@@ -312,6 +362,13 @@ public class MongoService : System.Web.Services.WebService
     public string deleteWorkerWithId(string id)
     {
         string res = mongoDbase.removeWorker(ObjectId.Parse(id));
+        return res;
+    }
+
+    [System.Web.Services.WebMethod]
+    public string deleteCompanyWithId(string id)
+    {
+        string res = mongoDbase.removeCompany(ObjectId.Parse(id));
         return res;
     }
 }
