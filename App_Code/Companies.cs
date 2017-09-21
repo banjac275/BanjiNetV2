@@ -5,8 +5,6 @@ using System.Web;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Driver;
-using RaptorDB;
-using RaptorDB.Common;
 
 /// <summary>
 /// Summary description for Companies

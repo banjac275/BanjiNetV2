@@ -1,0 +1,1464 @@
+2017-09-21 21.38.00|DEBUG|1|RaptorDB.RaptorDB|| 
+
+RaptorDB starting...
+2017-09-21 21.38.00|DEBUG|1|RaptorDB.RaptorDB|| RaptorDB data folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\
+2017-09-21 21.38.00|DEBUG|1|RaptorDB.KeyStore`1|| Current Count = 0
+2017-09-21 21.38.00|DEBUG|1|RaptorDB.KeyStore`1|| Checking Index state...
+2017-09-21 21.38.00|DEBUG|1|RaptorDB.KeyStore`1|| Starting save timer
+2017-09-21 21.38.00|DEBUG|1|RaptorDB.KeyStore`1|| Current Count = 0
+2017-09-21 21.38.00|DEBUG|1|RaptorDB.KeyStore`1|| Checking Index state...
+2017-09-21 21.38.00|DEBUG|1|RaptorDB.KeyStore`1|| Starting save timer
+2017-09-21 21.38.00|DEBUG|1|RaptorDB.Views.TaskQueue|| TaskQueue starting
+2017-09-21 21.38.00|DEBUG|1|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 21.38.00|DEBUG|1|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Data\Fulltext\
+2017-09-21 21.38.00|DEBUG|1|RaptorDB.KeyStore`1|| Current Count = 0
+2017-09-21 21.38.00|DEBUG|1|RaptorDB.KeyStore`1|| Checking Index state...
+2017-09-21 21.38.00|DEBUG|1|RaptorDB.KeyStore`1|| Starting save timer
+2017-09-21 21.38.00|DEBUG|1|RaptorDB.RaptorDB|| Enabling WEBSTUDIO on port : 91
+2017-09-21 21.49.17|DEBUG|34|RaptorDB.RaptorDB|| 
+
+RaptorDB starting...
+2017-09-21 21.49.17|DEBUG|34|RaptorDB.RaptorDB|| RaptorDB data folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\
+2017-09-21 21.49.17|DEBUG|34|RaptorDB.KeyStore`1|| Current Count = 0
+2017-09-21 21.49.17|DEBUG|34|RaptorDB.KeyStore`1|| Checking Index state...
+2017-09-21 21.49.17|DEBUG|34|RaptorDB.KeyStore`1|| Starting save timer
+2017-09-21 21.49.17|DEBUG|34|RaptorDB.KeyStore`1|| Current Count = 0
+2017-09-21 21.49.17|DEBUG|34|RaptorDB.KeyStore`1|| Checking Index state...
+2017-09-21 21.49.17|DEBUG|34|RaptorDB.KeyStore`1|| Starting save timer
+2017-09-21 21.49.17|DEBUG|34|RaptorDB.Views.TaskQueue|| TaskQueue starting
+2017-09-21 21.49.17|DEBUG|34|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 21.49.17|DEBUG|34|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Data\Fulltext\
+2017-09-21 21.49.17|DEBUG|34|RaptorDB.KeyStore`1|| Current Count = 0
+2017-09-21 21.49.17|DEBUG|34|RaptorDB.KeyStore`1|| Checking Index state...
+2017-09-21 21.49.17|DEBUG|34|RaptorDB.KeyStore`1|| Starting save timer
+2017-09-21 21.49.17|DEBUG|34|RaptorDB.Views.ViewHandler|| RaptorDB view engine upgrade, rebuilding view : WorkersR
+2017-09-21 21.49.17|DEBUG|34|RaptorDB.Views.ViewHandler|| Deleting old view data folder = WorkersR
+2017-09-21 21.49.17|DEBUG|34|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 21.49.17|DEBUG|34|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\WorkersR\
+2017-09-21 21.49.17|DEBUG|34|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 21.49.17|DEBUG|34|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\WorkersR\
+2017-09-21 21.49.17|DEBUG|34|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 21.49.17|DEBUG|34|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\WorkersR\
+2017-09-21 21.49.17|DEBUG|34|RaptorDB.Views.ViewHandler|| RaptorDB view engine upgrade, rebuilding view : CompaniesR
+2017-09-21 21.49.17|DEBUG|34|RaptorDB.Views.ViewHandler|| Deleting old view data folder = CompaniesR
+2017-09-21 21.49.17|DEBUG|24|RaptorDB.Views.ViewHandler|| Rebuilding view from scratch...
+2017-09-21 21.49.17|DEBUG|24|RaptorDB.Views.ViewHandler|| View = WorkersR
+2017-09-21 21.49.17|DEBUG|24|RaptorDB.Views.ViewHandler|| Documents processed = 0
+2017-09-21 21.49.17|DEBUG|24|RaptorDB.Views.ViewHandler|| rebuild view 'WorkersR' done (s) = 0
+2017-09-21 21.49.17|DEBUG|34|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 21.49.17|DEBUG|34|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\CompaniesR\
+2017-09-21 21.49.17|DEBUG|34|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 21.49.17|DEBUG|34|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\CompaniesR\
+2017-09-21 21.49.17|DEBUG|34|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 21.49.17|DEBUG|34|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\CompaniesR\
+2017-09-21 21.49.17|DEBUG|34|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 21.49.17|DEBUG|34|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\CompaniesR\
+2017-09-21 21.49.17|DEBUG|34|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 21.49.17|DEBUG|34|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\CompaniesR\
+2017-09-21 21.49.17|DEBUG|32|RaptorDB.Views.ViewHandler|| Rebuilding view from scratch...
+2017-09-21 21.49.17|DEBUG|32|RaptorDB.Views.ViewHandler|| View = CompaniesR
+2017-09-21 21.49.17|DEBUG|32|RaptorDB.Views.ViewHandler|| Documents processed = 0
+2017-09-21 21.49.17|DEBUG|32|RaptorDB.Views.ViewHandler|| rebuild view 'CompaniesR' done (s) = 0
+2017-09-21 21.50.05|INFO|34|RaptorDB.Hoot|| saving index...
+2017-09-21 21.50.05|DEBUG|34|RaptorDB.KeyStore`1|| saving to disk
+2017-09-21 21.50.05|DEBUG|34|RaptorDB.KeyStore`1|| index saved
+2017-09-21 21.50.05|INFO|34|RaptorDB.Hoot|| save time (ms) = 47,0319
+2017-09-21 21.50.05|DEBUG|34|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.50.05|DEBUG|34|RaptorDB.KeyStore`1|| Shutting down
+2017-09-21 21.50.05|DEBUG|34|RaptorDB.KeyStore`1|| saving to disk
+2017-09-21 21.50.05|DEBUG|34|RaptorDB.KeyStore`1|| index saved
+2017-09-21 21.50.05|DEBUG|34|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.50.05|DEBUG|34|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.50.05|DEBUG|34|RaptorDB.RaptorDB|| Shutting down
+2017-09-21 21.50.05|DEBUG|34|RaptorDB.Views.ViewManager|| View Manager shutdown
+2017-09-21 21.50.05|DEBUG|34|RaptorDB.Views.ViewManager||  shutting down view : WorkersR
+2017-09-21 21.50.05|DEBUG|34|RaptorDB.Views.ViewHandler|| Shutting down Viewhandler
+2017-09-21 21.50.05|DEBUG|34|RaptorDB.Views.ViewHandler|| Shutting down view index : docid
+2017-09-21 21.50.05|DEBUG|34|RaptorDB.BitmapIndex|| writing docid
+2017-09-21 21.50.05|DEBUG|34|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.50.05|DEBUG|34|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.50.05|DEBUG|34|RaptorDB.Views.ViewHandler|| Shutting down view index : CompanyName
+2017-09-21 21.50.05|DEBUG|34|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.50.05|DEBUG|34|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.50.05|DEBUG|34|RaptorDB.Views.ViewHandler|| Shutting down view index : FirstName
+2017-09-21 21.50.05|INFO|34|RaptorDB.Hoot|| saving index...
+2017-09-21 21.50.05|DEBUG|34|RaptorDB.BitmapIndex|| writing FirstName_hoot
+2017-09-21 21.50.05|INFO|34|RaptorDB.Hoot|| save time (ms) = 24,0171
+2017-09-21 21.50.05|DEBUG|34|RaptorDB.BitmapIndex|| writing FirstName
+2017-09-21 21.50.05|INFO|34|RaptorDB.Hoot|| saving index...
+2017-09-21 21.50.05|INFO|34|RaptorDB.Hoot|| save time (ms) = 0
+2017-09-21 21.50.05|DEBUG|34|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.50.05|DEBUG|34|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.50.05|DEBUG|34|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.50.05|DEBUG|34|RaptorDB.Views.ViewHandler|| Shutting down view index : LastName
+2017-09-21 21.50.05|INFO|34|RaptorDB.Hoot|| saving index...
+2017-09-21 21.50.05|DEBUG|34|RaptorDB.BitmapIndex|| writing LastName_hoot
+2017-09-21 21.50.05|INFO|34|RaptorDB.Hoot|| save time (ms) = 5,5041
+2017-09-21 21.50.05|DEBUG|34|RaptorDB.BitmapIndex|| writing LastName
+2017-09-21 21.50.05|INFO|34|RaptorDB.Hoot|| saving index...
+2017-09-21 21.50.05|INFO|34|RaptorDB.Hoot|| save time (ms) = 0
+2017-09-21 21.50.05|DEBUG|34|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.50.05|DEBUG|34|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.50.05|DEBUG|34|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.50.05|DEBUG|34|RaptorDB.Views.ViewHandler|| Shutting down view index : Password
+2017-09-21 21.50.05|DEBUG|34|RaptorDB.BitmapIndex|| writing Password
+2017-09-21 21.50.05|DEBUG|34|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.50.05|DEBUG|34|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.50.05|DEBUG|34|RaptorDB.Views.ViewHandler|| Shutting down view index : Email
+2017-09-21 21.50.05|INFO|34|RaptorDB.Hoot|| saving index...
+2017-09-21 21.50.05|DEBUG|34|RaptorDB.BitmapIndex|| writing Email_hoot
+2017-09-21 21.50.05|INFO|34|RaptorDB.Hoot|| save time (ms) = 1,0012
+2017-09-21 21.50.05|DEBUG|34|RaptorDB.BitmapIndex|| writing Email
+2017-09-21 21.50.05|INFO|34|RaptorDB.Hoot|| saving index...
+2017-09-21 21.50.05|INFO|34|RaptorDB.Hoot|| save time (ms) = 0
+2017-09-21 21.50.05|DEBUG|34|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.50.05|DEBUG|34|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.50.05|DEBUG|34|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.50.05|DEBUG|34|RaptorDB.Views.ViewHandler|| Shutting down view index : Checkbox
+2017-09-21 21.50.05|DEBUG|34|RaptorDB.BitmapIndex|| writing Checkbox
+2017-09-21 21.50.05|DEBUG|34|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.50.05|DEBUG|34|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.50.05|DEBUG|34|RaptorDB.Views.ViewHandler|| Viewhandler shutdown done.
+2017-09-21 21.50.05|DEBUG|34|RaptorDB.Views.ViewManager||  shutting down view : CompaniesR
+2017-09-21 21.50.05|DEBUG|34|RaptorDB.Views.ViewHandler|| Shutting down Viewhandler
+2017-09-21 21.50.05|DEBUG|34|RaptorDB.Views.ViewHandler|| Shutting down view index : docid
+2017-09-21 21.50.06|DEBUG|34|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.50.06|DEBUG|34|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.50.06|DEBUG|34|RaptorDB.Views.ViewHandler|| Shutting down view index : CompanyName
+2017-09-21 21.50.06|INFO|34|RaptorDB.Hoot|| saving index...
+2017-09-21 21.50.06|INFO|34|RaptorDB.Hoot|| save time (ms) = 0
+2017-09-21 21.50.06|INFO|34|RaptorDB.Hoot|| saving index...
+2017-09-21 21.50.06|INFO|34|RaptorDB.Hoot|| save time (ms) = 0
+2017-09-21 21.50.06|DEBUG|34|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.50.06|DEBUG|34|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.50.06|DEBUG|34|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.50.06|DEBUG|34|RaptorDB.Views.ViewHandler|| Shutting down view index : Owner
+2017-09-21 21.50.06|INFO|34|RaptorDB.Hoot|| saving index...
+2017-09-21 21.50.06|INFO|34|RaptorDB.Hoot|| save time (ms) = 0
+2017-09-21 21.50.06|INFO|34|RaptorDB.Hoot|| saving index...
+2017-09-21 21.50.06|INFO|34|RaptorDB.Hoot|| save time (ms) = 0
+2017-09-21 21.50.06|DEBUG|34|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.50.06|DEBUG|34|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.50.06|DEBUG|34|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.50.06|DEBUG|34|RaptorDB.Views.ViewHandler|| Shutting down view index : Type
+2017-09-21 21.50.06|INFO|34|RaptorDB.Hoot|| saving index...
+2017-09-21 21.50.06|INFO|34|RaptorDB.Hoot|| save time (ms) = 0
+2017-09-21 21.50.06|INFO|34|RaptorDB.Hoot|| saving index...
+2017-09-21 21.50.06|INFO|34|RaptorDB.Hoot|| save time (ms) = 0
+2017-09-21 21.50.06|DEBUG|34|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.50.06|DEBUG|34|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.50.06|DEBUG|34|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.50.06|DEBUG|34|RaptorDB.Views.ViewHandler|| Shutting down view index : Location
+2017-09-21 21.50.06|INFO|34|RaptorDB.Hoot|| saving index...
+2017-09-21 21.50.06|INFO|34|RaptorDB.Hoot|| save time (ms) = 0
+2017-09-21 21.50.06|INFO|34|RaptorDB.Hoot|| saving index...
+2017-09-21 21.50.06|INFO|34|RaptorDB.Hoot|| save time (ms) = 0
+2017-09-21 21.50.06|DEBUG|34|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.50.06|DEBUG|34|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.50.06|DEBUG|34|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.50.06|DEBUG|34|RaptorDB.Views.ViewHandler|| Shutting down view index : Email
+2017-09-21 21.50.06|INFO|34|RaptorDB.Hoot|| saving index...
+2017-09-21 21.50.06|INFO|34|RaptorDB.Hoot|| save time (ms) = 1,0005
+2017-09-21 21.50.06|INFO|34|RaptorDB.Hoot|| saving index...
+2017-09-21 21.50.06|INFO|34|RaptorDB.Hoot|| save time (ms) = 0
+2017-09-21 21.50.06|DEBUG|34|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.50.06|DEBUG|34|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.50.06|DEBUG|34|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.50.06|DEBUG|34|RaptorDB.Views.ViewHandler|| Shutting down view index : Password
+2017-09-21 21.50.06|DEBUG|34|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.50.06|DEBUG|34|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.50.06|DEBUG|34|RaptorDB.Views.ViewHandler|| Shutting down view index : Checkbox
+2017-09-21 21.50.06|DEBUG|34|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.50.06|DEBUG|34|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.50.06|DEBUG|34|RaptorDB.Views.ViewHandler|| Viewhandler shutdown done.
+2017-09-21 21.50.06|DEBUG|34|RaptorDB.Views.TaskQueue|| TaskQueue shutdown
+2017-09-21 21.50.06|DEBUG|34|RaptorDB.KeyStore`1|| Shutting down
+2017-09-21 21.50.06|DEBUG|34|RaptorDB.KeyStore`1|| saving to disk
+2017-09-21 21.50.06|DEBUG|34|RaptorDB.BitmapIndex|| writing data
+2017-09-21 21.50.06|DEBUG|34|RaptorDB.KeyStore`1|| index saved
+2017-09-21 21.50.06|DEBUG|34|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.50.06|DEBUG|34|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.50.06|DEBUG|34|RaptorDB.KeyStore`1|| Shutting down
+2017-09-21 21.50.06|DEBUG|34|RaptorDB.KeyStore`1|| saving to disk
+2017-09-21 21.50.06|DEBUG|34|RaptorDB.KeyStore`1|| index saved
+2017-09-21 21.50.06|DEBUG|34|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.50.06|DEBUG|34|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.50.06|DEBUG|34|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.50.06|DEBUG|34|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.50.06|DEBUG|34|RaptorDB.RaptorDB|| last full text record = -1
+2017-09-21 21.50.06|DEBUG|34|RaptorDB.RaptorDB|| last record = -1
+2017-09-21 21.50.06|DEBUG|34|RaptorDB.RaptorDB|| last backup record = -1
+2017-09-21 21.50.06|DEBUG|34|RaptorDB.RaptorDB|| Shutting down log.
+2017-09-21 21.50.06|DEBUG|34|RaptorDB.RaptorDB|| RaptorDB done.
+2017-09-21 21.50.26|DEBUG|34|RaptorDB.RaptorDB|| 
+
+RaptorDB starting...
+2017-09-21 21.50.26|DEBUG|34|RaptorDB.RaptorDB|| RaptorDB data folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\
+2017-09-21 21.50.26|DEBUG|34|RaptorDB.KeyStore`1|| Current Count = 1
+2017-09-21 21.50.26|DEBUG|34|RaptorDB.KeyStore`1|| Checking Index state...
+2017-09-21 21.50.26|DEBUG|34|RaptorDB.KeyStore`1|| Starting save timer
+2017-09-21 21.50.26|DEBUG|34|RaptorDB.KeyStore`1|| Current Count = 0
+2017-09-21 21.50.26|DEBUG|34|RaptorDB.KeyStore`1|| Checking Index state...
+2017-09-21 21.50.26|DEBUG|34|RaptorDB.KeyStore`1|| Starting save timer
+2017-09-21 21.50.26|DEBUG|34|RaptorDB.Views.TaskQueue|| TaskQueue starting
+2017-09-21 21.50.26|DEBUG|34|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 21.50.26|DEBUG|34|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Data\Fulltext\
+2017-09-21 21.50.26|DEBUG|34|RaptorDB.KeyStore`1|| Current Count = 0
+2017-09-21 21.50.26|DEBUG|34|RaptorDB.KeyStore`1|| Checking Index state...
+2017-09-21 21.50.26|DEBUG|34|RaptorDB.KeyStore`1|| Starting save timer
+2017-09-21 21.50.26|DEBUG|34|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 21.50.26|DEBUG|34|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\WorkersR\
+2017-09-21 21.50.26|DEBUG|34|RaptorDB.Hoot|| Word Count = 1
+2017-09-21 21.50.26|DEBUG|34|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 21.50.26|DEBUG|34|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\WorkersR\
+2017-09-21 21.50.26|DEBUG|34|RaptorDB.Hoot|| Word Count = 1
+2017-09-21 21.50.26|DEBUG|34|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 21.50.26|DEBUG|34|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\WorkersR\
+2017-09-21 21.50.26|DEBUG|34|RaptorDB.Hoot|| Word Count = 1
+2017-09-21 21.50.26|DEBUG|34|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 21.50.26|DEBUG|34|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\CompaniesR\
+2017-09-21 21.50.26|DEBUG|34|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 21.50.26|DEBUG|34|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\CompaniesR\
+2017-09-21 21.50.26|DEBUG|34|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 21.50.26|DEBUG|34|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\CompaniesR\
+2017-09-21 21.50.26|DEBUG|34|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 21.50.26|DEBUG|34|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\CompaniesR\
+2017-09-21 21.50.26|DEBUG|34|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 21.50.26|DEBUG|34|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\CompaniesR\
+2017-09-21 21.50.34|DEBUG|34|RaptorDB.Views.ViewHandler|| query : WorkersR
+2017-09-21 21.50.34|DEBUG|34|RaptorDB.Views.ViewHandler|| query : Email == email
+2017-09-21 21.50.34|DEBUG|52|RaptorDB.RaptorDB|| byte[] is null
+2017-09-21 21.50.34|DEBUG|52|RaptorDB.RaptorDB|| curr rec = 1
+2017-09-21 21.50.34|DEBUG|52|RaptorDB.RaptorDB|| last rec = 1
+2017-09-21 21.50.34|DEBUG|34|RaptorDB.Views.ViewHandler|| query bitmap done (ms) : 32,2531
+2017-09-21 21.50.34|DEBUG|34|RaptorDB.Views.ViewHandler|| query rows fetched (ms) : 0,5002
+2017-09-21 21.50.34|DEBUG|34|RaptorDB.Views.ViewHandler|| query rows count : 0
+2017-09-21 21.50.46|INFO|34|RaptorDB.Hoot|| saving index...
+2017-09-21 21.50.46|DEBUG|34|RaptorDB.KeyStore`1|| saving to disk
+2017-09-21 21.50.46|DEBUG|34|RaptorDB.KeyStore`1|| index saved
+2017-09-21 21.50.46|INFO|34|RaptorDB.Hoot|| save time (ms) = 3,0018
+2017-09-21 21.50.46|DEBUG|34|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.50.46|DEBUG|34|RaptorDB.KeyStore`1|| Shutting down
+2017-09-21 21.50.46|DEBUG|34|RaptorDB.KeyStore`1|| saving to disk
+2017-09-21 21.50.46|DEBUG|34|RaptorDB.KeyStore`1|| index saved
+2017-09-21 21.50.46|DEBUG|34|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.50.46|DEBUG|34|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.50.46|DEBUG|34|RaptorDB.RaptorDB|| Shutting down
+2017-09-21 21.50.46|DEBUG|34|RaptorDB.Views.ViewManager|| View Manager shutdown
+2017-09-21 21.50.46|DEBUG|34|RaptorDB.Views.ViewManager||  shutting down view : WorkersR
+2017-09-21 21.50.46|DEBUG|34|RaptorDB.Views.ViewHandler|| Shutting down Viewhandler
+2017-09-21 21.50.46|DEBUG|34|RaptorDB.Views.ViewHandler|| Shutting down view index : docid
+2017-09-21 21.50.46|DEBUG|34|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.50.46|DEBUG|34|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.50.46|DEBUG|34|RaptorDB.Views.ViewHandler|| Shutting down view index : CompanyName
+2017-09-21 21.50.46|DEBUG|34|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.50.46|DEBUG|34|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.50.46|DEBUG|34|RaptorDB.Views.ViewHandler|| Shutting down view index : FirstName
+2017-09-21 21.50.46|INFO|34|RaptorDB.Hoot|| saving index...
+2017-09-21 21.50.46|INFO|34|RaptorDB.Hoot|| save time (ms) = 1,5024
+2017-09-21 21.50.46|INFO|34|RaptorDB.Hoot|| saving index...
+2017-09-21 21.50.46|INFO|34|RaptorDB.Hoot|| save time (ms) = 0
+2017-09-21 21.50.46|DEBUG|34|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.50.46|DEBUG|34|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.50.46|DEBUG|34|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.50.46|DEBUG|34|RaptorDB.Views.ViewHandler|| Shutting down view index : LastName
+2017-09-21 21.50.46|INFO|34|RaptorDB.Hoot|| saving index...
+2017-09-21 21.50.46|INFO|34|RaptorDB.Hoot|| save time (ms) = 1,0008
+2017-09-21 21.50.46|INFO|34|RaptorDB.Hoot|| saving index...
+2017-09-21 21.50.46|INFO|34|RaptorDB.Hoot|| save time (ms) = 0
+2017-09-21 21.50.46|DEBUG|34|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.50.46|DEBUG|34|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.50.46|DEBUG|34|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.50.46|DEBUG|34|RaptorDB.Views.ViewHandler|| Shutting down view index : Password
+2017-09-21 21.50.46|DEBUG|34|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.50.46|DEBUG|34|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.50.46|DEBUG|34|RaptorDB.Views.ViewHandler|| Shutting down view index : Email
+2017-09-21 21.50.46|INFO|34|RaptorDB.Hoot|| saving index...
+2017-09-21 21.50.46|INFO|34|RaptorDB.Hoot|| save time (ms) = 2,3017
+2017-09-21 21.50.46|INFO|34|RaptorDB.Hoot|| saving index...
+2017-09-21 21.50.46|INFO|34|RaptorDB.Hoot|| save time (ms) = 0
+2017-09-21 21.50.46|DEBUG|34|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.50.46|DEBUG|34|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.50.47|DEBUG|34|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.50.47|DEBUG|34|RaptorDB.Views.ViewHandler|| Shutting down view index : Checkbox
+2017-09-21 21.50.47|DEBUG|34|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.50.47|DEBUG|34|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.50.47|DEBUG|34|RaptorDB.Views.ViewHandler|| Viewhandler shutdown done.
+2017-09-21 21.50.47|DEBUG|34|RaptorDB.Views.ViewManager||  shutting down view : CompaniesR
+2017-09-21 21.50.47|DEBUG|34|RaptorDB.Views.ViewHandler|| Shutting down Viewhandler
+2017-09-21 21.50.47|DEBUG|34|RaptorDB.Views.ViewHandler|| Shutting down view index : docid
+2017-09-21 21.50.47|DEBUG|34|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.50.47|DEBUG|34|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.50.47|DEBUG|34|RaptorDB.Views.ViewHandler|| Shutting down view index : CompanyName
+2017-09-21 21.50.47|INFO|34|RaptorDB.Hoot|| saving index...
+2017-09-21 21.50.47|INFO|34|RaptorDB.Hoot|| save time (ms) = 1,0015
+2017-09-21 21.50.47|INFO|34|RaptorDB.Hoot|| saving index...
+2017-09-21 21.50.47|INFO|34|RaptorDB.Hoot|| save time (ms) = 0
+2017-09-21 21.50.47|DEBUG|34|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.50.47|DEBUG|34|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.50.47|DEBUG|34|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.50.47|DEBUG|34|RaptorDB.Views.ViewHandler|| Shutting down view index : Owner
+2017-09-21 21.50.47|INFO|34|RaptorDB.Hoot|| saving index...
+2017-09-21 21.50.47|INFO|34|RaptorDB.Hoot|| save time (ms) = 0,9998
+2017-09-21 21.50.47|INFO|34|RaptorDB.Hoot|| saving index...
+2017-09-21 21.50.47|INFO|34|RaptorDB.Hoot|| save time (ms) = 0
+2017-09-21 21.50.47|DEBUG|34|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.50.47|DEBUG|34|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.50.47|DEBUG|34|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.50.47|DEBUG|34|RaptorDB.Views.ViewHandler|| Shutting down view index : Type
+2017-09-21 21.50.47|INFO|34|RaptorDB.Hoot|| saving index...
+2017-09-21 21.50.47|INFO|34|RaptorDB.Hoot|| save time (ms) = 0
+2017-09-21 21.50.47|INFO|34|RaptorDB.Hoot|| saving index...
+2017-09-21 21.50.47|INFO|34|RaptorDB.Hoot|| save time (ms) = 0
+2017-09-21 21.50.47|DEBUG|34|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.50.47|DEBUG|34|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.50.47|DEBUG|34|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.50.47|DEBUG|34|RaptorDB.Views.ViewHandler|| Shutting down view index : Location
+2017-09-21 21.50.47|INFO|34|RaptorDB.Hoot|| saving index...
+2017-09-21 21.50.47|INFO|34|RaptorDB.Hoot|| save time (ms) = 0
+2017-09-21 21.50.47|INFO|34|RaptorDB.Hoot|| saving index...
+2017-09-21 21.50.47|INFO|34|RaptorDB.Hoot|| save time (ms) = 0
+2017-09-21 21.50.47|DEBUG|34|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.50.47|DEBUG|34|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.50.47|DEBUG|34|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.50.47|DEBUG|34|RaptorDB.Views.ViewHandler|| Shutting down view index : Email
+2017-09-21 21.50.47|INFO|34|RaptorDB.Hoot|| saving index...
+2017-09-21 21.50.47|INFO|34|RaptorDB.Hoot|| save time (ms) = 0
+2017-09-21 21.50.47|INFO|34|RaptorDB.Hoot|| saving index...
+2017-09-21 21.50.47|INFO|34|RaptorDB.Hoot|| save time (ms) = 0
+2017-09-21 21.50.47|DEBUG|34|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.50.47|DEBUG|34|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.50.47|DEBUG|34|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.50.47|DEBUG|34|RaptorDB.Views.ViewHandler|| Shutting down view index : Password
+2017-09-21 21.50.47|DEBUG|34|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.50.47|DEBUG|34|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.50.47|DEBUG|34|RaptorDB.Views.ViewHandler|| Shutting down view index : Checkbox
+2017-09-21 21.50.47|DEBUG|34|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.50.47|DEBUG|34|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.50.47|DEBUG|34|RaptorDB.Views.ViewHandler|| Viewhandler shutdown done.
+2017-09-21 21.50.47|DEBUG|34|RaptorDB.Views.TaskQueue|| TaskQueue shutdown
+2017-09-21 21.50.47|DEBUG|34|RaptorDB.KeyStore`1|| Shutting down
+2017-09-21 21.50.47|DEBUG|34|RaptorDB.KeyStore`1|| saving to disk
+2017-09-21 21.50.47|DEBUG|34|RaptorDB.KeyStore`1|| index saved
+2017-09-21 21.50.47|DEBUG|34|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.50.47|DEBUG|34|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.50.47|DEBUG|34|RaptorDB.KeyStore`1|| Shutting down
+2017-09-21 21.50.47|DEBUG|34|RaptorDB.KeyStore`1|| saving to disk
+2017-09-21 21.50.47|DEBUG|34|RaptorDB.KeyStore`1|| index saved
+2017-09-21 21.50.47|DEBUG|34|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.50.47|DEBUG|34|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.50.47|DEBUG|34|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.50.47|DEBUG|34|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.50.47|DEBUG|34|RaptorDB.RaptorDB|| last full text record = -1
+2017-09-21 21.50.47|DEBUG|34|RaptorDB.RaptorDB|| last record = 1
+2017-09-21 21.50.47|DEBUG|34|RaptorDB.RaptorDB|| last backup record = -1
+2017-09-21 21.50.47|DEBUG|34|RaptorDB.RaptorDB|| Shutting down log.
+2017-09-21 21.50.47|DEBUG|34|RaptorDB.RaptorDB|| RaptorDB done.
+2017-09-21 21.55.48|DEBUG|31|RaptorDB.RaptorDB|| 
+
+RaptorDB starting...
+2017-09-21 21.55.48|DEBUG|31|RaptorDB.RaptorDB|| RaptorDB data folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\
+2017-09-21 21.55.48|DEBUG|31|RaptorDB.KeyStore`1|| Current Count = 1
+2017-09-21 21.55.48|DEBUG|31|RaptorDB.KeyStore`1|| Checking Index state...
+2017-09-21 21.55.48|DEBUG|31|RaptorDB.KeyStore`1|| Starting save timer
+2017-09-21 21.55.48|DEBUG|31|RaptorDB.KeyStore`1|| Current Count = 0
+2017-09-21 21.55.48|DEBUG|31|RaptorDB.KeyStore`1|| Checking Index state...
+2017-09-21 21.55.48|DEBUG|31|RaptorDB.KeyStore`1|| Starting save timer
+2017-09-21 21.55.48|DEBUG|31|RaptorDB.Views.TaskQueue|| TaskQueue starting
+2017-09-21 21.55.48|DEBUG|31|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 21.55.48|DEBUG|31|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Data\Fulltext\
+2017-09-21 21.55.48|DEBUG|31|RaptorDB.KeyStore`1|| Current Count = 0
+2017-09-21 21.55.48|DEBUG|31|RaptorDB.KeyStore`1|| Checking Index state...
+2017-09-21 21.55.48|DEBUG|31|RaptorDB.KeyStore`1|| Starting save timer
+2017-09-21 21.55.48|DEBUG|31|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 21.55.48|DEBUG|31|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\WorkersR\
+2017-09-21 21.55.48|DEBUG|31|RaptorDB.Hoot|| Word Count = 1
+2017-09-21 21.55.48|DEBUG|31|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 21.55.48|DEBUG|31|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\WorkersR\
+2017-09-21 21.55.48|DEBUG|31|RaptorDB.Hoot|| Word Count = 1
+2017-09-21 21.55.48|DEBUG|31|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 21.55.48|DEBUG|31|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\WorkersR\
+2017-09-21 21.55.48|DEBUG|31|RaptorDB.Hoot|| Word Count = 1
+2017-09-21 21.55.48|DEBUG|31|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 21.55.48|DEBUG|31|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\CompaniesR\
+2017-09-21 21.55.48|DEBUG|31|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 21.55.48|DEBUG|31|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\CompaniesR\
+2017-09-21 21.55.48|DEBUG|31|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 21.55.48|DEBUG|31|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\CompaniesR\
+2017-09-21 21.55.48|DEBUG|31|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 21.55.48|DEBUG|31|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\CompaniesR\
+2017-09-21 21.55.48|DEBUG|31|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 21.55.48|DEBUG|31|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\CompaniesR\
+2017-09-21 21.55.51|DEBUG|31|RaptorDB.Views.ViewHandler|| query : WorkersR
+2017-09-21 21.55.51|DEBUG|31|RaptorDB.Views.ViewHandler|| query bitmap done (ms) : 342,7706
+2017-09-21 21.55.51|DEBUG|31|RaptorDB.Views.ViewHandler|| query rows fetched (ms) : 7,0049
+2017-09-21 21.55.51|DEBUG|31|RaptorDB.Views.ViewHandler|| query rows count : 1
+2017-09-21 21.57.04|INFO|31|RaptorDB.Hoot|| saving index...
+2017-09-21 21.57.04|DEBUG|31|RaptorDB.KeyStore`1|| saving to disk
+2017-09-21 21.57.04|DEBUG|31|RaptorDB.KeyStore`1|| index saved
+2017-09-21 21.57.04|DEBUG|31|RaptorDB.BitmapIndex|| writing fulltext_hoot
+2017-09-21 21.57.04|INFO|31|RaptorDB.Hoot|| save time (ms) = 32,0267
+2017-09-21 21.57.04|DEBUG|31|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.57.04|DEBUG|31|RaptorDB.KeyStore`1|| Shutting down
+2017-09-21 21.57.04|DEBUG|31|RaptorDB.KeyStore`1|| saving to disk
+2017-09-21 21.57.04|DEBUG|31|RaptorDB.KeyStore`1|| index saved
+2017-09-21 21.57.04|DEBUG|31|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.57.04|DEBUG|31|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.57.04|DEBUG|31|RaptorDB.RaptorDB|| Shutting down
+2017-09-21 21.57.04|DEBUG|31|RaptorDB.Views.ViewManager|| View Manager shutdown
+2017-09-21 21.57.04|DEBUG|31|RaptorDB.Views.ViewManager||  shutting down view : WorkersR
+2017-09-21 21.57.04|DEBUG|31|RaptorDB.Views.ViewHandler|| Shutting down Viewhandler
+2017-09-21 21.57.04|DEBUG|31|RaptorDB.Views.ViewHandler|| Shutting down view index : docid
+2017-09-21 21.57.04|DEBUG|31|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.57.04|DEBUG|31|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.57.04|DEBUG|31|RaptorDB.Views.ViewHandler|| Shutting down view index : CompanyName
+2017-09-21 21.57.04|DEBUG|31|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.57.04|DEBUG|31|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.57.04|DEBUG|31|RaptorDB.Views.ViewHandler|| Shutting down view index : FirstName
+2017-09-21 21.57.04|INFO|31|RaptorDB.Hoot|| saving index...
+2017-09-21 21.57.04|INFO|31|RaptorDB.Hoot|| save time (ms) = 1,5011
+2017-09-21 21.57.04|INFO|31|RaptorDB.Hoot|| saving index...
+2017-09-21 21.57.04|INFO|31|RaptorDB.Hoot|| save time (ms) = 0
+2017-09-21 21.57.04|DEBUG|31|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.57.04|DEBUG|31|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.57.04|DEBUG|31|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.57.04|DEBUG|31|RaptorDB.Views.ViewHandler|| Shutting down view index : LastName
+2017-09-21 21.57.04|INFO|31|RaptorDB.Hoot|| saving index...
+2017-09-21 21.57.04|INFO|31|RaptorDB.Hoot|| save time (ms) = 1,0012
+2017-09-21 21.57.04|INFO|31|RaptorDB.Hoot|| saving index...
+2017-09-21 21.57.04|INFO|31|RaptorDB.Hoot|| save time (ms) = 0
+2017-09-21 21.57.04|DEBUG|31|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.57.04|DEBUG|31|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.57.04|DEBUG|31|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.57.04|DEBUG|31|RaptorDB.Views.ViewHandler|| Shutting down view index : Password
+2017-09-21 21.57.04|DEBUG|31|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.57.04|DEBUG|31|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.57.04|DEBUG|31|RaptorDB.Views.ViewHandler|| Shutting down view index : Email
+2017-09-21 21.57.04|INFO|31|RaptorDB.Hoot|| saving index...
+2017-09-21 21.57.04|INFO|31|RaptorDB.Hoot|| save time (ms) = 5,0031
+2017-09-21 21.57.04|INFO|31|RaptorDB.Hoot|| saving index...
+2017-09-21 21.57.04|INFO|31|RaptorDB.Hoot|| save time (ms) = 0
+2017-09-21 21.57.04|DEBUG|31|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.57.04|DEBUG|31|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.57.04|DEBUG|31|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.57.04|DEBUG|31|RaptorDB.Views.ViewHandler|| Shutting down view index : Checkbox
+2017-09-21 21.57.04|DEBUG|31|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.57.05|DEBUG|31|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.57.05|DEBUG|31|RaptorDB.Views.ViewHandler|| Viewhandler shutdown done.
+2017-09-21 21.57.05|DEBUG|31|RaptorDB.Views.ViewManager||  shutting down view : CompaniesR
+2017-09-21 21.57.05|DEBUG|31|RaptorDB.Views.ViewHandler|| Shutting down Viewhandler
+2017-09-21 21.57.05|DEBUG|31|RaptorDB.Views.ViewHandler|| Shutting down view index : docid
+2017-09-21 21.57.05|DEBUG|31|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.57.05|DEBUG|31|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.57.05|DEBUG|31|RaptorDB.Views.ViewHandler|| Shutting down view index : CompanyName
+2017-09-21 21.57.05|INFO|31|RaptorDB.Hoot|| saving index...
+2017-09-21 21.57.05|INFO|31|RaptorDB.Hoot|| save time (ms) = 1,0012
+2017-09-21 21.57.05|INFO|31|RaptorDB.Hoot|| saving index...
+2017-09-21 21.57.05|INFO|31|RaptorDB.Hoot|| save time (ms) = 0
+2017-09-21 21.57.05|DEBUG|31|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.57.05|DEBUG|31|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.57.05|DEBUG|31|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.57.05|DEBUG|31|RaptorDB.Views.ViewHandler|| Shutting down view index : Owner
+2017-09-21 21.57.05|INFO|31|RaptorDB.Hoot|| saving index...
+2017-09-21 21.57.05|INFO|31|RaptorDB.Hoot|| save time (ms) = 0
+2017-09-21 21.57.05|INFO|31|RaptorDB.Hoot|| saving index...
+2017-09-21 21.57.05|INFO|31|RaptorDB.Hoot|| save time (ms) = 0
+2017-09-21 21.57.05|DEBUG|31|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.57.05|DEBUG|31|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.57.05|DEBUG|31|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.57.05|DEBUG|31|RaptorDB.Views.ViewHandler|| Shutting down view index : Type
+2017-09-21 21.57.05|INFO|31|RaptorDB.Hoot|| saving index...
+2017-09-21 21.57.05|INFO|31|RaptorDB.Hoot|| save time (ms) = 1,0009
+2017-09-21 21.57.05|INFO|31|RaptorDB.Hoot|| saving index...
+2017-09-21 21.57.05|INFO|31|RaptorDB.Hoot|| save time (ms) = 0
+2017-09-21 21.57.05|DEBUG|31|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.57.05|DEBUG|31|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.57.05|DEBUG|31|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.57.05|DEBUG|31|RaptorDB.Views.ViewHandler|| Shutting down view index : Location
+2017-09-21 21.57.05|INFO|31|RaptorDB.Hoot|| saving index...
+2017-09-21 21.57.05|INFO|31|RaptorDB.Hoot|| save time (ms) = 1,0011
+2017-09-21 21.57.05|INFO|31|RaptorDB.Hoot|| saving index...
+2017-09-21 21.57.05|INFO|31|RaptorDB.Hoot|| save time (ms) = 0
+2017-09-21 21.57.05|DEBUG|31|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.57.05|DEBUG|31|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.57.05|DEBUG|31|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.57.05|DEBUG|31|RaptorDB.Views.ViewHandler|| Shutting down view index : Email
+2017-09-21 21.57.05|INFO|31|RaptorDB.Hoot|| saving index...
+2017-09-21 21.57.05|INFO|31|RaptorDB.Hoot|| save time (ms) = 0
+2017-09-21 21.57.05|INFO|31|RaptorDB.Hoot|| saving index...
+2017-09-21 21.57.05|INFO|31|RaptorDB.Hoot|| save time (ms) = 0
+2017-09-21 21.57.05|DEBUG|31|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.57.05|DEBUG|31|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.57.05|DEBUG|31|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.57.05|DEBUG|31|RaptorDB.Views.ViewHandler|| Shutting down view index : Password
+2017-09-21 21.57.05|DEBUG|31|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.57.05|DEBUG|31|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.57.05|DEBUG|31|RaptorDB.Views.ViewHandler|| Shutting down view index : Checkbox
+2017-09-21 21.57.05|DEBUG|31|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.57.05|DEBUG|31|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.57.05|DEBUG|31|RaptorDB.Views.ViewHandler|| Viewhandler shutdown done.
+2017-09-21 21.57.05|DEBUG|31|RaptorDB.Views.TaskQueue|| TaskQueue shutdown
+2017-09-21 21.57.05|DEBUG|31|RaptorDB.KeyStore`1|| Shutting down
+2017-09-21 21.57.05|DEBUG|31|RaptorDB.KeyStore`1|| saving to disk
+2017-09-21 21.57.05|DEBUG|31|RaptorDB.KeyStore`1|| index saved
+2017-09-21 21.57.05|DEBUG|31|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.57.05|DEBUG|31|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.57.05|DEBUG|31|RaptorDB.KeyStore`1|| Shutting down
+2017-09-21 21.57.05|DEBUG|31|RaptorDB.KeyStore`1|| saving to disk
+2017-09-21 21.57.05|DEBUG|31|RaptorDB.KeyStore`1|| index saved
+2017-09-21 21.57.05|DEBUG|31|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.57.05|DEBUG|31|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.57.05|DEBUG|31|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.57.05|DEBUG|31|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.57.05|DEBUG|31|RaptorDB.RaptorDB|| last full text record = 0
+2017-09-21 21.57.05|DEBUG|31|RaptorDB.RaptorDB|| last record = 1
+2017-09-21 21.57.05|DEBUG|31|RaptorDB.RaptorDB|| last backup record = -1
+2017-09-21 21.57.05|DEBUG|31|RaptorDB.RaptorDB|| Shutting down log.
+2017-09-21 21.57.05|DEBUG|31|RaptorDB.RaptorDB|| RaptorDB done.
+2017-09-21 21.57.16|DEBUG|7|RaptorDB.RaptorDB|| 
+
+RaptorDB starting...
+2017-09-21 21.57.16|DEBUG|7|RaptorDB.RaptorDB|| RaptorDB data folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\
+2017-09-21 21.57.16|DEBUG|7|RaptorDB.KeyStore`1|| Current Count = 1
+2017-09-21 21.57.16|DEBUG|7|RaptorDB.KeyStore`1|| Checking Index state...
+2017-09-21 21.57.16|DEBUG|7|RaptorDB.KeyStore`1|| Starting save timer
+2017-09-21 21.57.16|DEBUG|7|RaptorDB.KeyStore`1|| Current Count = 0
+2017-09-21 21.57.16|DEBUG|7|RaptorDB.KeyStore`1|| Checking Index state...
+2017-09-21 21.57.16|DEBUG|7|RaptorDB.KeyStore`1|| Starting save timer
+2017-09-21 21.57.16|DEBUG|7|RaptorDB.Views.TaskQueue|| TaskQueue starting
+2017-09-21 21.57.16|DEBUG|7|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 21.57.16|DEBUG|7|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Data\Fulltext\
+2017-09-21 21.57.16|DEBUG|7|RaptorDB.KeyStore`1|| Current Count = 0
+2017-09-21 21.57.16|DEBUG|7|RaptorDB.KeyStore`1|| Checking Index state...
+2017-09-21 21.57.16|DEBUG|7|RaptorDB.KeyStore`1|| Starting save timer
+2017-09-21 21.57.16|DEBUG|7|RaptorDB.Hoot|| Word Count = 38
+2017-09-21 21.57.16|DEBUG|7|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 21.57.16|DEBUG|7|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\WorkersR\
+2017-09-21 21.57.16|DEBUG|7|RaptorDB.Hoot|| Word Count = 1
+2017-09-21 21.57.16|DEBUG|7|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 21.57.16|DEBUG|7|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\WorkersR\
+2017-09-21 21.57.16|DEBUG|7|RaptorDB.Hoot|| Word Count = 1
+2017-09-21 21.57.16|DEBUG|7|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 21.57.16|DEBUG|7|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\WorkersR\
+2017-09-21 21.57.16|DEBUG|7|RaptorDB.Hoot|| Word Count = 1
+2017-09-21 21.57.16|DEBUG|7|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 21.57.16|DEBUG|7|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\CompaniesR\
+2017-09-21 21.57.16|DEBUG|7|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 21.57.16|DEBUG|7|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\CompaniesR\
+2017-09-21 21.57.16|DEBUG|7|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 21.57.16|DEBUG|7|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\CompaniesR\
+2017-09-21 21.57.16|DEBUG|7|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 21.57.16|DEBUG|7|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\CompaniesR\
+2017-09-21 21.57.16|DEBUG|7|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 21.57.16|DEBUG|7|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\CompaniesR\
+2017-09-21 21.57.19|DEBUG|7|RaptorDB.Views.ViewHandler|| query : WorkersR
+2017-09-21 21.57.19|DEBUG|7|RaptorDB.Views.ViewHandler|| query bitmap done (ms) : 37,6492
+2017-09-21 21.57.19|DEBUG|7|RaptorDB.Views.ViewHandler|| query rows fetched (ms) : 0
+2017-09-21 21.57.19|DEBUG|7|RaptorDB.Views.ViewHandler|| query rows count : 1
+2017-09-21 21.58.00|INFO|7|RaptorDB.Hoot|| saving index...
+2017-09-21 21.58.00|DEBUG|7|RaptorDB.KeyStore`1|| saving to disk
+2017-09-21 21.58.00|DEBUG|7|RaptorDB.KeyStore`1|| index saved
+2017-09-21 21.58.00|INFO|7|RaptorDB.Hoot|| save time (ms) = 17,0115
+2017-09-21 21.58.00|DEBUG|7|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.58.00|DEBUG|7|RaptorDB.KeyStore`1|| Shutting down
+2017-09-21 21.58.00|DEBUG|7|RaptorDB.KeyStore`1|| saving to disk
+2017-09-21 21.58.00|DEBUG|7|RaptorDB.KeyStore`1|| index saved
+2017-09-21 21.58.00|DEBUG|7|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.58.00|DEBUG|7|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.58.00|DEBUG|7|RaptorDB.RaptorDB|| Shutting down
+2017-09-21 21.58.00|DEBUG|7|RaptorDB.Views.ViewManager|| View Manager shutdown
+2017-09-21 21.58.00|DEBUG|7|RaptorDB.Views.ViewManager||  shutting down view : WorkersR
+2017-09-21 21.58.00|DEBUG|7|RaptorDB.Views.ViewHandler|| Shutting down Viewhandler
+2017-09-21 21.58.00|DEBUG|7|RaptorDB.Views.ViewHandler|| Shutting down view index : docid
+2017-09-21 21.58.00|DEBUG|7|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.58.00|DEBUG|7|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.58.00|DEBUG|7|RaptorDB.Views.ViewHandler|| Shutting down view index : CompanyName
+2017-09-21 21.58.00|DEBUG|7|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.58.01|DEBUG|7|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.58.01|DEBUG|7|RaptorDB.Views.ViewHandler|| Shutting down view index : FirstName
+2017-09-21 21.58.01|INFO|7|RaptorDB.Hoot|| saving index...
+2017-09-21 21.58.01|INFO|7|RaptorDB.Hoot|| save time (ms) = 2,0014
+2017-09-21 21.58.01|INFO|7|RaptorDB.Hoot|| saving index...
+2017-09-21 21.58.01|INFO|7|RaptorDB.Hoot|| save time (ms) = 0
+2017-09-21 21.58.01|DEBUG|7|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.58.01|DEBUG|7|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.58.01|DEBUG|7|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.58.01|DEBUG|7|RaptorDB.Views.ViewHandler|| Shutting down view index : LastName
+2017-09-21 21.58.01|INFO|7|RaptorDB.Hoot|| saving index...
+2017-09-21 21.58.01|INFO|7|RaptorDB.Hoot|| save time (ms) = 2,0007
+2017-09-21 21.58.01|INFO|7|RaptorDB.Hoot|| saving index...
+2017-09-21 21.58.01|INFO|7|RaptorDB.Hoot|| save time (ms) = 0
+2017-09-21 21.58.01|DEBUG|7|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.58.01|DEBUG|7|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.58.01|DEBUG|7|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.58.01|DEBUG|7|RaptorDB.Views.ViewHandler|| Shutting down view index : Password
+2017-09-21 21.58.01|DEBUG|7|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.58.01|DEBUG|7|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.58.01|DEBUG|7|RaptorDB.Views.ViewHandler|| Shutting down view index : Email
+2017-09-21 21.58.01|INFO|7|RaptorDB.Hoot|| saving index...
+2017-09-21 21.58.01|INFO|7|RaptorDB.Hoot|| save time (ms) = 2,0811
+2017-09-21 21.58.01|INFO|7|RaptorDB.Hoot|| saving index...
+2017-09-21 21.58.01|INFO|7|RaptorDB.Hoot|| save time (ms) = 0
+2017-09-21 21.58.01|DEBUG|7|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.58.01|DEBUG|7|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.58.01|DEBUG|7|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.58.01|DEBUG|7|RaptorDB.Views.ViewHandler|| Shutting down view index : Checkbox
+2017-09-21 21.58.01|DEBUG|7|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.58.01|DEBUG|7|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.58.01|DEBUG|7|RaptorDB.Views.ViewHandler|| Viewhandler shutdown done.
+2017-09-21 21.58.01|DEBUG|7|RaptorDB.Views.ViewManager||  shutting down view : CompaniesR
+2017-09-21 21.58.01|DEBUG|7|RaptorDB.Views.ViewHandler|| Shutting down Viewhandler
+2017-09-21 21.58.01|DEBUG|7|RaptorDB.Views.ViewHandler|| Shutting down view index : docid
+2017-09-21 21.58.01|DEBUG|7|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.58.01|DEBUG|7|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.58.01|DEBUG|7|RaptorDB.Views.ViewHandler|| Shutting down view index : CompanyName
+2017-09-21 21.58.01|INFO|7|RaptorDB.Hoot|| saving index...
+2017-09-21 21.58.01|INFO|7|RaptorDB.Hoot|| save time (ms) = 1,0118
+2017-09-21 21.58.01|INFO|7|RaptorDB.Hoot|| saving index...
+2017-09-21 21.58.01|INFO|7|RaptorDB.Hoot|| save time (ms) = 0
+2017-09-21 21.58.01|DEBUG|7|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.58.01|DEBUG|7|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.58.01|DEBUG|7|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.58.01|DEBUG|7|RaptorDB.Views.ViewHandler|| Shutting down view index : Owner
+2017-09-21 21.58.01|INFO|7|RaptorDB.Hoot|| saving index...
+2017-09-21 21.58.01|INFO|7|RaptorDB.Hoot|| save time (ms) = 0,9969
+2017-09-21 21.58.01|INFO|7|RaptorDB.Hoot|| saving index...
+2017-09-21 21.58.01|INFO|7|RaptorDB.Hoot|| save time (ms) = 0
+2017-09-21 21.58.01|DEBUG|7|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.58.01|DEBUG|7|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.58.01|DEBUG|7|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.58.01|DEBUG|7|RaptorDB.Views.ViewHandler|| Shutting down view index : Type
+2017-09-21 21.58.01|INFO|7|RaptorDB.Hoot|| saving index...
+2017-09-21 21.58.01|INFO|7|RaptorDB.Hoot|| save time (ms) = 0
+2017-09-21 21.58.01|INFO|7|RaptorDB.Hoot|| saving index...
+2017-09-21 21.58.01|INFO|7|RaptorDB.Hoot|| save time (ms) = 0
+2017-09-21 21.58.01|DEBUG|7|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.58.01|DEBUG|7|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.58.01|DEBUG|7|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.58.01|DEBUG|7|RaptorDB.Views.ViewHandler|| Shutting down view index : Location
+2017-09-21 21.58.01|INFO|7|RaptorDB.Hoot|| saving index...
+2017-09-21 21.58.01|INFO|7|RaptorDB.Hoot|| save time (ms) = 1,0005
+2017-09-21 21.58.01|INFO|7|RaptorDB.Hoot|| saving index...
+2017-09-21 21.58.01|INFO|7|RaptorDB.Hoot|| save time (ms) = 0
+2017-09-21 21.58.01|DEBUG|7|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.58.01|DEBUG|7|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.58.01|DEBUG|7|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.58.01|DEBUG|7|RaptorDB.Views.ViewHandler|| Shutting down view index : Email
+2017-09-21 21.58.01|INFO|7|RaptorDB.Hoot|| saving index...
+2017-09-21 21.58.01|INFO|7|RaptorDB.Hoot|| save time (ms) = 0,9972
+2017-09-21 21.58.01|INFO|7|RaptorDB.Hoot|| saving index...
+2017-09-21 21.58.01|INFO|7|RaptorDB.Hoot|| save time (ms) = 0
+2017-09-21 21.58.01|DEBUG|7|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.58.01|DEBUG|7|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.58.01|DEBUG|7|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.58.01|DEBUG|7|RaptorDB.Views.ViewHandler|| Shutting down view index : Password
+2017-09-21 21.58.01|DEBUG|7|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.58.01|DEBUG|7|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.58.01|DEBUG|7|RaptorDB.Views.ViewHandler|| Shutting down view index : Checkbox
+2017-09-21 21.58.01|DEBUG|7|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.58.02|DEBUG|7|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.58.02|DEBUG|7|RaptorDB.Views.ViewHandler|| Viewhandler shutdown done.
+2017-09-21 21.58.02|DEBUG|7|RaptorDB.Views.TaskQueue|| TaskQueue shutdown
+2017-09-21 21.58.02|DEBUG|7|RaptorDB.KeyStore`1|| Shutting down
+2017-09-21 21.58.02|DEBUG|7|RaptorDB.KeyStore`1|| saving to disk
+2017-09-21 21.58.02|DEBUG|7|RaptorDB.KeyStore`1|| index saved
+2017-09-21 21.58.02|DEBUG|7|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.58.02|DEBUG|7|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.58.02|DEBUG|7|RaptorDB.KeyStore`1|| Shutting down
+2017-09-21 21.58.02|DEBUG|7|RaptorDB.KeyStore`1|| saving to disk
+2017-09-21 21.58.02|DEBUG|7|RaptorDB.KeyStore`1|| index saved
+2017-09-21 21.58.02|DEBUG|7|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.58.02|DEBUG|7|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.58.02|DEBUG|7|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 21.58.02|DEBUG|7|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 21.58.02|DEBUG|7|RaptorDB.RaptorDB|| last full text record = 0
+2017-09-21 21.58.02|DEBUG|7|RaptorDB.RaptorDB|| last record = 1
+2017-09-21 21.58.02|DEBUG|7|RaptorDB.RaptorDB|| last backup record = -1
+2017-09-21 21.58.02|DEBUG|7|RaptorDB.RaptorDB|| Shutting down log.
+2017-09-21 21.58.02|DEBUG|7|RaptorDB.RaptorDB|| RaptorDB done.
+2017-09-21 22.03.35|DEBUG|1|RaptorDB.RaptorDB|| 
+
+RaptorDB starting...
+2017-09-21 22.03.35|DEBUG|1|RaptorDB.RaptorDB|| RaptorDB data folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\
+2017-09-21 22.03.35|DEBUG|1|RaptorDB.KeyStore`1|| Current Count = 1
+2017-09-21 22.03.35|DEBUG|1|RaptorDB.KeyStore`1|| Checking Index state...
+2017-09-21 22.03.35|DEBUG|1|RaptorDB.KeyStore`1|| Starting save timer
+2017-09-21 22.03.35|DEBUG|1|RaptorDB.KeyStore`1|| Current Count = 0
+2017-09-21 22.03.35|DEBUG|1|RaptorDB.KeyStore`1|| Checking Index state...
+2017-09-21 22.03.35|DEBUG|1|RaptorDB.KeyStore`1|| Starting save timer
+2017-09-21 22.03.35|DEBUG|1|RaptorDB.Views.TaskQueue|| TaskQueue starting
+2017-09-21 22.03.35|DEBUG|1|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 22.03.35|DEBUG|1|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Data\Fulltext\
+2017-09-21 22.03.35|DEBUG|1|RaptorDB.KeyStore`1|| Current Count = 0
+2017-09-21 22.03.35|DEBUG|1|RaptorDB.KeyStore`1|| Checking Index state...
+2017-09-21 22.03.35|DEBUG|1|RaptorDB.KeyStore`1|| Starting save timer
+2017-09-21 22.03.35|DEBUG|1|RaptorDB.Hoot|| Word Count = 38
+2017-09-21 22.04.02|INFO|1|RaptorDB.Hoot|| saving index...
+2017-09-21 22.04.02|DEBUG|1|RaptorDB.KeyStore`1|| saving to disk
+2017-09-21 22.04.02|DEBUG|1|RaptorDB.KeyStore`1|| index saved
+2017-09-21 22.04.02|INFO|1|RaptorDB.Hoot|| save time (ms) = 16,0117
+2017-09-21 22.04.02|DEBUG|1|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.04.02|DEBUG|1|RaptorDB.KeyStore`1|| Shutting down
+2017-09-21 22.04.02|DEBUG|1|RaptorDB.KeyStore`1|| saving to disk
+2017-09-21 22.04.02|DEBUG|1|RaptorDB.KeyStore`1|| index saved
+2017-09-21 22.04.02|DEBUG|1|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 22.04.02|DEBUG|1|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.04.02|DEBUG|1|RaptorDB.RaptorDB|| Shutting down
+2017-09-21 22.04.02|DEBUG|1|RaptorDB.Views.ViewManager|| View Manager shutdown
+2017-09-21 22.04.02|DEBUG|1|RaptorDB.Views.TaskQueue|| TaskQueue shutdown
+2017-09-21 22.04.02|DEBUG|1|RaptorDB.KeyStore`1|| Shutting down
+2017-09-21 22.04.02|DEBUG|1|RaptorDB.KeyStore`1|| saving to disk
+2017-09-21 22.04.02|DEBUG|1|RaptorDB.KeyStore`1|| index saved
+2017-09-21 22.04.02|DEBUG|1|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 22.04.02|DEBUG|1|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.04.02|DEBUG|1|RaptorDB.KeyStore`1|| Shutting down
+2017-09-21 22.04.02|DEBUG|1|RaptorDB.KeyStore`1|| saving to disk
+2017-09-21 22.04.02|DEBUG|1|RaptorDB.KeyStore`1|| index saved
+2017-09-21 22.04.02|DEBUG|1|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 22.04.02|DEBUG|1|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.04.02|DEBUG|1|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 22.04.03|DEBUG|1|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.04.03|DEBUG|1|RaptorDB.RaptorDB|| last full text record = 1
+2017-09-21 22.04.03|DEBUG|1|RaptorDB.RaptorDB|| last record = 1
+2017-09-21 22.04.03|DEBUG|1|RaptorDB.RaptorDB|| last backup record = -1
+2017-09-21 22.04.03|DEBUG|1|RaptorDB.RaptorDB|| Shutting down log.
+2017-09-21 22.04.03|DEBUG|1|RaptorDB.RaptorDB|| RaptorDB done.
+2017-09-21 22.04.14|DEBUG|1|RaptorDB.RaptorDB|| 
+
+RaptorDB starting...
+2017-09-21 22.04.14|DEBUG|1|RaptorDB.RaptorDB|| RaptorDB data folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\
+2017-09-21 22.04.14|DEBUG|1|RaptorDB.KeyStore`1|| Current Count = 1
+2017-09-21 22.04.14|DEBUG|1|RaptorDB.KeyStore`1|| Checking Index state...
+2017-09-21 22.04.14|DEBUG|1|RaptorDB.KeyStore`1|| Starting save timer
+2017-09-21 22.04.14|DEBUG|1|RaptorDB.KeyStore`1|| Current Count = 0
+2017-09-21 22.04.14|DEBUG|1|RaptorDB.KeyStore`1|| Checking Index state...
+2017-09-21 22.04.14|DEBUG|1|RaptorDB.KeyStore`1|| Starting save timer
+2017-09-21 22.04.14|DEBUG|1|RaptorDB.Views.TaskQueue|| TaskQueue starting
+2017-09-21 22.04.14|DEBUG|1|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 22.04.14|DEBUG|1|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Data\Fulltext\
+2017-09-21 22.04.14|DEBUG|1|RaptorDB.KeyStore`1|| Current Count = 0
+2017-09-21 22.04.14|DEBUG|1|RaptorDB.KeyStore`1|| Checking Index state...
+2017-09-21 22.04.14|DEBUG|1|RaptorDB.KeyStore`1|| Starting save timer
+2017-09-21 22.04.14|DEBUG|1|RaptorDB.Hoot|| Word Count = 38
+2017-09-21 22.04.40|DEBUG|1|RaptorDB.RaptorDB|| 
+
+RaptorDB starting...
+2017-09-21 22.04.40|DEBUG|1|RaptorDB.RaptorDB|| RaptorDB data folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\
+2017-09-21 22.04.40|DEBUG|1|RaptorDB.KeyStore`1|| Current Count = 1
+2017-09-21 22.04.40|DEBUG|1|RaptorDB.KeyStore`1|| Checking Index state...
+2017-09-21 22.04.40|DEBUG|1|RaptorDB.KeyStore`1|| Starting save timer
+2017-09-21 22.04.40|DEBUG|1|RaptorDB.KeyStore`1|| Current Count = 0
+2017-09-21 22.04.40|DEBUG|1|RaptorDB.KeyStore`1|| Checking Index state...
+2017-09-21 22.04.40|DEBUG|1|RaptorDB.KeyStore`1|| Starting save timer
+2017-09-21 22.04.40|DEBUG|1|RaptorDB.Views.TaskQueue|| TaskQueue starting
+2017-09-21 22.04.40|DEBUG|1|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 22.04.40|DEBUG|1|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Data\Fulltext\
+2017-09-21 22.04.40|DEBUG|1|RaptorDB.KeyStore`1|| Current Count = 0
+2017-09-21 22.04.40|DEBUG|1|RaptorDB.KeyStore`1|| Checking Index state...
+2017-09-21 22.04.40|DEBUG|1|RaptorDB.KeyStore`1|| Starting save timer
+2017-09-21 22.04.40|DEBUG|1|RaptorDB.Hoot|| Word Count = 38
+2017-09-21 22.05.43|DEBUG|1|RaptorDB.RaptorDB|| 
+
+RaptorDB starting...
+2017-09-21 22.05.43|DEBUG|1|RaptorDB.RaptorDB|| RaptorDB data folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\
+2017-09-21 22.05.43|DEBUG|1|RaptorDB.KeyStore`1|| Current Count = 1
+2017-09-21 22.05.43|DEBUG|1|RaptorDB.KeyStore`1|| Checking Index state...
+2017-09-21 22.05.43|DEBUG|1|RaptorDB.KeyStore`1|| Starting save timer
+2017-09-21 22.05.43|DEBUG|1|RaptorDB.KeyStore`1|| Current Count = 0
+2017-09-21 22.05.43|DEBUG|1|RaptorDB.KeyStore`1|| Checking Index state...
+2017-09-21 22.05.43|DEBUG|1|RaptorDB.KeyStore`1|| Starting save timer
+2017-09-21 22.05.43|DEBUG|1|RaptorDB.Views.TaskQueue|| TaskQueue starting
+2017-09-21 22.05.43|DEBUG|1|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 22.05.43|DEBUG|1|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Data\Fulltext\
+2017-09-21 22.05.43|DEBUG|1|RaptorDB.KeyStore`1|| Current Count = 0
+2017-09-21 22.05.43|DEBUG|1|RaptorDB.KeyStore`1|| Checking Index state...
+2017-09-21 22.05.43|DEBUG|1|RaptorDB.KeyStore`1|| Starting save timer
+2017-09-21 22.05.43|DEBUG|1|RaptorDB.Hoot|| Word Count = 38
+2017-09-21 22.06.23|DEBUG|1|RaptorDB.RaptorDB|| 
+
+RaptorDB starting...
+2017-09-21 22.06.23|DEBUG|1|RaptorDB.RaptorDB|| RaptorDB data folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\
+2017-09-21 22.06.23|DEBUG|1|RaptorDB.KeyStore`1|| Current Count = 1
+2017-09-21 22.06.23|DEBUG|1|RaptorDB.KeyStore`1|| Checking Index state...
+2017-09-21 22.06.23|DEBUG|1|RaptorDB.KeyStore`1|| Starting save timer
+2017-09-21 22.06.23|DEBUG|1|RaptorDB.KeyStore`1|| Current Count = 0
+2017-09-21 22.06.23|DEBUG|1|RaptorDB.KeyStore`1|| Checking Index state...
+2017-09-21 22.06.23|DEBUG|1|RaptorDB.KeyStore`1|| Starting save timer
+2017-09-21 22.06.23|DEBUG|1|RaptorDB.Views.TaskQueue|| TaskQueue starting
+2017-09-21 22.06.23|DEBUG|1|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 22.06.23|DEBUG|1|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Data\Fulltext\
+2017-09-21 22.06.23|DEBUG|1|RaptorDB.KeyStore`1|| Current Count = 0
+2017-09-21 22.06.23|DEBUG|1|RaptorDB.KeyStore`1|| Checking Index state...
+2017-09-21 22.06.23|DEBUG|1|RaptorDB.KeyStore`1|| Starting save timer
+2017-09-21 22.06.23|DEBUG|1|RaptorDB.Hoot|| Word Count = 38
+2017-09-21 22.06.25|INFO|1|RaptorDB.Hoot|| saving index...
+2017-09-21 22.06.25|DEBUG|1|RaptorDB.KeyStore`1|| saving to disk
+2017-09-21 22.06.25|DEBUG|1|RaptorDB.KeyStore`1|| index saved
+2017-09-21 22.06.25|INFO|1|RaptorDB.Hoot|| save time (ms) = 13,0115
+2017-09-21 22.06.25|DEBUG|1|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.06.25|DEBUG|1|RaptorDB.KeyStore`1|| Shutting down
+2017-09-21 22.06.25|DEBUG|1|RaptorDB.KeyStore`1|| saving to disk
+2017-09-21 22.06.25|DEBUG|1|RaptorDB.KeyStore`1|| index saved
+2017-09-21 22.06.25|DEBUG|1|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 22.06.25|DEBUG|1|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.06.25|DEBUG|1|RaptorDB.RaptorDB|| Shutting down
+2017-09-21 22.06.25|DEBUG|1|RaptorDB.Views.ViewManager|| View Manager shutdown
+2017-09-21 22.06.25|DEBUG|1|RaptorDB.Views.TaskQueue|| TaskQueue shutdown
+2017-09-21 22.06.25|DEBUG|1|RaptorDB.KeyStore`1|| Shutting down
+2017-09-21 22.06.25|DEBUG|1|RaptorDB.KeyStore`1|| saving to disk
+2017-09-21 22.06.25|DEBUG|1|RaptorDB.KeyStore`1|| index saved
+2017-09-21 22.06.25|DEBUG|1|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 22.06.25|DEBUG|1|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.06.25|DEBUG|1|RaptorDB.KeyStore`1|| Shutting down
+2017-09-21 22.06.25|DEBUG|1|RaptorDB.KeyStore`1|| saving to disk
+2017-09-21 22.06.25|DEBUG|1|RaptorDB.KeyStore`1|| index saved
+2017-09-21 22.06.25|DEBUG|1|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 22.06.25|DEBUG|1|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.06.25|DEBUG|1|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 22.06.25|DEBUG|1|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.06.25|DEBUG|1|RaptorDB.RaptorDB|| last full text record = 1
+2017-09-21 22.06.25|DEBUG|1|RaptorDB.RaptorDB|| last record = 1
+2017-09-21 22.06.25|DEBUG|1|RaptorDB.RaptorDB|| last backup record = -1
+2017-09-21 22.06.25|DEBUG|1|RaptorDB.RaptorDB|| Shutting down log.
+2017-09-21 22.06.25|DEBUG|1|RaptorDB.RaptorDB|| RaptorDB done.
+2017-09-21 22.06.28|DEBUG|1|RaptorDB.RaptorDB|| 
+
+RaptorDB starting...
+2017-09-21 22.06.28|DEBUG|1|RaptorDB.RaptorDB|| RaptorDB data folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\
+2017-09-21 22.06.28|DEBUG|1|RaptorDB.KeyStore`1|| Current Count = 1
+2017-09-21 22.06.28|DEBUG|1|RaptorDB.KeyStore`1|| Checking Index state...
+2017-09-21 22.06.28|DEBUG|1|RaptorDB.KeyStore`1|| Starting save timer
+2017-09-21 22.06.28|DEBUG|1|RaptorDB.KeyStore`1|| Current Count = 0
+2017-09-21 22.06.28|DEBUG|1|RaptorDB.KeyStore`1|| Checking Index state...
+2017-09-21 22.06.28|DEBUG|1|RaptorDB.KeyStore`1|| Starting save timer
+2017-09-21 22.06.28|DEBUG|1|RaptorDB.Views.TaskQueue|| TaskQueue starting
+2017-09-21 22.06.28|DEBUG|1|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 22.06.28|DEBUG|1|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Data\Fulltext\
+2017-09-21 22.06.28|DEBUG|1|RaptorDB.KeyStore`1|| Current Count = 0
+2017-09-21 22.06.28|DEBUG|1|RaptorDB.KeyStore`1|| Checking Index state...
+2017-09-21 22.06.28|DEBUG|1|RaptorDB.KeyStore`1|| Starting save timer
+2017-09-21 22.06.28|DEBUG|1|RaptorDB.Hoot|| Word Count = 38
+2017-09-21 22.07.11|DEBUG|1|RaptorDB.RaptorDB|| 
+
+RaptorDB starting...
+2017-09-21 22.07.11|DEBUG|1|RaptorDB.RaptorDB|| RaptorDB data folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\
+2017-09-21 22.07.11|DEBUG|1|RaptorDB.KeyStore`1|| Current Count = 1
+2017-09-21 22.07.11|DEBUG|1|RaptorDB.KeyStore`1|| Checking Index state...
+2017-09-21 22.07.11|DEBUG|1|RaptorDB.KeyStore`1|| Starting save timer
+2017-09-21 22.07.11|DEBUG|1|RaptorDB.KeyStore`1|| Current Count = 0
+2017-09-21 22.07.11|DEBUG|1|RaptorDB.KeyStore`1|| Checking Index state...
+2017-09-21 22.07.11|DEBUG|1|RaptorDB.KeyStore`1|| Starting save timer
+2017-09-21 22.07.11|DEBUG|1|RaptorDB.Views.TaskQueue|| TaskQueue starting
+2017-09-21 22.07.11|DEBUG|1|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 22.07.11|DEBUG|1|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Data\Fulltext\
+2017-09-21 22.07.11|DEBUG|1|RaptorDB.KeyStore`1|| Current Count = 0
+2017-09-21 22.07.11|DEBUG|1|RaptorDB.KeyStore`1|| Checking Index state...
+2017-09-21 22.07.11|DEBUG|1|RaptorDB.KeyStore`1|| Starting save timer
+2017-09-21 22.07.11|DEBUG|1|RaptorDB.Hoot|| Word Count = 38
+2017-09-21 22.07.44|DEBUG|1|RaptorDB.RaptorDB|| 
+
+RaptorDB starting...
+2017-09-21 22.07.44|DEBUG|1|RaptorDB.RaptorDB|| RaptorDB data folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\
+2017-09-21 22.07.44|DEBUG|1|RaptorDB.KeyStore`1|| Current Count = 1
+2017-09-21 22.07.44|DEBUG|1|RaptorDB.KeyStore`1|| Checking Index state...
+2017-09-21 22.07.44|DEBUG|1|RaptorDB.KeyStore`1|| Starting save timer
+2017-09-21 22.07.44|DEBUG|1|RaptorDB.KeyStore`1|| Current Count = 0
+2017-09-21 22.07.44|DEBUG|1|RaptorDB.KeyStore`1|| Checking Index state...
+2017-09-21 22.07.44|DEBUG|1|RaptorDB.KeyStore`1|| Starting save timer
+2017-09-21 22.07.44|DEBUG|1|RaptorDB.Views.TaskQueue|| TaskQueue starting
+2017-09-21 22.07.44|DEBUG|1|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 22.07.44|DEBUG|1|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Data\Fulltext\
+2017-09-21 22.07.44|DEBUG|1|RaptorDB.KeyStore`1|| Current Count = 0
+2017-09-21 22.07.44|DEBUG|1|RaptorDB.KeyStore`1|| Checking Index state...
+2017-09-21 22.07.44|DEBUG|1|RaptorDB.KeyStore`1|| Starting save timer
+2017-09-21 22.07.44|DEBUG|1|RaptorDB.Hoot|| Word Count = 38
+2017-09-21 22.07.44|DEBUG|1|RaptorDB.RaptorDBServer|| loading dll for views : C:\Users\nikol\Desktop\raptor\Output\server\Extensions\Views.dll
+2017-09-21 22.07.44|DEBUG|1|RaptorDB.Views.ViewHandler|| RaptorDB view engine upgrade, rebuilding view : SalesInvoice
+2017-09-21 22.07.44|DEBUG|1|RaptorDB.Views.ViewHandler|| Deleting old view data folder = SalesInvoice
+2017-09-21 22.07.44|DEBUG|1|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 22.07.44|DEBUG|1|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\SalesInvoice\
+2017-09-21 22.07.44|DEBUG|1|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 22.07.44|DEBUG|1|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\SalesInvoice\
+2017-09-21 22.07.45|DEBUG|1|RaptorDB.Views.ViewHandler|| RaptorDB view engine upgrade, rebuilding view : SalesItemRows
+2017-09-21 22.07.45|DEBUG|1|RaptorDB.Views.ViewHandler|| Deleting old view data folder = SalesItemRows
+2017-09-21 22.07.45|DEBUG|6|RaptorDB.Views.ViewHandler|| Rebuilding view from scratch...
+2017-09-21 22.07.45|DEBUG|6|RaptorDB.Views.ViewHandler|| View = SalesInvoice
+2017-09-21 22.07.45|DEBUG|7|RaptorDB.Views.ViewHandler|| Rebuilding view from scratch...
+2017-09-21 22.07.45|DEBUG|7|RaptorDB.Views.ViewHandler|| View = SalesItemRows
+2017-09-21 22.07.45|DEBUG|1|RaptorDB.Views.ViewHandler|| RaptorDB view engine upgrade, rebuilding view : newview
+2017-09-21 22.07.45|DEBUG|1|RaptorDB.Views.ViewHandler|| Deleting old view data folder = newview
+2017-09-21 22.07.45|DEBUG|8|RaptorDB.Views.ViewHandler|| Rebuilding view from scratch...
+2017-09-21 22.07.45|DEBUG|8|RaptorDB.Views.ViewHandler|| View = newview
+2017-09-21 22.07.45|ERROR|6|RaptorDB.Views.ViewHandler|| Rebuilding View failed : SalesInvoice
+System.IO.FileNotFoundException: Could not resolve assembly 'App_Code.46tsotzh, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
+   at System.TypeNameParser.ResolveAssembly(String asmName, Func`2 assemblyResolver, Boolean throwOnError, StackCrawlMark& stackMark)
+   at System.TypeNameParser.ConstructType(Func`2 assemblyResolver, Func`4 typeResolver, Boolean throwOnError, Boolean ignoreCase, StackCrawlMark& stackMark)
+   at System.TypeNameParser.GetType(String typeName, Func`2 assemblyResolver, Func`4 typeResolver, Boolean throwOnError, Boolean ignoreCase, StackCrawlMark& stackMark)
+   at System.Type.GetType(String typeName, Func`2 assemblyResolver, Func`4 typeResolver, Boolean throwOnError)
+   at fastJSON.Reflection.GetTypeFromCache(String typename) in C:\Users\nikol\Desktop\raptor\RaptorDB.Common\fastJSON\Reflection.cs:line 318
+   at fastBinaryJSON.deserializer.ParseDictionary(Dictionary`2 d, Dictionary`2 globaltypes, Type type, Object input) in C:\Users\nikol\Desktop\raptor\RaptorDB.Common\fastBinaryJSON\BJSON.cs:line 478
+   at fastBinaryJSON.deserializer.ToObject(Byte[] json, Type type) in C:\Users\nikol\Desktop\raptor\RaptorDB.Common\fastBinaryJSON\BJSON.cs:line 312
+   at fastBinaryJSON.BJSON.ToObject(Byte[] json) in C:\Users\nikol\Desktop\raptor\RaptorDB.Common\fastBinaryJSON\BJSON.cs:line 223
+   at RaptorDB.StorageFile`1.ReadObject(Int64 recnum, StorageItem`1& meta) in C:\Users\nikol\Desktop\raptor\RaptorDB\Storage\StorageFile.cs:line 311
+   at RaptorDB.KeyStore`1.GetObject(Int32 rowid, StorageItem`1& meta) in C:\Users\nikol\Desktop\raptor\RaptorDB\Storage\KeyStore.cs:line 593
+   at RaptorDB.Views.ViewHandler.RebuildFromScratch(IDocStorage`1 docs) in C:\Users\nikol\Desktop\raptor\RaptorDB\Views\ViewHandler.cs:line 746
+2017-09-21 22.07.45|ERROR|8|RaptorDB.Views.ViewHandler|| Rebuilding View failed : newview
+System.IO.FileNotFoundException: Could not resolve assembly 'App_Code.46tsotzh, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
+   at System.TypeNameParser.ResolveAssembly(String asmName, Func`2 assemblyResolver, Boolean throwOnError, StackCrawlMark& stackMark)
+   at System.TypeNameParser.ConstructType(Func`2 assemblyResolver, Func`4 typeResolver, Boolean throwOnError, Boolean ignoreCase, StackCrawlMark& stackMark)
+   at System.TypeNameParser.GetType(String typeName, Func`2 assemblyResolver, Func`4 typeResolver, Boolean throwOnError, Boolean ignoreCase, StackCrawlMark& stackMark)
+   at System.Type.GetType(String typeName, Func`2 assemblyResolver, Func`4 typeResolver, Boolean throwOnError)
+   at fastJSON.Reflection.GetTypeFromCache(String typename) in C:\Users\nikol\Desktop\raptor\RaptorDB.Common\fastJSON\Reflection.cs:line 318
+   at fastBinaryJSON.deserializer.ParseDictionary(Dictionary`2 d, Dictionary`2 globaltypes, Type type, Object input) in C:\Users\nikol\Desktop\raptor\RaptorDB.Common\fastBinaryJSON\BJSON.cs:line 478
+   at fastBinaryJSON.deserializer.ToObject(Byte[] json, Type type) in C:\Users\nikol\Desktop\raptor\RaptorDB.Common\fastBinaryJSON\BJSON.cs:line 312
+   at fastBinaryJSON.BJSON.ToObject(Byte[] json) in C:\Users\nikol\Desktop\raptor\RaptorDB.Common\fastBinaryJSON\BJSON.cs:line 223
+   at RaptorDB.StorageFile`1.ReadObject(Int64 recnum, StorageItem`1& meta) in C:\Users\nikol\Desktop\raptor\RaptorDB\Storage\StorageFile.cs:line 311
+   at RaptorDB.KeyStore`1.GetObject(Int32 rowid, StorageItem`1& meta) in C:\Users\nikol\Desktop\raptor\RaptorDB\Storage\KeyStore.cs:line 593
+   at RaptorDB.Views.ViewHandler.RebuildFromScratch(IDocStorage`1 docs) in C:\Users\nikol\Desktop\raptor\RaptorDB\Views\ViewHandler.cs:line 746
+2017-09-21 22.07.45|ERROR|7|RaptorDB.Views.ViewHandler|| Rebuilding View failed : SalesItemRows
+System.IO.FileNotFoundException: Could not resolve assembly 'App_Code.46tsotzh, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
+   at System.TypeNameParser.ResolveAssembly(String asmName, Func`2 assemblyResolver, Boolean throwOnError, StackCrawlMark& stackMark)
+   at System.TypeNameParser.ConstructType(Func`2 assemblyResolver, Func`4 typeResolver, Boolean throwOnError, Boolean ignoreCase, StackCrawlMark& stackMark)
+   at System.TypeNameParser.GetType(String typeName, Func`2 assemblyResolver, Func`4 typeResolver, Boolean throwOnError, Boolean ignoreCase, StackCrawlMark& stackMark)
+   at System.Type.GetType(String typeName, Func`2 assemblyResolver, Func`4 typeResolver, Boolean throwOnError)
+   at fastJSON.Reflection.GetTypeFromCache(String typename) in C:\Users\nikol\Desktop\raptor\RaptorDB.Common\fastJSON\Reflection.cs:line 318
+   at fastBinaryJSON.deserializer.ParseDictionary(Dictionary`2 d, Dictionary`2 globaltypes, Type type, Object input) in C:\Users\nikol\Desktop\raptor\RaptorDB.Common\fastBinaryJSON\BJSON.cs:line 478
+   at fastBinaryJSON.deserializer.ToObject(Byte[] json, Type type) in C:\Users\nikol\Desktop\raptor\RaptorDB.Common\fastBinaryJSON\BJSON.cs:line 312
+   at fastBinaryJSON.BJSON.ToObject(Byte[] json) in C:\Users\nikol\Desktop\raptor\RaptorDB.Common\fastBinaryJSON\BJSON.cs:line 223
+   at RaptorDB.StorageFile`1.ReadObject(Int64 recnum, StorageItem`1& meta) in C:\Users\nikol\Desktop\raptor\RaptorDB\Storage\StorageFile.cs:line 311
+   at RaptorDB.KeyStore`1.GetObject(Int32 rowid, StorageItem`1& meta) in C:\Users\nikol\Desktop\raptor\RaptorDB\Storage\KeyStore.cs:line 593
+   at RaptorDB.Views.ViewHandler.RebuildFromScratch(IDocStorage`1 docs) in C:\Users\nikol\Desktop\raptor\RaptorDB\Views\ViewHandler.cs:line 746
+2017-09-21 22.13.36|DEBUG|50|RaptorDB.RaptorDB|| 
+
+RaptorDB starting...
+2017-09-21 22.13.36|DEBUG|50|RaptorDB.RaptorDB|| RaptorDB data folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\
+2017-09-21 22.13.36|DEBUG|50|RaptorDB.KeyStore`1|| Current Count = 1
+2017-09-21 22.13.36|DEBUG|50|RaptorDB.KeyStore`1|| Checking Index state...
+2017-09-21 22.13.36|DEBUG|50|RaptorDB.KeyStore`1|| Starting save timer
+2017-09-21 22.13.36|DEBUG|50|RaptorDB.KeyStore`1|| Current Count = 0
+2017-09-21 22.13.36|DEBUG|50|RaptorDB.KeyStore`1|| Checking Index state...
+2017-09-21 22.13.36|DEBUG|50|RaptorDB.KeyStore`1|| Starting save timer
+2017-09-21 22.13.36|DEBUG|50|RaptorDB.Views.TaskQueue|| TaskQueue starting
+2017-09-21 22.13.36|DEBUG|50|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 22.13.36|DEBUG|50|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Data\Fulltext\
+2017-09-21 22.13.36|DEBUG|50|RaptorDB.KeyStore`1|| Current Count = 0
+2017-09-21 22.13.36|DEBUG|50|RaptorDB.KeyStore`1|| Checking Index state...
+2017-09-21 22.13.36|DEBUG|50|RaptorDB.KeyStore`1|| Starting save timer
+2017-09-21 22.13.36|DEBUG|50|RaptorDB.Hoot|| Word Count = 38
+2017-09-21 22.13.36|DEBUG|50|RaptorDB.Views.ViewHandler|| Newer view version detected
+2017-09-21 22.13.36|DEBUG|50|RaptorDB.Views.ViewHandler|| Deleting old view data folder = WorkersR
+2017-09-21 22.13.36|DEBUG|50|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 22.13.36|DEBUG|50|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\WorkersR\
+2017-09-21 22.13.36|DEBUG|50|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 22.13.36|DEBUG|50|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\WorkersR\
+2017-09-21 22.13.36|DEBUG|50|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 22.13.36|DEBUG|50|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\WorkersR\
+2017-09-21 22.13.36|DEBUG|29|RaptorDB.Views.ViewHandler|| Rebuilding view from scratch...
+2017-09-21 22.13.36|DEBUG|29|RaptorDB.Views.ViewHandler|| View = WorkersR
+2017-09-21 22.13.36|DEBUG|50|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 22.13.36|DEBUG|50|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\CompaniesR\
+2017-09-21 22.13.36|DEBUG|50|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 22.13.36|DEBUG|50|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\CompaniesR\
+2017-09-21 22.13.36|DEBUG|50|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 22.13.36|DEBUG|50|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\CompaniesR\
+2017-09-21 22.13.36|DEBUG|50|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 22.13.36|DEBUG|50|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\CompaniesR\
+2017-09-21 22.13.36|DEBUG|50|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 22.13.36|DEBUG|50|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\CompaniesR\
+2017-09-21 22.13.40|DEBUG|50|RaptorDB.Views.ViewHandler|| query : WorkersR
+2017-09-21 22.13.40|DEBUG|50|RaptorDB.Views.ViewHandler|| query bitmap done (ms) : 8,6175
+2017-09-21 22.13.40|DEBUG|50|RaptorDB.Views.ViewHandler|| query rows fetched (ms) : 0,4999
+2017-09-21 22.13.40|DEBUG|50|RaptorDB.Views.ViewHandler|| query rows count : 0
+2017-09-21 22.13.41|DEBUG|29|RaptorDB.Views.ViewHandler|| Documents processed = 1
+2017-09-21 22.13.41|DEBUG|29|RaptorDB.Views.ViewHandler|| rebuild view 'WorkersR' done (s) = 4,412428
+2017-09-21 22.13.41|INFO|50|RaptorDB.Hoot|| saving index...
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.KeyStore`1|| saving to disk
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.KeyStore`1|| index saved
+2017-09-21 22.13.41|INFO|50|RaptorDB.Hoot|| save time (ms) = 12,0106
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.KeyStore`1|| Shutting down
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.KeyStore`1|| saving to disk
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.KeyStore`1|| index saved
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.RaptorDB|| Shutting down
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.Views.ViewManager|| View Manager shutdown
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.Views.ViewManager||  shutting down view : WorkersR
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.Views.ViewHandler|| Shutting down Viewhandler
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.Views.ViewHandler|| Shutting down view index : docid
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.BitmapIndex|| writing docid
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.Views.ViewHandler|| Shutting down view index : CompanyId
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.BitmapIndex|| writing CompanyId
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.Views.ViewHandler|| Shutting down view index : CompanyName
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.Views.ViewHandler|| Shutting down view index : FirstName
+2017-09-21 22.13.41|INFO|50|RaptorDB.Hoot|| saving index...
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.BitmapIndex|| writing FirstName_hoot
+2017-09-21 22.13.41|INFO|50|RaptorDB.Hoot|| save time (ms) = 1,5008
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.BitmapIndex|| writing FirstName
+2017-09-21 22.13.41|INFO|50|RaptorDB.Hoot|| saving index...
+2017-09-21 22.13.41|INFO|50|RaptorDB.Hoot|| save time (ms) = 0
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.Views.ViewHandler|| Shutting down view index : LastName
+2017-09-21 22.13.41|INFO|50|RaptorDB.Hoot|| saving index...
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.BitmapIndex|| writing LastName_hoot
+2017-09-21 22.13.41|INFO|50|RaptorDB.Hoot|| save time (ms) = 2,0013
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.BitmapIndex|| writing LastName
+2017-09-21 22.13.41|INFO|50|RaptorDB.Hoot|| saving index...
+2017-09-21 22.13.41|INFO|50|RaptorDB.Hoot|| save time (ms) = 0
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.Views.ViewHandler|| Shutting down view index : Password
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.BitmapIndex|| writing Password
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.Views.ViewHandler|| Shutting down view index : Email
+2017-09-21 22.13.41|INFO|50|RaptorDB.Hoot|| saving index...
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.BitmapIndex|| writing Email_hoot
+2017-09-21 22.13.41|INFO|50|RaptorDB.Hoot|| save time (ms) = 2,5019
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.BitmapIndex|| writing Email
+2017-09-21 22.13.41|INFO|50|RaptorDB.Hoot|| saving index...
+2017-09-21 22.13.41|INFO|50|RaptorDB.Hoot|| save time (ms) = 0
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.Views.ViewHandler|| Shutting down view index : Checkbox
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.BitmapIndex|| writing Checkbox
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.Views.ViewHandler|| Viewhandler shutdown done.
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.Views.ViewManager||  shutting down view : CompaniesR
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.Views.ViewHandler|| Shutting down Viewhandler
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.Views.ViewHandler|| Shutting down view index : docid
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.Views.ViewHandler|| Shutting down view index : CompanyName
+2017-09-21 22.13.41|INFO|50|RaptorDB.Hoot|| saving index...
+2017-09-21 22.13.41|INFO|50|RaptorDB.Hoot|| save time (ms) = 0
+2017-09-21 22.13.41|INFO|50|RaptorDB.Hoot|| saving index...
+2017-09-21 22.13.41|INFO|50|RaptorDB.Hoot|| save time (ms) = 0
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.Views.ViewHandler|| Shutting down view index : Owner
+2017-09-21 22.13.41|INFO|50|RaptorDB.Hoot|| saving index...
+2017-09-21 22.13.41|INFO|50|RaptorDB.Hoot|| save time (ms) = 1,0011
+2017-09-21 22.13.41|INFO|50|RaptorDB.Hoot|| saving index...
+2017-09-21 22.13.41|INFO|50|RaptorDB.Hoot|| save time (ms) = 0
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.Views.ViewHandler|| Shutting down view index : Type
+2017-09-21 22.13.41|INFO|50|RaptorDB.Hoot|| saving index...
+2017-09-21 22.13.41|INFO|50|RaptorDB.Hoot|| save time (ms) = 1,5011
+2017-09-21 22.13.41|INFO|50|RaptorDB.Hoot|| saving index...
+2017-09-21 22.13.41|INFO|50|RaptorDB.Hoot|| save time (ms) = 0
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.Views.ViewHandler|| Shutting down view index : Location
+2017-09-21 22.13.41|INFO|50|RaptorDB.Hoot|| saving index...
+2017-09-21 22.13.41|INFO|50|RaptorDB.Hoot|| save time (ms) = 0,4999
+2017-09-21 22.13.41|INFO|50|RaptorDB.Hoot|| saving index...
+2017-09-21 22.13.41|INFO|50|RaptorDB.Hoot|| save time (ms) = 0
+2017-09-21 22.13.41|DEBUG|50|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.13.42|DEBUG|50|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 22.13.42|DEBUG|50|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.13.42|DEBUG|50|RaptorDB.Views.ViewHandler|| Shutting down view index : Email
+2017-09-21 22.13.42|INFO|50|RaptorDB.Hoot|| saving index...
+2017-09-21 22.13.42|INFO|50|RaptorDB.Hoot|| save time (ms) = 1,0055
+2017-09-21 22.13.42|INFO|50|RaptorDB.Hoot|| saving index...
+2017-09-21 22.13.42|INFO|50|RaptorDB.Hoot|| save time (ms) = 0
+2017-09-21 22.13.42|DEBUG|50|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.13.42|DEBUG|50|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 22.13.42|DEBUG|50|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.13.42|DEBUG|50|RaptorDB.Views.ViewHandler|| Shutting down view index : Password
+2017-09-21 22.13.42|DEBUG|50|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 22.13.42|DEBUG|50|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.13.42|DEBUG|50|RaptorDB.Views.ViewHandler|| Shutting down view index : Checkbox
+2017-09-21 22.13.42|DEBUG|50|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 22.13.42|DEBUG|50|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.13.42|DEBUG|50|RaptorDB.Views.ViewHandler|| Viewhandler shutdown done.
+2017-09-21 22.13.42|DEBUG|50|RaptorDB.Views.TaskQueue|| TaskQueue shutdown
+2017-09-21 22.13.42|DEBUG|50|RaptorDB.KeyStore`1|| Shutting down
+2017-09-21 22.13.42|DEBUG|50|RaptorDB.KeyStore`1|| saving to disk
+2017-09-21 22.13.42|DEBUG|50|RaptorDB.KeyStore`1|| index saved
+2017-09-21 22.13.42|DEBUG|50|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 22.13.42|DEBUG|50|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.13.42|DEBUG|50|RaptorDB.KeyStore`1|| Shutting down
+2017-09-21 22.13.42|DEBUG|50|RaptorDB.KeyStore`1|| saving to disk
+2017-09-21 22.13.42|DEBUG|50|RaptorDB.KeyStore`1|| index saved
+2017-09-21 22.13.42|DEBUG|50|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 22.13.42|DEBUG|50|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.14.33|DEBUG|50|RaptorDB.RaptorDB|| 
+
+RaptorDB starting...
+2017-09-21 22.14.33|DEBUG|50|RaptorDB.RaptorDB|| RaptorDB data folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\
+2017-09-21 22.14.33|DEBUG|50|RaptorDB.KeyStore`1|| Current Count = 1
+2017-09-21 22.14.33|DEBUG|50|RaptorDB.KeyStore`1|| Checking Index state...
+2017-09-21 22.14.33|DEBUG|50|RaptorDB.KeyStore`1|| Starting save timer
+2017-09-21 22.14.33|DEBUG|50|RaptorDB.KeyStore`1|| Current Count = 0
+2017-09-21 22.14.33|DEBUG|50|RaptorDB.KeyStore`1|| Checking Index state...
+2017-09-21 22.14.33|DEBUG|50|RaptorDB.KeyStore`1|| Starting save timer
+2017-09-21 22.14.33|DEBUG|50|RaptorDB.Views.TaskQueue|| TaskQueue starting
+2017-09-21 22.14.33|DEBUG|50|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 22.14.33|DEBUG|50|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Data\Fulltext\
+2017-09-21 22.14.33|DEBUG|50|RaptorDB.KeyStore`1|| Current Count = 0
+2017-09-21 22.14.33|DEBUG|50|RaptorDB.KeyStore`1|| Checking Index state...
+2017-09-21 22.14.33|DEBUG|50|RaptorDB.KeyStore`1|| Starting save timer
+2017-09-21 22.14.33|DEBUG|50|RaptorDB.Hoot|| Word Count = 38
+2017-09-21 22.14.33|DEBUG|50|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 22.14.33|DEBUG|50|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\WorkersR\
+2017-09-21 22.14.33|DEBUG|50|RaptorDB.Hoot|| Word Count = 1
+2017-09-21 22.14.33|DEBUG|50|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 22.14.33|DEBUG|50|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\WorkersR\
+2017-09-21 22.14.33|DEBUG|50|RaptorDB.Hoot|| Word Count = 1
+2017-09-21 22.14.33|DEBUG|50|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 22.14.33|DEBUG|50|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\WorkersR\
+2017-09-21 22.14.33|DEBUG|50|RaptorDB.Hoot|| Word Count = 1
+2017-09-21 22.14.33|DEBUG|50|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 22.14.33|DEBUG|50|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\CompaniesR\
+2017-09-21 22.14.33|DEBUG|50|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 22.14.33|DEBUG|50|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\CompaniesR\
+2017-09-21 22.14.33|DEBUG|50|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 22.14.33|DEBUG|50|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\CompaniesR\
+2017-09-21 22.14.33|DEBUG|50|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 22.14.33|DEBUG|50|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\CompaniesR\
+2017-09-21 22.14.33|DEBUG|50|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 22.14.33|DEBUG|50|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\CompaniesR\
+2017-09-21 22.14.33|DEBUG|50|RaptorDB.Views.ViewHandler|| query : WorkersR
+2017-09-21 22.14.33|DEBUG|50|RaptorDB.Views.ViewHandler|| query bitmap done (ms) : 13,0118
+2017-09-21 22.14.33|DEBUG|50|RaptorDB.Views.ViewHandler|| query rows fetched (ms) : 3,0015
+2017-09-21 22.14.33|DEBUG|50|RaptorDB.Views.ViewHandler|| query rows count : 1
+2017-09-21 22.15.28|DEBUG|40|RaptorDB.RaptorDB|| 
+
+RaptorDB starting...
+2017-09-21 22.15.28|DEBUG|40|RaptorDB.RaptorDB|| RaptorDB data folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\
+2017-09-21 22.15.28|DEBUG|40|RaptorDB.KeyStore`1|| Current Count = 1
+2017-09-21 22.15.28|DEBUG|40|RaptorDB.KeyStore`1|| Checking Index state...
+2017-09-21 22.15.28|DEBUG|40|RaptorDB.KeyStore`1|| Starting save timer
+2017-09-21 22.15.28|DEBUG|40|RaptorDB.KeyStore`1|| Current Count = 0
+2017-09-21 22.15.28|DEBUG|40|RaptorDB.KeyStore`1|| Checking Index state...
+2017-09-21 22.15.28|DEBUG|40|RaptorDB.KeyStore`1|| Starting save timer
+2017-09-21 22.15.28|DEBUG|40|RaptorDB.Views.TaskQueue|| TaskQueue starting
+2017-09-21 22.15.28|DEBUG|40|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 22.15.28|DEBUG|40|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Data\Fulltext\
+2017-09-21 22.15.28|DEBUG|40|RaptorDB.KeyStore`1|| Current Count = 0
+2017-09-21 22.15.28|DEBUG|40|RaptorDB.KeyStore`1|| Checking Index state...
+2017-09-21 22.15.28|DEBUG|40|RaptorDB.KeyStore`1|| Starting save timer
+2017-09-21 22.15.28|DEBUG|40|RaptorDB.Hoot|| Word Count = 38
+2017-09-21 22.15.28|DEBUG|40|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 22.15.28|DEBUG|40|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\WorkersR\
+2017-09-21 22.15.28|DEBUG|40|RaptorDB.Hoot|| Word Count = 1
+2017-09-21 22.15.28|DEBUG|40|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 22.15.28|DEBUG|40|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\WorkersR\
+2017-09-21 22.15.28|DEBUG|40|RaptorDB.Hoot|| Word Count = 1
+2017-09-21 22.15.28|DEBUG|40|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 22.15.28|DEBUG|40|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\WorkersR\
+2017-09-21 22.15.28|DEBUG|40|RaptorDB.Hoot|| Word Count = 1
+2017-09-21 22.15.28|DEBUG|40|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 22.15.28|DEBUG|40|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\CompaniesR\
+2017-09-21 22.15.28|DEBUG|40|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 22.15.28|DEBUG|40|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\CompaniesR\
+2017-09-21 22.15.28|DEBUG|40|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 22.15.28|DEBUG|40|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\CompaniesR\
+2017-09-21 22.15.28|DEBUG|40|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 22.15.28|DEBUG|40|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\CompaniesR\
+2017-09-21 22.15.28|DEBUG|40|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 22.15.28|DEBUG|40|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\CompaniesR\
+2017-09-21 22.15.28|DEBUG|40|RaptorDB.Views.ViewHandler|| query : WorkersR
+2017-09-21 22.15.28|DEBUG|40|RaptorDB.Views.ViewHandler|| query bitmap done (ms) : 9,0062
+2017-09-21 22.15.28|DEBUG|40|RaptorDB.Views.ViewHandler|| query rows fetched (ms) : 3,0022
+2017-09-21 22.15.28|DEBUG|40|RaptorDB.Views.ViewHandler|| query rows count : 1
+2017-09-21 22.18.00|DEBUG|1|RaptorDB.RaptorDB|| 
+
+RaptorDB starting...
+2017-09-21 22.18.00|DEBUG|1|RaptorDB.RaptorDB|| RaptorDB data folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\
+2017-09-21 22.18.00|DEBUG|1|RaptorDB.KeyStore`1|| Current Count = 1
+2017-09-21 22.18.00|DEBUG|1|RaptorDB.KeyStore`1|| Checking Index state...
+2017-09-21 22.18.00|DEBUG|1|RaptorDB.KeyStore`1|| Starting save timer
+2017-09-21 22.18.00|DEBUG|1|RaptorDB.KeyStore`1|| Current Count = 0
+2017-09-21 22.18.00|DEBUG|1|RaptorDB.KeyStore`1|| Checking Index state...
+2017-09-21 22.18.00|DEBUG|1|RaptorDB.KeyStore`1|| Starting save timer
+2017-09-21 22.18.00|DEBUG|1|RaptorDB.Views.TaskQueue|| TaskQueue starting
+2017-09-21 22.18.00|DEBUG|1|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 22.18.00|DEBUG|1|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Data\Fulltext\
+2017-09-21 22.18.00|DEBUG|1|RaptorDB.KeyStore`1|| Current Count = 0
+2017-09-21 22.18.00|DEBUG|1|RaptorDB.KeyStore`1|| Checking Index state...
+2017-09-21 22.18.00|DEBUG|1|RaptorDB.KeyStore`1|| Starting save timer
+2017-09-21 22.18.00|DEBUG|1|RaptorDB.Hoot|| Word Count = 38
+2017-09-21 22.18.00|DEBUG|1|RaptorDB.RaptorDBServer|| loading dll for views : C:\Users\nikol\Desktop\raptor\Output\server\Extensions\Views.dll
+2017-09-21 22.18.00|DEBUG|1|RaptorDB.Views.ViewHandler|| RaptorDB view engine upgrade, rebuilding view : SalesInvoice
+2017-09-21 22.18.00|DEBUG|1|RaptorDB.Views.ViewHandler|| Deleting old view data folder = SalesInvoice
+2017-09-21 22.18.00|DEBUG|1|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 22.18.00|DEBUG|1|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\SalesInvoice\
+2017-09-21 22.18.00|DEBUG|1|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 22.18.00|DEBUG|1|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\SalesInvoice\
+2017-09-21 22.18.00|DEBUG|1|RaptorDB.Views.ViewHandler|| RaptorDB view engine upgrade, rebuilding view : SalesItemRows
+2017-09-21 22.18.00|DEBUG|1|RaptorDB.Views.ViewHandler|| Deleting old view data folder = SalesItemRows
+2017-09-21 22.18.00|DEBUG|6|RaptorDB.Views.ViewHandler|| Rebuilding view from scratch...
+2017-09-21 22.18.00|DEBUG|6|RaptorDB.Views.ViewHandler|| View = SalesInvoice
+2017-09-21 22.18.00|ERROR|6|RaptorDB.Views.ViewHandler|| Rebuilding View failed : SalesInvoice
+System.IO.FileNotFoundException: Could not resolve assembly 'App_Code.46tsotzh, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
+   at System.TypeNameParser.ResolveAssembly(String asmName, Func`2 assemblyResolver, Boolean throwOnError, StackCrawlMark& stackMark)
+   at System.TypeNameParser.ConstructType(Func`2 assemblyResolver, Func`4 typeResolver, Boolean throwOnError, Boolean ignoreCase, StackCrawlMark& stackMark)
+   at System.TypeNameParser.GetType(String typeName, Func`2 assemblyResolver, Func`4 typeResolver, Boolean throwOnError, Boolean ignoreCase, StackCrawlMark& stackMark)
+   at System.Type.GetType(String typeName, Func`2 assemblyResolver, Func`4 typeResolver, Boolean throwOnError)
+   at fastJSON.Reflection.GetTypeFromCache(String typename) in C:\Users\nikol\Desktop\raptor\RaptorDB.Common\fastJSON\Reflection.cs:line 318
+   at fastBinaryJSON.deserializer.ParseDictionary(Dictionary`2 d, Dictionary`2 globaltypes, Type type, Object input) in C:\Users\nikol\Desktop\raptor\RaptorDB.Common\fastBinaryJSON\BJSON.cs:line 478
+   at fastBinaryJSON.deserializer.ToObject(Byte[] json, Type type) in C:\Users\nikol\Desktop\raptor\RaptorDB.Common\fastBinaryJSON\BJSON.cs:line 312
+   at fastBinaryJSON.BJSON.ToObject(Byte[] json) in C:\Users\nikol\Desktop\raptor\RaptorDB.Common\fastBinaryJSON\BJSON.cs:line 223
+   at RaptorDB.StorageFile`1.ReadObject(Int64 recnum, StorageItem`1& meta) in C:\Users\nikol\Desktop\raptor\RaptorDB\Storage\StorageFile.cs:line 311
+   at RaptorDB.KeyStore`1.GetObject(Int32 rowid, StorageItem`1& meta) in C:\Users\nikol\Desktop\raptor\RaptorDB\Storage\KeyStore.cs:line 593
+   at RaptorDB.Views.ViewHandler.RebuildFromScratch(IDocStorage`1 docs) in C:\Users\nikol\Desktop\raptor\RaptorDB\Views\ViewHandler.cs:line 746
+2017-09-21 22.18.00|DEBUG|7|RaptorDB.Views.ViewHandler|| Rebuilding view from scratch...
+2017-09-21 22.18.00|DEBUG|7|RaptorDB.Views.ViewHandler|| View = SalesItemRows
+2017-09-21 22.18.00|DEBUG|1|RaptorDB.Views.ViewHandler|| RaptorDB view engine upgrade, rebuilding view : newview
+2017-09-21 22.18.00|DEBUG|1|RaptorDB.Views.ViewHandler|| Deleting old view data folder = newview
+2017-09-21 22.18.00|ERROR|7|RaptorDB.Views.ViewHandler|| Rebuilding View failed : SalesItemRows
+System.IO.FileNotFoundException: Could not resolve assembly 'App_Code.46tsotzh, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
+   at System.TypeNameParser.ResolveAssembly(String asmName, Func`2 assemblyResolver, Boolean throwOnError, StackCrawlMark& stackMark)
+   at System.TypeNameParser.ConstructType(Func`2 assemblyResolver, Func`4 typeResolver, Boolean throwOnError, Boolean ignoreCase, StackCrawlMark& stackMark)
+   at System.TypeNameParser.GetType(String typeName, Func`2 assemblyResolver, Func`4 typeResolver, Boolean throwOnError, Boolean ignoreCase, StackCrawlMark& stackMark)
+   at System.Type.GetType(String typeName, Func`2 assemblyResolver, Func`4 typeResolver, Boolean throwOnError)
+   at fastJSON.Reflection.GetTypeFromCache(String typename) in C:\Users\nikol\Desktop\raptor\RaptorDB.Common\fastJSON\Reflection.cs:line 318
+   at fastBinaryJSON.deserializer.ParseDictionary(Dictionary`2 d, Dictionary`2 globaltypes, Type type, Object input) in C:\Users\nikol\Desktop\raptor\RaptorDB.Common\fastBinaryJSON\BJSON.cs:line 478
+   at fastBinaryJSON.deserializer.ToObject(Byte[] json, Type type) in C:\Users\nikol\Desktop\raptor\RaptorDB.Common\fastBinaryJSON\BJSON.cs:line 312
+   at fastBinaryJSON.BJSON.ToObject(Byte[] json) in C:\Users\nikol\Desktop\raptor\RaptorDB.Common\fastBinaryJSON\BJSON.cs:line 223
+   at RaptorDB.StorageFile`1.ReadObject(Int64 recnum, StorageItem`1& meta) in C:\Users\nikol\Desktop\raptor\RaptorDB\Storage\StorageFile.cs:line 311
+   at RaptorDB.KeyStore`1.GetObject(Int32 rowid, StorageItem`1& meta) in C:\Users\nikol\Desktop\raptor\RaptorDB\Storage\KeyStore.cs:line 593
+   at RaptorDB.Views.ViewHandler.RebuildFromScratch(IDocStorage`1 docs) in C:\Users\nikol\Desktop\raptor\RaptorDB\Views\ViewHandler.cs:line 746
+2017-09-21 22.18.00|DEBUG|6|RaptorDB.Views.ViewHandler|| Rebuilding view from scratch...
+2017-09-21 22.18.00|DEBUG|6|RaptorDB.Views.ViewHandler|| View = newview
+2017-09-21 22.18.00|ERROR|6|RaptorDB.Views.ViewHandler|| Rebuilding View failed : newview
+System.IO.FileNotFoundException: Could not resolve assembly 'App_Code.46tsotzh, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
+   at System.TypeNameParser.ResolveAssembly(String asmName, Func`2 assemblyResolver, Boolean throwOnError, StackCrawlMark& stackMark)
+   at System.TypeNameParser.ConstructType(Func`2 assemblyResolver, Func`4 typeResolver, Boolean throwOnError, Boolean ignoreCase, StackCrawlMark& stackMark)
+   at System.TypeNameParser.GetType(String typeName, Func`2 assemblyResolver, Func`4 typeResolver, Boolean throwOnError, Boolean ignoreCase, StackCrawlMark& stackMark)
+   at System.Type.GetType(String typeName, Func`2 assemblyResolver, Func`4 typeResolver, Boolean throwOnError)
+   at fastJSON.Reflection.GetTypeFromCache(String typename) in C:\Users\nikol\Desktop\raptor\RaptorDB.Common\fastJSON\Reflection.cs:line 318
+   at fastBinaryJSON.deserializer.ParseDictionary(Dictionary`2 d, Dictionary`2 globaltypes, Type type, Object input) in C:\Users\nikol\Desktop\raptor\RaptorDB.Common\fastBinaryJSON\BJSON.cs:line 478
+   at fastBinaryJSON.deserializer.ToObject(Byte[] json, Type type) in C:\Users\nikol\Desktop\raptor\RaptorDB.Common\fastBinaryJSON\BJSON.cs:line 312
+   at fastBinaryJSON.BJSON.ToObject(Byte[] json) in C:\Users\nikol\Desktop\raptor\RaptorDB.Common\fastBinaryJSON\BJSON.cs:line 223
+   at RaptorDB.StorageFile`1.ReadObject(Int64 recnum, StorageItem`1& meta) in C:\Users\nikol\Desktop\raptor\RaptorDB\Storage\StorageFile.cs:line 311
+   at RaptorDB.KeyStore`1.GetObject(Int32 rowid, StorageItem`1& meta) in C:\Users\nikol\Desktop\raptor\RaptorDB\Storage\KeyStore.cs:line 593
+   at RaptorDB.Views.ViewHandler.RebuildFromScratch(IDocStorage`1 docs) in C:\Users\nikol\Desktop\raptor\RaptorDB\Views\ViewHandler.cs:line 746
+2017-09-21 22.19.46|DEBUG|1|RaptorDB.RaptorDB|| 
+
+RaptorDB starting...
+2017-09-21 22.19.46|DEBUG|1|RaptorDB.RaptorDB|| RaptorDB data folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\
+2017-09-21 22.19.46|DEBUG|1|RaptorDB.KeyStore`1|| Current Count = 1
+2017-09-21 22.19.46|DEBUG|1|RaptorDB.KeyStore`1|| Checking Index state...
+2017-09-21 22.19.46|DEBUG|1|RaptorDB.KeyStore`1|| Starting save timer
+2017-09-21 22.19.46|DEBUG|1|RaptorDB.KeyStore`1|| Current Count = 0
+2017-09-21 22.19.46|DEBUG|1|RaptorDB.KeyStore`1|| Checking Index state...
+2017-09-21 22.19.46|DEBUG|1|RaptorDB.KeyStore`1|| Starting save timer
+2017-09-21 22.19.46|DEBUG|1|RaptorDB.Views.TaskQueue|| TaskQueue starting
+2017-09-21 22.19.46|DEBUG|1|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 22.19.46|DEBUG|1|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Data\Fulltext\
+2017-09-21 22.19.46|DEBUG|1|RaptorDB.KeyStore`1|| Current Count = 0
+2017-09-21 22.19.46|DEBUG|1|RaptorDB.KeyStore`1|| Checking Index state...
+2017-09-21 22.19.46|DEBUG|1|RaptorDB.KeyStore`1|| Starting save timer
+2017-09-21 22.19.46|DEBUG|1|RaptorDB.Hoot|| Word Count = 38
+2017-09-21 22.19.46|DEBUG|1|RaptorDB.RaptorDBServer|| loading dll for views : C:\Users\nikol\Desktop\raptor\Output\server\Extensions\Views.dll
+2017-09-21 22.19.46|DEBUG|1|RaptorDB.Views.ViewHandler|| RaptorDB view engine upgrade, rebuilding view : SalesInvoice
+2017-09-21 22.19.46|DEBUG|1|RaptorDB.Views.ViewHandler|| Deleting old view data folder = SalesInvoice
+2017-09-21 22.19.46|DEBUG|1|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 22.19.46|DEBUG|1|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\SalesInvoice\
+2017-09-21 22.19.46|DEBUG|1|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 22.19.46|DEBUG|1|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\SalesInvoice\
+2017-09-21 22.19.46|DEBUG|1|RaptorDB.Views.ViewHandler|| RaptorDB view engine upgrade, rebuilding view : SalesItemRows
+2017-09-21 22.19.46|DEBUG|1|RaptorDB.Views.ViewHandler|| Deleting old view data folder = SalesItemRows
+2017-09-21 22.19.46|DEBUG|5|RaptorDB.Views.ViewHandler|| Rebuilding view from scratch...
+2017-09-21 22.19.46|DEBUG|5|RaptorDB.Views.ViewHandler|| View = SalesInvoice
+2017-09-21 22.19.47|DEBUG|6|RaptorDB.Views.ViewHandler|| Rebuilding view from scratch...
+2017-09-21 22.19.47|DEBUG|6|RaptorDB.Views.ViewHandler|| View = SalesItemRows
+2017-09-21 22.19.47|DEBUG|1|RaptorDB.Views.ViewHandler|| RaptorDB view engine upgrade, rebuilding view : newview
+2017-09-21 22.19.47|DEBUG|1|RaptorDB.Views.ViewHandler|| Deleting old view data folder = newview
+2017-09-21 22.19.47|ERROR|5|RaptorDB.Views.ViewHandler|| Rebuilding View failed : SalesInvoice
+System.IO.FileNotFoundException: Could not resolve assembly 'App_Code.46tsotzh, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
+   at System.TypeNameParser.ResolveAssembly(String asmName, Func`2 assemblyResolver, Boolean throwOnError, StackCrawlMark& stackMark)
+   at System.TypeNameParser.ConstructType(Func`2 assemblyResolver, Func`4 typeResolver, Boolean throwOnError, Boolean ignoreCase, StackCrawlMark& stackMark)
+   at System.TypeNameParser.GetType(String typeName, Func`2 assemblyResolver, Func`4 typeResolver, Boolean throwOnError, Boolean ignoreCase, StackCrawlMark& stackMark)
+   at System.Type.GetType(String typeName, Func`2 assemblyResolver, Func`4 typeResolver, Boolean throwOnError)
+   at fastJSON.Reflection.GetTypeFromCache(String typename) in C:\Users\nikol\Desktop\raptor\RaptorDB.Common\fastJSON\Reflection.cs:line 318
+   at fastBinaryJSON.deserializer.ParseDictionary(Dictionary`2 d, Dictionary`2 globaltypes, Type type, Object input) in C:\Users\nikol\Desktop\raptor\RaptorDB.Common\fastBinaryJSON\BJSON.cs:line 478
+   at fastBinaryJSON.deserializer.ToObject(Byte[] json, Type type) in C:\Users\nikol\Desktop\raptor\RaptorDB.Common\fastBinaryJSON\BJSON.cs:line 312
+   at fastBinaryJSON.BJSON.ToObject(Byte[] json) in C:\Users\nikol\Desktop\raptor\RaptorDB.Common\fastBinaryJSON\BJSON.cs:line 223
+   at RaptorDB.StorageFile`1.ReadObject(Int64 recnum, StorageItem`1& meta) in C:\Users\nikol\Desktop\raptor\RaptorDB\Storage\StorageFile.cs:line 311
+   at RaptorDB.KeyStore`1.GetObject(Int32 rowid, StorageItem`1& meta) in C:\Users\nikol\Desktop\raptor\RaptorDB\Storage\KeyStore.cs:line 593
+   at RaptorDB.Views.ViewHandler.RebuildFromScratch(IDocStorage`1 docs) in C:\Users\nikol\Desktop\raptor\RaptorDB\Views\ViewHandler.cs:line 746
+2017-09-21 22.19.47|ERROR|6|RaptorDB.Views.ViewHandler|| Rebuilding View failed : SalesItemRows
+System.IO.FileNotFoundException: Could not resolve assembly 'App_Code.46tsotzh, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
+   at System.TypeNameParser.ResolveAssembly(String asmName, Func`2 assemblyResolver, Boolean throwOnError, StackCrawlMark& stackMark)
+   at System.TypeNameParser.ConstructType(Func`2 assemblyResolver, Func`4 typeResolver, Boolean throwOnError, Boolean ignoreCase, StackCrawlMark& stackMark)
+   at System.TypeNameParser.GetType(String typeName, Func`2 assemblyResolver, Func`4 typeResolver, Boolean throwOnError, Boolean ignoreCase, StackCrawlMark& stackMark)
+   at System.Type.GetType(String typeName, Func`2 assemblyResolver, Func`4 typeResolver, Boolean throwOnError)
+   at fastJSON.Reflection.GetTypeFromCache(String typename) in C:\Users\nikol\Desktop\raptor\RaptorDB.Common\fastJSON\Reflection.cs:line 318
+   at fastBinaryJSON.deserializer.ParseDictionary(Dictionary`2 d, Dictionary`2 globaltypes, Type type, Object input) in C:\Users\nikol\Desktop\raptor\RaptorDB.Common\fastBinaryJSON\BJSON.cs:line 478
+   at fastBinaryJSON.deserializer.ToObject(Byte[] json, Type type) in C:\Users\nikol\Desktop\raptor\RaptorDB.Common\fastBinaryJSON\BJSON.cs:line 312
+   at fastBinaryJSON.BJSON.ToObject(Byte[] json) in C:\Users\nikol\Desktop\raptor\RaptorDB.Common\fastBinaryJSON\BJSON.cs:line 223
+   at RaptorDB.StorageFile`1.ReadObject(Int64 recnum, StorageItem`1& meta) in C:\Users\nikol\Desktop\raptor\RaptorDB\Storage\StorageFile.cs:line 311
+   at RaptorDB.KeyStore`1.GetObject(Int32 rowid, StorageItem`1& meta) in C:\Users\nikol\Desktop\raptor\RaptorDB\Storage\KeyStore.cs:line 593
+   at RaptorDB.Views.ViewHandler.RebuildFromScratch(IDocStorage`1 docs) in C:\Users\nikol\Desktop\raptor\RaptorDB\Views\ViewHandler.cs:line 746
+2017-09-21 22.19.47|DEBUG|8|RaptorDB.Views.ViewHandler|| Rebuilding view from scratch...
+2017-09-21 22.19.47|DEBUG|8|RaptorDB.Views.ViewHandler|| View = newview
+2017-09-21 22.19.47|ERROR|8|RaptorDB.Views.ViewHandler|| Rebuilding View failed : newview
+System.IO.FileNotFoundException: Could not resolve assembly 'App_Code.46tsotzh, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null'.
+   at System.TypeNameParser.ResolveAssembly(String asmName, Func`2 assemblyResolver, Boolean throwOnError, StackCrawlMark& stackMark)
+   at System.TypeNameParser.ConstructType(Func`2 assemblyResolver, Func`4 typeResolver, Boolean throwOnError, Boolean ignoreCase, StackCrawlMark& stackMark)
+   at System.TypeNameParser.GetType(String typeName, Func`2 assemblyResolver, Func`4 typeResolver, Boolean throwOnError, Boolean ignoreCase, StackCrawlMark& stackMark)
+   at System.Type.GetType(String typeName, Func`2 assemblyResolver, Func`4 typeResolver, Boolean throwOnError)
+   at fastJSON.Reflection.GetTypeFromCache(String typename) in C:\Users\nikol\Desktop\raptor\RaptorDB.Common\fastJSON\Reflection.cs:line 318
+   at fastBinaryJSON.deserializer.ParseDictionary(Dictionary`2 d, Dictionary`2 globaltypes, Type type, Object input) in C:\Users\nikol\Desktop\raptor\RaptorDB.Common\fastBinaryJSON\BJSON.cs:line 478
+   at fastBinaryJSON.deserializer.ToObject(Byte[] json, Type type) in C:\Users\nikol\Desktop\raptor\RaptorDB.Common\fastBinaryJSON\BJSON.cs:line 312
+   at fastBinaryJSON.BJSON.ToObject(Byte[] json) in C:\Users\nikol\Desktop\raptor\RaptorDB.Common\fastBinaryJSON\BJSON.cs:line 223
+   at RaptorDB.StorageFile`1.ReadObject(Int64 recnum, StorageItem`1& meta) in C:\Users\nikol\Desktop\raptor\RaptorDB\Storage\StorageFile.cs:line 311
+   at RaptorDB.KeyStore`1.GetObject(Int32 rowid, StorageItem`1& meta) in C:\Users\nikol\Desktop\raptor\RaptorDB\Storage\KeyStore.cs:line 593
+   at RaptorDB.Views.ViewHandler.RebuildFromScratch(IDocStorage`1 docs) in C:\Users\nikol\Desktop\raptor\RaptorDB\Views\ViewHandler.cs:line 746
+2017-09-21 22.20.07|INFO|1|RaptorDB.Hoot|| saving index...
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.KeyStore`1|| saving to disk
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.KeyStore`1|| index saved
+2017-09-21 22.20.07|INFO|1|RaptorDB.Hoot|| save time (ms) = 31,2526
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.KeyStore`1|| Shutting down
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.KeyStore`1|| saving to disk
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.KeyStore`1|| index saved
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.RaptorDB|| Shutting down
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.Views.ViewManager|| View Manager shutdown
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.Views.ViewManager||  shutting down view : SalesInvoice
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.Views.ViewHandler|| Shutting down Viewhandler
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.Views.ViewHandler|| Shutting down view index : docid
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.Views.ViewHandler|| Shutting down view index : CustomerName
+2017-09-21 22.20.07|INFO|1|RaptorDB.Hoot|| saving index...
+2017-09-21 22.20.07|INFO|1|RaptorDB.Hoot|| save time (ms) = 0
+2017-09-21 22.20.07|INFO|1|RaptorDB.Hoot|| saving index...
+2017-09-21 22.20.07|INFO|1|RaptorDB.Hoot|| save time (ms) = 0
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.Views.ViewHandler|| Shutting down view index : NoCase
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.Views.ViewHandler|| Shutting down view index : Date
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.Views.ViewHandler|| Shutting down view index : Address
+2017-09-21 22.20.07|INFO|1|RaptorDB.Hoot|| saving index...
+2017-09-21 22.20.07|INFO|1|RaptorDB.Hoot|| save time (ms) = 0
+2017-09-21 22.20.07|INFO|1|RaptorDB.Hoot|| saving index...
+2017-09-21 22.20.07|INFO|1|RaptorDB.Hoot|| save time (ms) = 0
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.Views.ViewHandler|| Shutting down view index : Serial
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.Views.ViewHandler|| Shutting down view index : Status
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.Views.ViewHandler|| Shutting down view index : Approved
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.Views.ViewHandler|| Shutting down view index : Date_$Year
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.Views.ViewHandler|| Shutting down view index : Date_$Month
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.Views.ViewHandler|| Shutting down view index : Date_$Day
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.Views.ViewHandler|| Shutting down view index : Date_$Hour
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.Views.ViewHandler|| Shutting down view index : Date_$Minute
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.Views.ViewHandler|| Viewhandler shutdown done.
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.Views.ViewManager||  shutting down view : SalesItemRows
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.Views.ViewHandler|| Shutting down Viewhandler
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.Views.ViewHandler|| Shutting down view index : docid
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.Views.ViewHandler|| Shutting down view index : Product
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.Views.ViewHandler|| Shutting down view index : QTY
+2017-09-21 22.20.07|DEBUG|1|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 22.20.08|DEBUG|1|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.20.08|DEBUG|1|RaptorDB.Views.ViewHandler|| Shutting down view index : Price
+2017-09-21 22.20.08|DEBUG|1|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 22.20.08|DEBUG|1|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.20.08|DEBUG|1|RaptorDB.Views.ViewHandler|| Shutting down view index : Discount
+2017-09-21 22.20.08|DEBUG|1|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 22.20.08|DEBUG|1|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.20.08|DEBUG|1|RaptorDB.Views.ViewHandler|| Viewhandler shutdown done.
+2017-09-21 22.20.08|DEBUG|1|RaptorDB.Views.ViewManager||  shutting down view : newview
+2017-09-21 22.20.08|DEBUG|1|RaptorDB.Views.ViewHandler|| Shutting down Viewhandler
+2017-09-21 22.20.08|DEBUG|1|RaptorDB.Views.ViewHandler|| Shutting down view index : docid
+2017-09-21 22.20.08|DEBUG|1|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 22.20.08|DEBUG|1|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.20.08|DEBUG|1|RaptorDB.Views.ViewHandler|| Shutting down view index : Product
+2017-09-21 22.20.08|DEBUG|1|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 22.20.08|DEBUG|1|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.20.08|DEBUG|1|RaptorDB.Views.ViewHandler|| Shutting down view index : QTY
+2017-09-21 22.20.08|DEBUG|1|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 22.20.08|DEBUG|1|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.20.08|DEBUG|1|RaptorDB.Views.ViewHandler|| Shutting down view index : Price
+2017-09-21 22.20.08|DEBUG|1|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 22.20.08|DEBUG|1|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.20.08|DEBUG|1|RaptorDB.Views.ViewHandler|| Shutting down view index : Discount
+2017-09-21 22.20.08|DEBUG|1|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 22.20.08|DEBUG|1|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.20.08|DEBUG|1|RaptorDB.Views.ViewHandler|| Viewhandler shutdown done.
+2017-09-21 22.20.08|DEBUG|1|RaptorDB.Views.TaskQueue|| TaskQueue shutdown
+2017-09-21 22.20.08|DEBUG|1|RaptorDB.KeyStore`1|| Shutting down
+2017-09-21 22.20.08|DEBUG|1|RaptorDB.KeyStore`1|| saving to disk
+2017-09-21 22.20.08|DEBUG|1|RaptorDB.KeyStore`1|| index saved
+2017-09-21 22.20.08|DEBUG|1|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 22.20.08|DEBUG|1|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.20.08|DEBUG|1|RaptorDB.KeyStore`1|| Shutting down
+2017-09-21 22.20.08|DEBUG|1|RaptorDB.KeyStore`1|| saving to disk
+2017-09-21 22.20.08|DEBUG|1|RaptorDB.KeyStore`1|| index saved
+2017-09-21 22.20.08|DEBUG|1|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 22.20.08|DEBUG|1|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.20.08|DEBUG|1|RaptorDB.IndexFile`1|| Shutdown IndexFile
+2017-09-21 22.20.08|DEBUG|1|RaptorDB.BitmapIndex|| Shutdown BitmapIndex
+2017-09-21 22.20.08|DEBUG|1|RaptorDB.RaptorDB|| last full text record = 1
+2017-09-21 22.20.08|DEBUG|1|RaptorDB.RaptorDB|| last record = 1
+2017-09-21 22.20.08|DEBUG|1|RaptorDB.RaptorDB|| last backup record = -1
+2017-09-21 22.20.08|DEBUG|1|RaptorDB.RaptorDB|| Shutting down log.
+2017-09-21 22.20.08|DEBUG|1|RaptorDB.RaptorDB|| RaptorDB done.
+2017-09-21 22.20.46|DEBUG|1|RaptorDB.RaptorDB|| 
+
+RaptorDB starting...
+2017-09-21 22.20.46|DEBUG|1|RaptorDB.RaptorDB|| RaptorDB data folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\
+2017-09-21 22.20.46|DEBUG|1|RaptorDB.KeyStore`1|| Current Count = 1
+2017-09-21 22.20.46|DEBUG|1|RaptorDB.KeyStore`1|| Checking Index state...
+2017-09-21 22.20.46|DEBUG|1|RaptorDB.KeyStore`1|| Starting save timer
+2017-09-21 22.20.46|DEBUG|1|RaptorDB.KeyStore`1|| Current Count = 0
+2017-09-21 22.20.46|DEBUG|1|RaptorDB.KeyStore`1|| Checking Index state...
+2017-09-21 22.20.46|DEBUG|1|RaptorDB.KeyStore`1|| Starting save timer
+2017-09-21 22.20.46|DEBUG|1|RaptorDB.Views.TaskQueue|| TaskQueue starting
+2017-09-21 22.20.46|DEBUG|1|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 22.20.46|DEBUG|1|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Data\Fulltext\
+2017-09-21 22.20.46|DEBUG|1|RaptorDB.KeyStore`1|| Current Count = 0
+2017-09-21 22.20.46|DEBUG|1|RaptorDB.KeyStore`1|| Checking Index state...
+2017-09-21 22.20.46|DEBUG|1|RaptorDB.KeyStore`1|| Starting save timer
+2017-09-21 22.20.46|DEBUG|1|RaptorDB.Hoot|| Word Count = 38
+2017-09-21 22.20.46|DEBUG|1|RaptorDB.RaptorDBServer|| loading dll for views : C:\Users\nikol\Desktop\raptor\Output\server\Extensions\Views.dll
+2017-09-21 22.20.46|DEBUG|1|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 22.20.46|DEBUG|1|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\SalesInvoice\
+2017-09-21 22.20.46|DEBUG|1|RaptorDB.Hoot|| Starting hOOt....
+2017-09-21 22.20.46|DEBUG|1|RaptorDB.Hoot|| Storage Folder = C:\Users\nikol\Documents\GitHub\BanjiNetV2\data\Views\SalesInvoice\

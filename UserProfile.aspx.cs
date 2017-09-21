@@ -42,5 +42,16 @@ public partial class UserProfile : System.Web.UI.Page
                     "<div>Type: " + recc.Type + "</div><hr/>" +
                     "<div>Location: " + recc.Location + "</div>";
         }
+
+        WorkersR recR;
+        if (Session["userR"] != null)
+        {
+            recR = (WorkersR)Session["userR"];
+            Response.Write("<script>console.log('" + recR.FirstName + "');</script>");
+            Response.Write("<script>localStorage.setItem('job', '" + recR.CompanyName + "');</script>");
+            personal.InnerHtml = "<div>Name: " + recR.FirstName + " " + recR.LastName + "</div><hr/>" +
+                "<div>Email: " + recR.Email + "</div><hr/>" +
+                "<div id='cname'>Company: " + recR.CompanyName + "</div>";
+        }
     }
 }

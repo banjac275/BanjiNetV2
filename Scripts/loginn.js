@@ -10,7 +10,7 @@
         //pravimo data string
         var datastring = { 'mail': email, 'pass': password };//'checkbox': checkbox};
 
-        if (email == '' || password == '') {
+        if (email === '' || password === '') {
             alert("please fill all fields!");
         }
         else {
@@ -23,7 +23,7 @@
 
                 var sign = "No users were found with this email, please sign up!";
                 var badp = "Bad password, please try again!";
-                if ($title.text() == sign) {
+                if ($title.text() === sign) {
                     getAjaxResponseCompany(datastring, function (dataa) {
                         var xmldocs = $.parseXML(dataa),
                             $xmls = $(xmldocs),
@@ -31,12 +31,12 @@
                         console.log($titles.text());
 
                         
-                        if ($titles.text() == sign) {
+                        if ($titles.text() === sign) {
                             alert(sign);
                             $("#signinbtn").css("display", "none");
                             $("#msgsignin").css("display", "inline");
                         }
-                        else if ($titles.text() == badp) {
+                        else if ($titles.text() === badp) {
                             alert(badp);
                         }
                         else {
@@ -45,10 +45,12 @@
                         }
                     });
                 }
-                else if ($title.text() == badp) {
+                else if ($title.text() === badp)
+                {
                     alert(badp);
                 }
-                else {
+                else
+                {
                     alert("Login Success!");
                     window.location.assign("./userprofile.aspx");
                 }
@@ -65,7 +67,8 @@
     function getAjaxResponse(sstring, fn) {
 
         $.ajax({
-            url: "./MongoService.asmx/returnWorkerFromEmail",
+            //url: "./MongoService.asmx/returnWorkerFromEmail",
+            url: "./RaptorService.asmx/returnWorkerFromEmailR",
             dataType: "text",
             type: "POST",
             data: sstring,
@@ -124,10 +127,10 @@
         //pravimo data string
         var dataString = { 'mail': Email, 'pass': Password, 'name': Name, 'last': Surname,'check': Checkbox};
 
-        if (Email == '' || Password == '' || Name == '' || Surname == '' || Reppass == '') {
+        if (Email === '' || Password === '' || Name === '' || Surname === '' || Reppass === '') {
             alert("Please fill all fields!");
         }
-        else if (Password != Reppass) {
+        else if (Password !== Reppass) {
             alert("Password doesn't match, enter it again!");
         }
         else {
@@ -137,7 +140,7 @@
                     $title = $xml.find("string");
 
                 var sign = "There already is a user with this email, please sign in!";
-                if ($title.text() == sign) {
+                if ($title.text() === sign) {
                     $("#signupbtn").css("display", "none");
                     $("#msgsignup").css("display", "inline");
                 }
@@ -169,10 +172,10 @@
         //pravimo data string
         var dataString = { 'company': CompanyName, 'owner': Owner, 'type': Type, 'location': Location, 'mail': Email, 'pass': Password, 'check': Checkbox };
 
-        if (Email == '' || Password == '' || CompanyName == '' || Owner == '' || Reppass == '' || Type == '' || Location == '') {
+        if (Email === '' || Password === '' || CompanyName === '' || Owner === '' || Reppass === '' || Type === '' || Location === '') {
             alert("Please fill all fields!");
         }
-        else if (Password != Reppass) {
+        else if (Password !== Reppass) {
             alert("Password doesn't match, enter it again!");
         }
         else {
@@ -182,7 +185,7 @@
                     $title = $xml.find("string");
 
                 var sign = "There already is a company with this email, please sign in!";
-                if ($title.text() == sign) {
+                if ($title.text() === sign) {
                     $("#signupbtnc").css("display", "none");
                     $("#msgsignupc").css("display", "inline");
                 }
@@ -200,7 +203,8 @@
     function getAjaxResponseSign(sstring, fn) {
 
         $.ajax({
-            url: "./MongoService.asmx/enterNewWorkerInDb",
+            //url: "./MongoService.asmx/enterNewWorkerInDb",
+            url: "./RaptorService.asmx/enterNewWorkerInRDb",
             dataType: "text",
             type: "POST",
             data: sstring,
