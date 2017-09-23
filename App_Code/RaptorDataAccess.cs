@@ -11,9 +11,9 @@ using RaptorDB.Views;
 /// </summary>
 public class RaptorDataAccess
 {
-    IRaptorDB rap;
+    public IRaptorDB rap;
 
-	public RaptorDataAccess()
+    public RaptorDataAccess()
 	{
         var p = RaptorDB.RaptorDB.Open("C:\\Users\\nikol\\Documents\\GitHub\\BanjiNetV2\\data");
         p.RegisterView(new WorkersRView());
@@ -23,7 +23,7 @@ public class RaptorDataAccess
 
     public WorkersR Create(WorkersR w)
     {
-        rap.Save(w.Id, w);
+        rap.Save<WorkersR>(w.Id, w);
         rap.Shutdown();
         return w;
     }
@@ -31,7 +31,106 @@ public class RaptorDataAccess
     public Result<RowShemaWorkers> getWorkerByEmail(string email)
     {
         var result = rap.Query<RowShemaWorkers>(x => x.Email == email);
-        //rap.Shutdown();       
+        rap.Shutdown();       
         return result;
+    }
+
+    public WorkersR getWorkerById(Guid id)
+    {
+        var result = rap.Fetch<WorkersR>(id);
+        rap.Shutdown();
+        return result;
+    }
+
+    public Result<RowShemaWorkers> getWorkerByName(string name)
+    {
+        var result = rap.Query<RowShemaWorkers>(x => x.FirstName == name);
+        rap.Shutdown();
+        return result;
+    }
+
+    public Result<RowShemaWorkers> getWorkerByLastName(string name)
+    {
+        var result = rap.Query<RowShemaWorkers>(x => x.LastName == name);
+        rap.Shutdown();
+        return result;
+    }
+
+    public WorkersR updateWorker(Guid id, WorkersR w)
+    {
+        if (rap.Save<WorkersR>(w.Id, w))
+        {
+            rap.Shutdown();
+            return w;
+        }
+        else
+        {
+            rap.Shutdown();
+            return null;
+        }
+    }
+
+    public string removeWorker(Guid id)
+    {
+        if (rap.Delete(id))
+        {
+            rap.Shutdown();
+            return "Worker deleted!";
+        }            
+        else
+        {
+            rap.Shutdown();
+            return "Worker not deleted!";
+        }
+            
+    }
+
+    public CompaniesR CreateCompany(CompaniesR c)
+    {
+        if (rap.Save<CompaniesR>(c.Id, c))
+        {
+            rap.Shutdown();
+            return c;
+        }            
+        else
+        {
+            rap.Shutdown();
+            return null;
+        }            
+    }
+
+    public CompaniesR getCompanyById(Guid id)
+    {
+        var result = rap.Fetch<CompaniesR>(id);
+        rap.Shutdown();
+        return result;
+    }
+
+    public Result<RowShemaCompanies> getCompanyByName(string name)
+    {
+        var result = rap.Query<RowShemaCompanies>(x => x.CompanyName == name);
+        rap.Shutdown();
+        return result;
+    }
+
+    public Result<RowShemaCompanies> getCompanyByEmail(string email)
+    {
+        var result = rap.Query<RowShemaCompanies>(x => x.Email == email);
+        rap.Shutdown();
+        return result;
+    }
+
+    public CompaniesR updateCompany(Guid id, CompaniesR c)
+    {
+        if (rap.Save<CompaniesR>(c.Id, c))
+        {
+            rap.Shutdown();
+            return c;
+        }
+        else
+        {
+            rap.Shutdown();
+            return null;
+        }
     }
 }

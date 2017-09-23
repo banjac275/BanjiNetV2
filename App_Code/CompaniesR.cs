@@ -4,11 +4,11 @@ using System.Linq;
 using System.Web;
 using RaptorDB;
 using RaptorDB.Common;
-using MongoDB.Bson.Serialization.Attributes;
 
 /// <summary>
 /// Summary description for CompaniesR
 /// </summary>
+
 public class CompaniesR
 {
     public Guid Id { get; set; }
@@ -20,8 +20,8 @@ public class CompaniesR
     public string Type { get; set; }
 
     public string Location { get; set; }
-    
-    public Guid[] Employees { get; set; }
+
+    public List<string> Employees { get; set; }
 
     public string Email { get; set; }
 
@@ -37,19 +37,21 @@ public class CompaniesR
 
 public class RowShemaCompanies : RDBSchema
 {
-    public string CompanyName;
+    public string CompanyName { get; set; }
 
-    public string Owner;
+    public string Owner { get; set; }
 
-    public string Type;
+    public string Type { get; set; }
 
-    public string Location;
+    public string Location { get; set; }
 
-    public string Email;
+    //public List<string> Employees { get; set; }
 
-    public string Password;
+    public string Email { get; set; }
 
-    public string Checkbox;
+    public string Password { get; set; }
+
+    public string Checkbox { get; set; }
 }
 
 [RegisterView]
@@ -59,10 +61,12 @@ public class CompaniesRView : View<CompaniesR>
     {
         this.Name = "CompaniesR";
         this.Description = "A primary view for Companies";
-        this.isPrimaryList = false;
+        this.isPrimaryList = true;
         this.isActive = true;
         this.BackgroundIndexing = true;
-        this.Version = 2;
+        this.DeleteBeforeInsert = true;
+        //this.ConsistentSaveToThisView = true;
+        this.Version = 1;
 
         this.Schema = typeof(RowShemaCompanies);
 
@@ -74,7 +78,9 @@ public class CompaniesRView : View<CompaniesR>
 
         this.Mapper = (api, docid, doc) =>
         {
+            this.Version += 1;
             api.EmitObject(docid, doc);
         };
     }
 }
+

@@ -10,11 +10,12 @@ using RaptorDB.Views;
 /// <summary>
 /// Summary description for WorkersR
 /// </summary>
+
 public class WorkersR
 {
     public Guid Id { get; set; }
 
-    public Guid CompanyId { get; set; }
+    public string CompanyId { get; set; }
 
     public string CompanyName { get; set; }
 
@@ -23,7 +24,7 @@ public class WorkersR
     public string LastName { get; set; }
 
     public string Password { get; set; }
-    
+
     public string Email { get; set; }
 
     public string Checkbox { get; set; }
@@ -41,19 +42,21 @@ public abstract class RDBSchema : BindableFields
 
 public class RowShemaWorkers : RDBSchema
 {
-    public Guid CompanyId;
+    public Guid Id { get; set; }
 
-    public string CompanyName;
+    public string CompanyId { get; set; }
 
-    public string FirstName;
+    public string CompanyName { get; set; }
 
-    public string LastName;
+    public string FirstName { get; set; }
 
-    public string Password;
+    public string LastName { get; set; }
 
-    public string Email;
+    public string Password { get; set; }
 
-    public string Checkbox;
+    public string Email { get; set; }
+
+    public string Checkbox { get; set; }
 
 }
 
@@ -67,7 +70,8 @@ public class WorkersRView : View<WorkersR>
         this.isPrimaryList = true;
         this.isActive = true;
         this.BackgroundIndexing = true;
-        this.Version = 3;
+        this.DeleteBeforeInsert = true;
+        this.Version = 1;
 
         this.Schema = typeof(RowShemaWorkers);
 
@@ -77,6 +81,7 @@ public class WorkersRView : View<WorkersR>
 
         this.Mapper = (api, docid, doc) =>
         {
+            this.Version += 1;
             api.EmitObject(docid, doc);
         };
     }

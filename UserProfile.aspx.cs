@@ -21,6 +21,7 @@ public partial class UserProfile : System.Web.UI.Page
                 "<div>Email: " + recv.Email + "</div><hr/>" +
                 "<div id='cname'>Company: " + recv.CompanyName + "</div>";
         }
+
         Companies recc;
         if (Session["company"] != null)
         {
@@ -52,6 +53,28 @@ public partial class UserProfile : System.Web.UI.Page
             personal.InnerHtml = "<div>Name: " + recR.FirstName + " " + recR.LastName + "</div><hr/>" +
                 "<div>Email: " + recR.Email + "</div><hr/>" +
                 "<div id='cname'>Company: " + recR.CompanyName + "</div>";
+        }
+
+        CompaniesR reccR;
+        if (Session["companyR"] != null)
+        {
+            reccR = (CompaniesR)Session["companyR"];
+            Response.Write("<script>console.log('" + reccR.CompanyName + "');</script>");
+            Response.Write("<script>localStorage.setItem('job', '" + null + "');</script>");
+            List<string> objects = new List<string>();
+            if (reccR.Employees != null)
+            {
+                for (int j = 0; j < reccR.Employees.Count; j++)
+                {
+                    objects.Add(reccR.Employees[j]);
+                }
+                Response.Write("<script>localStorage.setItem('firm', '" + JsonConvert.SerializeObject(objects) + "');</script>");
+            }
+            personal.InnerHtml = "<div>Company Name: " + reccR.CompanyName + "</div><hr/>" +
+                    "<div>Email: " + reccR.Email + "</div><hr/>" +
+                    "<div>Owner: " + reccR.Owner + "</div><hr/>" +
+                    "<div>Type: " + reccR.Type + "</div><hr/>" +
+                    "<div>Location: " + reccR.Location + "</div>";
         }
     }
 }

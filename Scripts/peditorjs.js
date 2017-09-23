@@ -63,7 +63,7 @@
 
         var dataString = { 'id': res.toString() };
 
-        getAjaxResponse(dataString, function (data) {
+        getAjaxResponseDelete(dataString, function (data) {
             var xmldoc = $.parseXML(data),
                 $xml = $(xmldoc),
                 $title = $xml.find("string");
@@ -73,6 +73,10 @@
             if ($title.text() === sign) {
                 alert("Deleting worker was successful!");
                 window.location.assign("./logout.aspx");
+            }
+            else
+            {
+                alert($title.text());
             }
 
         });
@@ -161,7 +165,8 @@
     function getAjaxResponse(sstring, fn) {
 
         $.ajax({
-            url: "./MongoService.asmx/updateWorkerInDb",
+            //url: "./MongoService.asmx/updateWorkerInDb",
+            url: "./RaptorService.asmx/updateWorkerInRDb",
             dataType: "text",
             type: "POST",
             data: sstring,
