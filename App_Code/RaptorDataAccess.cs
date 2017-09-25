@@ -5,21 +5,25 @@ using System.Web;
 using RaptorDB;
 using RaptorDB.Common;
 using RaptorDB.Views;
+using System.Threading;
 
 /// <summary>
 /// Summary description for RaptorDataAccess
 /// </summary>
 public class RaptorDataAccess
 {
-    public IRaptorDB rap;
+    public RaptorDB.RaptorDB rap;
+    //public Thread t;
 
     public RaptorDataAccess()
 	{
-        var p = RaptorDB.RaptorDB.Open("C:\\Users\\nikol\\Documents\\GitHub\\BanjiNetV2\\data");
-        p.RegisterView(new WorkersRView());
-        p.RegisterView(new CompaniesRView());
-        rap = p;
-	}
+        rap = RaptorDB.RaptorDB.Open("C:\\Users\\nikol\\Documents\\GitHub\\BanjiNetV2\\RaptorServerr\\bin\\Debug\\data");
+        //Thread.Sleep(3000);
+        //t.Start();
+        rap.RegisterView(new WorkersRView());
+        rap.RegisterView(new CompaniesRView());
+        //t.Suspend();
+    }
 
     public WorkersR Create(WorkersR w)
     {
@@ -101,23 +105,54 @@ public class RaptorDataAccess
 
     public CompaniesR getCompanyById(Guid id)
     {
-        var result = rap.Fetch<CompaniesR>(id);
+        //var result = rap.Fetch(id);
+        var result = rap.Query("CompaniesR");
         rap.Shutdown();
-        return result;
+        if (result.Count != 0)
+        {
+            for (int i = 0; i < result.Count; i++)
+            {
+                var temp = result.Rows[i] as CompaniesR;
+                if (temp.Id == id)
+                    return temp;
+            }
+        }
+        return null;
     }
 
-    public Result<RowShemaCompanies> getCompanyByName(string name)
+    public CompaniesR getCompanyByName(string name)
     {
-        var result = rap.Query<RowShemaCompanies>(x => x.CompanyName == name);
+        var result = rap.Query("CompaniesR");
         rap.Shutdown();
-        return result;
+        if (result.Count != 0)
+        {
+            for (int i = 0; i < result.Count; i++)
+            {
+                var temp = result.Rows[i] as CompaniesR;
+                if (temp.CompanyName == name)
+                    return temp;
+            }
+        }
+        return null;
     }
 
-    public Result<RowShemaCompanies> getCompanyByEmail(string email)
+    public RowShemaCompanies getCompanyByEmail(string email)
     {
-        var result = rap.Query<RowShemaCompanies>(x => x.Email == email);
+        //var result = rap.Query<RowShemaCompanies>(x => x.Email == email);
+        //rap.Shutdown();
+        //return result;
+        var result = rap.Query("CompaniesR");
         rap.Shutdown();
-        return result;
+        if (result.Count != 0)
+        {
+            for (int i = 0; i < result.Count; i++)
+            {
+                var temp = result.Rows[i] as RowShemaCompanies;
+                if (temp.Email == email)
+                    return temp;
+            }
+        }
+        return null;
     }
 
     public CompaniesR updateCompany(Guid id, CompaniesR c)
@@ -132,5 +167,21 @@ public class RaptorDataAccess
             rap.Shutdown();
             return null;
         }
+    }
+
+    public List<RowShemaCompanies> GetCompanies()
+    {
+        var result = rap.Query("CompaniesR");
+        rap.Shutdown();
+        if (result.Count != 0)
+        {
+            List<RowShemaCompanies> retL = new List<RowShemaCompanies>();
+            for(int i = 0; i< result.Count; i++)
+            {
+                retL.Add(result.Rows[i] as RowShemaCompanies);
+            }
+            return retL;
+        }
+        return null;
     }
 }

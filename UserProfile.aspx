@@ -13,88 +13,139 @@
             $(document).ready(function () {
 
                 console.log(localStorage.getItem("job"));
-                console.log(localStorage.getItem("firm"));                  
+                console.log(localStorage.getItem("firm")); 
+                console.log(localStorage.getItem("jobR"));
+                console.log(localStorage.getItem("firmR")); 
 
 
-                    if (localStorage.getItem("job") !== null) {
-                        document.getElementById("write1").innerHTML = "User Info:";
-                        document.getElementById("write2").innerHTML = "Company Info:";
-                        var res = localStorage.getItem("job");
-                        localStorage.removeItem("job");
-                        var name = { name: res };
+                if (localStorage.getItem("job") !== null) {
+                    document.getElementById("write1").innerHTML = "User Info:";
+                    document.getElementById("write2").innerHTML = "Company Info:";
+                    var res = localStorage.getItem("job");
+                    localStorage.removeItem("job");
+                    var name = { name: res };
 
-                        //getAjaxResponse(name, function (data) {
-                        //    var xmldoc = $.parseXML(data),
-                        //        $xml = $(xmldoc),
-                        //        $title = $xml.find("string");
-                        //    var parsed = JSON.parse($title.text());
-                        //    console.log(parsed[0]);
+                    getAjaxResponse(name, function (data) {
+                        var xmldoc = $.parseXML(data),
+                            $xml = $(xmldoc),
+                            $title = $xml.find("string");
+                        var parsed = JSON.parse($title.text());
+                        console.log(parsed[0]);
 
-                        //    var addc = "<div>Company name: " + parsed[0].CompanyName + "</div><hr/>" +
-                        //        "<div>Email: " + parsed[0].Email + "</div><hr/>" +
-                        //        "<div>Type: " + parsed[0].Type + "</div><hr/>" +
-                        //        "<div>Location: " + parsed[0].Location + "</div><hr/>" +
-                        //        "<div>Owner: " + parsed[0].Owner + "</div>";
-                        //    $("#firm").append(addc);
-
-                        //    var sign = "no users were found with this name!";
-                        //    if ($title.text() == sign) {
-                        //        alert("No companies with that name are found!");
-                        //    }
-
-                        //});
-
-                    }
-                    else if (localStorage.getItem("firm") !== null) {
-
-                        document.getElementById("write1").innerHTML = "Company Info:";
-                        document.getElementById("write2").innerHTML = "Company Workers:";
-                        var res = localStorage.getItem("firm");
-                        localStorage.removeItem("firm");
-                        //var name = { name: res };
-
-                        var addc = "<div><table id='list' class='table table-hover'><thead class='thead-inverse'>" +
-                            "<tr><th>#</th><th>First Name</th><th>Last Name</th><th>Email</th><th>Company</th>" +
-                            "</tr></thead><tbody id='listing'></tbody></table></div>";
+                        var addc = "<div>Company name: " + parsed[0].CompanyName + "</div><hr/>" +
+                            "<div>Email: " + parsed[0].Email + "</div><hr/>" +
+                            "<div>Type: " + parsed[0].Type + "</div><hr/>" +
+                            "<div>Location: " + parsed[0].Location + "</div><hr/>" +
+                            "<div>Owner: " + parsed[0].Owner + "</div>";
                         $("#firm").append(addc);
 
-                        console.log(res);
+                        var sign = "no users were found with this name!";
+                        if ($title.text() == sign) {
+                            alert("No companies with that name are found!");
+                        }
 
-                        if (res.length != null) {
+                    });
 
-                            var j = 0;
-                            var proc = JSON.parse(res);
-                            console.log(proc);
-                            for (var i = 0; i < proc.length; i++) 
-                            {
-                                var id = { id: proc[i].toString() };
-                                //getAjaxResponseCompany(id, function (data) {
-                                //    var xmldoc = $.parseXML(data),
-                                //        $xml = $(xmldoc),
-                                //        $title = $xml.find("string");
-                                //    var parsedd = JSON.parse($title.text());
-                                //    console.log(parsedd[0]);
-                                //    j = j + 1;
+                }
+                else if (localStorage.getItem("firm") !== null) {
 
-                                //    var table = '<tr><th scope= "row">' + j + '</th>'
-                                //        + '<td>' + parsedd[0].FirstName + '</td>'
-                                //        + '<td>' + parsedd[0].LastName + '</td>'
-                                //        + '<td>' + parsedd[0].Email + '</td>'
-                                //        + '<td>' + parsedd[0].CompanyName + '</td></tr>';
-                                //    $("#listing").append(table);
+                    document.getElementById("write1").innerHTML = "Company Info:";
+                    document.getElementById("write2").innerHTML = "Company Workers:";
+                    var res = localStorage.getItem("firm");
+                    localStorage.removeItem("firm");
+                    //var name = { name: res };
+
+                    var addc = "<div><table id='list' class='table table-hover'><thead class='thead-inverse'>" +
+                        "<tr><th>#</th><th>First Name</th><th>Last Name</th><th>Email</th><th>Company</th>" +
+                        "</tr></thead><tbody id='listing'></tbody></table></div>";
+                    $("#firm").append(addc);
+
+                    console.log(res);
+
+                    if (res.length != null) {
+
+                        var j = 0;
+                        var proc = JSON.parse(res);
+                        console.log(proc);
+                        for (var i = 0; i < proc.length; i++) {
+                            var id = { id: proc[i].toString() };
+                            //getAjaxResponseCompany(id, function (data) {
+                            //    var xmldoc = $.parseXML(data),
+                            //        $xml = $(xmldoc),
+                            //        $title = $xml.find("string");
+                            //    var parsedd = JSON.parse($title.text());
+                            //    console.log(parsedd[0]);
+                            //    j = j + 1;
+
+                            //    var table = '<tr><th scope= "row">' + j + '</th>'
+                            //        + '<td>' + parsedd[0].FirstName + '</td>'
+                            //        + '<td>' + parsedd[0].LastName + '</td>'
+                            //        + '<td>' + parsedd[0].Email + '</td>'
+                            //        + '<td>' + parsedd[0].CompanyName + '</td></tr>';
+                            //    $("#listing").append(table);
 
 
-                                //    var sign = "no users were found with this name!";
-                                //    if ($title.text() == sign) {
-                                //        alert("No companies with that name are found!");
-                                //    }
+                            //    var sign = "no users were found with this name!";
+                            //    if ($title.text() == sign) {
+                            //        alert("No companies with that name are found!");
+                            //    }
 
-                                //});
-                            }
-
+                            //});
                         }
 
                     }
+
+                }
+                else if (localStorage.getItem("firmR") !== null) {
+
+                    document.getElementById("write1").innerHTML = "Company Info:";
+                    document.getElementById("write2").innerHTML = "Company Workers:";
+                    var res = localStorage.getItem("firmR");
+                    localStorage.removeItem("firmR");
+                    //var name = { name: res };
+
+                    var addc = "<div><table id='list' class='table table-hover'><thead class='thead-inverse'>" +
+                        "<tr><th>#</th><th>First Name</th><th>Last Name</th><th>Email</th><th>Company</th>" +
+                        "</tr></thead><tbody id='listing'></tbody></table></div>";
+                    $("#firm").append(addc);
+
+                    console.log(res);
+
+                    if (res.length != null) {
+
+                        var j = 0;
+                        var proc = JSON.parse(res);
+                        console.log(proc);
+                        for (var i = 0; i < proc.length; i++) {
+                            var id = { id: proc[i].toString() };
+                            getAjaxResponseCompany(id, function (data) {
+                                var xmldoc = $.parseXML(data),
+                                    $xml = $(xmldoc),
+                                    $title = $xml.find("string");
+                                var parsedd = JSON.parse($title.text());
+                                console.log(parsedd[0]);
+                                j = j + 1;
+
+                                var table = '<tr><th scope= "row">' + j + '</th>'
+                                    + '<td>' + parsedd[0].FirstName + '</td>'
+                                    + '<td>' + parsedd[0].LastName + '</td>'
+                                    + '<td>' + parsedd[0].Email + '</td>'
+                                    + '<td>' + parsedd[0].CompanyName + '</td></tr>';
+                                $("#listing").append(table);
+
+
+                                var sign = "no users were found with this name!";
+                                if ($title.text() == sign) {
+                                    alert("No companies with that name are found!");
+                                }
+
+                            });
+                        }
+
+                    }
+
+                }
+
                 
 
                 function getAjaxResponse(sstring, fn) {
@@ -116,7 +167,8 @@
                 function getAjaxResponseCompany(sstring, fn) {
 
                     $.ajax({
-                        url: "./MongoService.asmx/retWorkerFromId",
+                        //url: "./MongoService.asmx/retWorkerFromId",
+                        url: "./RaptorService.asmx/retWorkerFromIdR",
                         dataType: "text",
                         type: "POST",
                         data: sstring,

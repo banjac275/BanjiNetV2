@@ -17,8 +17,9 @@ namespace RaptorServerr
             AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(CurrentDomain_UnhandledException);
             RaptorDB.Global.EnableWebStudio = true;
             RaptorDB.Global.WebStudioPort = 91;
+            RaptorDB.Global.RequirePrimaryView = false;
             RaptorDB.Global.LocalOnlyWebStudio = false;
-            server = new RaptorDBServer(90, "C:\\Users\\nikol\\Documents\\GitHub\\BanjiNetV2\\data");
+            server = new RaptorDBServer(90, "data");
 
             Console.WriteLine("Server started on port 90");
             Console.WriteLine("Press Enter to exit...");

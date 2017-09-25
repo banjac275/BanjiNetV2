@@ -4,9 +4,9 @@
         //var json = xml2;
         var xmldoc = $.parseXML(data),
             $xml = $(xmldoc),
-            $title = $xml.find("Companies");
+            $title = $xml.find("CompaniesR");
         received = $title;
-        console.log($title[0].children[5].innerHTML);
+        console.log($title);
         var j = 1;
         for (var i = 0; i < $title.length; i++) {
             var company = $title[i].children[1].innerHTML;
@@ -29,7 +29,7 @@
         //$(this).toggleClass("selected");
         console.log(this.children[1].innerHTML);
         for (var i = 0; i < received.length; i++) {
-            if (received[i].children[1].innerHTML == this.children[1].innerHTML) {
+            if (received[i].children[1].innerHTML === this.children[1].innerHTML) {
                 var company = received[i].children[1].innerHTML;
                 var mail = received[i].children[6].innerHTML;
                 var type = received[i].children[3].innerHTML;
@@ -37,7 +37,7 @@
                 var owner = received[i].children[2].innerHTML;
                 var workers = received[i].children[5].innerHTML;
                 var forSend = { company: company, mail: mail, type: type, loc: loc, owner: owner, workers: workers };
-                localStorage.setItem("companyView", JSON.stringify(forSend));
+                localStorage.setItem("companyViewR", JSON.stringify(forSend));
             }
         }
         window.location.assign("./companyInfo.aspx");
@@ -47,7 +47,8 @@
     function getCompaniesWithAjax(fn) {
 
         $.ajax({
-            url: "./MongoService.asmx/retAllCompaniesFromCollection",
+            //url: "./MongoService.asmx/retAllCompaniesFromCollection",
+            url: "./RaptorService.asmx/retAllCompaniesFromCollectionR",
             dataType: "text",
             type: "POST",
             error: function (err) {

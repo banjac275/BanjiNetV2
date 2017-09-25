@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using RaptorDB;
 using RaptorDB.Common;
+using MongoDB.Bson.Serialization.Attributes;
 
 /// <summary>
 /// Summary description for CompaniesR
@@ -21,7 +22,7 @@ public class CompaniesR
 
     public string Location { get; set; }
 
-    public List<string> Employees { get; set; }
+    public string Employees { get; set; }
 
     public string Email { get; set; }
 
@@ -37,6 +38,8 @@ public class CompaniesR
 
 public class RowShemaCompanies : RDBSchema
 {
+    public Guid Id { get; set; }
+
     public string CompanyName { get; set; }
 
     public string Owner { get; set; }
@@ -45,7 +48,7 @@ public class RowShemaCompanies : RDBSchema
 
     public string Location { get; set; }
 
-    //public List<string> Employees { get; set; }
+    public string Employees { get; set; }
 
     public string Email { get; set; }
 

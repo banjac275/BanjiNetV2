@@ -60,13 +60,14 @@ public partial class UserProfile : System.Web.UI.Page
         {
             reccR = (CompaniesR)Session["companyR"];
             Response.Write("<script>console.log('" + reccR.CompanyName + "');</script>");
-            Response.Write("<script>localStorage.setItem('job', '" + null + "');</script>");
-            List<string> objects = new List<string>();
+            Response.Write("<script>localStorage.setItem('jobR', '" + null + "');</script>");
+            List<Guid> objects = new List<Guid>();
             if (reccR.Employees != null)
             {
-                for (int j = 0; j < reccR.Employees.Count; j++)
+                var splitted = reccR.Employees.Split(',');
+                for (int j = 0; j < splitted.Length; j++)
                 {
-                    objects.Add(reccR.Employees[j]);
+                    objects.Add(Guid.Parse(splitted[j]));
                 }
                 Response.Write("<script>localStorage.setItem('firm', '" + JsonConvert.SerializeObject(objects) + "');</script>");
             }
