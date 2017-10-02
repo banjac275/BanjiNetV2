@@ -11,8 +11,14 @@
         <link rel="stylesheet" href="~/Shared/user.css"/>
         <script type="text/javascript">
             $(document).ready(function () {
-                var storage = JSON.parse(localStorage.getItem("workerView"));
+                var storage = JSON.parse(localStorage.getItem("workerViewR"));
                 console.log(storage);
+
+                var add = "<div>Name: " + storage.first + " " + storage.last + "</div><hr/>" +
+                    "<div>Email: " + storage.mail + "</div><hr/>" +
+                    "<div>Company: " + storage.company + "</div>";
+                $("#personal").append(add);
+
                 var name = { name: storage.company };
                 getAjaxResponse(name, function (data) {
                     var xmldoc = $.parseXML(data),
@@ -20,12 +26,6 @@
                         $title = $xml.find("string");
                     var parsed = JSON.parse($title.text());
                     console.log(parsed[0]);
-
-                    var add = "<div>Name: " + storage.first + " " + storage.last + "</div><hr/>" +
-                        "<div>Email: " + storage.mail + "</div><hr/>" +
-                        "<div>Company: " + storage.company + "</div>";
-                    $("#personal").append(add);
-
                     
                     var addc = "<div>Company name: " + parsed[0].CompanyName + "</div><hr/>" +
                         "<div>Email: " + parsed[0].Email + "</div><hr/>" +
@@ -47,7 +47,8 @@
                 function getAjaxResponse(sstring, fn) {
 
                     $.ajax({
-                        url: "./MongoService.asmx/retCompanyFromName",
+                        //url: "./MongoService.asmx/retCompanyFromName",
+                        url: "./RaptorService.asmx/returnCompanyFromNameR",
                         dataType: "text",
                         type: "POST",
                         data: sstring,

@@ -67,7 +67,8 @@ public partial class UserProfile : System.Web.UI.Page
                 var splitted = reccR.Employees.Split(',');
                 for (int j = 0; j < splitted.Length; j++)
                 {
-                    objects.Add(Guid.Parse(splitted[j]));
+                    if(splitted[j] != "init")
+                        objects.Add(Guid.Parse(splitted[j]));
                 }
                 Response.Write("<script>localStorage.setItem('firm', '" + JsonConvert.SerializeObject(objects) + "');</script>");
             }

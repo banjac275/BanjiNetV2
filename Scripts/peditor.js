@@ -198,7 +198,8 @@
     function getAjaxResponseCompany(sstring, fn) {
 
         $.ajax({
-            url: "./MongoService.asmx/updateCompanyInDb",
+            //url: "./MongoService.asmx/updateCompanyInDb",
+            url: "./RaptorService.asmx/updateCompanyInRDb",
             dataType: "text",
             type: "POST",
             data: sstring,

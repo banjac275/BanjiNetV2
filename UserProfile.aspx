@@ -25,26 +25,26 @@
                     localStorage.removeItem("job");
                     var name = { name: res };
 
-                    getAjaxResponse(name, function (data) {
-                        var xmldoc = $.parseXML(data),
-                            $xml = $(xmldoc),
-                            $title = $xml.find("string");
-                        var parsed = JSON.parse($title.text());
-                        console.log(parsed[0]);
+                    //getAjaxResponse(name, function (data) {
+                    //    var xmldoc = $.parseXML(data),
+                    //        $xml = $(xmldoc),
+                    //        $title = $xml.find("string");
+                    //    var parsed = JSON.parse($title.text());
+                    //    console.log(parsed[0]);
 
-                        var addc = "<div>Company name: " + parsed[0].CompanyName + "</div><hr/>" +
-                            "<div>Email: " + parsed[0].Email + "</div><hr/>" +
-                            "<div>Type: " + parsed[0].Type + "</div><hr/>" +
-                            "<div>Location: " + parsed[0].Location + "</div><hr/>" +
-                            "<div>Owner: " + parsed[0].Owner + "</div>";
-                        $("#firm").append(addc);
+                    //    var addc = "<div>Company name: " + parsed[0].CompanyName + "</div><hr/>" +
+                    //        "<div>Email: " + parsed[0].Email + "</div><hr/>" +
+                    //        "<div>Type: " + parsed[0].Type + "</div><hr/>" +
+                    //        "<div>Location: " + parsed[0].Location + "</div><hr/>" +
+                    //        "<div>Owner: " + parsed[0].Owner + "</div>";
+                    //    $("#firm").append(addc);
 
-                        var sign = "no users were found with this name!";
-                        if ($title.text() == sign) {
-                            alert("No companies with that name are found!");
-                        }
+                    //    var sign = "no users were found with this name!";
+                    //    if ($title.text() == sign) {
+                    //        alert("No companies with that name are found!");
+                    //    }
 
-                    });
+                    //});
 
                 }
                 else if (localStorage.getItem("firm") !== null) {

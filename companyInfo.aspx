@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="~/Shared/user.css"/>
         <script type="text/javascript">
             $(document).ready(function () {
-                var storage = JSON.parse(localStorage.getItem("companyView"));
+                var storage = JSON.parse(localStorage.getItem("companyViewR"));
                 console.log(storage);
                 
                 var add = "<div>Company Name: " + storage.company + "</div><hr/>" +
@@ -22,43 +22,45 @@
                 $("#personal").append(add);
                 
 
-                var name = { name: storage.company };
-                getAjaxResponseCompany(name, function (data) {
-                        var xmldoc = $.parseXML(data),
-                            $xml = $(xmldoc),
-                            $title = $xml.find("string");
-                        var parsed = JSON.parse($title.text());
-                        console.log(parsed);
-                        var j = 0;
-
-                        for (var i = 0; i < parsed.length; i++)
+                //var name = { name: storage.company };
+                //getAjaxResponseCompany(name, function (data) {
+                //        var xmldoc = $.parseXML(data),
+                //            $xml = $(xmldoc),
+                //            $title = $xml.find("string");
+                //        var parsed = JSON.parse($title.text());
+                //        console.log(parsed);
+                //        var j = 0;
+                        var splitted = storage.workers.split(",");
+                        for (var i = 0; i < splitted.length; i++)
                         {
-                            var id = { id: parsed[i].toString() };
-                            getAjaxResponse(id, function (data) {
-                                var xmldoc = $.parseXML(data),
-                                    $xml = $(xmldoc),
-                                    $title = $xml.find("string");
-                                var parsedd = JSON.parse($title.text());
-                                console.log(parsedd[0]);
-                                j = j + 1;
+                            if (splitted[i] !== "init") {
+                                var id = { id: splitted[i].toString() };
+                                getAjaxResponse(id, function (data) {
+                                    var xmldoc = $.parseXML(data),
+                                        $xml = $(xmldoc),
+                                        $title = $xml.find("string");
+                                    var parsedd = JSON.parse($title.text());
+                                    console.log(parsedd[0]);
+                                    j = j + 1;
 
-                                var table = '<tr><th scope= "row">' + j + '</th>'
-                                    + '<td>' + parsedd[0].FirstName + '</td>'
-                                    + '<td>' + parsedd[0].LastName + '</td>'
-                                    + '<td>' + parsedd[0].Email + '</td>'
-                                    + '<td>' + parsedd[0].CompanyName + '</td></tr>';
-                                $("#listing").append(table);
+                                    var table = '<tr><th scope= "row">' + j + '</th>'
+                                        + '<td>' + parsedd[0].FirstName + '</td>'
+                                        + '<td>' + parsedd[0].LastName + '</td>'
+                                        + '<td>' + parsedd[0].Email + '</td>'
+                                        + '<td>' + parsedd[0].CompanyName + '</td></tr>';
+                                    $("#listing").append(table);
 
 
-                                var sign = "no users were found with this name!";
-                                if ($title.text() == sign) {
-                                    alert("No companies with that name are found!");
-                                }
+                                    var sign = "no users were found with this name!";
+                                    if ($title.text() == sign) {
+                                        alert("No companies with that name are found!");
+                                    }
 
-                            });
+                                });
+                            }
 
                         }
-                });              
+                //});              
                   
                     
                 function getAjaxResponseCompany(sstring, fn) {
@@ -80,7 +82,8 @@
                 function getAjaxResponse(sstring, fn) {
 
                     $.ajax({
-                        url: "./MongoService.asmx/retWorkerFromId",
+                        //url: "./MongoService.asmx/retWorkerFromId",
+                        url: "./RaptorService.asmx/retWorkerFromIdR",
                         dataType: "text",
                         type: "POST",
                         data: sstring,

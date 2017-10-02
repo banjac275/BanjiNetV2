@@ -187,5 +187,68 @@ public partial class profileEditor : System.Web.UI.Page
                + "</form><hr/>"
                + "<input id ='delete' type='button' class='btn btn-default' value='Delete Profile'><hr/>";
         }
+
+        CompaniesR reccC;
+        if (Session["companyR"] != null)
+        {
+            reccC = (CompaniesR)Session["companyR"];
+            Response.Write("<script>console.log('" + reccC.CompanyName + "');</script>");
+            Response.Write("<script>localStorage.setItem('companyid', '" + reccC.Id + "');</script>");
+            personalp.InnerHtml = "<form id = 'edit_form' class='form-vertical' role='form' method='post' data-toggle='validator'>"
+                   + "<div class='form-group'>"
+                        + "<label for='email' class='control-label'>Your email address: </label>"
+                        + "<input type = 'email' name='emails' class='form-control' id='emails' value='" + reccC.Email + "'>"
+                   + "<div class='help-block with-errors'></div>"
+                   + "</div>"
+                   + "<div class='form-group'>"
+                       + "<label for='companyname' class='control-label'>Your Company name: </label>"
+                       + "<input type = 'text' name='companyname' class='form-control' id='companyname' data-minlength='2' value='" + reccC.CompanyName + "'>"
+                       + "<div class='help-block with-errors'></div>"
+                   + "</div>"
+                   + "<div class='form-group'>"
+                       + "<label for='owner' class='control-label'>Company Owner: </label>"
+                       + "<input type = 'text' name='owner' class='form-control' id='owner' data-minlength='2' value='" + reccC.Owner + "'>"
+                       + "<div class='help-block with-errors'></div>"
+                   + "</div>"
+                   + "<div class='form-group'>"
+                       + "<label for='type' class='control-label'>Company type: </label>"
+                       + "<input type = 'text' name='type' class='form-control' id='type' data-minlength='2' value='" + reccC.Type + "'>"
+                       + "<div class='help-block with-errors'></div>"
+                   + "</div>"
+                   + "<div class='form-group'>"
+                       + "<label for='location' class='control-label'>Company type: </label>"
+                       + "<input type = 'text' name='location' class='form-control' id='location' data-minlength='2' value='" + reccC.Location + "'>"
+                       + "<div class='help-block with-errors'></div>"
+                   + "</div>"
+                   + "<div class='form-group'>"
+                       + "<label for='password' class='control-label'>Choose a password: </label>"
+                       + "<input type = 'text' name='passwords' class='form-control' id='passwords' data-minlength='5' value='" + reccC.Password + "'>"
+                       + "<div class='help-block with-errors'></div>"
+                   + "</div>"
+                   + "<div class='form-group'>"
+                       + "<label for='password' class='control-label'>Confirm a password: </label>"
+                       + "<input type ='text' name='passwords' class='form-control' id='repeatedpwds' data-minlength='5' data-match='#password' required>"
+                       + "<div class='help-block with-errors'></div>"
+                   + "</div>"
+                   + "<div class='form-group'>"
+                       + "<div class='col-lg-6'>"
+                            + "<div class='checkbox form-inline'>"
+                                + "<label>"
+                                    + "<input type ='checkbox' name ='remembers' id ='remembers' checked data-toggle='toggle'> Remember me"
+                                 + "</label>"
+                            + "</div><hr/>"
+                            + "<label class='control-label'>Pick Database(s): (default is MongoDB)</label>"
+                            + "<label class='checkbox-inline'>"
+                                + "<input type ='checkbox' checked data-toggle='toggle' name='mongo'> MongoDB"
+                            + "</label>"
+                            + "<label class='checkbox-inline'>"
+                                + "<input type ='checkbox' data-toggle='toggle' name='raptor'> RaptorDB"
+                            + "</label><hr/>"
+                            + "<input id ='changeCom' type='button' class='btn btn-default' value='Change values'>"
+                       + "</div>"
+                   + "</div>"
+               + "</form><hr/>"
+               + "<input id ='deleteCom' type='button' class='btn btn-default' value='Delete Company Profile'><hr/>";
+        }
     }
 }
