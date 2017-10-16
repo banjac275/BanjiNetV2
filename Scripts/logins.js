@@ -8,7 +8,7 @@
         var checkbox = $("#remember").val();
 
         //pravimo data string
-        var datastring = { 'mail': email, 'pass': password };//'checkbox': checkbox};
+        var datastring = { 'mail': email, 'pass': password };
 
         if (email === '' || password === '') {
             alert("please fill all fields!");
@@ -67,7 +67,7 @@
 
         $.ajax({
             //url: "./MongoService.asmx/returnWorkerFromEmail",
-            url: "./RaptorService.asmx/returnWorkerFromEmailR",
+            url: "./RavenService.asmx/returnWorkerFromEmailR",
             dataType: "text",
             type: "POST",
             data: sstring,
@@ -84,7 +84,7 @@
 
         $.ajax({
             //url: "./MongoService.asmx/returnCompanyFromEmail",
-            url: "./RaptorService.asmx/returnCompanyFromEmailR",
+            url: "./RavenService.asmx/returnCompanyFromEmailR",
             dataType: "text",
             type: "POST",
             data: sstring,
@@ -122,10 +122,9 @@
         var Email = $("#email").val();
         var Password = $("#password").val();
         var Reppass = $("#repeatedpwd").val();
-        var Checkbox = "on";
 
         //pravimo data string
-        var dataString = { 'mail': Email, 'pass': Password, 'name': Name, 'last': Surname, 'check': Checkbox };
+        var dataString = { 'mail': Email, 'pass': Password, 'name': Name, 'last': Surname };
 
         if (Email === '' || Password === '' || Name === '' || Surname === '' || Reppass === '') {
             alert("Please fill all fields!");
@@ -170,7 +169,7 @@
         var Checkbox = "on";
 
         //pravimo data string
-        var dataString = { 'company': CompanyName, 'owner': Owner, 'type': Type, 'location': Location, 'mail': Email, 'pass': Password, 'check': Checkbox };
+        var dataString = { 'company': CompanyName, 'owner': Owner, 'type': Type, 'location': Location, 'mail': Email, 'pass': Password };
 
         if (Email === '' || Password === '' || CompanyName === '' || Owner === '' || Reppass === '' || Type === '' || Location === '') {
             alert("Please fill all fields!");
@@ -209,7 +208,7 @@
 
         $.ajax({
             //url: "./MongoService.asmx/enterNewWorkerInDb",
-            url: "./RaptorService.asmx/enterNewWorkerInRDb",
+            url: "./RavenService.asmx/enterNewWorkerInRDb",
             dataType: "text",
             type: "POST",
             data: sstring,
@@ -226,7 +225,7 @@
 
         $.ajax({
             //url: "./MongoService.asmx/enterNewCompanyInDb",
-            url: "./RaptorService.asmx/enterNewCompanyInRDb",
+            url: "./RavenService.asmx/enterNewCompanyInRDb",
             dataType: "text",
             type: "POST",
             data: sstring,

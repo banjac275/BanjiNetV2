@@ -25,10 +25,23 @@ public class WorkersR
 
     public string Email { get; set; }
 
-    public string Checkbox { get; set; }
+    public List<PrevEmp> PreviousEmployment { get; set; }
+
+    public List<Guid> Friends { get; set; }
 
     public WorkersR()
     {
         Id = Guid.NewGuid();
     }
+}
+
+public class PrevEmp
+{
+    public Guid FirmId { get; set; }
+
+    public Guid FormerEmployeeId { get; set; }
+
+    public string StartTime { get; set; }
+
+    public string EndTime { get; set; }
 }

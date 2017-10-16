@@ -59,19 +59,19 @@ public partial class UserProfile : System.Web.UI.Page
         if (Session["companyR"] != null)
         {
             reccR = (CompaniesR)Session["companyR"];
-            Response.Write("<script>console.log('" + reccR.CompanyName + "');</script>");
-            Response.Write("<script>localStorage.setItem('jobR', '" + null + "');</script>");
-            List<Guid> objects = new List<Guid>();
-            if (reccR.Employees != null)
-            {
-                var splitted = reccR.Employees.Split(',');
-                for (int j = 0; j < splitted.Length; j++)
-                {
-                    if(splitted[j] != "init")
-                        objects.Add(Guid.Parse(splitted[j]));
-                }
-                Response.Write("<script>localStorage.setItem('firm', '" + JsonConvert.SerializeObject(objects) + "');</script>");
-            }
+            //Response.Write("<script>console.log('" + reccR.CompanyName + "');</script>");
+            //Response.Write("<script>localStorage.setItem('jobR', '" + null + "');</script>");
+            //List<Guid> objects = new List<Guid>();
+            //if (reccR.Employees != null)
+            //{
+            //    var splitted = reccR.Employees.Split(',');
+            //    for (int j = 0; j < splitted.Length; j++)
+            //    {
+            //        if(splitted[j] != "init")
+            //            objects.Add(Guid.Parse(splitted[j]));
+            //    }
+            //    Response.Write("<script>localStorage.setItem('firm', '" + JsonConvert.SerializeObject(objects) + "');</script>");
+            //}
             personal.InnerHtml = "<div>Company Name: " + reccR.CompanyName + "</div><hr/>" +
                     "<div>Email: " + reccR.Email + "</div><hr/>" +
                     "<div>Owner: " + reccR.Owner + "</div><hr/>" +

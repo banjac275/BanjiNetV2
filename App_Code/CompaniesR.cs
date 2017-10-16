@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using RaptorDB;
-using RaptorDB.Common;
-using MongoDB.Bson.Serialization.Attributes;
 
 /// <summary>
 /// Summary description for CompaniesR
@@ -22,13 +19,11 @@ public class CompaniesR
 
     public string Location { get; set; }
 
-    public List<string> Employees { get; set; }
+    public List<Guid> Employees { get; set; }
 
     public string Email { get; set; }
 
     public string Password { get; set; }
-
-    public string Checkbox { get; set; }
 
     public CompaniesR()
     {
