@@ -48,30 +48,35 @@ public partial class UserProfile : System.Web.UI.Page
         if (Session["userR"] != null)
         {
             recR = (WorkersR)Session["userR"];
+            string skillset = null;
             Response.Write("<script>console.log('" + recR.FirstName + "');</script>");
-            Response.Write("<script>localStorage.setItem('job', '" + recR.CompanyName + "');</script>");
+            Response.Write("<script>localStorage.setItem('jobR', '" + recR.CompanyName + "');</script>");
+            if(recR.Skills != null)
+            {
+                skillset = String.Join(", ", recR.Skills);
+            }
             personal.InnerHtml = "<div>Name: " + recR.FirstName + " " + recR.LastName + "</div><hr/>" +
                 "<div>Email: " + recR.Email + "</div><hr/>" +
-                "<div id='cname'>Company: " + recR.CompanyName + "</div>";
+                "<div id='cname'>Company: " + recR.CompanyName + "</div><hr/>" +
+                "<div>Skills: " + skillset + "</div>";
+            
+            if (recR.Friends != null)
+            {
+                Response.Write("<script>localStorage.setItem('friendsR', '" + JsonConvert.SerializeObject(recR.Friends) + "');</script>");
+            }
         }
 
         CompaniesR reccR;
         if (Session["companyR"] != null)
         {
             reccR = (CompaniesR)Session["companyR"];
-            //Response.Write("<script>console.log('" + reccR.CompanyName + "');</script>");
-            //Response.Write("<script>localStorage.setItem('jobR', '" + null + "');</script>");
+            Response.Write("<script>console.log('" + reccR.CompanyName + "');</script>");
+            Response.Write("<script>localStorage.setItem('jobR', '" + null + "');</script>");
             //List<Guid> objects = new List<Guid>();
-            //if (reccR.Employees != null)
-            //{
-            //    var splitted = reccR.Employees.Split(',');
-            //    for (int j = 0; j < splitted.Length; j++)
-            //    {
-            //        if(splitted[j] != "init")
-            //            objects.Add(Guid.Parse(splitted[j]));
-            //    }
-            //    Response.Write("<script>localStorage.setItem('firm', '" + JsonConvert.SerializeObject(objects) + "');</script>");
-            //}
+            if (reccR.Employees != null)
+            {
+                Response.Write("<script>localStorage.setItem('firmR', '" + JsonConvert.SerializeObject(reccR.Employees) + "');</script>");
+            }
             personal.InnerHtml = "<div>Company Name: " + reccR.CompanyName + "</div><hr/>" +
                     "<div>Email: " + reccR.Email + "</div><hr/>" +
                     "<div>Owner: " + reccR.Owner + "</div><hr/>" +

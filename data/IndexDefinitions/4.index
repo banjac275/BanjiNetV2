@@ -1,0 +1,30 @@
+{
+  "IndexId": 4,
+  "Name": "CompaniesR/byName",
+  "LockMode": "Unlock",
+  "IndexVersion": 1,
+  "Map": "from company in docs.CompaniesRs\nselect new {\n\tCompanyName = company.CompanyName\n}",
+  "Maps": [
+    "from company in docs.CompaniesRs\nselect new {\n\tCompanyName = company.CompanyName\n}"
+  ],
+  "Reduce": null,
+  "IsMapReduce": false,
+  "IsCompiled": false,
+  "Stores": {},
+  "Indexes": {
+    "CompanyName": "Analyzed"
+  },
+  "SortOptions": {},
+  "Analyzers": {},
+  "Fields": [],
+  "Suggestions": null,
+  "SuggestionsOptions": [],
+  "TermVectors": {},
+  "SpatialIndexes": {},
+  "InternalFieldsMapping": {},
+  "MaxIndexOutputsPerDocument": null,
+  "Type": "Map",
+  "DisableInMemoryIndexing": false,
+  "IsTestIndex": false,
+  "IsSideBySideIndex": false
+}

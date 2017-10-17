@@ -5,6 +5,7 @@
         e.preventDefault();
 
         var res;
+        var urlls = "./RaptorService.asmx/updateWorkerInRDb";
 
         if (localStorage.getItem("userid") !== null) {
             res = localStorage.getItem("userid");
@@ -20,7 +21,7 @@
         var company = $("#firm").val();
 
         //pravimo data string
-        var dataString = { 'id': res.toString(), 'mail': email, 'pass': password, 'name': name, 'last': surname, 'check': checkbox, 'company': company };
+        var dataString = { 'id': res.toString(), 'mail': email, 'pass': password, 'name': name, 'last': surname, 'company': company };
 
         if (email === '' || password === '' || name === '' || surname === '' || reppass === '' || company === '') {
             alert("Please fill all fields!");
@@ -30,7 +31,7 @@
 
         }
         else {
-            getAjaxResponse(dataString, function (data) {
+            getAjaxResponse(urlls, dataString, function (data) {
                 var xmldoc = $.parseXML(data),
                     $xml = $(xmldoc),
                     $title = $xml.find("string");
@@ -104,7 +105,7 @@
         var checkbox = $("#remembers").val();
 
         //pravimo data string
-        var dataString = { 'id': res.toString(), 'mail': email, 'pass': password, 'name': company, 'owner': owner, 'type': type, 'loc': location, 'check': checkbox };
+        var dataString = { 'id': res.toString(), 'mail': email, 'pass': password, 'name': company, 'owner': owner, 'type': type, 'loc': location };
 
         if (email === '' || password === '' || company === '' || owner === '' || type === '' || location === '' || reppass === '') {
             alert("Please fill all fields!");
@@ -162,11 +163,11 @@
         });
     });
 
-    function getAjaxResponse(sstring, fn) {
+    function getAjaxResponse(urll, sstring, fn) {
 
         $.ajax({
             //url: "./MongoService.asmx/updateWorkerInDb",
-            url: "./RaptorService.asmx/updateWorkerInRDb",
+            url: urll,
             dataType: "text",
             type: "POST",
             data: sstring,

@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Raven.Client;
+using Raven.Client.Indexes;
+using Raven.Abstractions.Indexing;
 
 /// <summary>
 /// Summary description for CompaniesR
@@ -28,5 +31,36 @@ public class CompaniesR
     public CompaniesR()
     {
         Id = Guid.NewGuid();
+    }
+}
+
+//fje za brzu pretragu
+//po mejlu
+public class CompaniesR_byEmail: AbstractIndexCreationTask<CompaniesR>
+{
+    public CompaniesR_byEmail()
+    {
+        Map = companies => from company in companies
+                         select new
+                         {
+                             company.Email
+                         };
+
+        Indexes.Add(x => x.Email, FieldIndexing.Analyzed);
+    }
+}
+
+//po imenu
+public class CompaniesR_byName : AbstractIndexCreationTask<CompaniesR>
+{
+    public CompaniesR_byName()
+    {
+        Map = companies => from company in companies
+                           select new
+                           {
+                               company.CompanyName
+                           };
+
+        Indexes.Add(x => x.CompanyName, FieldIndexing.Analyzed);
     }
 }

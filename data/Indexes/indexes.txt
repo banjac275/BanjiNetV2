@@ -1,1 +1,4 @@
 1 - Raven/DocumentsByEntityName
+2 - WorkersR/byEmail
+3 - CompaniesR/byEmail
+4 - CompaniesR/byName

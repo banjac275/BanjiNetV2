@@ -22,6 +22,12 @@ public class RavenDataAccess
             DefaultDatabase = "banjiNetdb"
         };
         _store.Initialize();
+
+        //indeksi
+        new WorkersR_byEmail().Execute(_store);
+        new CompaniesR_byEmail().Execute(_store);
+        new CompaniesR_byName().Execute(_store);
+
         _session = _store.OpenSession();
     }
 
@@ -37,5 +43,23 @@ public class RavenDataAccess
         _session.Store(c);
         _session.SaveChanges();
         return c;
+    }
+
+    public List<WorkersR> getWorkerByEmail(string email)
+    {
+        var result = _session.Query<WorkersR, WorkersR_byEmail>().Search(x => x.Email, email).ToList();
+        return result;
+    }
+
+    public List<CompaniesR> getCompanyByEmail(string email)
+    {
+        var result = _session.Query<CompaniesR, CompaniesR_byEmail>().Search(x => x.Email, email).ToList();
+        return result;
+    }
+
+    public List<CompaniesR> getCompanyByName(string name)
+    {
+        var result = _session.Query<CompaniesR, CompaniesR_byName>().Search(x => x.CompanyName, name).ToList();
+        return result;
     }
 }

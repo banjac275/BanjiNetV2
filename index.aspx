@@ -17,7 +17,7 @@
     <div class="container text-center nav-tabs">
         <div class="jumbotron">
             <h1>Welcome to BanjiNet</h1>
-            <p>This is the example project for benchmarking MongoDB and RaptorDB</p>
+            <p>This is the example project for benchmarking RavenDB and MongoDB</p>
         </div>
     </div>
     <div class="container">
