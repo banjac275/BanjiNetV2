@@ -33,7 +33,7 @@
                 <!--/.container-fluid -->
               </nav>
             </div> 
-
+        <!-- /top nav -->
            <div>
                <h3 class="text-center">Workers: </h3>
                <table id="list" class="table table-hover">
@@ -44,6 +44,7 @@
                       <th>Last Name</th>
                       <th>Email</th>
                       <th>Company</th>
+                      <th>Friend Status</th>
                     </tr>
                   </thead>
                   <tbody id="listing">
@@ -52,7 +53,7 @@
                 </table>
            </div>           
 
-        <!-- /top nav -->
+        
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
     </body>

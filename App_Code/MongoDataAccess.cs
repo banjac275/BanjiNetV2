@@ -136,7 +136,7 @@ public class MongoDataAccess
         var filter = new BsonDocument("_id", c.Id);
         var push = Builders<Companies>.Update.Push("Employees", id);
         var res = collection.FindOneAndUpdate(filter, push);
-        return "Worker removed from company!";
+        return "Worker added to company!";
     }
 
     public string removeWorker(ObjectId id)

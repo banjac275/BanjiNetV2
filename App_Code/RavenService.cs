@@ -144,19 +144,19 @@ public class RavenService : System.Web.Services.WebService
 
     //apdejtovanje profila radnika
     [System.Web.Services.WebMethod(EnableSession = true)]
-    public string updateWorkerInDb(string id, string mail, string pass, string name, string last, string company)
+    public string updateWorkerInRDb(string id, string mail, string pass, string name, string last, string company)
     {
-        List<WorkersR> recvv = raven.getWorkerById(Guid.Parse(id));
+        WorkersR recvv = raven.getWorkerById(Guid.Parse(id));
 
 
-        recvv[0].Email = mail;
-        recvv[0].Password = pass;
-        recvv[0].FirstName = name;
-        recvv[0].LastName = last;
+        recvv.Email = mail;
+        recvv.Password = pass;
+        recvv.FirstName = name;
+        recvv.LastName = last;
 
-        var temp = recvv[0].CompanyName;
+        var temp = recvv.CompanyName;
 
-        var cId = mongoDbase.getCompanyByName(company);
+        var cId = raven.getCompanyByName(company);
 
         if (cId.Count == 0)
         {
@@ -165,27 +165,96 @@ public class RavenService : System.Web.Services.WebService
 
         if (temp != company && temp != null)
         {
-            var tempC = mongoDbase.getCompanyByName(temp);
-            var ret = mongoDbase.removeWorkerFromCompany(recvv[0].Id, tempC[0]);
-            var com = mongoDbase.addWorkerToCompany(recvv[0].Id, cId[0]);
-            recvv[0].CompanyId = cId[0].Id;
-            recvv[0].CompanyName = cId[0].CompanyName;
+            var tempC = raven.getCompanyByName(temp);
+            var ret = raven.removeWorkerFromCompany(recvv.Id, tempC[0]);
+            var com = raven.addWorkerToCompany(recvv.Id, cId[0]);
+            recvv.CompanyId = cId[0].Id.ToString();
+            recvv.CompanyName = cId[0].CompanyName;
         }
         else
         {
-            var com = mongoDbase.addWorkerToCompany(recvv[0].Id, cId[0]);
-            recvv[0].CompanyId = cId[0].Id;
-            recvv[0].CompanyName = cId[0].CompanyName;
+            var com = raven.addWorkerToCompany(recvv.Id, cId[0]);
+            recvv.CompanyId = cId[0].Id.ToString();
+            recvv.CompanyName = cId[0].CompanyName;
         }
 
-        var res = mongoDbase.updateWorker(recvv[0].Id, recvv[0]);
+        var res = raven.updateWorker(recvv);
 
         if (res != null)
         {
-            HttpContext.Current.Session.Add("user", res);
+            HttpContext.Current.Session.Add("userR", res);
             return "Update successfull!";
         }
         return fail;
     }
 
+    [System.Web.Services.WebMethod]
+    public string retWorkerFromIdR(string id)
+    {
+
+        WorkersR c = raven.getWorkerById(Guid.Parse(id));
+
+
+        if (c != null)
+        {
+            return JsonConvert.SerializeObject(c);
+        }
+        else
+            return "User with that name doesn't exist in our registry!";
+
+    }
+
+    [System.Web.Services.WebMethod]
+    public List<WorkersR> retAllWorkersFromCollectionR()
+    {
+        List<WorkersR> w = raven.GetWorkers();
+        return w;
+    }
+
+    [System.Web.Services.WebMethod]
+    public List<CompaniesR> retAllCompaniesFromCollectionR()
+    {
+        List<CompaniesR> c = raven.GetCompanies();
+        return c;
+    }
+
+    //dodavanje prijatelja
+    [System.Web.Services.WebMethod(EnableSession = true)]
+    public string addFriendR(string id1, string id2)
+    {
+        WorkersR friend = raven.getWorkerById(Guid.Parse(id1));
+        WorkersR user = raven.getWorkerById(Guid.Parse(id2));
+
+        if(friend.Friends == null)
+        {
+            friend.Friends = new List<Guid>();
+            friend.Friends.Add(Guid.Parse(id2));
+            friend = raven.updateWorker(friend);
+        }
+        else
+        {
+            friend.Friends.Add(Guid.Parse(id2));
+            friend = raven.updateWorker(friend);
+        }
+
+        if (user.Friends == null)
+        {
+            user.Friends = new List<Guid>();
+            user.Friends.Add(Guid.Parse(id1));
+            user = raven.updateWorker(user);
+        }
+        else
+        {
+            user.Friends.Add(Guid.Parse(id1));
+            user = raven.updateWorker(user);
+        }
+
+
+        if (user != null)
+        {
+            HttpContext.Current.Session.Add("userR", user);
+            return "Update successfull!";
+        }
+        return fail;
+    }
 }

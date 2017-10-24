@@ -62,4 +62,77 @@ public class RavenDataAccess
         var result = _session.Query<CompaniesR, CompaniesR_byName>().Search(x => x.CompanyName, name).ToList();
         return result;
     }
+
+    public WorkersR getWorkerById(Guid id)
+    {
+        var find = _session.Query<WorkersR>().ToList();
+        if(find != null)
+            for(int i = 0; i < find.Count; i++)
+            {
+                if(find[i].Id == id)
+                {
+                    return find[i];
+                }
+            }
+        return null;
+    }
+
+    public string removeWorkerFromCompany(Guid id, CompaniesR c)
+    {
+        var check = false;
+        List<Guid> temp = new List<Guid>();
+        if (c.Employees != null)
+        {
+            for (int i = 0; i < c.Employees.Count; i++)
+            {
+                if (id != c.Employees[i])
+                    temp.Add(c.Employees[i]);
+                else
+                    check = true;
+            }
+            c.Employees = temp;
+            _session.Store(c);
+            _session.SaveChanges();
+            if (check == true)
+                return "Worker removed from company!";
+            else
+                return "Such worker never existed in registry!";
+        }
+        else
+            return "Such worker doesn't exist in registry!";        
+    }
+
+    public string addWorkerToCompany(Guid id, CompaniesR c)
+    {
+        if (c.Employees == null)
+        {
+            c.Employees = new List<Guid>();
+            c.Employees.Add(id);
+        }
+        else
+            c.Employees.Add(id);
+
+        _session.Store(c);
+        _session.SaveChanges();
+        return "Worker added to the company!";
+    }
+
+    public WorkersR updateWorker(WorkersR w)
+    {
+        _session.Store(w);
+        _session.SaveChanges();
+        return w;
+    }
+
+    public List<WorkersR> GetWorkers()
+    {
+        var users = _session.Query<WorkersR>().ToList();
+        return users;
+    }
+
+    public List<CompaniesR> GetCompanies()
+    {
+        var companies = _session.Query<CompaniesR>().ToList();
+        return companies;
+    }
 }

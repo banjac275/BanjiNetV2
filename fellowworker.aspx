@@ -11,44 +11,119 @@
         <link rel="stylesheet" href="~/Shared/user.css"/>
         <script type="text/javascript">
             $(document).ready(function () {
-                var storage = JSON.parse(localStorage.getItem("workerViewR"));
+                var storage = localStorage.getItem("workerViewR");
                 console.log(storage);
+                var url = "./RavenService.asmx/retCompanyFromNameR";
+                var urll = "./RavenService.asmx/retWorkerFromIdR";
+                var user = JSON.parse(localStorage.getItem("userTemp"));
 
-                var add = "<div>Name: " + storage.first + " " + storage.last + "</div><hr/>" +
-                    "<div>Email: " + storage.mail + "</div><hr/>" +
-                    "<div>Company: " + storage.company + "</div>";
-                $("#personal").append(add);
+                var addf = "<div><table id='listt' class='table table-hover'><thead class='thead-inverse'>" +
+                    "<tr><th>#</th><th>First Name</th><th>Last Name</th><th>Email</th><th>Company</th>" +
+                    "<th>Profile</th><th>Unfriend</th></tr></thead><tbody id='list'></tbody></table></div>";
+                $("#friend").append(addf);
 
-                var name = { name: storage.company };
-                getAjaxResponse(name, function (data) {
-                    var xmldoc = $.parseXML(data),
-                        $xml = $(xmldoc),
-                        $title = $xml.find("string");
-                    var parsed = JSON.parse($title.text());
-                    console.log(parsed[0]);
-                    
-                    var addc = "<div>Company name: " + parsed[0].CompanyName + "</div><hr/>" +
-                        "<div>Email: " + parsed[0].Email + "</div><hr/>" +
-                        "<div>Type: " + parsed[0].Type + "</div><hr/>" +
-                        "<div>Location: " + parsed[0].Location + "</div><hr/>" +
-                        "<div>Owner: " + parsed[0].Owner + "</div>";
-                    $("#firm").append(addc);
+                var ajdi = { id: storage };
+                getAjaxResponse(urll, ajdi, function (dataa) {
+                    var xmldocs = $.parseXML(dataa),
+                        $xmls = $(xmldocs),
+                        $titles = $xmls.find("string");
+                    var parse = JSON.parse($titles.text());
 
-                    localStorage.setItem("workerView", "");
+                    var add = "<div>Name: " + parse.FirstName + " " + parse.LastName + "</div><hr/>" +
+                        "<div>Email: " + parse.Email + "</div><hr/>" +
+                        "<div>Company: " + parse.CompanyName + "</div><hr/>" +
+                        "<div>Skills: " + parse.Skills + "</div>";
+                    $("#personal").append(add);
 
-
-                    var sign = "no users were found with this name!";
-                    if ($title.text() == sign) {
-                        alert("No companies with that name are found!");
+                    if (user.Friends !== null)
+                    {
+                        for (var i = 0; i < user.Friends.length; i++)
+                        {
+                            if (parse.Id === user.Friends[i])
+                            {
+                                $("#add").css("display", "none");
+                                $("#rem").css("display", "block");
+                            }
+                        }
                     }
+                    else
+                    {
+                        $("#add").css("display", "block");
+                        $("#rem").css("display", "inline");
+                    }
+
+                    var name = { name: parse.CompanyName };
+                    getAjaxResponse(url, name, function (data) {
+                        var xmldoc = $.parseXML(data),
+                            $xml = $(xmldoc),
+                            $title = $xml.find("string");
+                        var parsed = JSON.parse($title.text());
+                        console.log(parsed);
                     
+                        var addc = "<div>Company name: " + parsed.CompanyName + "</div><hr/>" +
+                            "<div>Email: " + parsed.Email + "</div><hr/>" +
+                            "<div>Type: " + parsed.Type + "</div><hr/>" +
+                            "<div>Location: " + parsed.Location + "</div><hr/>" +
+                            "<div>Owner: " + parsed.Owner + "</div>";
+                        $("#firm").append(addc);
+
+                        localStorage.setItem("workerViewR", "");
+
+
+                        var sign = "no users were found with this name!";
+                        if ($title.text() == sign) {
+                            alert("No companies with that name are found!");
+                        }
+                    
+                    });
                 });
 
-                function getAjaxResponse(sstring, fn) {
+                $("#add").click(function (e) {
+
+                    e.preventDefault();
+
+                    $("#add").css("display", "none");
+                    $("#rem").css("display", "block");
+
+                    var ids = { id1: storage, id2: user.Id };
+                    var urlf = "./RavenService.asmx/addFriendR";
+
+                    getAjaxResponse(urlf, ids, function (datas) {
+                        var xmldoc = $.parseXML(datas),
+                            $xml = $(xmldoc),
+                            $title = $xml.find("string");
+                        var parsed = $title.text();
+                        console.log(parsed);
+
+
+                        var sign = "no users were found with this name!";
+                        if ($title.text() == sign) {
+                            alert("Friends not added!");
+                        }
+                        else
+                        {
+                            alert("Friend Added!");
+                            window.location.assign("./fellowworker.aspx");
+                        }
+
+                    });
+
+                });
+
+                $("#rem").click(function (e) {
+
+                    e.preventDefault();
+
+                    $("#add").css("display", "block");
+                    $("#rem").css("display", "inline");
+
+                });
+
+                function getAjaxResponse(urlll, sstring, fn) {
 
                     $.ajax({
                         //url: "./MongoService.asmx/retCompanyFromName",
-                        url: "./RaptorService.asmx/returnCompanyFromNameR",
+                        url: urlll,
                         dataType: "text",
                         type: "POST",
                         data: sstring,
@@ -100,6 +175,27 @@
 
                        </div>
                     </div>                    
+                </div>
+                <div class="row">
+                    <div class="col-lg-2 panel panel-info">
+                        <h2>Resolve Friendship</h2>
+                        <button type="button" class="btn btn-default col-lg-2" id="add">Add Friend</button>
+                        <button type="button" class="btn btn-default col-lg-2" id="rem">Unfriend</button>
+                    </div>
+                </div>
+                <div class="row" id="opt">
+                    <div class="col-lg-4 panel panel-info">
+                       <div id="write3" class="panel-title">Previous Employment</div><hr />
+                       <div class="panel-body" id="former" runat="server">
+
+                       </div>
+                    </div>
+                    <div class="col-lg-8 panel panel-info">
+                        <div id="write4" class="panel-title">Friends</div><hr />
+                        <div class="panel-body" id="friend" runat="server">
+
+                       </div>
+                    </div>  
                 </div>
             </div>
         
