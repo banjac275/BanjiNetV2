@@ -19,7 +19,7 @@
 
                 var addf = "<div><table id='listt' class='table table-hover'><thead class='thead-inverse'>" +
                     "<tr><th>#</th><th>First Name</th><th>Last Name</th><th>Email</th><th>Company</th>" +
-                    "<th>Profile</th><th>Unfriend</th></tr></thead><tbody id='list'></tbody></table></div>";
+                    "<th>Profile</th></tr></thead><tbody id='list'></tbody></table></div>";
                 $("#friend").append(addf);
 
                 var ajdi = { id: storage };
@@ -41,15 +41,24 @@
                         {
                             if (parse.Id === user.Friends[i])
                             {
-                                $("#add").css("display", "none");
-                                $("#rem").css("display", "block");
+                                //$("#add").css("display", "none");
+                                //$("#rem").css("display", "block");
+                                $("#add").addClass("disabled");
+                                $("#rem").removeClass("disabled");
                             }
                         }
                     }
+                    else if (parse.Id === user.Id)
+                    {
+                        //$("#add").css("display", "block");
+                        //$("#rem").css("display", "none");
+                        $("#add").addClass("disabled");
+                        $("#rem").addClass("disabled");
+                    }
                     else
                     {
-                        $("#add").css("display", "block");
-                        $("#rem").css("display", "inline");
+                        $("#rem").addClass("disabled");
+                        $("#add").removeClass("disabled");
                     }
 
                     var name = { name: parse.CompanyName };
@@ -74,6 +83,38 @@
                         if ($title.text() == sign) {
                             alert("No companies with that name are found!");
                         }
+
+                        var k = 0;
+                        if (parse.Friends !== null) {
+                            for (var j = 0; j < parse.Friends.length; j++) {
+                                var idi = { id: parse.Friends[j] }
+                                console.log(parse.Friends);
+                                getAjaxResponse(urll, idi, function (datas) {
+                                    var xmldocss = $.parseXML(datas),
+                                        $xmlss = $(xmldocss),
+                                        $titless = $xmls.find("string");
+                                    var parsee = JSON.parse($titless.text());
+
+                                    k = k + 1;
+
+                                    var table = '<tr><th scope= "row">' + k + '</th>'
+                                        + '<td>' + parsee.FirstName + '</td>'
+                                        + '<td>' + parsee.LastName + '</td>'
+                                        + '<td>' + parsee.Email + '</td>'
+                                        + '<td>' + parsee.CompanyName + '</td>'
+                                        + '<td><button type="button" class="btn btn-default" id="prof' + j + '">View</button></td></tr>';
+                                    $("#list").append(table);
+
+
+                                    var sign = "no users were found with this name!";
+                                    if ($titless.text() === sign) {
+                                        alert("No users with that name are found!");
+                                    }
+
+
+                                });
+                            }
+                        }
                     
                     });
                 });
@@ -82,8 +123,10 @@
 
                     e.preventDefault();
 
-                    $("#add").css("display", "none");
-                    $("#rem").css("display", "block");
+                    //$("#add").css("display", "none");
+                    //$("#rem").css("display", "block");
+                    $("#add").addClass("disabled");
+                    $("#rem").removeClass("disabled");
 
                     var ids = { id1: storage, id2: user.Id };
                     var urlf = "./RavenService.asmx/addFriendR";
@@ -114,8 +157,10 @@
 
                     e.preventDefault();
 
-                    $("#add").css("display", "block");
-                    $("#rem").css("display", "inline");
+                    //$("#add").css("display", "block");
+                    //$("#rem").css("display", "none");
+                    $("#rem").addClass("disabled");
+                    $("#add").removeClass("disabled");
 
                 });
 
@@ -177,10 +222,10 @@
                     </div>                    
                 </div>
                 <div class="row">
-                    <div class="col-lg-2 panel panel-info">
-                        <h2>Resolve Friendship</h2>
-                        <button type="button" class="btn btn-default col-lg-2" id="add">Add Friend</button>
-                        <button type="button" class="btn btn-default col-lg-2" id="rem">Unfriend</button>
+                    <div class="col-lg-4 panel panel-info">
+                        <div class="text-center col-lg-6">Resolve Friendship</div>
+                        <button type="button" class="btn btn-default col-lg-4 text-right btn-block" id="add">Add Friend</button>
+                        <button type="button" class="btn btn-default col-lg-4 text-right btn-block" id="rem">Unfriend</button>
                     </div>
                 </div>
                 <div class="row" id="opt">
