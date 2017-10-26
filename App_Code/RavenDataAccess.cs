@@ -77,6 +77,20 @@ public class RavenDataAccess
         return null;
     }
 
+    public CompaniesR getCompanyById(Guid id)
+    {
+        var find = _session.Query<CompaniesR>().ToList();
+        if (find != null)
+            for (int i = 0; i < find.Count; i++)
+            {
+                if (find[i].Id == id)
+                {
+                    return find[i];
+                }
+            }
+        return null;
+    }
+
     public string removeWorkerFromCompany(Guid id, CompaniesR c)
     {
         var check = false;

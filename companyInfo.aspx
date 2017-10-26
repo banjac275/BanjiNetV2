@@ -11,79 +11,68 @@
         <link rel="stylesheet" href="~/Shared/user.css"/>
         <script type="text/javascript">
             $(document).ready(function () {
-                var storage = JSON.parse(localStorage.getItem("companyViewR"));
-                console.log(storage);
+                var storage = localStorage.getItem("companyViewR");
                 
-                var add = "<div>Company Name: " + storage.company + "</div><hr/>" +
-                    "<div>Email: " + storage.mail + "</div><hr/>" +
-                    "<div>Owner: " + storage.owner + "</div><hr/>" +
-                    "<div>Type: " + storage.type + "</div><hr/>" +
-                    "<div>Location: " + storage.loc + "</div>";
-                $("#personal").append(add);
+                var urlW = "./RavenService.asmx/retWorkerFromIdR";
+                var urlC = "./RavenService.asmx/retCompanyFromIdR";
+
+                var tempp = storage.replace(/"/g, "");
+                console.log(tempp);
+                var idC = { id: tempp };
+                getAjaxResponse(urlC, idC, function (data) {
+                    var xmldoc = $.parseXML(data),
+                        $xml = $(xmldoc),
+                        $title = $xml.find("string");
+                    var parsed = JSON.parse($title.text());
+                    console.log(parsed);
+
+                    var add = "<div>Company Name: " + parsed.CompanyName + "</div><hr/>" +
+                        "<div>Email: " + parsed.Email + "</div><hr/>" +
+                        "<div>Owner: " + parsed.Owner + "</div><hr/>" +
+                        "<div>Type: " + parsed.Type + "</div><hr/>" +
+                        "<div>Location: " + parsed.Location + "</div>";
+                    $("#personal").append(add);
                 
+                    if (parsed.Employees !== null) {
+                        var j = 0;
+                        for (var i = 0; i < parsed.Employees.length; i++) {
+                            var temp = parsed.Employees[i].replace(/"/g, "");
+                            console.log(temp);
+                            var id = { id: temp };
+                            getAjaxResponse(urlW, id, function (dataa) {
+                                var xmldocs = $.parseXML(dataa),
+                                    $xmls = $(xmldocs),
+                                    $titles = $xmls.find("string");
+                                var parsedd = JSON.parse($titles.text());
+                                console.log(parsedd);
+                                j = j + 1;
 
-                //var name = { name: storage.company };
-                //getAjaxResponseCompany(name, function (data) {
-                //        var xmldoc = $.parseXML(data),
-                //            $xml = $(xmldoc),
-                //            $title = $xml.find("string");
-                //        var parsed = JSON.parse($title.text());
-                //        console.log(parsed);
-                //        var j = 0;
-                        var splitted = storage.workers.split(",");
-                        for (var i = 0; i < splitted.length; i++)
-                        {
-                            if (splitted[i] !== "init") {
-                                var id = { id: splitted[i].toString() };
-                                getAjaxResponse(id, function (data) {
-                                    var xmldoc = $.parseXML(data),
-                                        $xml = $(xmldoc),
-                                        $title = $xml.find("string");
-                                    var parsedd = JSON.parse($title.text());
-                                    console.log(parsedd[0]);
-                                    j = j + 1;
-
-                                    var table = '<tr><th scope= "row">' + j + '</th>'
-                                        + '<td>' + parsedd[0].FirstName + '</td>'
-                                        + '<td>' + parsedd[0].LastName + '</td>'
-                                        + '<td>' + parsedd[0].Email + '</td>'
-                                        + '<td>' + parsedd[0].CompanyName + '</td></tr>';
-                                    $("#listing").append(table);
+                                var table = '<tr><th scope= "row">' + j + '</th>'
+                                    + '<td>' + parsedd.FirstName + '</td>'
+                                    + '<td>' + parsedd.LastName + '</td>'
+                                    + '<td>' + parsedd.Email + '</td>'
+                                    + '<td>' + parsedd.CompanyName + '</td>'
+                                    + '<td><button type="button" class="btn btn-default" id="addd' + j + '">View</button></td></tr>';
+                                $("#listing").append(table);
 
 
-                                    var sign = "no users were found with this name!";
-                                    if ($title.text() == sign) {
-                                        alert("No companies with that name are found!");
-                                    }
+                                var sign = "no users were found with this name!";
+                                if ($title.text() == sign) {
+                                    alert("No companies with that name are found!");
+                                }
 
-                                });
-                            }
+                            });    
+                            
 
                         }
-                //});              
-                  
-                    
-                function getAjaxResponseCompany(sstring, fn) {
+                    }
+                });
 
-                    $.ajax({
-                        url: "./MongoService.asmx/retCompanyWorkers",
-                        dataType: "text",
-                        type: "POST",
-                        data: sstring,
-                        error: function (err) {
-                            alert("Error", err);
-                        },
-                        success: function (data) {
-                            fn(data);
-                        }
-                    });
-                }
-
-                function getAjaxResponse(sstring, fn) {
+                function getAjaxResponse(urll, sstring, fn) {
 
                     $.ajax({
                         //url: "./MongoService.asmx/retWorkerFromId",
-                        url: "./RaptorService.asmx/retWorkerFromIdR",
+                        url: urll,
                         dataType: "text",
                         type: "POST",
                         data: sstring,
@@ -141,6 +130,7 @@
                                       <th>Last Name</th>
                                       <th>Email</th>
                                       <th>Company</th>
+                                      <th>Profile</th>
                                     </tr>
                                   </thead>
                                   <tbody id="listing">

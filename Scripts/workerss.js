@@ -9,7 +9,7 @@
         received = $title;
         console.log(received);
         console.log(user);
-        var j = 1;
+        var k = 0;
         for (var i = 0; i < $title.length; i++) {
             var mail = $title[i].children[6].innerHTML;
             var first = $title[i].children[3].innerHTML;
@@ -34,8 +34,8 @@
                     
                 }
             }            
-
-            var table = '<tr><th scope= "row">' + i + '</th>'
+            k = k + 1;
+            var table = '<tr><th scope= "row">' + k + '</th>'
                 + '<td>' + first + '</td>'
                 + '<td>' + last + '</td>'
                 + '<td>' + mail + '</td>'

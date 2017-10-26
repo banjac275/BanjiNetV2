@@ -205,6 +205,22 @@ public class RavenService : System.Web.Services.WebService
     }
 
     [System.Web.Services.WebMethod]
+    public string retCompanyFromIdR(string id)
+    {
+
+        CompaniesR c = raven.getCompanyById(Guid.Parse(id));
+
+
+        if (c != null)
+        {
+            return JsonConvert.SerializeObject(c);
+        }
+        else
+            return "Company with that name doesn't exist in our registry!";
+
+    }
+
+    [System.Web.Services.WebMethod]
     public List<WorkersR> retAllWorkersFromCollectionR()
     {
         List<WorkersR> w = raven.GetWorkers();
