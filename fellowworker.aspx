@@ -16,6 +16,8 @@
                 var url = "./RavenService.asmx/retCompanyFromNameR";
                 var urll = "./RavenService.asmx/retWorkerFromIdR";
                 var user = JSON.parse(localStorage.getItem("userTemp"));
+                var addb = document.getElementById("add");
+                var remb = document.getElementById("rem");
 
                 var addf = "<div><table id='listt' class='table table-hover'><thead class='thead-inverse'>" +
                     "<tr><th>#</th><th>First Name</th><th>Last Name</th><th>Email</th><th>Company</th>" +
@@ -35,30 +37,30 @@
                         "<div>Skills: " + parse.Skills + "</div>";
                     $("#personal").append(add);
 
+                    if (parse.Id === user.Id) {
+                        addb.disabled = true;
+                        remb.disabled = true;
+                    }
+                    else {
+                        addb.disabled = false;
+                        remb.disabled = true;
+                    }
+
                     if (user.Friends !== null)
                     {
                         for (var i = 0; i < user.Friends.length; i++)
                         {
                             if (parse.Id === user.Friends[i])
                             {
-                                //$("#add").css("display", "none");
-                                //$("#rem").css("display", "block");
-                                $("#add").addClass("disabled");
-                                $("#rem").removeClass("disabled");
+                                addb.disabled = true;
+                                remb.disabled = false;
                             }
                         }
                     }
-                    else if (parse.Id === user.Id)
-                    {
-                        //$("#add").css("display", "block");
-                        //$("#rem").css("display", "none");
-                        $("#add").addClass("disabled");
-                        $("#rem").addClass("disabled");
-                    }
                     else
                     {
-                        $("#rem").addClass("disabled");
-                        $("#add").removeClass("disabled");
+                        addb.disabled = false;
+                        remb.disabled = true;
                     }
 
                     var name = { name: parse.CompanyName };
@@ -90,10 +92,12 @@
                                 var idi = { id: parse.Friends[j] }
                                 console.log(parse.Friends);
                                 getAjaxResponse(urll, idi, function (datas) {
+                                    console.log(datas);
                                     var xmldocss = $.parseXML(datas),
                                         $xmlss = $(xmldocss),
-                                        $titless = $xmls.find("string");
+                                        $titless = $xmlss.find("string");
                                     var parsee = JSON.parse($titless.text());
+                                    console.log($xmlss);
 
                                     k = k + 1;
 
@@ -161,6 +165,28 @@
                     //$("#rem").css("display", "none");
                     $("#rem").addClass("disabled");
                     $("#add").removeClass("disabled");
+
+                    var ids = { id1: storage, id2: user.Id };
+                    var urlf = "./RavenService.asmx/removeFriendR";
+
+                    getAjaxResponse(urlf, ids, function (datas) {
+                        var xmldoc = $.parseXML(datas),
+                            $xml = $(xmldoc),
+                            $title = $xml.find("string");
+                        var parsed = $title.text();
+                        console.log(parsed);
+
+
+                        var sign = "no users were found with this name!";
+                        if ($title.text() == sign) {
+                            alert("Friends not added!");
+                        }
+                        else {
+                            alert("Friend Removed!");
+                            window.location.assign("./fellowworker.aspx");
+                        }
+
+                    });
 
                 });
 

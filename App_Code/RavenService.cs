@@ -225,34 +225,87 @@ public class RavenService : System.Web.Services.WebService
         WorkersR friend = raven.getWorkerById(Guid.Parse(id1));
         WorkersR user = raven.getWorkerById(Guid.Parse(id2));
 
+        WorkersR tempW1, tempW2;
+
         if(friend.Friends == null)
         {
             friend.Friends = new List<Guid>();
             friend.Friends.Add(Guid.Parse(id2));
-            friend = raven.updateWorker(friend);
+            tempW1 = raven.updateWorker(friend);
         }
         else
         {
             friend.Friends.Add(Guid.Parse(id2));
-            friend = raven.updateWorker(friend);
+            tempW1 = raven.updateWorker(friend);
         }
 
         if (user.Friends == null)
         {
             user.Friends = new List<Guid>();
             user.Friends.Add(Guid.Parse(id1));
-            user = raven.updateWorker(user);
+            tempW2 = raven.updateWorker(user);
         }
         else
         {
             user.Friends.Add(Guid.Parse(id1));
-            user = raven.updateWorker(user);
+            tempW2 = raven.updateWorker(user);
         }
 
 
-        if (user != null)
+        if (tempW2 != null)
         {
-            HttpContext.Current.Session.Add("userR", user);
+            HttpContext.Current.Session.Add("workerR", id1);
+            HttpContext.Current.Session.Add("userR", tempW2);
+            return "Update successfull!";
+        }
+        return fail;
+    }
+
+    //brisanje prijatelja
+    [System.Web.Services.WebMethod(EnableSession = true)]
+    public string removeFriendR(string id1, string id2)
+    {
+        WorkersR friend = raven.getWorkerById(Guid.Parse(id1));
+        WorkersR user = raven.getWorkerById(Guid.Parse(id2));
+
+        WorkersR tempW1, tempW2;
+
+        if (friend.Friends != null)
+        {
+            List<Guid> temp = new List<Guid>();
+            for(int i = 0; i < friend.Friends.Count; i++)
+            {
+                if (friend.Friends[i] != Guid.Parse(id2))
+                    temp.Add(friend.Friends[i]);
+            }
+            friend.Friends = temp;
+            tempW1 = raven.updateWorker(friend);
+        }
+        else
+        {
+            return "You are making an invalid action!";
+        }
+
+        if (user.Friends != null)
+        {
+            List<Guid> temp = new List<Guid>();
+            for (int i = 0; i < user.Friends.Count; i++)
+            {
+                if (user.Friends[i] != Guid.Parse(id1))
+                    temp.Add(user.Friends[i]);
+            }
+            user.Friends = temp;
+            tempW2 = raven.updateWorker(user);
+        }
+        else
+        {
+            return "You are making an invalid action!";
+        }
+
+        if (tempW2 != null)
+        {
+            HttpContext.Current.Session.Add("workerR", id1);
+            HttpContext.Current.Session.Add("userR", tempW2);
             return "Update successfull!";
         }
         return fail;

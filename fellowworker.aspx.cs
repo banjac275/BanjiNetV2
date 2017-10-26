@@ -12,5 +12,11 @@ public partial class fellowworker : System.Web.UI.Page
     {
         WorkersR recR = (WorkersR)Session["userR"];
         Response.Write("<script>localStorage.setItem('userTemp', '" + JsonConvert.SerializeObject(recR) + "');</script>");
+        string recvR = (string)Session["workerR"];
+        if (recvR != null)
+        {
+            Response.Write("<script>localStorage.setItem('workerViewR', '" + recvR + "');</script>");
+            Session["workerR"] = null;
+        }
     }
 }
