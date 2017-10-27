@@ -17,6 +17,7 @@
                 console.log(localStorage.getItem("jobR"));
                 console.log(localStorage.getItem("firmR")); 
                 console.log(localStorage.getItem("friendsR")); 
+                var friendss = [];
 
 
                 //if (localStorage.getItem("job") !== null) {
@@ -149,14 +150,15 @@
                                         var parsedd = JSON.parse($title.text());
                                         console.log(parsedd);
                                         j = j + 1;
+                                        friendss.push(parsedd);
 
                                         var table = '<tr><th scope= "row">' + j + '</th>'
                                             + '<td>' + parsedd.FirstName + '</td>'
                                             + '<td>' + parsedd.LastName + '</td>'
                                             + '<td>' + parsedd.Email + '</td>'
                                             + '<td>' + parsedd.CompanyName + '</td>'
-                                            + '<td><button type="button" class="btn btn-default" id="addd' + j + '">View</button></td>'
-                                            + '<td><button type="button" class="btn btn-default" id="dell' + j + '">Remove</button></td></tr>';
+                                            + '<td><button type="button" class="view btn btn-default" id="addd' + j + '">View</button></td>'
+                                            + '<td><button type="button" class="remov btn btn-default" id="dell' + j + '">Remove</button></td></tr>';
                                         $("#list").append(table);
 
 
@@ -168,10 +170,10 @@
                                     });
                                 }
 
-                                var sign = "no users were found with this name!";
-                                if ($title.text() == sign) {
-                                    alert("No companies with that name are found!");
-                                }
+                                //var sign = "no users were found with this name!";
+                                //if ($title.text() == sign) {
+                                //    alert("No companies with that name are found!");
+                                //}
 
                             });
 
@@ -256,6 +258,51 @@
 
                 }
 
+                $('#list').on('click', '.view', function () {
+                    //alert('triggered');
+                    console.log($(this).closest("tr")[0].children[3].innerHTML);
+                    console.log(friendss);
+                    for (var i = 0; i < friendss.length; i++)
+                    {
+                        if (friendss[i].Email === $(this).closest("tr")[0].children[3].innerHTML)
+                            localStorage.setItem("workerViewR", friendss[i].Id);
+                    }
+                    window.location.assign("./fellowworker.aspx");
+                });
+
+                $('#list').on('click', '.remov', function () {
+                    //alert('triggered');
+                    console.log($(this).closest("tr")[0].children[3].innerHTML);
+                    console.log(friendss);
+
+                    var moment = JSON.parse(localStorage.getItem("userTemp"));
+                    var urlf = "./RavenService.asmx/removeFriendR";
+
+                    for (var i = 0; i < friendss.length; i++) {
+                        if (friendss[i].Email === $(this).closest("tr")[0].children[3].innerHTML) {
+                            var idd = { id1: friendss[i].Id.toString(), id2: moment.Id };
+                            console.log(friendss[i].Id.toString());
+                            getAjaxResponse(urlf, idd, function (data) {
+                                var xmldoc = $.parseXML(data),
+                                    $xml = $(xmldoc),
+                                    $titlse = $xml.find("string");
+                                var parsed = $titlse.text();
+                                console.log(parsed);
+
+                                var sign = "no users were found with this name!";
+                                if ($titlse.text() == sign) {
+                                    alert("No companies with that name are found!");
+                                }
+                                else {
+                                    alert("Friend Removed!");
+                                    window.location.assign("./UserProfile.aspx");
+                                }
+
+                            });
+                        }
+                    }
+                    
+                });
                 
                 function getAjaxResponse(urll, sstring, fn) {
 
@@ -265,8 +312,8 @@
                         type: "POST",
                         data: sstring,
                         error: function (err) {
-                            //alert("Error", err);
-                            console.log("obavest");
+                            alert("Error", err);
+                            //console.log("obavest");
                         },
                         success: function (data) {
                             fn(data);

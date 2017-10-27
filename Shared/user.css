@@ -49,3 +49,12 @@
 .selected {
     background-color: #d9edf7;
 }
+
+.view {
+    font-family:'Segoe UI';
+    /*font-size: 20px;*/
+}
+
+.remov {
+    font-family: 'Segoe UI';
+}
