@@ -44,6 +44,8 @@ public class PrevEmp
 
     public Guid FormerEmployeeId { get; set; }
 
+    public string FirmName { get; set; }
+
     public string StartTime { get; set; }
 
     public string EndTime { get; set; }

@@ -18,6 +18,7 @@
                 var user = JSON.parse(localStorage.getItem("userTemp"));
                 var addb = document.getElementById("add");
                 var remb = document.getElementById("rem");
+                var friendss = [];
 
                 var addf = "<div><table id='listt' class='table table-hover'><thead class='thead-inverse'>" +
                     "<tr><th>#</th><th>First Name</th><th>Last Name</th><th>Email</th><th>Company</th>" +
@@ -98,6 +99,7 @@
                                         $titless = $xmlss.find("string");
                                     var parsee = JSON.parse($titless.text());
                                     console.log($xmlss);
+                                    friendss.push(parsee);
 
                                     k = k + 1;
 
@@ -106,7 +108,7 @@
                                         + '<td>' + parsee.LastName + '</td>'
                                         + '<td>' + parsee.Email + '</td>'
                                         + '<td>' + parsee.CompanyName + '</td>'
-                                        + '<td><button type="button" class="btn btn-default" id="prof' + j + '">View</button></td></tr>';
+                                        + '<td><button type="button" class="view btn btn-default" id="prof' + j + '">View</button></td></tr>';
                                     $("#list").append(table);
 
 
@@ -190,6 +192,17 @@
 
                 });
 
+                $('#list').on('click', '.view', function () {
+                    //alert('triggered');
+                    console.log($(this).closest("tr")[0].children[3].innerHTML);
+                    console.log(friendss);
+                    for (var i = 0; i < friendss.length; i++) {
+                        if (friendss[i].Email === $(this).closest("tr")[0].children[3].innerHTML)
+                            localStorage.setItem("workerViewR", friendss[i].Id);
+                    }
+                    window.location.assign("./fellowworker.aspx");
+                });
+
                 function getAjaxResponse(urlll, sstring, fn) {
 
                     $.ajax({
@@ -247,13 +260,6 @@
                        </div>
                     </div>                    
                 </div>
-                <div class="row">
-                    <div class="col-lg-4 panel panel-info">
-                        <div class="text-center col-lg-6">Resolve Friendship</div>
-                        <button type="button" class="btn btn-default col-lg-4 text-right btn-block" id="add">Add Friend</button>
-                        <button type="button" class="btn btn-default col-lg-4 text-right btn-block" id="rem">Unfriend</button>
-                    </div>
-                </div>
                 <div class="row" id="opt">
                     <div class="col-lg-4 panel panel-info">
                        <div id="write3" class="panel-title">Previous Employment</div><hr />
@@ -267,6 +273,13 @@
 
                        </div>
                     </div>  
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 panel panel-info">
+                        <div class="text-center col-lg-6">Resolve Friendship</div>
+                        <button type="button" class="btn btn-default col-lg-4 text-right btn-block" id="add">Add Friend</button>
+                        <button type="button" class="btn btn-default col-lg-4 text-right btn-block" id="rem">Unfriend</button>
+                    </div>
                 </div>
             </div>
         

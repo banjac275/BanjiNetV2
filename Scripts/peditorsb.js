@@ -1,5 +1,10 @@
 ﻿$(document).ready(function () {
 
+    var formerClick = 0;
+    var previous = [];
+    var rec = 0;
+    var formerRemove = 0;
+
     $("#change").click(function (e) {
 
         e.preventDefault();
@@ -19,11 +24,32 @@
         var name = $("#firstname").val();
         var surname = $("#lastname").val();
         var company = $("#firm").val();
+        var empty = null;
+        var warn = null;
+
+        if (formerClick > 0 && formerClick > rec)
+        {
+            for (var i = rec + 1; i <= formerClick; i++)
+            {
+                var s1 = "#firma" + i.toString();
+                if (s1 === '')
+                    warn = "Enter previous firm name!";
+                var s2 = "#dates" + i.toString();
+                var s2 = "#datee" + i.toString();
+                var temp = { firm: $(s1).val(), dates: $(s2).val(), datee: $(s2).val() };
+                previous.push(temp);
+            }
+
+            empty = JSON.stringify(previous);
+        }
+
+
+
 
         //pravimo data string
-        var dataString = { 'id': res.toString(), 'mail': email, 'pass': password, 'name': name, 'last': surname, 'company': company };
+        var dataString = { 'id': res.toString(), 'mail': email, 'pass': password, 'name': name, 'last': surname, 'company': company, 'previous': empty };
 
-        if (email === '' || password === '' || name === '' || surname === '' || reppass === '' || company === '') {
+        if (email === '' || password === '' || name === '' || surname === '' || reppass === '' || company === '' || warn !== null ) {
             alert("Please fill all fields!");
         }
         else if (password !== reppass) {
@@ -80,6 +106,42 @@
             }
 
         });
+    });
+
+
+    //dodavanje prethodnih zaposlenja
+    $("#addformer").click(function (e) {
+
+        e.preventDefault();
+
+        formerClick += 1;
+
+        var addRow = "<div class='rroww'>"
+            + "<div class='row btn-block'>"
+            + "<label class='control-label text-center col-lg-2' style='width: 30%;'>Former company: </label>"
+            + "<label class='control-label text-right col-lg-2' style='width: 30%;'>Start date: </label>"
+            + "<label class='control-label text-right col-lg-2' style='width: 40%;'>End date: </label>"
+            + "</div>"
+            + "<div class='row btn-block'>"
+            + "<input type = 'text' name='firma' class='form-control formerelf col-lg-2' style='width: 37%; padding-right: 10px; margin-right: 0.5em' id='firma" + formerClick + "' data-minlength='2' placeholder='Company' required>"
+            + "<input type = 'date' name='dates' class='form-control formerelr col-lg-2' style='width: 30%; padding-right: 10px; margin-right: 0.5em' id='dates" + formerClick + "' placeholder='Start date' required>"
+            + "<input type = 'date' name='datee' class='form-control formerelr col-lg-2' style='width: 30%; margin-bottom: 0.5em' id='datee" + formerClick + "' placeholder='End date' required>"
+            + "<button type='button' class='formerr btn btn-default text-center' id='rem" + formerClick + "'>Remove refference</button>"
+            + "</div><hr/></div>";
+        $('#former').append(addRow);
+
+
+    });
+
+    $('#former').on('click', '.formerr', function () {
+        //alert('triggered');
+        console.log($(this).closest("div.rroww"));
+        $(this).closest("div.rroww")[0].remove();
+        //console.log(friendss);
+        //for (var i = 0; i < friendss.length; i++) {
+        //    if (friendss[i].Email === $(this).closest("tr")[0].children[3].innerHTML)
+        //        localStorage.setItem("workerViewR", friendss[i].Id);
+        //}
     });
 
     //kompanije

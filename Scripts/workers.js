@@ -20,7 +20,7 @@
             if ($title[i].children[0].innerHTML === user.Id)
                 friend = "";
             else
-                friend = "Not Friends"; 
+                friend = "Not Friends";
 
             if (user.Friends !== null) {
                 //console.log("prolazi");
@@ -28,34 +28,29 @@
                     if ($title[i].children[0].innerHTML === user.Friends[j])
                         friend = "Friends";
                     else if ($title[i].children[0].innerHTML === user.Id)
-                            friend = "";
-                        else
-                            friend = "Not Friends";
-                    
+                        friend = "";
+                    else
+                        friend = "Not Friends";
+
                 }
-            }            
+            }
             k = k + 1;
             var table = '<tr><th scope= "row">' + k + '</th>'
                 + '<td>' + first + '</td>'
                 + '<td>' + last + '</td>'
                 + '<td>' + mail + '</td>'
                 + '<td>' + company + '</td>'
-                + '<td>' + friend + '</td></tr >';
+                + '<td>' + friend + '</td>'
+                + '<td><button type="button" class="view btn btn-default" id="addd' + j + '">View</button></td></tr >';
             $("#listing").append(table);
             //console.log(user);
         }
     });
 
-    $('#listing').on('click', 'tr', function () {
-        console.log(this);
-        console.log(this.children[3].innerHTML);
+    $('#listing').on('click', '.view', function () {
         for (var i = 0; i < received.length; i++) {
-            if (received[i].children[6].innerHTML === this.children[3].innerHTML) {
-                //var mail = received[i].children[6].innerHTML;
-                //var first = received[i].children[3].innerHTML;
-                //var last = received[i].children[4].innerHTML;
-                //var company = received[i].children[2].innerHTML;
-                console.log(this.children[3].innerHTML);
+            if (received[i].children[6].innerHTML === $(this).closest("tr")[0].children[3].innerHTML) {
+                console.log($(this).closest("tr")[0].children[3].innerHTML);
                 localStorage.setItem("workerViewR", received[i].children[0].innerHTML);
             }
         }

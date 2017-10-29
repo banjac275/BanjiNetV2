@@ -1,0 +1,31 @@
+﻿#former {
+    /*display: table;*/
+    font-family:'Segoe UI';
+}
+
+.formerr {
+    /*display: table;*/
+    font-family: 'Segoe UI';
+}
+
+.rroww {
+    /*display: table;*/
+    font-family: 'Segoe UI';
+}
+
+.formerelf {
+    display: table-row;
+    /*width: 30%;*/
+}
+
+.formerelr {
+    display: table-column;
+    /*width: 30%;*/
+}
+
+span {
+    display: block;
+    overflow: hidden;
+    /*padding-right: 5px;*/
+    width: 30%;
+}

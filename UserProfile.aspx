@@ -170,11 +170,6 @@
                                     });
                                 }
 
-                                //var sign = "no users were found with this name!";
-                                //if ($title.text() == sign) {
-                                //    alert("No companies with that name are found!");
-                                //}
-
                             });
 
                         }
@@ -218,7 +213,7 @@
 
                     var addc = "<div><table id='list' class='table table-hover'><thead class='thead-inverse'>" +
                         "<tr><th>#</th><th>First Name</th><th>Last Name</th><th>Email</th><th>Company</th>" +
-                        "</tr></thead><tbody id='listing'></tbody></table></div>";
+                        "<th>Profile</th></tr></thead><tbody id='listing'></tbody></table></div>";
                     $("#firm").append(addc);
 
                     console.log(res);

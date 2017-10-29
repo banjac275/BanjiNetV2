@@ -17,19 +17,20 @@
                 + '<td>' + company + '</td>'
                 + '<td>' + mail + '</td>'
                 + '<td>' + type + '</td>'
-                + '<td>' + loc + '</td></tr>';
+                + '<td>' + loc + '</td>'
+                + '<td> <button type="button" class="view btn btn-default" id="addd' + j + '">View</button></td></tr>';
             $("#listing").append(table);
             j = j + 1;
             //console.log(user);
         }
     });
 
-    $('#listing').on('click', 'tr', function () {
+    $('#listing').on('click', '.view', function () {
         console.log(this);
         
-        console.log(this.children[1].innerHTML);
+        console.log($(this).closest("tr")[0].children[2].innerHTML);
         for (var i = 0; i < received.length; i++) {
-            if (received[i].children[1].innerHTML === this.children[1].innerHTML) {
+            if (received[i].children[1].innerHTML === $(this).closest("tr")[0].children[2].innerHTML) {
                 localStorage.setItem("companyViewR", JSON.stringify(received[i].children[0].innerHTML));
             }
         }

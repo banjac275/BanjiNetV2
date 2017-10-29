@@ -12,7 +12,7 @@
         <script type="text/javascript">
             $(document).ready(function () {
                 var storage = localStorage.getItem("companyViewR");
-                
+                var received = [];
                 var urlW = "./RavenService.asmx/retWorkerFromIdR";
                 var urlC = "./RavenService.asmx/retCompanyFromIdR";
 
@@ -45,6 +45,7 @@
                                     $titles = $xmls.find("string");
                                 var parsedd = JSON.parse($titles.text());
                                 console.log(parsedd);
+                                received.push(parsedd);
                                 j = j + 1;
 
                                 var table = '<tr><th scope= "row">' + j + '</th>'
@@ -52,7 +53,7 @@
                                     + '<td>' + parsedd.LastName + '</td>'
                                     + '<td>' + parsedd.Email + '</td>'
                                     + '<td>' + parsedd.CompanyName + '</td>'
-                                    + '<td><button type="button" class="btn btn-default" id="addd' + j + '">View</button></td></tr>';
+                                    + '<td><button type="button" class="view btn btn-default" id="addd' + j + '">View</button></td></tr>';
                                 $("#listing").append(table);
 
 
@@ -66,6 +67,17 @@
 
                         }
                     }
+                });
+
+                $('#listing').on('click', '.view', function () {
+                    for (var i = 0; i < received.length; i++) {
+                        if (received[i].Email === $(this).closest("tr")[0].children[3].innerHTML) {
+                            console.log($(this).closest("tr")[0].children[3].innerHTML);
+                            localStorage.setItem("workerViewR", received[i].Id);
+                        }
+                    }
+                    window.location.assign("./fellowworker.aspx");
+
                 });
 
                 function getAjaxResponse(urll, sstring, fn) {

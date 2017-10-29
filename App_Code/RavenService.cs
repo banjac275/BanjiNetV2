@@ -144,7 +144,7 @@ public class RavenService : System.Web.Services.WebService
 
     //apdejtovanje profila radnika
     [System.Web.Services.WebMethod(EnableSession = true)]
-    public string updateWorkerInRDb(string id, string mail, string pass, string name, string last, string company)
+    public string updateWorkerInRDb(string id, string mail, string pass, string name, string last, string company, string previous)
     {
         WorkersR recvv = raven.getWorkerById(Guid.Parse(id));
 
@@ -153,6 +153,23 @@ public class RavenService : System.Web.Services.WebService
         recvv.Password = pass;
         recvv.FirstName = name;
         recvv.LastName = last;
+
+        if (previous != null)
+        {
+            if (recvv.PreviousEmployment == null)
+            {
+                List<PrevEmp> pre = new List<PrevEmp>();
+                JArray tempp = JArray.Parse(previous);
+                if (tempp != null)
+                {
+                    for (int i = 0; i < tempp.Count; i++)
+                    {
+                        //var firm = tempp["firm"];
+                        //CompaniesR comp = raven.getCompanyByName(firm);
+                    }
+                }
+            }
+        }
 
         var temp = recvv.CompanyName;
 
