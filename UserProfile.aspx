@@ -18,6 +18,7 @@
                 console.log(localStorage.getItem("firmR")); 
                 console.log(localStorage.getItem("friendsR")); 
                 var friendss = [];
+                var moment = JSON.parse(localStorage.getItem("userTemp"));
 
 
                 //if (localStorage.getItem("job") !== null) {
@@ -121,6 +122,26 @@
                             "<tr><th>#</th><th>First Name</th><th>Last Name</th><th>Email</th><th>Company</th>" +
                             "<th>Profile</th><th>Unfriend</th></tr></thead><tbody id='list'></tbody></table></div>";
                         $("#friend").append(addf);
+
+                        if (moment.PreviousEmployment !== null)
+                        {
+                            var prev = "<div><table class='table table-hover'><thead class='thead-inverse'>" +
+                                "<tr><th>#</th><th>Company:</th><th>From:</th><th>To:</th>" +
+                                "</tr></thead><tbody id='previous'></tbody></table></div>";
+                            $("#former").append(prev);
+
+                            var j = 0;
+                            for (var i = 0; i < moment.PreviousEmployment.length; i++)
+                            {
+                                j++;
+
+                                var inser = '<tr><th scope= "row">' + j + '</th>'
+                                    + '<td>' + moment.PreviousEmployment[i].FirmName + '</td>'
+                                    + '<td>' + moment.PreviousEmployment[i].StartTime + '</td>'
+                                    + '<td>' + moment.PreviousEmployment[i].EndTime + '</td></tr>';
+                                $("#previous").append(inser);
+                            }
+                        }
 
                         if (recFriend.length !== null) {
 
@@ -270,7 +291,6 @@
                     console.log($(this).closest("tr")[0].children[3].innerHTML);
                     console.log(friendss);
 
-                    var moment = JSON.parse(localStorage.getItem("userTemp"));
                     var urlf = "./RavenService.asmx/removeFriendR";
 
                     for (var i = 0; i < friendss.length; i++) {

@@ -64,6 +64,24 @@
                         remb.disabled = true;
                     }
 
+                    if (parse.PreviousEmployment !== null) {
+                        var previ = "<div><table class='table table-hover'><thead class='thead-inverse'>" +
+                            "<tr><th>#</th><th>Company:</th><th>From:</th><th>To:</th>" +
+                            "</tr></thead><tbody id='previous'></tbody></table></div>";
+                        $("#former").append(previ);
+
+                        var j = 0;
+                        for (var i = 0; i < parse.PreviousEmployment.length; i++) {
+                            j++;
+
+                            var inser = '<tr><th scope= "row">' + j + '</th>'
+                                + '<td>' + parse.PreviousEmployment[i].FirmName + '</td>'
+                                + '<td>' + parse.PreviousEmployment[i].StartTime + '</td>'
+                                + '<td>' + parse.PreviousEmployment[i].EndTime + '</td></tr>';
+                            $("#previous").append(inser);
+                        }
+                    }
+
                     var name = { name: parse.CompanyName };
                     getAjaxResponse(url, name, function (data) {
                         var xmldoc = $.parseXML(data),
@@ -121,6 +139,7 @@
                                 });
                             }
                         }
+
                     
                     });
                 });

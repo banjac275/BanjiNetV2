@@ -148,6 +148,8 @@ public class RavenService : System.Web.Services.WebService
     {
         WorkersR recvv = raven.getWorkerById(Guid.Parse(id));
 
+        if (previous == "")
+            previous = null;
 
         recvv.Email = mail;
         recvv.Password = pass;
@@ -156,20 +158,39 @@ public class RavenService : System.Web.Services.WebService
 
         if (previous != null)
         {
-            if (recvv.PreviousEmployment == null)
+            List<PrevEmp> pre = new List<PrevEmp>();
+            JArray tempp = JArray.Parse(previous);
+            if (tempp != null)
             {
-                List<PrevEmp> pre = new List<PrevEmp>();
-                JArray tempp = JArray.Parse(previous);
-                if (tempp != null)
+                for (int i = 0; i < tempp.Count; i++)
                 {
-                    for (int i = 0; i < tempp.Count; i++)
+                    PrevEmp emp = new PrevEmp();
+                    JToken token = tempp[i];
+                    string sol = (string)token["firm"];
+                    List<CompaniesR> comp = raven.getCompanyByName(sol);
+                    if (comp != null)
                     {
-                        //var firm = tempp["firm"];
-                        //CompaniesR comp = raven.getCompanyByName(firm);
+                        emp.FirmName = comp[0].CompanyName;
+                        emp.FirmId = comp[0].Id;
+                        emp.FormerEmployeeId = Guid.Parse(id);
+                        emp.StartTime = (string)token["dates"];
+                        emp.EndTime = (string)token["datee"];
                     }
+
+                    if (emp != null)
+                        pre.Add(emp);
+                    else
+                        return fail;
+
                 }
             }
+            else
+                return fail;
+            recvv.PreviousEmployment = pre;
+
         }
+        else
+            recvv.PreviousEmployment = null;
 
         var temp = recvv.CompanyName;
 
@@ -188,7 +209,7 @@ public class RavenService : System.Web.Services.WebService
             recvv.CompanyId = cId[0].Id.ToString();
             recvv.CompanyName = cId[0].CompanyName;
         }
-        else
+        else if(temp == null)
         {
             var com = raven.addWorkerToCompany(recvv.Id, cId[0]);
             recvv.CompanyId = cId[0].Id.ToString();
