@@ -17,7 +17,7 @@
                 var urlC = "./RavenService.asmx/retCompanyFromIdR";
 
                 var tempp = storage.replace(/"/g, "");
-                console.log(tempp);
+                console.log(storage);
                 var idC = { id: tempp };
                 getAjaxResponse(urlC, idC, function (data) {
                     var xmldoc = $.parseXML(data),

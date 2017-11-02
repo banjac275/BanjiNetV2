@@ -58,6 +58,10 @@
                             }
                         }
                     }
+                    else if(parse.Id === user.Id) {
+                        addb.disabled = true;
+                        remb.disabled = true;
+                    }
                     else
                     {
                         addb.disabled = false;

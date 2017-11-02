@@ -42,10 +42,11 @@
               <div class="input-group-btn">
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Specify <span class="caret"></span></button>
                 <ul class="dropdown-menu">
-                  <li><span class="input-group-addon"><input type="checkbox" aria-label="...">Name</span></li>
-                  <li><span class="input-group-addon"><input type="checkbox" aria-label="...">Surname</span></li>
+                  <li><span class="input-group-addon"><input type="checkbox" aria-label="...">First Name</span></li>
+                  <li><span class="input-group-addon"><input type="checkbox" aria-label="...">Last Name</span></li>
                   <li><span class="input-group-addon"><input type="checkbox" aria-label="...">E-mail</span></li>
                   <li><span class="input-group-addon"><input type="checkbox" aria-label="...">Company</span></li>
+                  <li><span class="input-group-addon"><input type="checkbox" aria-label="...">Skill</span></li>
                 </ul>
               </div><!-- /btn-group -->
               <input type="text" class="form-control" id="srcinput" placeholder="Search..."/>

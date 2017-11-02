@@ -1,7 +1,9 @@
 ﻿$(document).ready(function () {
 
     var formerClick = 0;
+    var formerSkil = 0;
     var previous = [];
+    var arrSkill = [];
     var rec = 0;
     var formerRemove = 0;
     var element = document.getElementById("former");
@@ -47,6 +49,22 @@
                 }
             }
 
+            if (par.Skills !== null) {
+                for (var i = 0; i < par.Skills.length; i++) {
+                    var t = par.Skills[i];
+
+                    formerSkil += 1;
+
+                    var addRow = "<div class='rrowwss'>"
+                            + "<div class='row btn-block'>"
+                            + "<input type = 'text' name='firma' class='form-control formerelf col-lg-2' style='width: 50%; padding-right: 10px; margin-right: 0.5em' id='skills" + formerSkil + "' data-minlength='2' placeholder='Skill' value='" + t + "' required>"
+                            + "<button type='button' class='formers btn btn-default text-center' style='width: 35%; margin-bottom: 0.5em' id='rems" + formerSkil + "'>Remove Skill</button>"
+                            + "</div><hr/></div>";
+                    $('#skil').append(addRow);
+
+                }
+            }
+
             var sign = "No users were found with this email, please sign up!";
             if ($title.text() === sign) {
                 console.log(sign);
@@ -76,7 +94,24 @@
         var surname = $("#lastname").val();
         var company = $("#firm").val();
         var empty = null;
+        var emptyS = null;
         var warn = null;
+
+        if (formerSkil > 0) {
+
+            for (var i = 1; i <= formerSkil; i++) {
+                var sS1 = "#skills" + i.toString();
+                if (sS1 === '')
+                    warn = "Enter skill name!";
+                var tempS = $(sS1).val();
+                arrSkill.push(tempS);     
+                console.log(tempS);
+                    
+            }
+            emptyS = JSON.stringify(arrSkill);
+        }
+
+        console.log(emptyS);
 
         if (formerClick > 0) {
 
@@ -87,21 +122,21 @@
                 var s2 = "#dates" + i.toString();
                 var s3 = "#datee" + i.toString();
                 var temp = { firm: $(s1).val(), dates: $(s2).val(), datee: $(s3).val() };
-                previous.push(temp);     
+                previous.push(temp);
                 console.log(temp);
-                    
+
             }
             empty = JSON.stringify(previous);
         }
 
-
-        console.log(empty);
+        console.log(empty);        
 
         //pravimo data string
-        var dataString = { 'id': res.toString(), 'mail': email, 'pass': password, 'name': name, 'last': surname, 'company': company, 'previous': empty };
+        var dataString = { 'id': res.toString(), 'mail': email, 'pass': password, 'name': name, 'last': surname, 'company': company, 'previous': empty, 'skills': emptyS };
 
         if (email === '' || password === '' || name === '' || surname === '' || reppass === '' || company === '' || warn !== null ) {
             previous = [];
+            arrSkill = [];
             alert("Please fill all fields!");
         }
         else if (password !== reppass) {
@@ -170,9 +205,9 @@
 
         var addRow = "<div class='rroww'>"
             + "<div class='row btn-block'>"
-            + "<label class='control-label text-center col-lg-2' style='width: 30%;'>Former company: </label>"
-            + "<label class='control-label text-right col-lg-2' style='width: 30%;'>Start date: </label>"
-            + "<label class='control-label text-right col-lg-2' style='width: 40%;'>End date: </label>"
+            + "<label class='control-label text-center col-lg-2' style='width: 37%;'>Former company: </label>"
+            + "<label class='control-label text-right col-lg-2' style='width: 32%;'>Start date: </label>"
+            + "<label class='control-label text-right col-lg-2' style='width: 30%;'>End date: </label>"
             + "</div>"
             + "<div class='row btn-block'>"
             + "<input type = 'text' name='firma' class='form-control formerelf col-lg-2' style='width: 37%; padding-right: 10px; margin-right: 0.5em' id='firma" + formerClick + "' data-minlength='2' placeholder='Company' required>"
@@ -192,6 +227,33 @@
         $(this).closest("div.rroww")[0].remove();
 
         formerClick -= 1;
+
+    });
+
+    //dodaje jedan skill
+    $("#addskil").click(function (e) {
+
+        e.preventDefault();
+
+        formerSkil += 1;
+
+        var addRow = "<div class='rrowwss'>"
+            + "<div class='row btn-block'>"
+            + "<input type = 'text' name='firma' class='form-control formerelf col-lg-2' style='width: 50%; padding-right: 10px; margin-right: 0.5em' id='skills" + formerSkil + "' data-minlength='2' placeholder='Skill' required>"
+            + "<button type='button' class='formers btn btn-default text-center' style='width: 35%; margin-bottom: 0.5em' id='rems" + formerSkil + "'>Remove Skill</button>"
+            + "</div><hr/></div>";
+        $('#skil').append(addRow);
+
+
+    });
+
+    //brise jedan skill
+    $('#skil').on('click', '.formers', function () {
+
+        console.log($(this).closest("div.rrowwss"));
+        $(this).closest("div.rrowwss")[0].remove();
+
+        formerSkil -= 1;
 
     });
 

@@ -101,7 +101,7 @@
 
                 //}
                 //else 
-                if (localStorage.getItem("jobR") !== null && localStorage.getItem("firmR") === null) {
+                if (localStorage.getItem("jobR") !== null) {
                     document.getElementById("write1").innerHTML = "User Info:";
                     document.getElementById("write2").innerHTML = "Company Info:";
                     $("#opt").css("display", "block");
@@ -115,8 +115,33 @@
                     var urlFC = "./RavenService.asmx/retCompanyFromNameR";
                     var urlFF = "./RavenService.asmx/retWorkerFromIdR";
 
-                    if (name != null && res != null && recFriend != null) {
-                        
+                    console.log(name);
+
+                    getAjaxResponse(urlFC, name, function (data) {
+                        var xmldoc = $.parseXML(data),
+                            $xml = $(xmldoc),
+                            $title = $xml.find("string");
+                        var parsed = JSON.parse($title.text());
+                        console.log(parsed);
+
+                        var addc = "<div>Company name: " + parsed.CompanyName + "</div><hr/>" +
+                            "<div>Email: " + parsed.Email + "</div><hr/>" +
+                            "<div>Type: " + parsed.Type + "</div><hr/>" +
+                            "<div>Location: " + parsed.Location + "</div><hr/>" +
+                            "<div>Owner: " + parsed.Owner + "</div>";
+                        $("#firm").append(addc);
+
+                        console.log("obavest");
+                        var sign = "no users were found with this name!";
+                        if ($title.text() == sign) {
+                            alert("No companies with that name are found!");
+                        }
+
+                    });
+
+                    if (recFriend != null) {
+
+                        console.log("prolaz");
 
                         var addf = "<div><table id='listt' class='table table-hover'><thead class='thead-inverse'>" +
                             "<tr><th>#</th><th>First Name</th><th>Last Name</th><th>Email</th><th>Company</th>" +
@@ -145,78 +170,38 @@
 
                         if (recFriend.length !== null) {
 
-                            getAjaxResponse(urlFC, name, function (dataa) {
-                                var xmldocs = $.parseXML(dataa),
-                                    $xmls = $(xmldocs),
-                                    $titles = $xmls.find("string");
-                                var parsed = JSON.parse($titles.text());
-                                console.log(parsed);
+                            var j = 0;
+                            var proc = JSON.parse(recFriend);
+                            console.log(proc);
+                            for (var i = 0; i < proc.length; i++) {
+                                var id = { id: proc[i].toString() };
+                                getAjaxResponse(urlFF, id, function (data) {
+                                    var xmldoc = $.parseXML(data),
+                                        $xml = $(xmldoc),
+                                        $title = $xml.find("string");
+                                    var parsedd = JSON.parse($title.text());
+                                    console.log(parsedd);
+                                    j = j + 1;
+                                    friendss.push(parsedd);
 
-                                var addc = "<div>Company name: " + parsed.CompanyName + "</div><hr/>" +
-                                    "<div>Email: " + parsed.Email + "</div><hr/>" +
-                                    "<div>Type: " + parsed.Type + "</div><hr/>" +
-                                    "<div>Location: " + parsed.Location + "</div><hr/>" +
-                                    "<div>Owner: " + parsed.Owner + "</div>";
-                                $("#firm").append(addc);
-
-                                var j = 0;
-                                var proc = JSON.parse(recFriend);
-                                console.log(proc);
-                                for (var i = 0; i < proc.length; i++) {
-                                    var id = { id: proc[i].toString() };
-                                    getAjaxResponse(urlFF, id, function (data) {
-                                        var xmldoc = $.parseXML(data),
-                                            $xml = $(xmldoc),
-                                            $title = $xml.find("string");
-                                        var parsedd = JSON.parse($title.text());
-                                        console.log(parsedd);
-                                        j = j + 1;
-                                        friendss.push(parsedd);
-
-                                        var table = '<tr><th scope= "row">' + j + '</th>'
-                                            + '<td>' + parsedd.FirstName + '</td>'
-                                            + '<td>' + parsedd.LastName + '</td>'
-                                            + '<td>' + parsedd.Email + '</td>'
-                                            + '<td>' + parsedd.CompanyName + '</td>'
-                                            + '<td><button type="button" class="view btn btn-default" id="addd' + j + '">View</button></td>'
-                                            + '<td><button type="button" class="remov btn btn-default" id="dell' + j + '">Remove</button></td></tr>';
-                                        $("#list").append(table);
+                                    var table = '<tr><th scope= "row">' + j + '</th>'
+                                        + '<td>' + parsedd.FirstName + '</td>'
+                                        + '<td>' + parsedd.LastName + '</td>'
+                                        + '<td>' + parsedd.Email + '</td>'
+                                        + '<td>' + parsedd.CompanyName + '</td>'
+                                        + '<td><button type="button" class="view btn btn-default" id="addd' + j + '">View</button></td>'
+                                        + '<td><button type="button" class="remov btn btn-default" id="dell' + j + '">Remove</button></td></tr>';
+                                    $("#list").append(table);
 
 
-                                        var sign = "no users were found with this name!";
-                                        if ($title.text() === sign) {
-                                            alert("No users with that name are found!");
-                                        }
+                                    var sign = "no users were found with this name!";
+                                    if ($title.text() === sign) {
+                                        alert("No users with that name are found!");
+                                    }
 
-                                    });
-                                }
+                                });
+                            }
 
-                            });
-
-                        }
-                        else
-                        {
-                            getAjaxResponse(urlFC, name, function (data) {
-                                var xmldoc = $.parseXML(data),
-                                    $xml = $(xmldoc),
-                                    $title = $xml.find("string");
-                                var parsed = JSON.parse($title.text());
-                                console.log(parsed);
-
-                                var addc = "<div>Company name: " + parsed.CompanyName + "</div><hr/>" +
-                                    "<div>Email: " + parsed.Email + "</div><hr/>" +
-                                    "<div>Type: " + parsed.Type + "</div><hr/>" +
-                                    "<div>Location: " + parsed.Location + "</div><hr/>" +
-                                    "<div>Owner: " + parsed.Owner + "</div>";
-                                $("#firm").append(addc);
-
-                                console.log("obavest");
-                                var sign = "no users were found with this name!";
-                                if ($title.text() == sign) {
-                                    alert("No companies with that name are found!");
-                                }
-
-                            });
                         }
                     }
 
