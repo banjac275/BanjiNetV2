@@ -149,4 +149,11 @@ public class RavenDataAccess
         var companies = _session.Query<CompaniesR>().ToList();
         return companies;
     }
+
+    public List<WorkersR> getWorkerByName(string name)
+    {
+        var res = _dbase.GetCollection<Workers>("workers");
+        var result = res.Find(w => w.FirstName == name).ToList();
+        return result;
+    }
 }

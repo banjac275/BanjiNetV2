@@ -392,4 +392,16 @@ public class RavenService : System.Web.Services.WebService
         }
         return fail;
     }
+
+    [System.Web.Services.WebMethod]
+    public string retWorkerFromName(string name)
+    {
+        List<Workers> w = raven.getWorkerByName(name);
+
+        if (w.Count != 0)
+            return JsonConvert.SerializeObject(w);
+        else
+            return "Worker with that name doesn't exist in our registry!";
+
+    }
 }

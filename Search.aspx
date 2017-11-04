@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="~/Shared/user.css"/>
-        <script src="Scripts/search.js"></script>
+        <script src="Scripts/searchi.js"></script>
     </head>
     <body>
         <!-- top nav -->
@@ -42,11 +42,11 @@
               <div class="input-group-btn">
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Specify <span class="caret"></span></button>
                 <ul class="dropdown-menu">
-                  <li><span class="input-group-addon"><input type="checkbox" aria-label="...">First Name</span></li>
-                  <li><span class="input-group-addon"><input type="checkbox" aria-label="...">Last Name</span></li>
-                  <li><span class="input-group-addon"><input type="checkbox" aria-label="...">E-mail</span></li>
-                  <li><span class="input-group-addon"><input type="checkbox" aria-label="...">Company</span></li>
-                  <li><span class="input-group-addon"><input type="checkbox" aria-label="...">Skill</span></li>
+                  <li><span class="input-group-addon"><input type="checkbox" aria-label="..." id="first">First Name</span></li>
+                  <li><span class="input-group-addon"><input type="checkbox" aria-label="..." id="last">Last Name</span></li>
+                  <li><span class="input-group-addon"><input type="checkbox" aria-label="..." id="mmail">E-mail</span></li>
+                  <li><span class="input-group-addon"><input type="checkbox" aria-label="..." id="comp">Company</span></li>
+                  <li><span class="input-group-addon"><input type="checkbox" aria-label="..." id="skiill">Skill</span></li>
                 </ul>
               </div><!-- /btn-group -->
               <input type="text" class="form-control" id="srcinput" placeholder="Search..."/>
