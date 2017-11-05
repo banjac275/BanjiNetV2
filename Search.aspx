@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="~/Shared/user.css"/>
-        <script src="Scripts/searchi.js"></script>
+        <script src="Scripts/searche.js"></script>
     </head>
     <body>
         <!-- top nav -->
@@ -54,6 +54,8 @@
                 <button class="btn btn-default" type="button" id="srcbttn">Go!</button>
               </span>
             </div><!-- /input-group -->
+            <div class="col-lg-3" style="margin-right: 5.9em;"></div>
+            <div class="col-lg-5" id="livesearch"></div>
         </div><!-- /.row -->
 
         <div class="row" id="listW">

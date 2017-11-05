@@ -81,3 +81,18 @@ public class WorkersR_byEmail: AbstractIndexCreationTask<WorkersR>
         Indexes.Add(x => x.Email, FieldIndexing.Analyzed);
     }
 }
+
+//po imenu
+public class WorkersR_byName : AbstractIndexCreationTask<WorkersR>
+{
+    public WorkersR_byName()
+    {
+        Map = workers => from worker in workers
+                         select new
+                         {
+                             worker.FirstName
+                         };
+
+        Indexes.Add(x => x.FirstName, FieldIndexing.Analyzed);
+    }
+}

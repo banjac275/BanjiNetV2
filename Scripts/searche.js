@@ -12,10 +12,65 @@
     var urlWN = "./RavenService.asmx/retWorkerFromName";
     var urlWLN = "./MongoService.asmx/retWorkerFromLastName";
 
+    var suggest = document.getElementById("livesearch");
     var timeoutID = null;
 
     function findMember(str) {
         console.log('search: ' + str);
+        var name = { 'name': str };
+
+        getAjaxResponse(urlWN,name, function (data) {
+            var xmldocs = $.parseXML(data),
+                $xmls = $(xmldocs),
+                $titles = $xmls.find("string");
+            console.log(data);
+
+            if ($titles.text() == "Worker with that name doesn't exist in our registry!") {
+                //alert("Nothing found!");
+            }
+            else {
+                $("#listingW").empty();
+                $("#listW").css("display", "block");
+                var jsons = JSON.parse($titles.text());
+                receivedW = jsons;
+                var j = 1;
+                for (var i = 0; i < jsons.length; i++) {
+                    var check = false;
+                    var first = jsons[0].FirstName;
+                    var childs = '<div class="row"><p class="col-lg-3">' + first + '</p><p class="col-lg-3" style="color: #778899;">Workers</p></div>';
+                    console.log(suggest.hasChildNodes());
+                    if (suggest.hasChildNodes())
+                    {
+                        for (var k = 0; k < suggest.childNodes.length; k++)
+                        {
+                            if (suggest.childNodes[k].text !== first)
+                                $("#livesearch").append(childs);
+                        }
+                    }
+                    else
+                        $("#livesearch").append(childs);
+                    
+                    if (suggest.innerHTML !== "")
+                    {
+                        suggest.style.border = "1px solid #A5ACB2";
+                    }
+                    else
+                    {
+                        suggest.style.border = "0px";
+                    }
+                    //var last = jsons[0].LastName;
+                    //var company = jsons[0].CompanyName;
+                    //var table = '<tr><th scope= "row">' + j + '</th>'
+                    //    + '<td>' + first + '</td>'
+                    //    + '<td>' + last + '</td>'
+                    //    + '<td>' + mail + '</td>'
+                    //    + '<td>' + company + '</td></tr>';
+                    //$("#listingW").append(table);
+                    //j = j + 1;
+                }
+            }
+        });                                      
+
     }
 
     //kako se kuca tekst tako se i pretraga vrsi
@@ -200,6 +255,26 @@
         //}
 
         return false;
+    });
+
+    $('#livesearch').on('click', 'p', function () {
+        console.log(this);
+        //$(this).toggleClass("selected");
+        //console.log(this.children[1].innerHTML);
+        //for (var i = 0; i < received.length; i++) {
+        //    if (received[i].Email == this.children[1].innerHTML) {
+        //        var company = received[i].CompanyName;
+        //        var mail = received[i].Email;
+        //        var type = received[i].Type;
+        //        var loc = received[i].Location;
+        //        var owner = received[i].Owner;
+        //        var workers = received[i].Employees;
+        //        var forSend = { company: company, mail: mail, type: type, loc: loc, owner: owner, workers: workers };
+        //        localStorage.setItem("companyView", JSON.stringify(forSend));
+        //    }
+        //}
+        //window.location.assign("./companyInfo.aspx");
+
     });
 
     $('#listingC').on('click', 'tr', function () {

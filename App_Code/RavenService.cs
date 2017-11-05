@@ -396,7 +396,7 @@ public class RavenService : System.Web.Services.WebService
     [System.Web.Services.WebMethod]
     public string retWorkerFromName(string name)
     {
-        List<Workers> w = raven.getWorkerByName(name);
+        List<WorkersR> w = raven.getWorkerByName(name);
 
         if (w.Count != 0)
             return JsonConvert.SerializeObject(w);
