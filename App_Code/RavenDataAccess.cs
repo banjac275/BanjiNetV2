@@ -26,6 +26,7 @@ public class RavenDataAccess
         //indeksi
         new WorkersR_byEmail().Execute(_store);
         new WorkersR_byName().Execute(_store);
+        new WorkersR_byLastName().Execute(_store);
         new CompaniesR_byEmail().Execute(_store);
         new CompaniesR_byName().Execute(_store);
 
@@ -155,6 +156,30 @@ public class RavenDataAccess
     {
         //var result = _session.Query<WorkersR, WorkersR_byName>().Search(x => x.FirstName, name+"*").ToList();
         var result = _session.Advanced.DocumentQuery<WorkersR, WorkersR_byName>().WhereStartsWith(x => x.FirstName, name).ToList();
+        return result;
+    }
+
+    public List<WorkersR> getWorkerByEmailS(string email)
+    {
+        var result = _session.Advanced.DocumentQuery<WorkersR, WorkersR_byEmail>().WhereStartsWith(x => x.Email, email).ToList();
+        return result;
+    }
+
+    public List<WorkersR> getWorkerByLastNameS(string name)
+    {
+        var result = _session.Advanced.DocumentQuery<WorkersR, WorkersR_byLastName>().WhereStartsWith(x => x.LastName, name).ToList();
+        return result;
+    }
+
+    public List<CompaniesR> getCompanyByEmailS(string email)
+    {
+        var result = _session.Advanced.DocumentQuery<CompaniesR, CompaniesR_byEmail>().WhereStartsWith(x => x.Email, email).ToList();
+        return result;
+    }
+
+    public List<CompaniesR> getCompanyByNameS(string name)
+    {
+        var result = _session.Advanced.DocumentQuery<CompaniesR, CompaniesR_byName>().WhereStartsWith(x => x.CompanyName, name).ToList();
         return result;
     }
 }

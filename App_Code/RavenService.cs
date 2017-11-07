@@ -138,7 +138,29 @@ public class RavenService : System.Web.Services.WebService
             return "Company not found!";
         }
         else
-            return "Company with that name doesn't exist in our registry!";
+            return "Company not found!";
+
+    }
+
+    //trazenje firme po imenu za search samo
+    [System.Web.Services.WebMethod]
+    public string retCompanyFromName(string name)
+    {
+        List<CompaniesR> c = raven.getCompanyByNameS(name);
+
+        if (c.Count != 0)
+        {
+            for (int i = 0; i < c.Count; i++)
+            {
+                if (c[0].CompanyName == name)
+                {
+                    return JsonConvert.SerializeObject(c[i]);
+                }
+            }
+            return "Company not found!";
+        }
+        else
+            return "Company not found!";
 
     }
 
@@ -266,7 +288,7 @@ public class RavenService : System.Web.Services.WebService
             return JsonConvert.SerializeObject(c);
         }
         else
-            return "User with that name doesn't exist in our registry!";
+            return "Worker not found!";
 
     }
 
@@ -282,7 +304,7 @@ public class RavenService : System.Web.Services.WebService
             return JsonConvert.SerializeObject(c);
         }
         else
-            return "Company with that name doesn't exist in our registry!";
+            return "Company not found!";
 
     }
 
@@ -401,7 +423,46 @@ public class RavenService : System.Web.Services.WebService
         if (w.Count != 0)
             return JsonConvert.SerializeObject(w);
         else
-            return "Worker with that name doesn't exist in our registry!";
+            return "Worker not found!";
 
+    }
+
+    [System.Web.Services.WebMethod]
+    public string returnWorkerFromEmailNoPass(string name)
+    {
+        List<WorkersR> w = raven.getWorkerByEmailS(name);
+
+        if (w.Count != 0)
+        {
+            return JsonConvert.SerializeObject(w);
+        }
+        else
+            return "Worker not found!";
+
+    }
+
+    [System.Web.Services.WebMethod]
+    public string retWorkerFromLastName(string name)
+    {
+        List<WorkersR> w = raven.getWorkerByLastNameS(name);
+
+        if (w.Count != 0)
+            return JsonConvert.SerializeObject(w);
+        else
+            return "Worker not found!";
+
+    }
+
+    [System.Web.Services.WebMethod]
+    public string returnCompanyFromEmailNoPass(string name)
+    {
+        List<CompaniesR> c = raven.getCompanyByEmailS(name);
+
+        if (c.Count != 0)
+        {
+            return JsonConvert.SerializeObject(c);
+        }
+        else
+            return "Company not found!";
     }
 }
