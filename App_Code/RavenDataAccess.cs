@@ -171,6 +171,32 @@ public class RavenDataAccess
         return result;
     }
 
+    public List<WorkersR> getWorkerWithSkillS(string name)
+    {
+        var result = _session.Query<WorkersR>().ToList();
+        if(result.Count > 0)
+        {
+            List<WorkersR> temp = new List<WorkersR>();
+            for (int i = 0; i<result.Count; i++)
+            {
+                if(result[i].Skills != null)
+                {
+                    for(int j = 0; j < result[i].Skills.Count; j++)
+                    {
+                        var tmp = result[i].Skills[j];
+                        if (tmp.ToLower().Contains(name.ToLower()))
+                            temp.Add(result[i]);
+                    }
+                }
+            }
+            if (temp.Count > 0)
+                result = temp;
+            else
+                result = null;
+        }
+        return result;
+    }
+
     public List<CompaniesR> getCompanyByEmailS(string email)
     {
         var result = _session.Advanced.DocumentQuery<CompaniesR, CompaniesR_byEmail>().WhereStartsWith(x => x.Email, email).ToList();

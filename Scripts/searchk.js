@@ -12,7 +12,7 @@
     var urlWN = "./RavenService.asmx/retWorkerFromName";
     var urlWLN = "./RavenService.asmx/retWorkerFromLastName";
     var urlWS = "./RavenService.asmx/retWorkerWithSkill";
-    var urlA = [urlWMNP, urlWN, urlWLN] //, urlWS];
+    var urlA = [urlWMNP, urlWN, urlWLN, urlWS];
     var urlB = [urlCMNP, urlCN];
 
     var suggest = document.getElementById("livesearch");
@@ -58,8 +58,14 @@
                                 check = jsons[i].Email;
                             if (third.toUpperCase().match(str.toUpperCase()))
                                 check = jsons[i].LastName;
-                            //else
-                            //    first = jsons[i].Skills;
+                            if (jsons[i].Skills !== null) {
+                                for (var c = 0; c < jsons[i].Skills.length; c++) {
+                                    var temp = String(jsons[i].Skills[c]);
+                                    if (temp.toUpperCase().match(str.toUpperCase()))
+                                        check = jsons[i].Skills;
+                                }
+                            }
+                            
                             if (check !== null) {
                                 var childs = '<div class="row searchcont"><p class="col-lg-3">' + check + '</p><p class="col-lg-3" style="color: #778899;">Workers</p></div>';
                                 console.log(suggest.hasChildNodes());
@@ -115,8 +121,15 @@
                             check = jsons.Email;
                         if (third.toUpperCase().match(str.toUpperCase()))
                             check = jsons.LastName;
-                        //else
-                        //    first = jsons[i].Skills;
+                        if (jsons[i].Skills !== null) {
+                            for (var c = 0; c < jsons[i].Skills.length; c++) {
+                                var temp = String(jsons[i].Skills[c]);
+                                if (temp.toUpperCase().match(str.toUpperCase()))
+                                    check = jsons[i].Skills;
+                            }
+                        }
+                       
+
                         if (check !== null) {
                             var childs = '<div class="row searchcont"><p class="col-lg-3">' + check + '</p><p class="col-lg-3" style="color: #778899;">Workers</p></div>';
                             console.log(suggest.hasChildNodes());
@@ -359,9 +372,6 @@
         $("#listingC").empty();
         $("#listingW").empty();
 
-        $("#listC").css("display", "none");
-        $("#listW").css("display", "none");
-
         var search = $("#srcinput").val();
         suggest.style.display = "none";
 
@@ -402,8 +412,13 @@
                                 check = jsons[i].Email;
                             if (third.toUpperCase().match(search.toUpperCase()))
                                 check = jsons[i].LastName;
-                            //else
-                            //    first = jsons[i].Skills;
+                            if (jsons[i].Skills !== null) {
+                                for (var c = 0; c < jsons[i].Skills.length; c++) {
+                                    var temp = String(jsons[i].Skills[c]);
+                                    if (temp.toUpperCase().match(search.toUpperCase()))
+                                        check = jsons[i].Skills;
+                                }
+                            }
                             if (check !== null) {
                                 var childs = '<div class="row searchcont"><p class="col-lg-3">' + check + '</p><p class="col-lg-3" style="color: #778899;">Workers</p></div>';
                                 console.log(suggest.hasChildNodes());
@@ -442,8 +457,13 @@
                             check = jsons.Email;
                         if (third.toUpperCase().match(search.toUpperCase()))
                             check = jsons.LastName;
-                        //else
-                        //    first = jsons[i].Skills;
+                        if (jsons[i].Skills !== null) {
+                            for (var c = 0; c < jsons[i].Skills.length; c++) {
+                                var temp = String(jsons[i].Skills[c]);
+                                if (temp.toUpperCase().match(search.toUpperCase()))
+                                    check = jsons[i].Skills;
+                            }
+                        }
                         if (check !== null) {
                             var childs = '<div class="row searchcont"><p class="col-lg-3">' + check + '</p><p class="col-lg-3" style="color: #778899;">Workers</p></div>';
                             console.log(suggest.hasChildNodes());
@@ -562,50 +582,54 @@
             });
         }
 
-        $("#listingW").empty();
-        $("#listingC").empty();
-
         if (received !== null) {
-            var j = 1, m = 1;
-            for (var i = 0; i < received.length; i++) {
-                if (received[i].type === "Workers") {
-                    $("#listW").css("display", "block");
-                    var mail = received[i].found.Email;
-                    var first = received[i].found.FirstName;
-                    var last = received[i].found.LastName;
-                    var company = received[i].found.CompanyName;
-                    var skill = null;
-                    if (received[i].found.Skills !== null) {
-                        skill = received[i].found.Skills.join();
-                    }
-                    var table = '<tr><th scope= "row">' + j + '</th>'
-                        + '<td>' + first + '</td>'
-                        + '<td>' + last + '</td>'
-                        + '<td>' + mail + '</td>'
-                        + '<td>' + skill + '</td>'
-                        + '<td>' + company + '</td></tr>';
-                    $("#listingW").append(table);
-                    j = j + 1;
-                }
-                else if (received[i].type === "Companies") {
-                    $("#listC").css("display", "block");
-                    var company = received[i].found.CompanyName;
-                    var mail = received[i].found.Email;
-                    var type = received[i].found.Type;
-                    var loc = received[i].found.Location;
-                    var table = '<tr><th scope= "row">' + j + '</th>'
-                        + '<td>' + company + '</td>'
-                        + '<td>' + mail + '</td>'
-                        + '<td>' + type + '</td>'
-                        + '<td>' + loc + '</td></tr>';
-                    $("#listingC").append(table);
-                    m = m + 1;
-                }
-
-            }
+            //console.log("prosao");
+            obrada(received);
         }
 
     });
+
+    function obrada(recv) {
+        var j = 1, m = 1;
+        console.log("prosao");
+        for (var i = 0; i < recv.length; i++) {
+            if (recv[i].type === "Workers") {
+                $("#listW").css("display", "block");
+                
+                var mail = recv[i].found.Email;
+                var first = recv[i].found.FirstName;
+                var last = recv[i].found.LastName;
+                var company = recv[i].found.CompanyName;
+                var skill = null;
+                if (recv[i].found.Skills !== null) {
+                    skill = recv[i].found.Skills.join();
+                }
+                var table = '<tr><th scope= "row">' + j + '</th>'
+                    + '<td>' + first + '</td>'
+                    + '<td>' + last + '</td>'
+                    + '<td>' + mail + '</td>'
+                    + '<td>' + skill + '</td>'
+                    + '<td>' + company + '</td></tr>';
+                $("#listingW").append(table);
+                j = j + 1;
+            }
+            else if (recv[i].type === "Companies") {
+                $("#listC").css("display", "block");
+                var company = recv[i].found.CompanyName;
+                var mail = recv[i].found.Email;
+                var type = recv[i].found.Type;
+                var loc = recv[i].found.Location;
+                var table = '<tr><th scope= "row">' + j + '</th>'
+                    + '<td>' + company + '</td>'
+                    + '<td>' + mail + '</td>'
+                    + '<td>' + type + '</td>'
+                    + '<td>' + loc + '</td></tr>';
+                $("#listingC").append(table);
+                m = m + 1;
+            }
+
+        }
+    }
 
     $('#listingC').on('click', 'tr', function () {
         console.log(this);

@@ -454,6 +454,18 @@ public class RavenService : System.Web.Services.WebService
     }
 
     [System.Web.Services.WebMethod]
+    public string retWorkerWithSkill(string name)
+    {
+        List<WorkersR> w = raven.getWorkerWithSkillS(name);
+
+        if (w != null)
+            return JsonConvert.SerializeObject(w);
+        else
+            return "Worker not found!";
+
+    }
+
+    [System.Web.Services.WebMethod]
     public string returnCompanyFromEmailNoPass(string name)
     {
         List<CompaniesR> c = raven.getCompanyByEmailS(name);
