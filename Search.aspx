@@ -42,10 +42,10 @@
               <div class="input-group-btn">
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Specify <span class="caret"></span></button>
                 <ul class="dropdown-menu">
-                  <li><span class="input-group-addon"><input type="checkbox" aria-label="..." id="first">First Name</span></li>
-                  <li><span class="input-group-addon"><input type="checkbox" aria-label="..." id="last">Last Name</span></li>
+                  <li><span class="input-group-addon"><input type="checkbox" aria-label="..." id="ffirst">First Name</span></li>
+                  <li><span class="input-group-addon"><input type="checkbox" aria-label="..." id="llast">Last Name</span></li>
                   <li><span class="input-group-addon"><input type="checkbox" aria-label="..." id="mmail">E-mail</span></li>
-                  <li><span class="input-group-addon"><input type="checkbox" aria-label="..." id="comp">Company</span></li>
+                  <li><span class="input-group-addon"><input type="checkbox" aria-label="..." id="ccomp">Company</span></li>
                   <li><span class="input-group-addon"><input type="checkbox" aria-label="..." id="skiill">Skill</span></li>
                 </ul>
               </div><!-- /btn-group -->
