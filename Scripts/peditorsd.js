@@ -7,6 +7,7 @@
     var rec = 0;
     var formerRemove = 0;
     var element = document.getElementById("former");
+    var urlC = "./RaptorService.asmx / updateCompanyInRDb";
 
     if (element !== null)
     {
@@ -289,7 +290,7 @@
 
         }
         else {
-            getAjaxResponseCompany(dataString, function (data) {
+            getAjaxResponse(urlC, dataString, function (data) {
                 var xmldoc = $.parseXML(data),
                     $xml = $(xmldoc),
                     $title = $xml.find("string");
@@ -363,23 +364,6 @@
             data: sstring,
             error: function (err) {
                 alert("Error", err.toString());
-            },
-            success: function (data) {
-                fn(data);
-            }
-        });
-    }
-
-    function getAjaxResponseCompany(sstring, fn) {
-
-        $.ajax({
-            //url: "./MongoService.asmx/updateCompanyInDb",
-            url: "./RaptorService.asmx/updateCompanyInRDb",
-            dataType: "text",
-            type: "POST",
-            data: sstring,
-            error: function (err) {
-                alert("Error", err);
             },
             success: function (data) {
                 fn(data);

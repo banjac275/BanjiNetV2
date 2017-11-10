@@ -140,6 +140,13 @@ public class RavenDataAccess
         return w;
     }
 
+    public CompaniesR updateCompany(CompaniesR c)
+    {
+        _session.Store(c);
+        _session.SaveChanges();
+        return c;
+    }
+
     public List<WorkersR> GetWorkers()
     {
         var users = _session.Query<WorkersR>().ToList();
@@ -207,5 +214,18 @@ public class RavenDataAccess
     {
         var result = _session.Advanced.DocumentQuery<CompaniesR, CompaniesR_byName>().WhereStartsWith(x => x.CompanyName, name).ToList();
         return result;
+    }
+
+    public Changes addFriendChange(Changes c)
+    {
+        _session.Store(c);
+        _session.SaveChanges();
+        return c;
+    }
+
+    public List<Changes> getChanges()
+    {
+        var changes = _session.Query<Changes>().ToList();
+        return changes;
     }
 }

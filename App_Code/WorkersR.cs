@@ -57,9 +57,13 @@ public class Changes
 
     public Guid Actor1 { get; set; }
 
+    public string Actor1Name { get; set; }
+
     public string Actor1Collection { get; set; }
 
     public Guid Actor2 { get; set; }
+
+    public string Actor2Name { get; set; }
 
     public string Actor2Collection { get; set; }
 

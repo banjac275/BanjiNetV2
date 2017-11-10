@@ -41,7 +41,18 @@ public class RavenService : System.Web.Services.WebService
 
         var ret = raven.Create(w);
 
-        if (ret != null)
+        Changes ch = new Changes()
+        {
+            Actor1 = ret.Id,
+            Actor1Name = ret.FirstName + ' ' + ret.LastName,
+            Actor1Collection = "WorkersR",
+            Type = " is new person that has joined our network!",
+            Time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
+        };
+
+        var change = raven.addFriendChange(ch);
+
+        if (ret != null && change != null)
         {
             HttpContext.Current.Session.Add("userR", ret);
             return succ;
@@ -64,7 +75,18 @@ public class RavenService : System.Web.Services.WebService
 
         var ret = raven.CreateCompany(c);
 
-        if (ret != null)
+        Changes ch = new Changes()
+        {
+            Actor1 = ret.Id,
+            Actor1Name = ret.CompanyName,
+            Actor1Collection = "CompaniesR",
+            Type = " is new company that has joined our network!",
+            Time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
+        };
+
+        var change = raven.addFriendChange(ch);
+
+        if (ret != null && change != null)
         {
             HttpContext.Current.Session.Add("companyR", ret);
             return succ;
@@ -246,6 +268,8 @@ public class RavenService : System.Web.Services.WebService
 
         var cId = raven.getCompanyByName(company);
 
+        Changes changeFinal = null;
+
         if (cId.Count == 0)
         {
             return "There is no such company!";
@@ -268,9 +292,106 @@ public class RavenService : System.Web.Services.WebService
 
         var res = raven.updateWorker(recvv);
 
-        if (res != null)
+        if (temp != company || temp == null)
+        {
+            Changes ch = new Changes()
+            {
+                Actor1 = res.Id,
+                Actor1Collection = "WorkersR",
+                Actor1Name = res.FirstName + ' ' + res.LastName,
+                Type = " has added as employer ",
+                Actor2 = Guid.Parse(res.CompanyId),
+                Actor2Name = res.CompanyName,
+                Actor2Collection = "CompaniesR",
+                Time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
+            };
+
+            changeFinal = raven.addFriendChange(ch);
+        }
+        else
+        {
+            Changes ch = new Changes()
+            {
+                Actor1 = res.Id,
+                Actor1Name = res.FirstName + ' ' + res.LastName,
+                Actor1Collection = "WorkersR",
+                Type = " has updated profile!",
+                Time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
+            };
+
+            changeFinal = raven.addFriendChange(ch);
+        }        
+
+        if (res != null && changeFinal != null)
         {
             HttpContext.Current.Session.Add("userR", res);
+            return "Update successfull!";
+        }
+        return fail;
+    }
+
+    //apdejtovanje profila radnika
+    [System.Web.Services.WebMethod(EnableSession = true)]
+    public string updateCompanyInRDb(string id, string mail, string pass, string name, string owner, string type, string loc)
+    {
+        CompaniesR recvv = raven.getCompanyById(Guid.Parse(id));
+
+        recvv.Email = mail;
+        recvv.Password = pass;
+        //recvv.CompanyName = name;
+        recvv.Owner = owner;
+        recvv.Location = loc;
+
+        var temp = recvv.CompanyName;
+
+        var cId = raven.getCompanyByName(name);
+
+        Changes changeFinal = null;
+
+        if (cId.Count == 0)
+        {
+            return "There is no such company!";
+        }
+
+        if(cId.Count != 0 && cId[0].CompanyName == temp && Guid.Parse(id) == cId[0].Id)
+        {
+            return "Company is a duplicate!";
+        }
+
+        if (temp != name && temp != null)
+        {
+            var tempC = raven.getCompanyByName(temp);
+            for(int i = 0; i<tempC[0].Employees.Count; i++)
+            {
+                var tempE = raven.getWorkerById(tempC[0].Employees[i]);
+                tempE.CompanyName = name;
+                raven.updateWorker(tempE);
+            }
+            recvv.CompanyName = name;
+        }
+        else if (temp == null)
+        {
+            recvv.CompanyName = name;
+        }
+
+        var res = raven.updateCompany(recvv);
+
+
+        Changes ch = new Changes()
+        {
+            Actor1 = res.Id,
+            Actor1Name = res.CompanyName,
+            Actor1Collection = "CompaniesR",
+            Type = " has updated profile!",
+            Time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
+        };
+
+        changeFinal = raven.addFriendChange(ch);
+
+
+        if (res != null && changeFinal != null)
+        {
+            HttpContext.Current.Session.Add("companyR", res);
             return "Update successfull!";
         }
         return fail;
@@ -355,8 +476,21 @@ public class RavenService : System.Web.Services.WebService
             tempW2 = raven.updateWorker(user);
         }
 
+        Changes ch = new Changes()
+        {
+            Actor1 = Guid.Parse(id1),
+            Actor1Name = friend.FirstName + ' ' + friend.LastName,
+            Actor1Collection = "WorkersR",
+            Actor2 = Guid.Parse(id2),
+            Actor2Name = user.FirstName + ' ' + user.LastName,
+            Actor2Collection = "WorkersR",
+            Type = " is friends with ",
+            Time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
+        };
 
-        if (tempW2 != null)
+        var change = raven.addFriendChange(ch);
+
+        if (tempW2 != null && change != null)
         {
             HttpContext.Current.Session.Add("workerR", id1);
             HttpContext.Current.Session.Add("userR", tempW2);
@@ -406,7 +540,21 @@ public class RavenService : System.Web.Services.WebService
             return "You are making an invalid action!";
         }
 
-        if (tempW2 != null)
+        Changes ch = new Changes()
+        {
+            Actor1 = Guid.Parse(id1),
+            Actor1Name = friend.FirstName + ' ' + friend.LastName,
+            Actor1Collection = "WorkersR",
+            Actor2 = Guid.Parse(id2),
+            Actor2Name = user.FirstName + ' ' + user.LastName,
+            Actor2Collection = "WorkersR",
+            Type = " is no longer friends with ",
+            Time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
+        };
+
+        var change = raven.addFriendChange(ch);
+
+        if (tempW2 != null && change != null)
         {
             HttpContext.Current.Session.Add("workerR", id1);
             HttpContext.Current.Session.Add("userR", tempW2);
@@ -476,5 +624,12 @@ public class RavenService : System.Web.Services.WebService
         }
         else
             return "Company not found!";
+    }
+
+    [System.Web.Services.WebMethod]
+    public List<Changes> retAllChanges()
+    {
+        List<Changes> c = raven.getChanges();
+        return c;
     }
 }

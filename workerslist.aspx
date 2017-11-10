@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="~/Shared/user.css"/>
-        <script type="text/javascript" src="Scripts/workerrs.js"></script>
+        <script type="text/javascript" src="Scripts/workeers.js"></script>
     </head>
     <body>
         <!-- top nav -->
@@ -19,7 +19,7 @@
                   <div id="navbar1" class="navbar-header">
                     <ul class="nav navbar-nav">
                       <li class="navbar-brand navbar-left"><a href="#">BanjiNet</a></li>
-                      <li><a href="#">Home</a></li>
+                      <li><a href="home.aspx">Home</a></li>
                       <li><a href="Search.aspx">Search</a></li>
                       <li class="active"><a href="workerslist.aspx">Workers</a></li>
                       <li><a href="companylist.aspx">Companies</a></li>

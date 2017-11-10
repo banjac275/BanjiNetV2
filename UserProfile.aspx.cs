@@ -73,7 +73,7 @@ public partial class UserProfile : System.Web.UI.Page
         {
             reccR = (CompaniesR)Session["companyR"];
             Response.Write("<script>console.log('" + reccR.CompanyName + "');</script>");
-            //Response.Write("<script>localStorage.setItem('jobR', '" + null + "');</script>");
+            //Response.Write("<script>localStorage.setItem('companyCheck', 'itis');</script>");
             //List<Guid> objects = new List<Guid>();
             if (reccR.Employees != null)
             {
