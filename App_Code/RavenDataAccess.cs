@@ -228,4 +228,18 @@ public class RavenDataAccess
         var changes = _session.Query<Changes>().ToList();
         return changes;
     }
+
+    public string deleteWorker(WorkersR w)
+    {
+        _session.Delete<WorkersR>(w);
+        _session.SaveChanges();
+        return "Worker deleted!";
+    }
+
+    public string deleteCompany(CompaniesR c)
+    {
+        _session.Delete<CompaniesR>(c);
+        _session.SaveChanges();
+        return "Company deleted!";
+    }
 }

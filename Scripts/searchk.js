@@ -4,6 +4,7 @@
     perm1 = perm2 = perm3 = perm4 = perm5 = true;
     $("#listC").css("display", "none");
     $("#listW").css("display", "none");
+    var count = 0;
 
     //urlovi
     var urlWMNP = "./RavenService.asmx/returnWorkerFromEmailNoPass";
@@ -27,6 +28,7 @@
         var all = true;
         var prep1 = [];
         var prep2 = [];
+        count = 0;
 
         if ($('#ffirst').not(':checked').length) {
             perm1 = false;
@@ -144,12 +146,14 @@
                                         if (checkRec === false) {
                                             var temporary = { found: jsons[i], type: "Workers", queryS: check };
                                             received.push(temporary);
+                                            count++;
                                         }
 
                                     }
                                     else {
                                         var temporary = { found: jsons[i], type: "Workers", queryS: check };
                                         received.push(temporary);
+                                        count++;
                                     }
 
                                     if (propose === true) {
@@ -210,12 +214,14 @@
                                     if (checkRec === false) {
                                         var temporary = { found: jsons, type: "Workers", queryS: check };
                                         received.push(temporary);
+                                        count++;
                                     }
 
                                 }
                                 else {
                                     var temporary = { found: jsons, type: "Workers", queryS: check };
                                     received.push(temporary);
+                                    count++;
                                 }
 
                                 if (propose === true) {
@@ -288,12 +294,14 @@
                                         if (checkRec === false) {
                                             var temporary = { found: jsons[i], type: "Companies", queryS: check };
                                             received.push(temporary);
+                                            count++;
                                         }
 
                                     }
                                     else {
                                         var temporary = { found: jsons[i], type: "Companies", queryS: check };
                                         received.push(temporary);
+                                        count++;
                                     }
 
                                     if (propose === true) {
@@ -340,12 +348,14 @@
                                     if (checkRec === false) {
                                         var temporary = { found: jsons, type: "Companies", queryS: check };
                                         received.push(temporary);
+                                        count++;
                                     }
 
                                 }
                                 else {
                                     var temporary = { found: jsons, type: "Companies", queryS: check };
                                     received.push(temporary);
+                                    count++;
                                 }
 
                                 if (propose === true) {
@@ -382,9 +392,10 @@
         $("#listingW").empty();
         $("#listingC").empty();
 
-        if (rec !== null) {
+        if (count !== 0) {
+            console.log(count);
             var j = 1, m = 1;
-            for (var i = 0; i < rec.length; i++) {
+            for (var i = 0; i < count; i++) {
                 if (rec[i].type === "Workers") {
                     $("#listW").css("display", "block");
                     var mail = rec[i].found.Email;

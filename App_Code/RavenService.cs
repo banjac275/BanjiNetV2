@@ -414,6 +414,108 @@ public class RavenService : System.Web.Services.WebService
     }
 
     [System.Web.Services.WebMethod]
+    public string deleteWorkerWithId(string id)
+    {
+
+        WorkersR w = raven.getWorkerById(Guid.Parse(id));
+
+        if(w != null)
+        {
+            if(w.Friends != null)
+            {
+                for(int i = 0; i < w.Friends.Count; i++)
+                {
+                    var temp = raven.getWorkerById(w.Friends[i]);
+                    List<Guid> tpr = new List<Guid>();
+                    for(int j = 0; j < temp.Friends.Count; j++)
+                    {
+                        if (Guid.Parse(id) != temp.Friends[j])
+                            tpr.Add(temp.Friends[j]);
+                    }
+                    temp.Friends = tpr;
+                    raven.updateWorker(temp);
+                }
+            }
+
+            if(w.CompanyName != null)
+            {
+                CompaniesR c = raven.getCompanyById(Guid.Parse(w.CompanyId));
+                List<Guid> tpr = new List<Guid>();
+                for(int j = 0; j < c.Employees.Count; j++)
+                {
+                    if (Guid.Parse(id) != c.Employees[j])
+                        tpr.Add(c.Employees[j]);
+                }
+                c.Employees = tpr;
+                raven.updateCompany(c);
+            }
+        }
+
+        var res = raven.deleteWorker(w);
+
+        Changes ch = new Changes()
+        {
+            Actor1 = w.Id,
+            Actor1Name = w.FirstName + ' ' + w.LastName,
+            Actor1Collection = "WorkersR",
+            Type = " has deleted profile from the network!",
+            Time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
+        };
+
+        Changes changeFinal = raven.addFriendChange(ch);
+
+        if (res != null && changeFinal != null)
+        {
+            return "Worker deleted!";
+        }
+        else
+            return "Worker not found!";
+
+    }
+
+    [System.Web.Services.WebMethod]
+    public string deleteCompanyWithId(string id)
+    {
+
+        CompaniesR c = raven.getCompanyById(Guid.Parse(id));
+
+        if(c != null)
+        {
+            if(c.Employees != null)
+            {
+                for(int i = 0; i < c.Employees.Count; i++)
+                {
+                    var temp = raven.getWorkerById(c.Employees[i]);
+                    temp.CompanyId = null;
+                    temp.CompanyName = null;
+                    raven.updateWorker(temp);
+                }
+            }
+        }
+
+        var res = raven.deleteCompany(c);
+
+        Changes ch = new Changes()
+        {
+            Actor1 = c.Id,
+            Actor1Name = c.CompanyName,
+            Actor1Collection = "CompaniesR",
+            Type = " has deleted profile from the network!",
+            Time = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
+        };
+
+        Changes changeFinal = raven.addFriendChange(ch);
+
+        if (res != null && changeFinal != null)
+        {
+            return "Company deleted!";
+        }
+        else
+            return "Company not found!";
+
+    }
+
+    [System.Web.Services.WebMethod]
     public string retCompanyFromIdR(string id)
     {
 

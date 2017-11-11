@@ -7,13 +7,16 @@
     var rec = 0;
     var formerRemove = 0;
     var element = document.getElementById("former");
-    var urlC = "./RaptorService.asmx / updateCompanyInRDb";
+    var urlC = "./RavenService.asmx/updateCompanyInRDb";
+    var urlDW = "./RavenService.asmx/deleteWorkerWithId";
+    var urllls = "./RavenService.asmx/retWorkerFromIdR"; 
+    var urlls = "./RavenService.asmx/updateWorkerInRDb";
+    var urlDC = "./RavenService.asmx/deleteCompanyWithId";
 
     if (element !== null)
     {
         var rec;
-        var urllls = "./RavenService.asmx/retWorkerFromIdR"; 
-
+        
         if (localStorage.getItem("userid") !== null) {
             rec = localStorage.getItem("userid");
             console.log(rec);
@@ -80,7 +83,7 @@
         e.preventDefault();
 
         var res;
-        var urlls = "./RavenService.asmx/updateWorkerInRDb";
+        
 
         if (localStorage.getItem("userid") !== null) {
             res = localStorage.getItem("userid");
@@ -178,7 +181,7 @@
 
         var dataString = { 'id': res.toString() };
 
-        getAjaxResponseDelete(dataString, function (data) {
+        getAjaxResponse(urlDW, dataString, function (data) {
             var xmldoc = $.parseXML(data),
                 $xml = $(xmldoc),
                 $title = $xml.find("string");
@@ -323,7 +326,7 @@
 
         var dataString = { 'id': res.toString() };
 
-        getAjaxResponseDeleteCompany(dataString, function (data) {
+        getAjaxResponse(urlDC, dataString, function (data) {
             var xmldoc = $.parseXML(data),
                 $xml = $(xmldoc),
                 $title = $xml.find("string");
@@ -348,38 +351,6 @@
             data: sstring,
             error: function (err) {
                 alert("Error", err);
-            },
-            success: function (data) {
-                fn(data);
-            }
-        });
-    }
-
-    function getAjaxResponseDelete(sstring, fn) {
-
-        $.ajax({
-            url: "./MongoService.asmx/deleteWorkerWithId",
-            dataType: "text",
-            type: "POST",
-            data: sstring,
-            error: function (err) {
-                alert("Error", err.toString());
-            },
-            success: function (data) {
-                fn(data);
-            }
-        });
-    }
-
-    function getAjaxResponseDeleteCompany(sstring, fn) {
-
-        $.ajax({
-            url: "./MongoService.asmx/deleteCompanyWithId",
-            dataType: "text",
-            type: "POST",
-            data: sstring,
-            error: function (err) {
-                alert("Error", err.toString());
             },
             success: function (data) {
                 fn(data);
