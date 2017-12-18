@@ -5,6 +5,7 @@ using System.Web;
 using Raven.Client;
 using Raven.Client.Indexes;
 using Raven.Abstractions.Indexing;
+using MongoDB.Bson;
 
 /// <summary>
 /// Summary description for WorkersR
@@ -14,10 +15,6 @@ public class WorkersR
 {
     public Guid Id { get; set; }
 
-    public string CompanyId { get; set; }
-
-    public string CompanyName { get; set; }
-
     public string FirstName { get; set; }
 
     public string LastName { get; set; }
@@ -25,6 +22,10 @@ public class WorkersR
     public string Password { get; set; }
 
     public string Email { get; set; }
+
+    public string CompanyId { get; set; }
+
+    public string CompanyName { get; set; }
 
     public List<string> Skills { get; set; }
 
@@ -38,6 +39,7 @@ public class WorkersR
     }
 }
 
+//za prethodna zaposlenja
 public class PrevEmp
 {
     public Guid FirmId { get; set; }
@@ -51,6 +53,20 @@ public class PrevEmp
     public string EndTime { get; set; }
 }
 
+//da sve logove smesta u jedan dokument i da mi ne pravi guzvu od mnogo dokumenata u bazi
+public class ChangeFinal
+{
+    public Guid Id { get; set; }
+
+    public List<Changes> Change { get; set; }
+
+    public ChangeFinal()
+    {
+        Id = Guid.NewGuid();
+    }
+}
+
+//belezi sve promene u sistemu
 public class Changes
 {
     public string Type { get; set; }
@@ -68,6 +84,32 @@ public class Changes
     public string Actor2Collection { get; set; }
 
     public string Time { get; set; }
+}
+
+//posto je raven glavna baza, na pocetku se gleda da li bira korisnik nju ili ne
+public class DBCheck
+{
+    public Guid RavenId { get; set; }
+
+    public ObjectId MongoId { get; set; }
+
+    public string Mail { get; set; }
+
+    public string Password { get; set; }
+
+    public string DbName { get; set; }
+}
+
+public class DBCheckFinal
+{
+    public Guid Id { get; set; }
+
+    public List<DBCheck> Check { get; set; }
+
+    public DBCheckFinal()
+    {
+        Id = Guid.NewGuid();
+    }
 }
 
 //za brze pretrage

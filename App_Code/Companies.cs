@@ -20,14 +20,15 @@ public class Companies
     public string Type { get; set; }
 
     public string Location { get; set; }
-    [BsonIgnoreIfNullAttribute]
-    public ObjectId[] Employees { get; set; }
 
     public string Email { get; set; }
 
     public string Password { get; set; }
 
     public string Checkbox { get; set; }
+
+    [BsonIgnoreIfNullAttribute]
+    public ObjectId[] Employees { get; set; }
 
     public Companies()
     {

@@ -22,11 +22,11 @@ public class CompaniesR
 
     public string Location { get; set; }
 
-    public List<Guid> Employees { get; set; }
-
     public string Email { get; set; }
 
     public string Password { get; set; }
+
+    public List<Guid> Employees { get; set; }
 
     public CompaniesR()
     {

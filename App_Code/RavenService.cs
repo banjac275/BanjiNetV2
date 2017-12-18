@@ -36,10 +36,14 @@ public class RavenService : System.Web.Services.WebService
             FirstName = name,
             LastName = last,
             Email = mail,
-            Password = pass
+            Password = pass,
+            CompanyId = "579ac770-de1b-4837-b6eb-1ff8bca0ec20",
+            CompanyName = "unemployed"
         };
 
         var ret = raven.Create(w);
+
+        var comp = raven.addWorkerToCompany(w.Id, raven.getCompanyById(Guid.Parse("579ac770-de1b-4837-b6eb-1ff8bca0ec20")));
 
         Changes ch = new Changes()
         {
@@ -52,7 +56,7 @@ public class RavenService : System.Web.Services.WebService
 
         var change = raven.addFriendChange(ch);
 
-        if (ret != null && change != null)
+        if (ret != null && change != null && comp != null)
         {
             HttpContext.Current.Session.Add("userR", ret);
             return succ;

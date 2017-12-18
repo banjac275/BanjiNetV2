@@ -218,15 +218,33 @@ public class RavenDataAccess
 
     public Changes addFriendChange(Changes c)
     {
-        _session.Store(c);
-        _session.SaveChanges();
-        return c;
+        List<Changes> change = getChanges();
+        if (change == null)
+        {
+            ChangeFinal cf = new ChangeFinal();
+            cf.Change = new List<Changes>();
+            cf.Change.Add(c);
+            _session.Store(cf);
+            _session.SaveChanges();
+            return c;
+        }
+        else
+        {
+            var changee = _session.Query<ChangeFinal>().ToList();
+            changee[0].Change.Add(c);
+            _session.Store(changee);
+            _session.SaveChanges();
+            return c;
+        }
     }
 
     public List<Changes> getChanges()
     {
-        var changes = _session.Query<Changes>().ToList();
-        return changes;
+        var change = _session.Query<ChangeFinal>().ToList();
+        if (change != null)
+            return change[0].Change;
+        else
+            return null;
     }
 
     public string deleteWorker(WorkersR w)
