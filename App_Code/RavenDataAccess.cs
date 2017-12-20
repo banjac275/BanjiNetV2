@@ -241,7 +241,7 @@ public class RavenDataAccess
     public List<Changes> getChanges()
     {
         var change = _session.Query<ChangeFinal>().ToList();
-        if (change != null)
+        if (change.Count != 0)
             return change[0].Change;
         else
             return null;
@@ -259,5 +259,36 @@ public class RavenDataAccess
         _session.Delete<CompaniesR>(c);
         _session.SaveChanges();
         return "Company deleted!";
+    }
+
+    public string setDB(DBCheck dbc)
+    {
+        List<DBCheck> change = getDBPref();
+        if (change == null)
+        {
+            DBCheckFinal cf = new DBCheckFinal();
+            cf.Check = new List<DBCheck>();
+            cf.Check.Add(dbc);
+            _session.Store(cf);
+            _session.SaveChanges();
+            return "DB Set";
+        }
+        else
+        {
+            var changee = _session.Query<DBCheckFinal>().ToList();
+            changee[0].Check.Add(dbc);
+            _session.Store(changee);
+            _session.SaveChanges();
+            return "DB Set";
+        }
+    }
+
+    public List<DBCheck> getDBPref()
+    {
+        var check = _session.Query<DBCheckFinal>().ToList();
+        if (check.Count != 0)
+            return check[0].Check;
+        else
+            return null;
     }
 }

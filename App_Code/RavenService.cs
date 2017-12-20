@@ -6,6 +6,7 @@ using System.Web.Services;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Raven.Client;
+using MongoDB.Bson;
 
 /// <summary>
 /// Summary description for RavenService
@@ -17,6 +18,7 @@ using Raven.Client;
 public class RavenService : System.Web.Services.WebService
 {
     RavenDataAccess raven;
+    MongoDataAccess mongor;
     string badp = "Bad password, please try again!";
     string badm = "No users were found with this email, please sign up!";
     string succ = "User database entry was a success!";
@@ -24,13 +26,15 @@ public class RavenService : System.Web.Services.WebService
 
     public RavenService()
     {
-        raven = new RavenDataAccess(); 
+        raven = new RavenDataAccess();
+        mongor = new MongoDataAccess();
     }
 
     //upis
     [System.Web.Services.WebMethod(EnableSession = true)]
     public string enterNewWorkerInRDb(string mail, string pass, string name, string last)
     {
+        //upis novog radnika u raven bazu
         WorkersR w = new WorkersR()
         {
             FirstName = name,
@@ -42,8 +46,31 @@ public class RavenService : System.Web.Services.WebService
         };
 
         var ret = raven.Create(w);
-
+        //dodavanje novoupisanog radnike medju redove nezaposlenih
         var comp = raven.addWorkerToCompany(w.Id, raven.getCompanyById(Guid.Parse("579ac770-de1b-4837-b6eb-1ff8bca0ec20")));
+
+        //upis u mongo za nove radnike i uzimanje object id novoupisanog radnika
+        Workers wm = new Workers()
+        {
+            FirstName = name,
+            LastName = last,
+            Email = mail,
+            Password = pass
+        };
+
+        var retM = mongor.Create(wm);
+
+        DBCheck dbc = new DBCheck()
+        {
+            Collection = "worker",
+            DbName = "raven",
+            Mail = mail,
+            Password = pass,
+            MongoId = retM.Id.ToString(),
+            RavenId = w.Id.ToString()
+        };
+
+        var dbcRet = raven.setDB(dbc);
 
         Changes ch = new Changes()
         {
@@ -56,7 +83,7 @@ public class RavenService : System.Web.Services.WebService
 
         var change = raven.addFriendChange(ch);
 
-        if (ret != null && change != null && comp != null)
+        if (ret != null && change != null && comp != null && dbcRet != null)
         {
             HttpContext.Current.Session.Add("userR", ret);
             return succ;
@@ -738,4 +765,20 @@ public class RavenService : System.Web.Services.WebService
         List<Changes> c = raven.getChanges();
         return c;
     }
+
+    [System.Web.Services.WebMethod]
+    public string checkDBs(string mail, string pass)
+    {
+        List<DBCheck> dbc = raven.getDBPref();
+        if(dbc.Count != 0)
+        {
+            for(int i = 0; i < dbc.Count; i++)
+            {
+                if (dbc[i].Mail == mail && dbc[i].Password == pass)
+                    return dbc[i].DbName;
+            }
+        }
+        return "raven";
+    }
+
 }

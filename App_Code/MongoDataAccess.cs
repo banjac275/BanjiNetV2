@@ -19,7 +19,7 @@ public class MongoDataAccess
     public MongoDataAccess()
     {
         _client = new MongoClient("mongodb://localhost:27017");
-        _dbase = _client.GetDatabase("userdb");
+        _dbase = _client.GetDatabase("banjiNet");
     }
 
     public List<Workers> GetWorkers()

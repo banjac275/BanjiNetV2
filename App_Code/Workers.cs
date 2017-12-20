@@ -11,10 +11,6 @@ using MongoDB.Bson.Serialization.Attributes;
 public class Workers
 {
     public ObjectId Id { get; set; }
-  
-    public ObjectId CompanyId { get; set; }
-
-    public string CompanyName { get; set; }
 
     public string FirstName { get; set; }
     
@@ -26,12 +22,26 @@ public class Workers
 
     public string Checkbox { get; set; }
 
-    public Workers()
-    {
-        FirstName = null;
-        LastName = null;
-        Password = null;
-        Email = null;
-        Checkbox = null;
-    }
+    public string CompanyId { get; set; }
+
+    public string CompanyName { get; set; }
+
+    public List<string> Skills { get; set; }
+
+    public List<PrevEmpM> PreviousEmployment { get; set; }
+
+    public List<ObjectId> Friends { get; set; }
+}
+
+public class PrevEmpM
+{
+    public ObjectId FirmId { get; set; }
+
+    public ObjectId FormerEmployeeId { get; set; }
+
+    public string FirmName { get; set; }
+
+    public string StartTime { get; set; }
+
+    public string EndTime { get; set; }
 }

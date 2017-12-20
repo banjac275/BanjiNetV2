@@ -5,7 +5,6 @@ using System.Web;
 using Raven.Client;
 using Raven.Client.Indexes;
 using Raven.Abstractions.Indexing;
-using MongoDB.Bson;
 
 /// <summary>
 /// Summary description for WorkersR
@@ -89,13 +88,15 @@ public class Changes
 //posto je raven glavna baza, na pocetku se gleda da li bira korisnik nju ili ne
 public class DBCheck
 {
-    public Guid RavenId { get; set; }
+    public string RavenId { get; set; }
 
-    public ObjectId MongoId { get; set; }
+    public string MongoId { get; set; }
 
     public string Mail { get; set; }
 
     public string Password { get; set; }
+
+    public string Collection { get; set; }
 
     public string DbName { get; set; }
 }

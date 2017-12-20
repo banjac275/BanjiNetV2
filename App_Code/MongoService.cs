@@ -144,53 +144,53 @@ public class MongoService : System.Web.Services.WebService
         return fail;
     }
 
-    [System.Web.Services.WebMethod(EnableSession = true)]
-    public string updateWorkerInDb(string id, string mail, string pass, string name, string last, string check, string company)
-    {
-        List<Workers> recvv = mongoDbase.getWorkerById(ObjectId.Parse(id));
+    //[System.Web.Services.WebMethod(EnableSession = true)]
+    //public string updateWorkerInDb(string id, string mail, string pass, string name, string last, string check, string company)
+    //{
+    //    List<Workers> recvv = mongoDbase.getWorkerById(ObjectId.Parse(id));
 
 
-        recvv[0].Email = mail;
-        recvv[0].Password = pass;
-        recvv[0].FirstName = name;
-        recvv[0].LastName = last;
-        recvv[0].Checkbox = check;
+    //    recvv[0].Email = mail;
+    //    recvv[0].Password = pass;
+    //    recvv[0].FirstName = name;
+    //    recvv[0].LastName = last;
+    //    recvv[0].Checkbox = check;
 
-        var temp = recvv[0].CompanyName;
+    //    var temp = recvv[0].CompanyName;
 
-        var cId = mongoDbase.getCompanyByName(company);
+    //    var cId = mongoDbase.getCompanyByName(company);
 
-        if (cId.Count == 0)
-        {
-            return "There is no such company!";
-        }
+    //    if (cId.Count == 0)
+    //    {
+    //        return "There is no such company!";
+    //    }
 
-        if (temp != company && temp != null)
-        {
-            var tempC = mongoDbase.getCompanyByName(temp);
-            var ret = mongoDbase.removeWorkerFromCompany(recvv[0].Id, tempC[0]);
-            var com = mongoDbase.addWorkerToCompany(recvv[0].Id, cId[0]);
-            recvv[0].CompanyId = cId[0].Id;
-            recvv[0].CompanyName = cId[0].CompanyName;
-        }
-        else
-        {
-            var com = mongoDbase.addWorkerToCompany(recvv[0].Id, cId[0]);
-            recvv[0].CompanyId = cId[0].Id;
-            recvv[0].CompanyName = cId[0].CompanyName;
-        }
+    //    if (temp != company && temp != null)
+    //    {
+    //        var tempC = mongoDbase.getCompanyByName(temp);
+    //        var ret = mongoDbase.removeWorkerFromCompany(recvv[0].Id, tempC[0]);
+    //        var com = mongoDbase.addWorkerToCompany(recvv[0].Id, cId[0]);
+    //        recvv[0].CompanyId = cId[0].Id;
+    //        recvv[0].CompanyName = cId[0].CompanyName;
+    //    }
+    //    else
+    //    {
+    //        var com = mongoDbase.addWorkerToCompany(recvv[0].Id, cId[0]);
+    //        recvv[0].CompanyId = cId[0].Id;
+    //        recvv[0].CompanyName = cId[0].CompanyName;
+    //    }
 
-        var res = mongoDbase.updateWorker(recvv[0].Id, recvv[0]);
+    //    var res = mongoDbase.updateWorker(recvv[0].Id, recvv[0]);
 
-        if (res != null)
-        {
-            HttpContext.Current.Session.Add("user", res);
-            return "Update successfull!";
-        }
-        return fail;
-    }
+    //    if (res != null)
+    //    {
+    //        HttpContext.Current.Session.Add("user", res);
+    //        return "Update successfull!";
+    //    }
+    //    return fail;
+    //}
 
-    [System.Web.Services.WebMethod(EnableSession = true)]
+    [WebMethod(EnableSession = true)]
     public string updateCompanyInDb(string id, string mail, string pass, string name, string owner, string type, string loc, string check)
     {
         List<Companies> recvv = mongoDbase.getCompanyById(ObjectId.Parse(id));
