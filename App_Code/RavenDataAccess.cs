@@ -232,7 +232,7 @@ public class RavenDataAccess
         {
             var changee = _session.Query<ChangeFinal>().ToList();
             changee[0].Change.Add(c);
-            _session.Store(changee);
+            _session.Store(changee[0]);
             _session.SaveChanges();
             return c;
         }
@@ -277,7 +277,7 @@ public class RavenDataAccess
         {
             var changee = _session.Query<DBCheckFinal>().ToList();
             changee[0].Check.Add(dbc);
-            _session.Store(changee);
+            _session.Store(changee[0]);
             _session.SaveChanges();
             return "DB Set";
         }

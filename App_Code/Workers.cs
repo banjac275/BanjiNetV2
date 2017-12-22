@@ -20,8 +20,6 @@ public class Workers
   
     public string Email { get; set; }
 
-    public string Checkbox { get; set; }
-
     public string CompanyId { get; set; }
 
     public string CompanyName { get; set; }

@@ -44,12 +44,16 @@ public class MongoDataAccess
         return result;
     }
 
-    public List<Companies> getCompanyById(ObjectId id)
+    public Companies getCompanyById(ObjectId id)
     {
         var res = _dbase.GetCollection<Companies>("companies");
         //var filter = Builders<Companies>.Filter.Eq("_id", id);
         var result = res.Find(c => c.Id == id).ToList();
-        return result;
+
+        if (result.Count != 0)
+            return result[0];
+        else
+            return null;
     }
 
     public List<Companies> getCompanyByName(string name)
@@ -59,19 +63,27 @@ public class MongoDataAccess
         return result;
     }
 
-    public List<Workers> getWorkerByEmail(string email)
+    public Workers getWorkerByEmail(string email)
     {
         var res = _dbase.GetCollection<Workers>("workers");
         //var filter = Builders<Workers>.Filter.Eq("Email", email);
         var result = res.Find(w => w.Email == email).ToList();
-        return result;
+
+        if (result.Count != 0)
+            return result[0];
+        else
+            return null;
     }
 
-    public List<Companies> getCompanyByEmail(string email)
+    public Companies getCompanyByEmail(string email)
     {
         var res = _dbase.GetCollection<Companies>("companies");
         var result = res.Find(w => w.Email == email).ToList();
-        return result;
+
+        if (result.Count != 0)
+            return result[0];
+        else
+            return null;
     }
 
     public List<Workers> getWorkerByName(string name)
@@ -123,7 +135,6 @@ public class MongoDataAccess
     public string removeWorkerFromCompany(ObjectId id, Companies c)
     {
         var collection = _dbase.GetCollection<Companies>("companies");
-        //var query = Builders<Companies>.Filter.And(Builders<Companies>.Filter.Eq("_id", c.Id), Builders<Companies>.Filter.Eq("Employees", id));
         var filter = new BsonDocument("_id", c.Id);
         var pull = Builders<Companies>.Update.Pull("Employees", id);
         var res = collection.FindOneAndUpdate(filter, pull);
@@ -133,9 +144,19 @@ public class MongoDataAccess
     public string addWorkerToCompany(ObjectId id, Companies c)
     {
         var collection = _dbase.GetCollection<Companies>("companies");
-        var filter = new BsonDocument("_id", c.Id);
-        var push = Builders<Companies>.Update.Push("Employees", id);
-        var res = collection.FindOneAndUpdate(filter, push);
+        if(c.Employees == null)
+        {
+            c.Employees = new List<ObjectId>();
+            c.Employees.Add(id);
+            var query_id = Builders<Companies>.Filter.Eq("_id", c.Id);
+            var operation = collection.ReplaceOne(query_id, c);
+        }
+        else
+        {
+            var filter = new BsonDocument("_id", c.Id);
+            var push = Builders<Companies>.Update.Push("Employees", id);
+            var res = collection.FindOneAndUpdate(filter, push);
+        }
         return "Worker added to company!";
     }
 

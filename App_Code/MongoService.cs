@@ -37,15 +37,15 @@ public class MongoService : System.Web.Services.WebService
     {
         //var obj = JObject.Parse(jsons);
         //var mail = (string)obj.SelectToken("Email");
-        List<Workers> w = mongoDbase.getWorkerByEmail(mail);
+        Workers w = mongoDbase.getWorkerByEmail(mail);
         //JavaScriptSerializer jserial = new JavaScriptSerializer();
-        if (w.Count != 0)
+        if (w != null)
         {
-            if (w[0].Password == pass)
+            if (w.Password == pass)
             {
-                HttpContext.Current.Session.Add("user", w[0]);
+                HttpContext.Current.Session.Add("user", w);
                 HttpContext.Current.Session.Add("company", null);
-                return JsonConvert.SerializeObject(w[0]);
+                return JsonConvert.SerializeObject(w);
             }
             else
                 return badp;
@@ -58,15 +58,15 @@ public class MongoService : System.Web.Services.WebService
     [System.Web.Services.WebMethod(EnableSession = true)]
     public string returnCompanyFromEmail(string mail, string pass)
     {
-        List<Companies> w = mongoDbase.getCompanyByEmail(mail);
+        Companies w = mongoDbase.getCompanyByEmail(mail);
         
-        if (w.Count != 0)
+        if (w != null)
         {
-            if (w[0].Password == pass)
+            if (w.Password == pass)
             {
-                HttpContext.Current.Session.Add("company", w[0]);
+                HttpContext.Current.Session.Add("company", w);
                 HttpContext.Current.Session.Add("user", null);
-                return JsonConvert.SerializeObject(w[0]);
+                return JsonConvert.SerializeObject(w);
             }
             else
                 return badp;
@@ -78,11 +78,11 @@ public class MongoService : System.Web.Services.WebService
     [System.Web.Services.WebMethod]
     public string returnWorkerFromEmailNoPass(string mail)
     {
-        List<Workers> w = mongoDbase.getWorkerByEmail(mail);
+        Workers w = mongoDbase.getWorkerByEmail(mail);
         
-        if (w.Count != 0)
+        if (w != null)
         {
-             return JsonConvert.SerializeObject(w[0]);            
+             return JsonConvert.SerializeObject(w);            
         }
         else
             return "Worker not found with mail!";
@@ -92,25 +92,24 @@ public class MongoService : System.Web.Services.WebService
     [System.Web.Services.WebMethod]
     public string returnCompanyFromEmailNoPass(string mail)
     {
-        List<Companies> w = mongoDbase.getCompanyByEmail(mail);
+        Companies w = mongoDbase.getCompanyByEmail(mail);
 
-        if (w.Count != 0)
+        if (w != null)
         {
-            return JsonConvert.SerializeObject(w[0]);   
+            return JsonConvert.SerializeObject(w);   
         }
         else
             return "Company not found with mail!";
     }
 
     [System.Web.Services.WebMethod(EnableSession = true)]
-    public string enterNewWorkerInDb(string mail, string pass, string name, string last, string check)
+    public string enterNewWorkerInDb(string mail, string pass, string name, string last)
     {
         Workers w = new Workers();
         w.FirstName = name;
         w.LastName = last;
         w.Email = mail;
         w.Password = pass;
-        w.Checkbox = check;
 
         var ret = mongoDbase.Create(w);
 
@@ -123,7 +122,7 @@ public class MongoService : System.Web.Services.WebService
     }
 
     [System.Web.Services.WebMethod(EnableSession = true)]
-    public string enterNewCompanyInDb(string company, string owner, string type, string location, string mail, string pass, string check)
+    public string enterNewCompanyInDb(string company, string owner, string type, string location, string mail, string pass)
     {
         Companies c = new Companies();
         c.CompanyName = company;
@@ -132,7 +131,6 @@ public class MongoService : System.Web.Services.WebService
         c.Location = location;
         c.Email = mail;
         c.Password = pass;
-        c.Checkbox = check;
 
         var ret = mongoDbase.CreateCompany(c);
 
@@ -193,17 +191,17 @@ public class MongoService : System.Web.Services.WebService
     [WebMethod(EnableSession = true)]
     public string updateCompanyInDb(string id, string mail, string pass, string name, string owner, string type, string loc, string check)
     {
-        List<Companies> recvv = mongoDbase.getCompanyById(ObjectId.Parse(id));
+        Companies recvv = mongoDbase.getCompanyById(ObjectId.Parse(id));
 
 
-        recvv[0].Email = mail;
-        recvv[0].Password = pass;
-        recvv[0].Owner = owner;
-        recvv[0].Type = type;
-        recvv[0].Location = loc;
-        recvv[0].Checkbox = check;
+        recvv.Email = mail;
+        recvv.Password = pass;
+        recvv.Owner = owner;
+        recvv.Type = type;
+        recvv.Location = loc;
+        recvv.Checkbox = check;
 
-        var temp = recvv[0].CompanyName;
+        var temp = recvv.CompanyName;
 
         var cId = mongoDbase.getCompanyByName(name);
 
@@ -214,29 +212,29 @@ public class MongoService : System.Web.Services.WebService
         {
             if (cId.Count == 0)
             {
-                recvv[0].CompanyName = name;
-                if(recvv[0].Employees.Length != 0)
+                recvv.CompanyName = name;
+                if(recvv.Employees.Count != 0)
                 {
-                    for (int i = 0; i < recvv[0].Employees.Length; i++)
+                    for (int i = 0; i < recvv.Employees.Count; i++)
                     {
-                        var tempW = mongoDbase.getWorkerById(recvv[0].Employees[i]);
+                        var tempW = mongoDbase.getWorkerById(recvv.Employees[i]);
                         tempW[0].CompanyName = name;
                         mongoDbase.updateWorker(tempW[0].Id, tempW[0]);
                     }
                 }
-                res = mongoDbase.updateCompany(recvv[0].Id, recvv[0]);
+                res = mongoDbase.updateCompany(recvv.Id, recvv);
             }
             else
             {
-                if (recvv[0].Employees.Length != 0)
+                if (recvv.Employees.Count != 0)
                 {
-                    for (int i = 0; i < recvv[0].Employees.Length; i++)
+                    for (int i = 0; i < recvv.Employees.Count; i++)
                     {
-                        var rets = mongoDbase.removeWorkerFromCompany(recvv[0].Employees[i], recvv[0]);
-                        var com = mongoDbase.addWorkerToCompany(recvv[0].Employees[i], cId[0]);
+                        var rets = mongoDbase.removeWorkerFromCompany(recvv.Employees[i], recvv);
+                        var com = mongoDbase.addWorkerToCompany(recvv.Employees[i], cId[0]);
                     }
                 }
-                ret = mongoDbase.removeCompany(recvv[0].Id);
+                ret = mongoDbase.removeCompany(recvv.Id);
             }
         }
 
@@ -266,7 +264,7 @@ public class MongoService : System.Web.Services.WebService
     [System.Web.Services.WebMethod]
     public string retCompanyFromId(ObjectId id)
     {
-        List<Companies> c = mongoDbase.getCompanyById(id);
+        Companies c = mongoDbase.getCompanyById(id);
 
         if (c != null)
         {
@@ -325,7 +323,7 @@ public class MongoService : System.Web.Services.WebService
             {
                 if (c[i].Employees != null)
                 {
-                    for (int j = 0; j < c[i].Employees.Length; j++)
+                    for (int j = 0; j < c[i].Employees.Count; j++)
                     {
                         objects.Add(c[i].Employees[j]);
                     }

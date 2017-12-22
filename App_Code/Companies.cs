@@ -25,12 +25,5 @@ public class Companies
 
     public string Password { get; set; }
 
-    public string Checkbox { get; set; }
-
-    [BsonIgnoreIfNullAttribute]
-    public ObjectId[] Employees { get; set; }
-
-    public Companies()
-    {
-    }
+    public List<ObjectId> Employees { get; set; }
 }

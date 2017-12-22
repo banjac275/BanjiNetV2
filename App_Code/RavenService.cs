@@ -55,10 +55,13 @@ public class RavenService : System.Web.Services.WebService
             FirstName = name,
             LastName = last,
             Email = mail,
-            Password = pass
+            Password = pass,
+            CompanyId = "5a3c3546a2bfccaa6c6a90e1",
+            CompanyName = "unemployed"
         };
 
         var retM = mongor.Create(wm);
+        var compmon = mongor.addWorkerToCompany(retM.Id, mongor.getCompanyById(ObjectId.Parse("5a3c3546a2bfccaa6c6a90e1")));
 
         DBCheck dbc = new DBCheck()
         {
@@ -106,6 +109,31 @@ public class RavenService : System.Web.Services.WebService
 
         var ret = raven.CreateCompany(c);
 
+        //mongo
+        Companies cm = new Companies()
+        {
+            CompanyName = company,
+            Owner = owner,
+            Type = type,
+            Location = location,
+            Email = mail,
+            Password = pass
+        };
+
+        var retm = mongor.CreateCompany(cm);
+
+        DBCheck dbc = new DBCheck()
+        {
+            Collection = "company",
+            DbName = "raven",
+            Mail = mail,
+            Password = pass,
+            MongoId = retm.Id.ToString(),
+            RavenId = c.Id.ToString()
+        };
+
+        var dbcRet = raven.setDB(dbc);
+
         Changes ch = new Changes()
         {
             Actor1 = ret.Id,
@@ -117,7 +145,7 @@ public class RavenService : System.Web.Services.WebService
 
         var change = raven.addFriendChange(ch);
 
-        if (ret != null && change != null)
+        if (ret != null && change != null && retm != null && dbcRet != null)
         {
             HttpContext.Current.Session.Add("companyR", ret);
             return succ;
@@ -222,6 +250,24 @@ public class RavenService : System.Web.Services.WebService
     public string updateWorkerInRDb(string id, string mail, string pass, string name, string last, string company, string previous, string skills)
     {
         WorkersR recvv = raven.getWorkerById(Guid.Parse(id));
+        Workers recvm = mongor.getWorkerByEmail(recvv.Email);
+
+        if(recvm == null)
+        {
+            Workers wm = new Workers()
+            {
+                FirstName = name,
+                LastName = last,
+                Email = mail,
+                Password = pass,
+                CompanyId = "5a3c3546a2bfccaa6c6a90e1",
+                CompanyName = "unemployed"
+            };
+
+            var retM = mongor.Create(wm);
+            var compmon = mongor.addWorkerToCompany(retM.Id, mongor.getCompanyById(ObjectId.Parse("5a3c3546a2bfccaa6c6a90e1")));
+            recvm = retM;
+        }
 
         if (previous == "")
             previous = null;
@@ -229,10 +275,10 @@ public class RavenService : System.Web.Services.WebService
         if (skills == "")
             skills = null;
 
-        recvv.Email = mail;
-        recvv.Password = pass;
-        recvv.FirstName = name;
-        recvv.LastName = last;
+        recvv.Email = recvm.Email = mail;
+        recvv.Password = recvm.Password = pass;
+        recvv.FirstName = recvm.FirstName = name;
+        recvv.LastName = recvm.LastName = last;
 
         if (previous != null)
         {
@@ -366,6 +412,23 @@ public class RavenService : System.Web.Services.WebService
     public string updateCompanyInRDb(string id, string mail, string pass, string name, string owner, string type, string loc)
     {
         CompaniesR recvv = raven.getCompanyById(Guid.Parse(id));
+        Companies recvm = mongor.getCompanyByEmail(mail);
+
+        if(recvm == null)
+        {
+            Companies cm = new Companies()
+            {
+                CompanyName = name,
+                Owner = owner,
+                Type = type,
+                Location = loc,
+                Email = mail,
+                Password = pass
+            };
+
+            var retm = mongor.CreateCompany(cm);
+            recvm = retm;
+        }
 
         recvv.Email = mail;
         recvv.Password = pass;
@@ -766,7 +829,7 @@ public class RavenService : System.Web.Services.WebService
         return c;
     }
 
-    [System.Web.Services.WebMethod]
+    [System.Web.Services.WebMethod(EnableSession = true)]
     public string checkDBs(string mail, string pass)
     {
         List<DBCheck> dbc = raven.getDBPref();
@@ -775,7 +838,10 @@ public class RavenService : System.Web.Services.WebService
             for(int i = 0; i < dbc.Count; i++)
             {
                 if (dbc[i].Mail == mail && dbc[i].Password == pass)
+                {
+                    HttpContext.Current.Session.Add("base", dbc[i].DbName);
                     return dbc[i].DbName;
+                }
             }
         }
         return "raven";
