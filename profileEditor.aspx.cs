@@ -9,6 +9,11 @@ public partial class profileEditor : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["database"] != null)
+        {
+            Response.Write("<script>localStorage.setItem('dbres', '" + Session["database"] + "');</script>");
+        }
+
         Workers recv;
         if (Session["user"] != null)
         {
@@ -46,24 +51,32 @@ public partial class profileEditor : System.Web.UI.Page
                        +"<input type ='text' name='passwords' class='form-control' id='repeatedpwd' data-minlength='5' data-match='#password' required>"
                        +"<div class='help-block with-errors'></div>"
                    +"</div>"
-                   +"<div class='form-group'>"
-                       +"<div class='col-lg-6'>"
+                   + "<div class='form-group' id='former'>"
+                       + "<input id ='addformer' name = 'addformer' type='button' class='btn btn-default text-center' value='Add Former Employment'><hr/>"
+                       + "</div>"
+                   + "<div class='form-group' id='skil'>"
+                       + "<input id ='addskil' name = 'addskil' type='button' class='btn btn-default text-center' value='Add Skill'><hr/>"
+                       + "</div>"
+                   + "<div class='form-group'>"
+                       + "<div class='btn-group col-lg-12' data-toggle='buttons'>"
+                            + "<label for='dbchoise' class='control-label col-lg-12'>Choose a database: </label>"
+                            + "<div class='col-lg-4'></div>"
+                            + "<label class='btn btn-primary active' id='lab1'>"
+                                    + "<input type = 'radio' name='dbchoise' value='raven' id='raven' checked autocomplete='off'> Raven (default)"
+                            + "</label>"
+                            + "<label class='btn btn-primary' id='lab2'>"
+                                + "<input type = 'radio' name='dbchoise' value='mongo' id='mongo' autocomplete='off'> Mongo"
+                       + "</label></div>"
+                       + "<div class='col-lg-12'>"
                             +"<div class='checkbox form-inline'>"
                                 +"<label>"
                                     + "<input type ='checkbox' name ='remember' id ='remember' checked data-toggle='toggle'> Remember me"
                                  + "</label>"     
                             + "</div><hr/>"
-                            + "<label class='control-label'>Pick Database(s): (default is MongoDB)</label>"
-                            + "<label class='checkbox-inline'>"
-                                +"<input type ='checkbox' checked data-toggle='toggle' name='mongo'> MongoDB"
-                            +"</label>"
-                            + "<label class='checkbox-inline'>"
-                                +"<input type ='checkbox' data-toggle='toggle' name='raptor'> RaptorDB"
-                            + "</label><hr/>"
                             + "<input id ='change' type='button' class='btn btn-default' value='Change values'>"
                        + "</div>"
                    + "</div>"
-               +"</form><hr/>"
+               + "</form><hr class='col-lg-12' />"
                + "<input id ='delete' type='button' class='btn btn-default' value='Delete Profile'><hr/>";
         }
 
@@ -110,23 +123,25 @@ public partial class profileEditor : System.Web.UI.Page
                        + "<div class='help-block with-errors'></div>"
                    + "</div>"
                    + "<div class='form-group'>"
-                       + "<div class='col-lg-6'>"
+                       + "<div class='btn-group col-lg-12' data-toggle='buttons'>"
+                            + "<label for='dbchoise' class='control-label col-lg-12'>Choose a database: </label>"
+                            + "<div class='col-lg-4'></div>"
+                            + "<label class='btn btn-primary active'>"
+                                    + "<input type = 'radio' name='dbchoise' value='raven' id='raven' checked autocomplete='off'> Raven (default)"
+                            + "</label>"
+                            + "<label class='btn btn-primary'>"
+                                + "<input type = 'radio' name='dbchoise' value='mongo' id='mongo' autocomplete='off'> Mongo"
+                       + "</label></div>"
+                       + "<div class='col-lg-12'>"
                             + "<div class='checkbox form-inline'>"
                                 + "<label>"
                                     + "<input type ='checkbox' name ='remembers' id ='remembers' checked data-toggle='toggle'> Remember me"
                                  + "</label>"
                             + "</div><hr/>"
-                            + "<label class='control-label'>Pick Database(s): (default is MongoDB)</label>"
-                            + "<label class='checkbox-inline'>"
-                                + "<input type ='checkbox' checked data-toggle='toggle' name='mongo'> MongoDB"
-                            + "</label>"
-                            + "<label class='checkbox-inline'>"
-                                + "<input type ='checkbox' data-toggle='toggle' name='raptor'> RaptorDB"
-                            + "</label><hr/>"
                             + "<input id ='changeCom' type='button' class='btn btn-default' value='Change values'>"
                        + "</div>"
                    + "</div>"
-               + "</form><hr/>"
+               + "</form><hr class='col-lg-12' />"
                + "<input id ='deleteCom' type='button' class='btn btn-default' value='Delete Company Profile'><hr/>";
         }
 
@@ -174,7 +189,16 @@ public partial class profileEditor : System.Web.UI.Page
                        + "<input id ='addskil' name = 'addskil' type='button' class='btn btn-default text-center' value='Add Skill'><hr/>"
                        + "</div>"
                    + "<div class='form-group'>"
-                       + "<div class='col-lg-6'>"
+                        + "<div class='btn-group col-lg-12' data-toggle='buttons'>"
+                            + "<label for='dbchoise' class='control-label col-lg-12'>Choose a database: </label>"
+                            + "<div class='col-lg-4'></div>"
+                            + "<label class='btn btn-primary active'>"
+                                    + "<input type = 'radio' name='dbchoise' value='raven' id='raven' checked autocomplete='off'> Raven (default)"
+                            + "</label>"
+                            + "<label class='btn btn-primary'>"
+                                + "<input type = 'radio' name='dbchoise' value='mongo' id='mongo' autocomplete='off'> Mongo"
+                       + "</label></div>"
+                       + "<div class='col-lg-12'>"
                             + "<div class='checkbox form-inline'>"
                                 + "<label>"
                                     + "<input type ='checkbox' name ='remember' id ='remember' checked data-toggle='toggle'> Remember me"
@@ -183,7 +207,7 @@ public partial class profileEditor : System.Web.UI.Page
                             + "<input id ='change' type='button' class='btn btn-default' value='Change values'>"
                        + "</div>"
                    + "</div>"
-               + "</form><hr/>"
+               + "</form><hr class='col-lg-12' />"
                + "<input id ='delete' type='button' class='btn btn-default' value='Delete Profile'><hr/>";
         }
 
@@ -230,7 +254,16 @@ public partial class profileEditor : System.Web.UI.Page
                        + "<div class='help-block with-errors'></div>"
                    + "</div>"
                    + "<div class='form-group'>"
-                       + "<div class='col-lg-6'>"
+                       + "<div class='btn-group col-lg-12' data-toggle='buttons'>"
+                                + "<label for='dbchoise' class='control-label col-lg-12'>Choose a database: </label>"
+                                + "<div class='col-lg-4'></div>"
+                                + "<label class='btn btn-primary active'>"
+                                        + "<input type = 'radio' name='dbchoise' value='raven' id='raven' checked autocomplete='off'> Raven (default)"
+                                + "</label>"
+                                + "<label class='btn btn-primary'>"
+                                    + "<input type = 'radio' name='dbchoise' value='mongo' id='mongo' autocomplete='off'> Mongo"
+                       + "</label></div>"
+                       + "<div class='col-lg-12'>"
                             + "<div class='checkbox form-inline'>"
                                 + "<label>"
                                     + "<input type ='checkbox' name ='remembers' id ='remembers' checked data-toggle='toggle'> Remember me"
@@ -239,7 +272,7 @@ public partial class profileEditor : System.Web.UI.Page
                             + "<input id ='changeCom' type='button' class='btn btn-default' value='Change values'>"
                        + "</div>"
                    + "</div>"
-               + "</form><hr/>"
+               + "</form><hr class='col-lg-12' />"
                + "<input id ='deleteCom' type='button' class='btn btn-default' value='Delete Company Profile'><hr/>";
         }
     }

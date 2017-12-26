@@ -36,12 +36,16 @@ public class MongoDataAccess
         return companies;
     }
 
-    public List<Workers> getWorkerById(ObjectId id)
+    public Workers getWorkerById(ObjectId id)
     {
         var res = _dbase.GetCollection<Workers>("workers");
         //var filter = Builders<Workers>.Filter.Eq("_id", id);
         var result = res.Find(w => w.Id == id).ToList();
-        return result;
+
+        if (result.Count != 0)
+            return result[0];
+        else
+            return null;
     }
 
     public Companies getCompanyById(ObjectId id)
@@ -114,18 +118,16 @@ public class MongoDataAccess
         return c;
     }
 
-    public Workers updateWorker(ObjectId id, Workers w)
+    public Workers updateWorker(Workers w)
     {
-        w.Id = id;
         var collection = _dbase.GetCollection<Workers>("workers");
         var query_id = Builders<Workers>.Filter.Eq("_id", w.Id);
         var operation = collection.ReplaceOne(query_id, w);
         return w;
     }
 
-    public Companies updateCompany(ObjectId id, Companies c)
+    public Companies updateCompany(Companies c)
     {
-        c.Id = id;
         var collection = _dbase.GetCollection<Companies>("companies");
         var query_id = Builders<Companies>.Filter.Eq("_id", c.Id);
         var operation = collection.ReplaceOne(query_id, c);
@@ -134,11 +136,16 @@ public class MongoDataAccess
 
     public string removeWorkerFromCompany(ObjectId id, Companies c)
     {
-        var collection = _dbase.GetCollection<Companies>("companies");
-        var filter = new BsonDocument("_id", c.Id);
-        var pull = Builders<Companies>.Update.Pull("Employees", id);
-        var res = collection.FindOneAndUpdate(filter, pull);
-        return "Worker removed from company!";
+        if (c.Employees != null)
+        {
+            var collection = _dbase.GetCollection<Companies>("companies");
+            var filter = new BsonDocument("_id", c.Id);
+            var pull = Builders<Companies>.Update.Pull("Employees", id);
+            var res = collection.FindOneAndUpdate(filter, pull);
+            return "Worker removed from company!";
+        }
+        else
+            return "Worker never existed!";
     }
 
     public string addWorkerToCompany(ObjectId id, Companies c)

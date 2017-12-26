@@ -14,296 +14,380 @@
 
                 console.log(localStorage.getItem("job"));
                 console.log(localStorage.getItem("firm")); 
+                console.log(localStorage.getItem("friends")); 
                 console.log(localStorage.getItem("jobR"));
                 console.log(localStorage.getItem("firmR")); 
                 console.log(localStorage.getItem("friendsR")); 
                 var friendss = [];
                 var moment = JSON.parse(localStorage.getItem("userTemp"));
+                var personal = document.getElementById("personal");
+                var basee = localStorage.getItem("dbres");
+
+                if (personal !== null) {
+                    if (basee === "mongo") {
+                        if (localStorage.getItem("job") !== null) {
+                            document.getElementById("write1").innerHTML = "User Info:";
+                            document.getElementById("write2").innerHTML = "Company Info:";
+                            $("#opt").css("display", "block");
+                            document.getElementById("write3").innerHTML = "Former Employment:";
+                            document.getElementById("write4").innerHTML = "Friends:";
+                            var res = localStorage.getItem("job");
+                            localStorage.removeItem("job");
+                            var recFriend = localStorage.getItem("friends");
+                            localStorage.removeItem("friends");
+                            var name = { name: res };
+                            var urlFC = "./MongoService.asmx/retCompanyFromName";
+                            var urlFF = "./MongoService.asmx/retWorkerFromId";
+
+                            console.log(name);
+
+                            getAjaxResponse(urlFC, name, function (data) {
+                                var xmldoc = $.parseXML(data),
+                                    $xml = $(xmldoc),
+                                    $title = $xml.find("string");
+                                var parsed = JSON.parse($title.text());
+                                console.log(parsed);
+
+                                var addc = "<div>Company name: " + parsed.CompanyName + "</div><hr/>" +
+                                    "<div>Email: " + parsed.Email + "</div><hr/>" +
+                                    "<div>Type: " + parsed.Type + "</div><hr/>" +
+                                    "<div>Location: " + parsed.Location + "</div><hr/>" +
+                                    "<div>Owner: " + parsed.Owner + "</div>";
+                                $("#firm").append(addc);
+
+                                console.log("obavest");
+                                var sign = "no users were found with this name!";
+                                if ($title.text() == sign) {
+                                    alert("No companies with that name are found!");
+                                }
+
+                            });
+
+                            if (recFriend != null) {
+
+                                console.log("prolaz");
+
+                                var addf = "<div><table id='listt' class='table table-hover'><thead class='thead-inverse'>" +
+                                    "<tr><th>#</th><th>First Name</th><th>Last Name</th><th>Email</th><th>Company</th>" +
+                                    "<th>Profile</th><th>Unfriend</th></tr></thead><tbody id='list'></tbody></table></div>";
+                                $("#friend").append(addf);
+
+                                if (moment.PreviousEmployment !== null) {
+                                    var prev = "<div><table class='table table-hover'><thead class='thead-inverse'>" +
+                                        "<tr><th>#</th><th>Company:</th><th>From:</th><th>To:</th>" +
+                                        "</tr></thead><tbody id='previous'></tbody></table></div>";
+                                    $("#former").append(prev);
+
+                                    var j = 0;
+                                    for (var i = 0; i < moment.PreviousEmployment.length; i++) {
+                                        j++;
+
+                                        var inser = '<tr><th scope= "row">' + j + '</th>'
+                                            + '<td>' + moment.PreviousEmployment[i].FirmName + '</td>'
+                                            + '<td>' + moment.PreviousEmployment[i].StartTime + '</td>'
+                                            + '<td>' + moment.PreviousEmployment[i].EndTime + '</td></tr>';
+                                        $("#previous").append(inser);
+                                    }
+                                }
+
+                                if (recFriend.length !== null) {
+
+                                    var j = 0;
+                                    var proc = JSON.parse(recFriend);
+                                    console.log(proc);
+                                    for (var i = 0; i < proc.length; i++) {
+                                        var id = { id: proc[i].toString() };
+                                        getAjaxResponse(urlFF, id, function (data) {
+                                            var xmldoc = $.parseXML(data),
+                                                $xml = $(xmldoc),
+                                                $title = $xml.find("string");
+                                            var parsedd = JSON.parse($title.text());
+                                            console.log(parsedd);
+                                            j = j + 1;
+                                            friendss.push(parsedd);
+
+                                            var table = '<tr><th scope= "row">' + j + '</th>'
+                                                + '<td>' + parsedd.FirstName + '</td>'
+                                                + '<td>' + parsedd.LastName + '</td>'
+                                                + '<td>' + parsedd.Email + '</td>'
+                                                + '<td>' + parsedd.CompanyName + '</td>'
+                                                + '<td><button type="button" class="view btn btn-default" id="addd' + j + '">View</button></td>'
+                                                + '<td><button type="button" class="remov btn btn-default" id="dell' + j + '">Remove</button></td></tr>';
+                                            $("#list").append(table);
 
 
-                //if (localStorage.getItem("job") !== null) {
-                //    document.getElementById("write1").innerHTML = "User Info:";
-                //    document.getElementById("write2").innerHTML = "Company Info:";
-                //    var res = localStorage.getItem("job");
-                //    localStorage.removeItem("job");
-                //    var name = { name: res };
-                //    var urlFC = "./MongoService.asmx/retCompanyFromName";
+                                            var sign = "no users were found with this name!";
+                                            if ($title.text() === sign) {
+                                                alert("No users with that name are found!");
+                                            }
 
-                //    //getAjaxResponse(name, function (data) {
-                //    //    var xmldoc = $.parseXML(data),
-                //    //        $xml = $(xmldoc),
-                //    //        $title = $xml.find("string");
-                //    //    var parsed = JSON.parse($title.text());
-                //    //    console.log(parsed[0]);
+                                        });
+                                    }
 
-                //    //    var addc = "<div>Company name: " + parsed[0].CompanyName + "</div><hr/>" +
-                //    //        "<div>Email: " + parsed[0].Email + "</div><hr/>" +
-                //    //        "<div>Type: " + parsed[0].Type + "</div><hr/>" +
-                //    //        "<div>Location: " + parsed[0].Location + "</div><hr/>" +
-                //    //        "<div>Owner: " + parsed[0].Owner + "</div>";
-                //    //    $("#firm").append(addc);
+                                }
+                            }
 
-                //    //    var sign = "no users were found with this name!";
-                //    //    if ($title.text() == sign) {
-                //    //        alert("No companies with that name are found!");
-                //    //    }
-
-                //    //});
-
-                //}
-                //else if (localStorage.getItem("firm") !== null) {
-
-                //    document.getElementById("write1").innerHTML = "Company Info:";
-                //    document.getElementById("write2").innerHTML = "Company Workers:";
-                //    var res = localStorage.getItem("firm");
-                //    localStorage.removeItem("firm");
-                //    //var name = { name: res };
-
-                //    var addc = "<div><table id='list' class='table table-hover'><thead class='thead-inverse'>" +
-                //        "<tr><th>#</th><th>First Name</th><th>Last Name</th><th>Email</th><th>Company</th>" +
-                //        "</tr></thead><tbody id='listing'></tbody></table></div>";
-                //    $("#firm").append(addc);
-
-                //    console.log(res);
-
-                //    if (res.length != null) {
-
-                //        var j = 0;
-                //        var proc = JSON.parse(res);
-                //        console.log(proc);
-                //        for (var i = 0; i < proc.length; i++) {
-                //            var id = { id: proc[i].toString() };
-                //            //getAjaxResponseCompany(id, function (data) {
-                //            //    var xmldoc = $.parseXML(data),
-                //            //        $xml = $(xmldoc),
-                //            //        $title = $xml.find("string");
-                //            //    var parsedd = JSON.parse($title.text());
-                //            //    console.log(parsedd[0]);
-                //            //    j = j + 1;
-
-                //            //    var table = '<tr><th scope= "row">' + j + '</th>'
-                //            //        + '<td>' + parsedd[0].FirstName + '</td>'
-                //            //        + '<td>' + parsedd[0].LastName + '</td>'
-                //            //        + '<td>' + parsedd[0].Email + '</td>'
-                //            //        + '<td>' + parsedd[0].CompanyName + '</td></tr>';
-                //            //    $("#listing").append(table);
-
-
-                //            //    var sign = "no users were found with this name!";
-                //            //    if ($title.text() == sign) {
-                //            //        alert("No companies with that name are found!");
-                //            //    }
-
-                //            //});
-                //        }
-
-                //    }
-
-                //}
-                //else 
-                if (localStorage.getItem("jobR") !== null) {
-                    document.getElementById("write1").innerHTML = "User Info:";
-                    document.getElementById("write2").innerHTML = "Company Info:";
-                    $("#opt").css("display", "block");
-                    document.getElementById("write3").innerHTML = "Former Employment:";
-                    document.getElementById("write4").innerHTML = "Friends:";
-                    var res = localStorage.getItem("jobR");
-                    localStorage.removeItem("jobR");
-                    var recFriend = localStorage.getItem("friendsR");
-                    localStorage.removeItem("friendsR");
-                    var name = { name: res };
-                    var urlFC = "./RavenService.asmx/retCompanyFromNameR";
-                    var urlFF = "./RavenService.asmx/retWorkerFromIdR";
-
-                    console.log(name);
-
-                    getAjaxResponse(urlFC, name, function (data) {
-                        var xmldoc = $.parseXML(data),
-                            $xml = $(xmldoc),
-                            $title = $xml.find("string");
-                        var parsed = JSON.parse($title.text());
-                        console.log(parsed);
-
-                        var addc = "<div>Company name: " + parsed.CompanyName + "</div><hr/>" +
-                            "<div>Email: " + parsed.Email + "</div><hr/>" +
-                            "<div>Type: " + parsed.Type + "</div><hr/>" +
-                            "<div>Location: " + parsed.Location + "</div><hr/>" +
-                            "<div>Owner: " + parsed.Owner + "</div>";
-                        $("#firm").append(addc);
-
-                        console.log("obavest");
-                        var sign = "no users were found with this name!";
-                        if ($title.text() == sign) {
-                            alert("No companies with that name are found!");
                         }
 
+                        if (localStorage.getItem("firm") !== null) {
+                            document.getElementById("write1").innerHTML = "Company Info:";
+                            document.getElementById("write2").innerHTML = "Company Workers:";
+                            $("#opt").css("display", "none");
+                            var res = localStorage.getItem("firm");
+                            localStorage.removeItem("firm");
+                            if (res === 1)
+                                res = null;
+                            var url = "./MongoService.asmx/retWorkerFromId";
+
+                            var addc = "<div><table id='list' class='table table-hover'><thead class='thead-inverse'>" +
+                                "<tr><th>#</th><th>First Name</th><th>Last Name</th><th>Email</th><th>Company</th>" +
+                                "<th>Profile</th></tr></thead><tbody id='listing'></tbody></table></div>";
+                            $("#firm").append(addc);
+
+                            console.log(res);
+
+                            if (res.length !== null) {
+
+                                var j = 0;
+                                var proc = JSON.parse(res);
+                                console.log(proc);
+                                for (var i = 0; i < proc.length; i++) {
+                                    var id = { id: proc[i].toString() };
+                                    getAjaxResponse(url, id, function (data) {
+                                        var xmldoc = $.parseXML(data),
+                                            $xml = $(xmldoc),
+                                            $title = $xml.find("string");
+                                        var parsedd = JSON.parse($title.text());
+                                        console.log(parsedd);
+                                        j = j + 1;
+
+                                        var table = '<tr><th scope= "row">' + j + '</th>'
+                                            + '<td>' + parsedd.FirstName + '</td>'
+                                            + '<td>' + parsedd.LastName + '</td>'
+                                            + '<td>' + parsedd.Email + '</td>'
+                                            + '<td>' + parsedd.CompanyName + '</td></tr>';
+                                        $("#listing").append(table);
+
+
+                                        var sign = "no users were found with this name!";
+                                        if ($title.text() === sign) {
+                                            alert("No companies with that name are found!");
+                                        }
+
+                                    });
+                                }
+
+                            }
+
+                        }
+                    }
+
+                    if (basee === "raven") {
+                        if (localStorage.getItem("jobR") !== null) {
+                            document.getElementById("write1").innerHTML = "User Info:";
+                            document.getElementById("write2").innerHTML = "Company Info:";
+                            $("#opt").css("display", "block");
+                            document.getElementById("write3").innerHTML = "Former Employment:";
+                            document.getElementById("write4").innerHTML = "Friends:";
+                            var res = localStorage.getItem("jobR");
+                            localStorage.removeItem("jobR");
+                            var recFriend = localStorage.getItem("friendsR");
+                            localStorage.removeItem("friendsR");
+                            var name = { name: res };
+                            var urlFC = "./RavenService.asmx/retCompanyFromNameR";
+                            var urlFF = "./RavenService.asmx/retWorkerFromIdR";
+
+                            console.log(name);
+
+                            getAjaxResponse(urlFC, name, function (data) {
+                                var xmldoc = $.parseXML(data),
+                                    $xml = $(xmldoc),
+                                    $title = $xml.find("string");
+                                var parsed = JSON.parse($title.text());
+                                console.log(parsed);
+
+                                var addc = "<div>Company name: " + parsed.CompanyName + "</div><hr/>" +
+                                    "<div>Email: " + parsed.Email + "</div><hr/>" +
+                                    "<div>Type: " + parsed.Type + "</div><hr/>" +
+                                    "<div>Location: " + parsed.Location + "</div><hr/>" +
+                                    "<div>Owner: " + parsed.Owner + "</div>";
+                                $("#firm").append(addc);
+
+                                console.log("obavest");
+                                var sign = "no users were found with this name!";
+                                if ($title.text() == sign) {
+                                    alert("No companies with that name are found!");
+                                }
+
+                            });
+
+                            if (recFriend != null) {
+
+                                console.log("prolaz");
+
+                                var addf = "<div><table id='listt' class='table table-hover'><thead class='thead-inverse'>" +
+                                    "<tr><th>#</th><th>First Name</th><th>Last Name</th><th>Email</th><th>Company</th>" +
+                                    "<th>Profile</th><th>Unfriend</th></tr></thead><tbody id='list'></tbody></table></div>";
+                                $("#friend").append(addf);
+
+                                if (moment.PreviousEmployment !== null) {
+                                    var prev = "<div><table class='table table-hover'><thead class='thead-inverse'>" +
+                                        "<tr><th>#</th><th>Company:</th><th>From:</th><th>To:</th>" +
+                                        "</tr></thead><tbody id='previous'></tbody></table></div>";
+                                    $("#former").append(prev);
+
+                                    var j = 0;
+                                    for (var i = 0; i < moment.PreviousEmployment.length; i++) {
+                                        j++;
+
+                                        var inser = '<tr><th scope= "row">' + j + '</th>'
+                                            + '<td>' + moment.PreviousEmployment[i].FirmName + '</td>'
+                                            + '<td>' + moment.PreviousEmployment[i].StartTime + '</td>'
+                                            + '<td>' + moment.PreviousEmployment[i].EndTime + '</td></tr>';
+                                        $("#previous").append(inser);
+                                    }
+                                }
+
+                                if (recFriend.length !== null) {
+
+                                    var j = 0;
+                                    var proc = JSON.parse(recFriend);
+                                    console.log(proc);
+                                    for (var i = 0; i < proc.length; i++) {
+                                        var id = { id: proc[i].toString() };
+                                        getAjaxResponse(urlFF, id, function (data) {
+                                            var xmldoc = $.parseXML(data),
+                                                $xml = $(xmldoc),
+                                                $title = $xml.find("string");
+                                            var parsedd = JSON.parse($title.text());
+                                            console.log(parsedd);
+                                            j = j + 1;
+                                            friendss.push(parsedd);
+
+                                            var table = '<tr><th scope= "row">' + j + '</th>'
+                                                + '<td>' + parsedd.FirstName + '</td>'
+                                                + '<td>' + parsedd.LastName + '</td>'
+                                                + '<td>' + parsedd.Email + '</td>'
+                                                + '<td>' + parsedd.CompanyName + '</td>'
+                                                + '<td><button type="button" class="view btn btn-default" id="addd' + j + '">View</button></td>'
+                                                + '<td><button type="button" class="remov btn btn-default" id="dell' + j + '">Remove</button></td></tr>';
+                                            $("#list").append(table);
+
+
+                                            var sign = "no users were found with this name!";
+                                            if ($title.text() === sign) {
+                                                alert("No users with that name are found!");
+                                            }
+
+                                        });
+                                    }
+
+                                }
+                            }
+
+                        }
+
+                        if (localStorage.getItem("firmR") !== null) {
+
+                            document.getElementById("write1").innerHTML = "Company Info:";
+                            document.getElementById("write2").innerHTML = "Company Workers:";
+                            $("#opt").css("display", "none");
+                            var res = localStorage.getItem("firmR");
+                            localStorage.removeItem("firmR");
+                            if (res === 1)
+                                res = null;
+                            var url = "./RavenService.asmx/retWorkerFromIdR";
+
+                            var addc = "<div><table id='list' class='table table-hover'><thead class='thead-inverse'>" +
+                                "<tr><th>#</th><th>First Name</th><th>Last Name</th><th>Email</th><th>Company</th>" +
+                                "<th>Profile</th></tr></thead><tbody id='listing'></tbody></table></div>";
+                            $("#firm").append(addc);
+
+                            console.log(res);
+
+                            if (res.length !== null) {
+
+                                var j = 0;
+                                var proc = JSON.parse(res);
+                                console.log(proc);
+                                for (var i = 0; i < proc.length; i++) {
+                                    var id = { id: proc[i].toString() };
+                                    getAjaxResponse(url, id, function (data) {
+                                        var xmldoc = $.parseXML(data),
+                                            $xml = $(xmldoc),
+                                            $title = $xml.find("string");
+                                        var parsedd = JSON.parse($title.text());
+                                        console.log(parsedd);
+                                        j = j + 1;
+
+                                        var table = '<tr><th scope= "row">' + j + '</th>'
+                                            + '<td>' + parsedd.FirstName + '</td>'
+                                            + '<td>' + parsedd.LastName + '</td>'
+                                            + '<td>' + parsedd.Email + '</td>'
+                                            + '<td>' + parsedd.CompanyName + '</td></tr>';
+                                        $("#listing").append(table);
+
+
+                                        var sign = "no users were found with this name!";
+                                        if ($title.text() === sign) {
+                                            alert("No companies with that name are found!");
+                                        }
+
+                                    });
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                    $('#list').on('click', '.view', function () {
+                        //alert('triggered');
+                        console.log($(this).closest("tr")[0].children[3].innerHTML);
+                        console.log(friendss);
+                        for (var i = 0; i < friendss.length; i++) {
+                            if (friendss[i].Email === $(this).closest("tr")[0].children[3].innerHTML)
+                                localStorage.setItem("workerViewR", friendss[i].Id);
+                        }
+                        window.location.assign("./fellowworker.aspx");
                     });
 
-                    if (recFriend != null) {
+                    $('#list').on('click', '.remov', function () {
+                        //alert('triggered');
+                        console.log($(this).closest("tr")[0].children[3].innerHTML);
+                        console.log(friendss);
 
-                        console.log("prolaz");
+                        var urlf = "./RavenService.asmx/removeFriendR";
 
-                        var addf = "<div><table id='listt' class='table table-hover'><thead class='thead-inverse'>" +
-                            "<tr><th>#</th><th>First Name</th><th>Last Name</th><th>Email</th><th>Company</th>" +
-                            "<th>Profile</th><th>Unfriend</th></tr></thead><tbody id='list'></tbody></table></div>";
-                        $("#friend").append(addf);
-
-                        if (moment.PreviousEmployment !== null)
-                        {
-                            var prev = "<div><table class='table table-hover'><thead class='thead-inverse'>" +
-                                "<tr><th>#</th><th>Company:</th><th>From:</th><th>To:</th>" +
-                                "</tr></thead><tbody id='previous'></tbody></table></div>";
-                            $("#former").append(prev);
-
-                            var j = 0;
-                            for (var i = 0; i < moment.PreviousEmployment.length; i++)
-                            {
-                                j++;
-
-                                var inser = '<tr><th scope= "row">' + j + '</th>'
-                                    + '<td>' + moment.PreviousEmployment[i].FirmName + '</td>'
-                                    + '<td>' + moment.PreviousEmployment[i].StartTime + '</td>'
-                                    + '<td>' + moment.PreviousEmployment[i].EndTime + '</td></tr>';
-                                $("#previous").append(inser);
-                            }
-                        }
-
-                        if (recFriend.length !== null) {
-
-                            var j = 0;
-                            var proc = JSON.parse(recFriend);
-                            console.log(proc);
-                            for (var i = 0; i < proc.length; i++) {
-                                var id = { id: proc[i].toString() };
-                                getAjaxResponse(urlFF, id, function (data) {
+                        for (var i = 0; i < friendss.length; i++) {
+                            if (friendss[i].Email === $(this).closest("tr")[0].children[3].innerHTML) {
+                                var idd = { id1: friendss[i].Id.toString(), id2: moment.Id };
+                                console.log(friendss[i].Id.toString());
+                                getAjaxResponse(urlf, idd, function (data) {
                                     var xmldoc = $.parseXML(data),
                                         $xml = $(xmldoc),
-                                        $title = $xml.find("string");
-                                    var parsedd = JSON.parse($title.text());
-                                    console.log(parsedd);
-                                    j = j + 1;
-                                    friendss.push(parsedd);
-
-                                    var table = '<tr><th scope= "row">' + j + '</th>'
-                                        + '<td>' + parsedd.FirstName + '</td>'
-                                        + '<td>' + parsedd.LastName + '</td>'
-                                        + '<td>' + parsedd.Email + '</td>'
-                                        + '<td>' + parsedd.CompanyName + '</td>'
-                                        + '<td><button type="button" class="view btn btn-default" id="addd' + j + '">View</button></td>'
-                                        + '<td><button type="button" class="remov btn btn-default" id="dell' + j + '">Remove</button></td></tr>';
-                                    $("#list").append(table);
-
+                                        $titlse = $xml.find("string");
+                                    var parsed = $titlse.text();
+                                    console.log(parsed);
 
                                     var sign = "no users were found with this name!";
-                                    if ($title.text() === sign) {
-                                        alert("No users with that name are found!");
+                                    if ($titlse.text() == sign) {
+                                        alert("No companies with that name are found!");
+                                    }
+                                    else {
+                                        alert("Friend Removed!");
+                                        window.location.assign("./UserProfile.aspx");
                                     }
 
                                 });
                             }
-
-                        }
-                    }
-
-                }
-                else if (localStorage.getItem("firmR") !== null) {
-
-                    document.getElementById("write1").innerHTML = "Company Info:";
-                    document.getElementById("write2").innerHTML = "Company Workers:";
-                    $("#opt").css("display", "none");
-                    var res = localStorage.getItem("firmR");
-                    localStorage.removeItem("firmR");
-                    if (res === 1)
-                        res = null;
-                    var url = "./RavenService.asmx/retWorkerFromIdR";
-
-                    var addc = "<div><table id='list' class='table table-hover'><thead class='thead-inverse'>" +
-                        "<tr><th>#</th><th>First Name</th><th>Last Name</th><th>Email</th><th>Company</th>" +
-                        "<th>Profile</th></tr></thead><tbody id='listing'></tbody></table></div>";
-                    $("#firm").append(addc);
-
-                    console.log(res);
-
-                    if (res.length !== null) {
-
-                        var j = 0;
-                        var proc = JSON.parse(res);
-                        console.log(proc);
-                        for (var i = 0; i < proc.length; i++) {
-                            var id = { id: proc[i].toString() };
-                            getAjaxResponse(url, id, function (data) {
-                                var xmldoc = $.parseXML(data),
-                                    $xml = $(xmldoc),
-                                    $title = $xml.find("string");
-                                var parsedd = JSON.parse($title.text());
-                                console.log(parsedd);
-                                j = j + 1;
-
-                                var table = '<tr><th scope= "row">' + j + '</th>'
-                                    + '<td>' + parsedd.FirstName + '</td>'
-                                    + '<td>' + parsedd.LastName + '</td>'
-                                    + '<td>' + parsedd.Email + '</td>'
-                                    + '<td>' + parsedd.CompanyName + '</td></tr>';
-                                $("#listing").append(table);
-
-
-                                var sign = "no users were found with this name!";
-                                if ($title.text() === sign) {
-                                    alert("No companies with that name are found!");
-                                }
-
-                            });
                         }
 
-                    }
+                    });
 
                 }
 
-                $('#list').on('click', '.view', function () {
-                    //alert('triggered');
-                    console.log($(this).closest("tr")[0].children[3].innerHTML);
-                    console.log(friendss);
-                    for (var i = 0; i < friendss.length; i++)
-                    {
-                        if (friendss[i].Email === $(this).closest("tr")[0].children[3].innerHTML)
-                            localStorage.setItem("workerViewR", friendss[i].Id);
-                    }
-                    window.location.assign("./fellowworker.aspx");
-                });
-
-                $('#list').on('click', '.remov', function () {
-                    //alert('triggered');
-                    console.log($(this).closest("tr")[0].children[3].innerHTML);
-                    console.log(friendss);
-
-                    var urlf = "./RavenService.asmx/removeFriendR";
-
-                    for (var i = 0; i < friendss.length; i++) {
-                        if (friendss[i].Email === $(this).closest("tr")[0].children[3].innerHTML) {
-                            var idd = { id1: friendss[i].Id.toString(), id2: moment.Id };
-                            console.log(friendss[i].Id.toString());
-                            getAjaxResponse(urlf, idd, function (data) {
-                                var xmldoc = $.parseXML(data),
-                                    $xml = $(xmldoc),
-                                    $titlse = $xml.find("string");
-                                var parsed = $titlse.text();
-                                console.log(parsed);
-
-                                var sign = "no users were found with this name!";
-                                if ($titlse.text() == sign) {
-                                    alert("No companies with that name are found!");
-                                }
-                                else {
-                                    alert("Friend Removed!");
-                                    window.location.assign("./UserProfile.aspx");
-                                }
-
-                            });
-                        }
-                    }
-                    
-                });
-                
                 function getAjaxResponse(urll, sstring, fn) {
 
                     $.ajax({
@@ -319,8 +403,8 @@
                             fn(data);
                         }
                     });
-                }
-
+                }  
+                
             });
         </script>
     </head>

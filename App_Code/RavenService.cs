@@ -89,6 +89,7 @@ public class RavenService : System.Web.Services.WebService
         if (ret != null && change != null && comp != null && dbcRet != null)
         {
             HttpContext.Current.Session.Add("userR", ret);
+            HttpContext.Current.Session.Add("database", dbc.DbName);
             return succ;
         }
         return fail;
@@ -148,6 +149,7 @@ public class RavenService : System.Web.Services.WebService
         if (ret != null && change != null && retm != null && dbcRet != null)
         {
             HttpContext.Current.Session.Add("companyR", ret);
+            HttpContext.Current.Session.Add("database", dbc.DbName);
             return succ;
         }
         return fail;
@@ -158,20 +160,19 @@ public class RavenService : System.Web.Services.WebService
     public string returnWorkerFromEmailR(string mail, string pass)
     {
         
-        List<WorkersR> w = raven.getWorkerByEmail(mail);
+        WorkersR w = raven.getWorkerByEmail(mail);
        
-        if (w.Count != 0)
+        if (w != null)
         {
-            for (int i = 0; i < w.Count; i++)
+            if (w.Password == pass && w.Email == mail)
             {
-                if (w[i].Password == pass && w[i].Email == mail)
-                {
-                    HttpContext.Current.Session.Add("userR", w[0]);
-                    HttpContext.Current.Session.Add("companyR", null);
-                    return JsonConvert.SerializeObject(w[i]);
-                }                  
+                HttpContext.Current.Session.Add("userR", w);
+                HttpContext.Current.Session.Add("database", "raven");
+                HttpContext.Current.Session.Add("companyR", null);
+                return JsonConvert.SerializeObject(w);
             }
-            return badp;
+            else
+                return badp;
         }
         else
             return badm;
@@ -191,6 +192,7 @@ public class RavenService : System.Web.Services.WebService
                 if (w[0].Password == pass && w[i].Email == mail)
                 {
                     HttpContext.Current.Session.Add("companyR", w[0]);
+                    HttpContext.Current.Session.Add("database", "raven");
                     HttpContext.Current.Session.Add("userR", null);
                     return JsonConvert.SerializeObject(w[0]);
                 }
@@ -247,7 +249,7 @@ public class RavenService : System.Web.Services.WebService
 
     //apdejtovanje profila radnika
     [System.Web.Services.WebMethod(EnableSession = true)]
-    public string updateWorkerInRDb(string id, string mail, string pass, string name, string last, string company, string previous, string skills)
+    public string updateWorkerInRDb(string id, string mail, string pass, string name, string last, string company, string previous, string skills, string dbch)
     {
         WorkersR recvv = raven.getWorkerById(Guid.Parse(id));
         Workers recvm = mongor.getWorkerByEmail(recvv.Email);
@@ -283,6 +285,7 @@ public class RavenService : System.Web.Services.WebService
         if (previous != null)
         {
             List<PrevEmp> pre = new List<PrevEmp>();
+            List<PrevEmpM> prem = new List<PrevEmpM>();
             JArray tempp = JArray.Parse(previous);
             if (tempp != null)
             {
@@ -307,14 +310,40 @@ public class RavenService : System.Web.Services.WebService
                         return fail;
 
                 }
+
+                for (int i = 0; i < tempp.Count; i++)
+                {
+                    PrevEmpM empm = new PrevEmpM();
+                    JToken token = tempp[i];
+                    string sol = (string)token["firm"];
+                    List<Companies> compm = mongor.getCompanyByName(sol);
+                    if (compm != null)
+                    {
+                        empm.FirmName = compm[0].CompanyName;
+                        empm.FirmId = compm[0].Id;
+                        empm.FormerEmployeeId = recvm.Id;
+                        empm.StartTime = (string)token["dates"];
+                        empm.EndTime = (string)token["datee"];
+                    }
+
+                    if (empm != null)
+                        prem.Add(empm);
+                    else
+                        return fail;
+
+                }
             }
             else
                 return fail;
             recvv.PreviousEmployment = pre;
-
+            recvm.PreviousEmployment = prem;
         }
         else
+        {
             recvv.PreviousEmployment = null;
+            recvm.PreviousEmployment = null;
+        }
+            
 
         if (skills != null)
         {
@@ -336,18 +365,23 @@ public class RavenService : System.Web.Services.WebService
             else
                 return fail;
             recvv.Skills = ski;
-
+            recvm.Skills = ski;
         }
         else
+        {
             recvv.Skills = null;
+            recvm.Skills = null;
+        }
+            
 
         var temp = recvv.CompanyName;
 
         var cId = raven.getCompanyByName(company);
+        var cmId = mongor.getCompanyByName(company);
 
         Changes changeFinal = null;
 
-        if (cId.Count == 0)
+        if (cId.Count == 0 || cmId.Count == 0)
         {
             return "There is no such company!";
         }
@@ -368,6 +402,24 @@ public class RavenService : System.Web.Services.WebService
         }
 
         var res = raven.updateWorker(recvv);
+
+        //mongo
+        if (temp != company && temp != null)
+        {
+            var tempC = mongor.getCompanyByName(temp);
+            var ret = mongor.removeWorkerFromCompany(recvm.Id, tempC[0]);
+            var com = mongor.addWorkerToCompany(recvm.Id, cmId[0]);
+            recvm.CompanyId = cmId[0].Id.ToString();
+            recvm.CompanyName = cmId[0].CompanyName;
+        }
+        else if (temp == null)
+        {
+            var com = mongor.addWorkerToCompany(recvm.Id, cmId[0]);
+            recvm.CompanyId = cmId[0].Id.ToString();
+            recvm.CompanyName = cmId[0].CompanyName;
+        }
+
+        var resm = mongor.updateWorker(recvm);
 
         if (temp != company || temp == null)
         {
@@ -397,19 +449,72 @@ public class RavenService : System.Web.Services.WebService
             };
 
             changeFinal = raven.addFriendChange(ch);
-        }        
+        }
 
-        if (res != null && changeFinal != null)
+        var dbTemplist = raven.getDBPref();
+
+        string dbtemp = null;
+
+        if(dbTemplist.Count != 0)
         {
-            HttpContext.Current.Session.Add("userR", res);
-            return "Update successfull!";
+            for(int i = 0; i < dbTemplist.Count; i++)
+            {
+                if (dbTemplist[i].MongoId == recvm.Id.ToString() && dbTemplist[i].RavenId == recvv.Id.ToString())
+                    dbtemp = dbTemplist[i].DbName;
+            }
+            if (dbtemp == null)
+            {
+                DBCheck dbc = new DBCheck()
+                {
+                    Collection = "worker",
+                    DbName = "raven",
+                    Mail = mail,
+                    Password = pass,
+                    MongoId = recvm.Id.ToString(),
+                    RavenId = recvv.Id.ToString()
+                };
+
+                var dbcRet = raven.setDB(dbc);
+            }
+        }
+
+        if (dbtemp != null && dbtemp != dbch)
+        {
+            DBCheck dbc = new DBCheck()
+            {
+                Collection = "worker",
+                DbName = dbch,
+                Mail = mail,
+                Password = pass,
+                MongoId = recvm.Id.ToString(),
+                RavenId = recvv.Id.ToString()
+            };
+
+            var dbcRet = raven.setDB(dbc);
+        }
+
+        if (res != null && resm != null && changeFinal != null)
+        {
+            if (dbch == "raven")
+            {
+                HttpContext.Current.Session.Add("userR", res);
+                HttpContext.Current.Session.Add("database", "raven");
+                return "Update successfull!";
+            }
+            else if(dbch == "mongo")
+            {
+                HttpContext.Current.Session.Clear();
+                HttpContext.Current.Session.Add("user", resm);
+                HttpContext.Current.Session.Add("database", "mongo");
+                return "Update successfull!";
+            }
         }
         return fail;
     }
 
-    //apdejtovanje profila radnika
+    //apdejtovanje profila kompanije
     [System.Web.Services.WebMethod(EnableSession = true)]
-    public string updateCompanyInRDb(string id, string mail, string pass, string name, string owner, string type, string loc)
+    public string updateCompanyInRDb(string id, string mail, string pass, string name, string owner, string type, string loc, string dbch)
     {
         CompaniesR recvv = raven.getCompanyById(Guid.Parse(id));
         Companies recvm = mongor.getCompanyByEmail(mail);
@@ -430,11 +535,10 @@ public class RavenService : System.Web.Services.WebService
             recvm = retm;
         }
 
-        recvv.Email = mail;
-        recvv.Password = pass;
-        //recvv.CompanyName = name;
-        recvv.Owner = owner;
-        recvv.Location = loc;
+        recvv.Email = recvm.Email = mail;
+        recvv.Password = recvm.Password = pass;
+        recvv.Owner = recvm.Owner = owner;
+        recvv.Location = recvm.Location = loc;
 
         var temp = recvv.CompanyName;
 
@@ -470,6 +574,24 @@ public class RavenService : System.Web.Services.WebService
 
         var res = raven.updateCompany(recvv);
 
+        //mongo
+        if (temp != name && temp != null)
+        {
+            var tempC = mongor.getCompanyByName(temp);
+            for (int i = 0; i < tempC[0].Employees.Count; i++)
+            {
+                var tempE = mongor.getWorkerById(tempC[0].Employees[i]);
+                tempE.CompanyName = name;
+                mongor.updateWorker(tempE);
+            }
+            recvm.CompanyName = name;
+        }
+        else if (temp == null)
+        {
+            recvm.CompanyName = name;
+        }
+
+        var resm = raven.updateCompany(recvv);
 
         Changes ch = new Changes()
         {
@@ -482,11 +604,64 @@ public class RavenService : System.Web.Services.WebService
 
         changeFinal = raven.addFriendChange(ch);
 
+        var dbTemplist = raven.getDBPref();
 
-        if (res != null && changeFinal != null)
+        string dbtemp = null;
+
+        if (dbTemplist.Count != 0)
         {
-            HttpContext.Current.Session.Add("companyR", res);
-            return "Update successfull!";
+            for (int i = 0; i < dbTemplist.Count; i++)
+            {
+                if (dbTemplist[i].MongoId == recvm.Id.ToString() && dbTemplist[i].RavenId == recvv.Id.ToString())
+                    dbtemp = dbTemplist[i].DbName;
+            }
+            if(dbtemp == null)
+            {
+                DBCheck dbc = new DBCheck()
+                {
+                    Collection = "company",
+                    DbName = "raven",
+                    Mail = mail,
+                    Password = pass,
+                    MongoId = recvm.Id.ToString(),
+                    RavenId = recvv.Id.ToString()
+                };
+
+                var dbcRet = raven.setDB(dbc);
+            }
+        }
+
+        if (dbtemp != null && dbtemp != dbch)
+        {
+            DBCheck dbc = new DBCheck()
+            {
+                Collection = "company",
+                DbName = dbch,
+                Mail = mail,
+                Password = pass,
+                MongoId = recvm.Id.ToString(),
+                RavenId = recvv.Id.ToString()
+            };
+
+            var dbcRet = raven.setDB(dbc);
+        }
+
+
+        if (res != null && resm != null && changeFinal != null)
+        {
+            if (dbch == "raven")
+            {
+                HttpContext.Current.Session.Add("companyR", res);
+                HttpContext.Current.Session.Add("database", "raven");
+                return "Update successfull!";
+            }
+            else if (dbch == "mongo")
+            {
+                HttpContext.Current.Session.Clear();
+                HttpContext.Current.Session.Add("company", resm);
+                HttpContext.Current.Session.Add("database", "mongo");
+                return "Update successfull!";
+            }
         }
         return fail;
     }
@@ -510,12 +685,12 @@ public class RavenService : System.Web.Services.WebService
     [System.Web.Services.WebMethod]
     public string deleteWorkerWithId(string id)
     {
-
         WorkersR w = raven.getWorkerById(Guid.Parse(id));
+        Workers wm = mongor.getWorkerByEmail(w.Email);
 
-        if(w != null)
+        if(w != null && wm != null)
         {
-            if(w.Friends != null)
+            if(w.Friends != null && wm.Friends != null)
             {
                 for(int i = 0; i < w.Friends.Count; i++)
                 {
@@ -529,9 +704,23 @@ public class RavenService : System.Web.Services.WebService
                     temp.Friends = tpr;
                     raven.updateWorker(temp);
                 }
+
+                //mongo
+                for (int i = 0; i < wm.Friends.Count; i++)
+                {
+                    var temp = mongor.getWorkerById(wm.Friends[i]);
+                    List<ObjectId> tpr = new List<ObjectId>();
+                    for (int j = 0; j < temp.Friends.Count; j++)
+                    {
+                        if (ObjectId.Parse(id) != temp.Friends[j])
+                            tpr.Add(temp.Friends[j]);
+                    }
+                    temp.Friends = tpr;
+                    mongor.updateWorker(temp);
+                }
             }
 
-            if(w.CompanyName != null)
+            if(w.CompanyName != null && wm.CompanyName != null)
             {
                 CompaniesR c = raven.getCompanyById(Guid.Parse(w.CompanyId));
                 List<Guid> tpr = new List<Guid>();
@@ -542,10 +731,22 @@ public class RavenService : System.Web.Services.WebService
                 }
                 c.Employees = tpr;
                 raven.updateCompany(c);
+
+                //mongo
+                Companies cm = mongor.getCompanyById(ObjectId.Parse(wm.CompanyId));
+                List<ObjectId> tpm = new List<ObjectId>();
+                for (int j = 0; j < cm.Employees.Count; j++)
+                {
+                    if (ObjectId.Parse(id) != cm.Employees[j])
+                        tpm.Add(cm.Employees[j]);
+                }
+                cm.Employees = tpm;
+                mongor.updateCompany(cm);
             }
         }
 
         var res = raven.deleteWorker(w);
+        var resm = mongor.removeWorker(wm.Id);
 
         Changes ch = new Changes()
         {
@@ -558,7 +759,7 @@ public class RavenService : System.Web.Services.WebService
 
         Changes changeFinal = raven.addFriendChange(ch);
 
-        if (res != null && changeFinal != null)
+        if (res != null && resm != null && changeFinal != null)
         {
             return "Worker deleted!";
         }
@@ -570,12 +771,12 @@ public class RavenService : System.Web.Services.WebService
     [System.Web.Services.WebMethod]
     public string deleteCompanyWithId(string id)
     {
-
         CompaniesR c = raven.getCompanyById(Guid.Parse(id));
+        Companies cm = mongor.getCompanyByEmail(c.Email);
 
-        if(c != null)
+        if (c != null && cm != null)
         {
-            if(c.Employees != null)
+            if(c.Employees != null && cm.Employees != null)
             {
                 for(int i = 0; i < c.Employees.Count; i++)
                 {
@@ -584,10 +785,20 @@ public class RavenService : System.Web.Services.WebService
                     temp.CompanyName = null;
                     raven.updateWorker(temp);
                 }
+
+                //mongo
+                for (int i = 0; i < cm.Employees.Count; i++)
+                {
+                    var temp = mongor.getWorkerById(cm.Employees[i]);
+                    temp.CompanyId = null;
+                    temp.CompanyName = null;
+                    mongor.updateWorker(temp);
+                }
             }
         }
 
         var res = raven.deleteCompany(c);
+        var resm = mongor.removeCompany(cm.Id);
 
         Changes ch = new Changes()
         {
@@ -600,7 +811,7 @@ public class RavenService : System.Web.Services.WebService
 
         Changes changeFinal = raven.addFriendChange(ch);
 
-        if (res != null && changeFinal != null)
+        if (res != null && resm != null && changeFinal != null)
         {
             return "Company deleted!";
         }
@@ -648,6 +859,12 @@ public class RavenService : System.Web.Services.WebService
 
         WorkersR tempW1, tempW2;
 
+        //mongo
+        Workers friendm = mongor.getWorkerByEmail(friend.Email);
+        Workers userm = mongor.getWorkerByEmail(user.Email);
+
+        Workers tempWM1, tempWM2;
+
         if(friend.Friends == null)
         {
             friend.Friends = new List<Guid>();
@@ -670,6 +887,31 @@ public class RavenService : System.Web.Services.WebService
         {
             user.Friends.Add(Guid.Parse(id1));
             tempW2 = raven.updateWorker(user);
+        }
+
+        //mongo
+        if (friendm.Friends == null)
+        {
+            friendm.Friends = new List<ObjectId>();
+            friendm.Friends.Add(userm.Id);
+            tempWM1 = mongor.updateWorker(friendm);
+        }
+        else
+        {
+            friendm.Friends.Add(userm.Id);
+            tempWM1 = mongor.updateWorker(friendm);
+        }
+
+        if (userm.Friends == null)
+        {
+            userm.Friends = new List<ObjectId>();
+            userm.Friends.Add(friendm.Id);
+            tempWM2 = mongor.updateWorker(userm);
+        }
+        else
+        {
+            userm.Friends.Add(friendm.Id);
+            tempWM2 = mongor.updateWorker(userm);
         }
 
         Changes ch = new Changes()
@@ -704,6 +946,12 @@ public class RavenService : System.Web.Services.WebService
 
         WorkersR tempW1, tempW2;
 
+        //mongo
+        Workers friendm = mongor.getWorkerByEmail(friend.Email);
+        Workers userm = mongor.getWorkerByEmail(user.Email);
+
+        Workers tempWM1, tempWM2;
+
         if (friend.Friends != null)
         {
             List<Guid> temp = new List<Guid>();
@@ -730,6 +978,39 @@ public class RavenService : System.Web.Services.WebService
             }
             user.Friends = temp;
             tempW2 = raven.updateWorker(user);
+        }
+        else
+        {
+            return "You are making an invalid action!";
+        }
+
+        //mongo
+        if (friendm.Friends != null)
+        {
+            List<ObjectId> temp = new List<ObjectId>();
+            for (int i = 0; i < friendm.Friends.Count; i++)
+            {
+                if (friendm.Friends[i] != userm.Id)
+                    temp.Add(friendm.Friends[i]);
+            }
+            friendm.Friends = temp;
+            tempWM1 = mongor.updateWorker(friendm);
+        }
+        else
+        {
+            return "You are making an invalid action!";
+        }
+
+        if (userm.Friends != null)
+        {
+            List<ObjectId> temp = new List<ObjectId>();
+            for (int i = 0; i < userm.Friends.Count; i++)
+            {
+                if (userm.Friends[i] != friendm.Id)
+                    temp.Add(userm.Friends[i]);
+            }
+            userm.Friends = temp;
+            tempWM2 = mongor.updateWorker(userm);
         }
         else
         {
@@ -839,7 +1120,7 @@ public class RavenService : System.Web.Services.WebService
             {
                 if (dbc[i].Mail == mail && dbc[i].Password == pass)
                 {
-                    HttpContext.Current.Session.Add("base", dbc[i].DbName);
+                    HttpContext.Current.Session.Add("database", dbc[i].DbName);
                     return dbc[i].DbName;
                 }
             }

@@ -47,10 +47,13 @@ public class RavenDataAccess
         return c;
     }
 
-    public List<WorkersR> getWorkerByEmail(string email)
+    public WorkersR getWorkerByEmail(string email)
     {
         var result = _session.Query<WorkersR, WorkersR_byEmail>().Search(x => x.Email, email).ToList();
-        return result;
+        if (result.Count != 0)
+            return result[0];
+        else
+            return null;
     }
 
     public List<CompaniesR> getCompanyByEmail(string email)
@@ -276,9 +279,29 @@ public class RavenDataAccess
         else
         {
             var changee = _session.Query<DBCheckFinal>().ToList();
-            changee[0].Check.Add(dbc);
-            _session.Store(changee[0]);
-            _session.SaveChanges();
+            List<DBCheck> temp = new List<DBCheck>();
+            var temCh = false;
+            for(int i = 0; i < change.Count; i++)
+            {
+                if(change[i].RavenId == dbc.RavenId && change[i].MongoId == dbc.MongoId)
+                {
+                    temCh = true;
+                    change[i].Mail = dbc.Mail;
+                    change[i].Password = dbc.Password;
+                    change[i].DbName = dbc.DbName;
+                    change[i].Collection = dbc.Collection;
+                    changee[0].Check = change;
+                    _session.Store(changee[0]);
+                    _session.SaveChanges();
+                }
+            }
+
+            if(temCh == false)
+            {
+                changee[0].Check.Add(dbc);
+                _session.Store(changee[0]);
+                _session.SaveChanges();
+            }
             return "DB Set";
         }
     }
