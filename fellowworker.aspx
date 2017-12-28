@@ -11,11 +11,51 @@
         <link rel="stylesheet" href="~/Shared/user.css"/>
         <script type="text/javascript">
             $(document).ready(function () {
+                //db
+                var basee = localStorage.getItem("dbres");
+                //raven
                 var storage = localStorage.getItem("workerViewR");
                 console.log(storage);
                 var url = "./RavenService.asmx/retCompanyFromNameR";
                 var urll = "./RavenService.asmx/retWorkerFromIdR";
                 var user = JSON.parse(localStorage.getItem("userTemp"));
+                var urlaf = "./RavenService.asmx/addFriendR";
+                var urlrf = "./RavenService.asmx/removeFriendR";
+                //mongo
+                var urlCNM = "./MongoService.asmx/retCompanyFromName";
+                var urlWM = "./MongoService.asmx/retWorkerFromId";
+                var urlafm = "./MongoService.asmx/addFriend";
+                var urlrfm = "./MongoService.asmx/removeFriend";
+                var userMongo = JSON.parse(localStorage.getItem("userTempM"));
+                var storageMongo = localStorage.getItem("workerView");
+                console.log(storageMongo);
+
+                var urlTempId = null;
+                var urlTempCN = null;
+                var strgTemp = null;
+                var usrTemp = null;
+                var add1temp = null;
+                var rem1temp = null;
+                
+                if (basee === "raven")
+                {
+                    urlTempId = urll;
+                    urlTempCN = url;
+                    strgTemp = storage;
+                    usrTemp = user;
+                    add1temp = urlaf;
+                    rem1temp = urlrf;
+                }
+                else
+                {
+                    urlTempId = urlWM;
+                    urlTempCN = urlCNM;
+                    strgTemp = storageMongo;
+                    usrTemp = userMongo;
+                    add1temp = urlafm;
+                    rem1temp = urlrfm;
+                }
+
                 var addb = document.getElementById("add");
                 var remb = document.getElementById("rem");
                 var friendss = [];
@@ -25,8 +65,8 @@
                     "<th>Profile</th></tr></thead><tbody id='list'></tbody></table></div>";
                 $("#friend").append(addf);
 
-                var ajdi = { id: storage };
-                getAjaxResponse(urll, ajdi, function (dataa) {
+                var ajdi = { id: strgTemp };
+                getAjaxResponse(urlTempId, ajdi, function (dataa) {
                     var xmldocs = $.parseXML(dataa),
                         $xmls = $(xmldocs),
                         $titles = $xmls.find("string");
@@ -38,7 +78,7 @@
                         "<div>Skills: " + parse.Skills + "</div>";
                     $("#personal").append(add);
 
-                    if (parse.Id === user.Id) {
+                    if (parse.Id === usrTemp.Id) {
                         addb.disabled = true;
                         remb.disabled = true;
                     }
@@ -47,18 +87,18 @@
                         remb.disabled = true;
                     }
 
-                    if (user.Friends !== null)
+                    if (usrTemp.Friends !== null)
                     {
-                        for (var i = 0; i < user.Friends.length; i++)
+                        for (var i = 0; i < usrTemp.Friends.length; i++)
                         {
-                            if (parse.Id === user.Friends[i])
+                            if (parse.Id === usrTemp.Friends[i])
                             {
                                 addb.disabled = true;
                                 remb.disabled = false;
                             }
                         }
                     }
-                    else if(parse.Id === user.Id) {
+                    else if (parse.Id === usrTemp.Id) {
                         addb.disabled = true;
                         remb.disabled = true;
                     }
@@ -87,7 +127,7 @@
                     }
 
                     var name = { name: parse.CompanyName };
-                    getAjaxResponse(url, name, function (data) {
+                    getAjaxResponse(urlTempCN, name, function (data) {
                         var xmldoc = $.parseXML(data),
                             $xml = $(xmldoc),
                             $title = $xml.find("string");
@@ -102,6 +142,7 @@
                         $("#firm").append(addc);
 
                         localStorage.setItem("workerViewR", "");
+                        localStorage.setItem("workerView", "");
 
 
                         var sign = "no users were found with this name!";
@@ -114,7 +155,7 @@
                             for (var j = 0; j < parse.Friends.length; j++) {
                                 var idi = { id: parse.Friends[j] }
                                 console.log(parse.Friends);
-                                getAjaxResponse(urll, idi, function (datas) {
+                                getAjaxResponse(urlTempId, idi, function (datas) {
                                     console.log(datas);
                                     var xmldocss = $.parseXML(datas),
                                         $xmlss = $(xmldocss),
@@ -157,10 +198,10 @@
                     $("#add").addClass("disabled");
                     $("#rem").removeClass("disabled");
 
-                    var ids = { id1: storage, id2: user.Id };
-                    var urlf = "./RavenService.asmx/addFriendR";
+                    var ids = { id1: strgTemp, id2: usrTemp.Id };
+                    
 
-                    getAjaxResponse(urlf, ids, function (datas) {
+                    getAjaxResponse(add1temp, ids, function (datas) {
                         var xmldoc = $.parseXML(datas),
                             $xml = $(xmldoc),
                             $title = $xml.find("string");
@@ -191,10 +232,10 @@
                     $("#rem").addClass("disabled");
                     $("#add").removeClass("disabled");
 
-                    var ids = { id1: storage, id2: user.Id };
-                    var urlf = "./RavenService.asmx/removeFriendR";
+                    var ids = { id1: strgTemp, id2: usrTemp.Id };
+                    
 
-                    getAjaxResponse(urlf, ids, function (datas) {
+                    getAjaxResponse(rem1temp, ids, function (datas) {
                         var xmldoc = $.parseXML(datas),
                             $xml = $(xmldoc),
                             $title = $xml.find("string");
@@ -221,7 +262,12 @@
                     console.log(friendss);
                     for (var i = 0; i < friendss.length; i++) {
                         if (friendss[i].Email === $(this).closest("tr")[0].children[3].innerHTML)
-                            localStorage.setItem("workerViewR", friendss[i].Id);
+                        {
+                            if (basee === "raven")
+                                localStorage.setItem("workerViewR", friendss[i].Id);
+                            else
+                                localStorage.setItem("workerView", friendss[i].Id);
+                        }
                     }
                     window.location.assign("./fellowworker.aspx");
                 });

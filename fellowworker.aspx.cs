@@ -10,13 +10,28 @@ public partial class fellowworker : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        WorkersR recR = (WorkersR)Session["userR"];
-        Response.Write("<script>localStorage.setItem('userTemp', '" + JsonConvert.SerializeObject(recR) + "');</script>");
-        string recvR = (string)Session["workerR"];
-        if (recvR != null)
+        if (Session["userR"] != null)
         {
-            Response.Write("<script>localStorage.setItem('workerViewR', '" + recvR + "');</script>");
-            Session["workerR"] = null;
+            WorkersR recR = (WorkersR)Session["userR"];
+            Response.Write("<script>localStorage.setItem('userTemp', '" + JsonConvert.SerializeObject(recR) + "');</script>");
+            string recvR = (string)Session["workerR"];
+            if (recvR != null)
+            {
+                Response.Write("<script>localStorage.setItem('workerViewR', '" + recvR + "');</script>");
+                Session["workerR"] = null;
+            }
+        }
+
+        if (Session["user"] != null)
+        {
+            Workers recR = (Workers)Session["user"];
+            Response.Write("<script>localStorage.setItem('userTempM', '" + JsonConvert.SerializeObject(recR) + "');</script>");
+            string reccR = (string)Session["worker"];
+            if (reccR != null)
+            {
+                Response.Write("<script>localStorage.setItem('workerView', '" + reccR + "');</script>");
+                Session["worker"] = null;
+            }
         }
     }
 }

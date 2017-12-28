@@ -183,19 +183,16 @@ public class RavenService : System.Web.Services.WebService
     [System.Web.Services.WebMethod(EnableSession = true)]
     public string returnCompanyFromEmailR(string mail, string pass)
     {
-        List<CompaniesR> w = raven.getCompanyByEmail(mail);
+        CompaniesR w = raven.getCompanyByEmail(mail);
 
-        if (w.Count != 0)
+        if (w != null)
         {
-            for (int i = 0; i < w.Count; i++)
+            if (w.Password == pass && w.Email == mail)
             {
-                if (w[0].Password == pass && w[i].Email == mail)
-                {
-                    HttpContext.Current.Session.Add("companyR", w[0]);
-                    HttpContext.Current.Session.Add("database", "raven");
-                    HttpContext.Current.Session.Add("userR", null);
-                    return JsonConvert.SerializeObject(w[0]);
-                }
+                HttpContext.Current.Session.Add("companyR", w);
+                HttpContext.Current.Session.Add("database", "raven");
+                HttpContext.Current.Session.Add("userR", null);
+                return JsonConvert.SerializeObject(w);
             }
             return badp;
         }
@@ -497,6 +494,7 @@ public class RavenService : System.Web.Services.WebService
         {
             if (dbch == "raven")
             {
+                HttpContext.Current.Session.Clear();
                 HttpContext.Current.Session.Add("userR", res);
                 HttpContext.Current.Session.Add("database", "raven");
                 return "Update successfull!";
@@ -517,7 +515,7 @@ public class RavenService : System.Web.Services.WebService
     public string updateCompanyInRDb(string id, string mail, string pass, string name, string owner, string type, string loc, string dbch)
     {
         CompaniesR recvv = raven.getCompanyById(Guid.Parse(id));
-        Companies recvm = mongor.getCompanyByEmail(mail);
+        Companies recvm = mongor.getCompanyByEmail(recvv.Email);
 
         if(recvm == null)
         {
@@ -549,11 +547,6 @@ public class RavenService : System.Web.Services.WebService
         if (cId.Count == 0)
         {
             return "There is no such company!";
-        }
-
-        if(cId.Count != 0 && cId[0].CompanyName == temp && Guid.Parse(id) == cId[0].Id)
-        {
-            return "Company is a duplicate!";
         }
 
         if (temp != name && temp != null)
@@ -591,7 +584,7 @@ public class RavenService : System.Web.Services.WebService
             recvm.CompanyName = name;
         }
 
-        var resm = raven.updateCompany(recvv);
+        var resm = mongor.updateCompany(recvm);
 
         Changes ch = new Changes()
         {
@@ -651,6 +644,7 @@ public class RavenService : System.Web.Services.WebService
         {
             if (dbch == "raven")
             {
+                HttpContext.Current.Session.Clear();
                 HttpContext.Current.Session.Add("companyR", res);
                 HttpContext.Current.Session.Add("database", "raven");
                 return "Update successfull!";
@@ -748,6 +742,8 @@ public class RavenService : System.Web.Services.WebService
         var res = raven.deleteWorker(w);
         var resm = mongor.removeWorker(wm.Id);
 
+        var resdb = raven.deleteDBprefEntry(id, w.Email, w.Password);
+
         Changes ch = new Changes()
         {
             Actor1 = w.Id,
@@ -759,7 +755,7 @@ public class RavenService : System.Web.Services.WebService
 
         Changes changeFinal = raven.addFriendChange(ch);
 
-        if (res != null && resm != null && changeFinal != null)
+        if (res != null && resm != null && resdb != null && changeFinal != null)
         {
             return "Worker deleted!";
         }
@@ -800,6 +796,8 @@ public class RavenService : System.Web.Services.WebService
         var res = raven.deleteCompany(c);
         var resm = mongor.removeCompany(cm.Id);
 
+        var resdb = raven.deleteDBprefEntry(id, c.Email, c.Password);
+
         Changes ch = new Changes()
         {
             Actor1 = c.Id,
@@ -811,7 +809,7 @@ public class RavenService : System.Web.Services.WebService
 
         Changes changeFinal = raven.addFriendChange(ch);
 
-        if (res != null && resm != null && changeFinal != null)
+        if (res != null && resm != null && resdb != null && changeFinal != null)
         {
             return "Company deleted!";
         }

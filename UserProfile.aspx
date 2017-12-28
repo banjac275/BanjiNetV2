@@ -348,7 +348,13 @@
                         console.log(friendss);
                         for (var i = 0; i < friendss.length; i++) {
                             if (friendss[i].Email === $(this).closest("tr")[0].children[3].innerHTML)
-                                localStorage.setItem("workerViewR", friendss[i].Id);
+                            {
+                                if (basee === "raven")
+                                    localStorage.setItem("workerViewR", friendss[i].Id);
+                                else
+                                    localStorage.setItem("workerView", friendss[i].Id);
+                            }
+                                
                         }
                         window.location.assign("./fellowworker.aspx");
                     });
@@ -359,28 +365,37 @@
                         console.log(friendss);
 
                         var urlf = "./RavenService.asmx/removeFriendR";
+                        var urlfm = "./MongoService.asmx/removeFriend";
+                        var urlt = null;
+
+                        if (basee === "raven")
+                            urlt = urlf;
+                        else
+                            urlt = urlfm;
 
                         for (var i = 0; i < friendss.length; i++) {
                             if (friendss[i].Email === $(this).closest("tr")[0].children[3].innerHTML) {
                                 var idd = { id1: friendss[i].Id.toString(), id2: moment.Id };
                                 console.log(friendss[i].Id.toString());
-                                getAjaxResponse(urlf, idd, function (data) {
-                                    var xmldoc = $.parseXML(data),
-                                        $xml = $(xmldoc),
-                                        $titlse = $xml.find("string");
-                                    var parsed = $titlse.text();
-                                    console.log(parsed);
+                                if (urlt !== null) {
+                                    getAjaxResponse(urlt, idd, function (data) {
+                                        var xmldoc = $.parseXML(data),
+                                            $xml = $(xmldoc),
+                                            $titlse = $xml.find("string");
+                                        var parsed = $titlse.text();
+                                        console.log(parsed);
 
-                                    var sign = "no users were found with this name!";
-                                    if ($titlse.text() == sign) {
-                                        alert("No companies with that name are found!");
-                                    }
-                                    else {
-                                        alert("Friend Removed!");
-                                        window.location.assign("./UserProfile.aspx");
-                                    }
+                                        var sign = "no users were found with this name!";
+                                        if ($titlse.text() == sign) {
+                                            alert("No companies with that name are found!");
+                                        }
+                                        else {
+                                            alert("Friend Removed!");
+                                            window.location.assign("./UserProfile.aspx");
+                                        }
 
-                                });
+                                    });
+                                }
                             }
                         }
 

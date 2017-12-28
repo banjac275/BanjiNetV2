@@ -56,10 +56,14 @@ public class RavenDataAccess
             return null;
     }
 
-    public List<CompaniesR> getCompanyByEmail(string email)
+    public CompaniesR getCompanyByEmail(string email)
     {
         var result = _session.Query<CompaniesR, CompaniesR_byEmail>().Search(x => x.Email, email).ToList();
-        return result;
+
+        if (result.Count != 0)
+            return result[0];
+        else
+            return null;
     }
 
     public List<CompaniesR> getCompanyByName(string name)
@@ -311,6 +315,33 @@ public class RavenDataAccess
         var check = _session.Query<DBCheckFinal>().ToList();
         if (check.Count != 0)
             return check[0].Check;
+        else
+            return null;
+    }
+
+    public string deleteDBprefEntry(string ravenid, string mail, string pass)
+    {
+        List<DBCheck> temp = null;
+        var check = _session.Query<DBCheckFinal>().ToList();
+
+        if (check.Count != 0)
+            temp = check[0].Check;
+        else
+            temp = null;
+
+        if (temp != null)
+        {
+            List<DBCheck> trans = new List<DBCheck>();
+            for (int i = 0; i < temp.Count; i++)
+            {
+                if (temp[i].RavenId != ravenid && temp[i].Mail != mail && temp[i].Password != pass)
+                    trans.Add(temp[i]);
+            }
+            check[0].Check = trans;
+            _session.Store(check[0]);
+            _session.SaveChanges();
+            return "Delete entry successfull!";
+        }
         else
             return null;
     }
