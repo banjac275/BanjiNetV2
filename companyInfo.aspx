@@ -12,14 +12,33 @@
         <script type="text/javascript">
             $(document).ready(function () {
                 var storage = localStorage.getItem("companyViewR");
+                var storageM = localStorage.getItem("companyView");
+                var basee = localStorage.getItem("dbres");
                 var received = [];
                 var urlW = "./RavenService.asmx/retWorkerFromIdR";
                 var urlC = "./RavenService.asmx/retCompanyFromIdR";
+                var urlWM = "./MongoService.asmx/retWorkerFromId";
+                var urlCM = "./MongoService.asmx/retCompanyFromId";
+                var urlTemp1 = null;
+                var urlTemp2 = null;
+                var idloc = null;
 
-                var tempp = storage.replace(/"/g, "");
-                console.log(storage);
-                var idC = { id: tempp };
-                getAjaxResponse(urlC, idC, function (data) {
+                if (basee === "raven") {
+                    urlTemp1 = urlC;
+                    urlTemp2 = urlW;
+                    var tempp = storage.replace(/"/g, "");
+                    idloc = tempp;
+                }
+                else {
+                    urlTemp1 = urlCM;
+                    urlTemp2 = urlWM;
+                    idloc = storageM;
+                }
+
+                
+                console.log(idloc);
+                var idC = { id: idloc };
+                getAjaxResponse(urlTemp1, idC, function (data) {
                     var xmldoc = $.parseXML(data),
                         $xml = $(xmldoc),
                         $title = $xml.find("string");
@@ -39,7 +58,7 @@
                             var temp = parsed.Employees[i].replace(/"/g, "");
                             console.log(temp);
                             var id = { id: temp };
-                            getAjaxResponse(urlW, id, function (dataa) {
+                            getAjaxResponse(urlTemp2, id, function (dataa) {
                                 var xmldocs = $.parseXML(dataa),
                                     $xmls = $(xmldocs),
                                     $titles = $xmls.find("string");
@@ -73,7 +92,12 @@
                     for (var i = 0; i < received.length; i++) {
                         if (received[i].Email === $(this).closest("tr")[0].children[3].innerHTML) {
                             console.log($(this).closest("tr")[0].children[3].innerHTML);
-                            localStorage.setItem("workerViewR", received[i].Id);
+                            if (basee === "raven")
+                                localStorage.setItem("workerViewR", received[i].Id);
+                            else {
+                                localStorage.setItem("workerView", received[i].Id);
+                            }
+                            
                         }
                     }
                     window.location.assign("./fellowworker.aspx");
@@ -83,7 +107,7 @@
                 function getAjaxResponse(urll, sstring, fn) {
 
                     $.ajax({
-                        //url: "./MongoService.asmx/retWorkerFromId",
+                        //url: ,
                         url: urll,
                         dataType: "text",
                         type: "POST",

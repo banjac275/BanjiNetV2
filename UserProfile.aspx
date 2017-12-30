@@ -22,6 +22,7 @@
                 var moment = JSON.parse(localStorage.getItem("userTemp"));
                 var personal = document.getElementById("personal");
                 var basee = localStorage.getItem("dbres");
+                var provC = localStorage.getItem("companyCheck");
 
                 if (personal !== null) {
                     if (basee === "mongo") {
@@ -159,13 +160,15 @@
                                             $title = $xml.find("string");
                                         var parsedd = JSON.parse($title.text());
                                         console.log(parsedd);
+                                        friendss.push(parsedd);
                                         j = j + 1;
 
                                         var table = '<tr><th scope= "row">' + j + '</th>'
                                             + '<td>' + parsedd.FirstName + '</td>'
                                             + '<td>' + parsedd.LastName + '</td>'
                                             + '<td>' + parsedd.Email + '</td>'
-                                            + '<td>' + parsedd.CompanyName + '</td></tr>';
+                                            + '<td>' + parsedd.CompanyName + '</td>'
+                                            + '<td><button type="button" class="view btn btn-default" id="addd' + j + '">View</button></td>';
                                         $("#listing").append(table);
 
 
@@ -318,13 +321,15 @@
                                             $title = $xml.find("string");
                                         var parsedd = JSON.parse($title.text());
                                         console.log(parsedd);
+                                        friendss.push(parsedd);
                                         j = j + 1;
 
                                         var table = '<tr><th scope= "row">' + j + '</th>'
                                             + '<td>' + parsedd.FirstName + '</td>'
                                             + '<td>' + parsedd.LastName + '</td>'
                                             + '<td>' + parsedd.Email + '</td>'
-                                            + '<td>' + parsedd.CompanyName + '</td></tr>';
+                                            + '<td>' + parsedd.CompanyName + '</td>'
+                                            + '<td><button type="button" class="view btn btn-default" id="addd' + j + '">View</button></td>';
                                         $("#listing").append(table);
 
 

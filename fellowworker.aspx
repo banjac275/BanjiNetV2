@@ -29,6 +29,8 @@
                 var userMongo = JSON.parse(localStorage.getItem("userTempM"));
                 var storageMongo = localStorage.getItem("workerView");
                 console.log(storageMongo);
+                var provC = localStorage.getItem("companyCheck");
+                console.log(provC);
 
                 var urlTempId = null;
                 var urlTempCN = null;
@@ -36,6 +38,7 @@
                 var usrTemp = null;
                 var add1temp = null;
                 var rem1temp = null;
+
                 
                 if (basee === "raven")
                 {
@@ -105,6 +108,11 @@
                     else
                     {
                         addb.disabled = false;
+                        remb.disabled = true;
+                    }
+
+                    if (provC === "vraiment") {
+                        addb.disabled = true;
                         remb.disabled = true;
                     }
 
@@ -343,7 +351,7 @@
                        </div>
                     </div>  
                 </div>
-                <div class="row">
+                <div class="row" id="resolve">
                     <div class="col-lg-4 panel panel-info">
                         <div class="text-center col-lg-6">Resolve Friendship</div>
                         <button type="button" class="btn btn-default col-lg-4 text-right btn-block" id="add">Add Friend</button>

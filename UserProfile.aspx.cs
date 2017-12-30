@@ -16,6 +16,16 @@ public partial class UserProfile : System.Web.UI.Page
             Response.Write("<script>localStorage.setItem('dbres', '" + Session["database"] + "');</script>");
         }
 
+        if (Session["ids"] != null)
+        {
+            Response.Write("<script>localStorage.setItem('ids', '" + Session["ids"] + "');</script>");
+        }
+
+        if (Session["idsc"] != null)
+        {
+            Response.Write("<script>localStorage.setItem('idsc', '" + Session["idsc"] + "');</script>");
+        }
+
         Workers recv;
         if (Session["user"] != null)
         {
@@ -25,6 +35,7 @@ public partial class UserProfile : System.Web.UI.Page
                 "localStorage.setItem('job', '" + recv.CompanyName + "');" +
                 "localStorage.setItem('userTemp', '" + JsonConvert.SerializeObject(recv) + "');" +
                 "</script>");
+            Response.Write("<script>localStorage.setItem('companyCheck', 'faulty');</script>");
             if (recv.Skills != null)
             {
                 skillset = String.Join(", ", recv.Skills);
@@ -45,6 +56,7 @@ public partial class UserProfile : System.Web.UI.Page
         {
             recc = (Companies)Session["company"];
             Response.Write("<script>console.log('" + recc.CompanyName + "');</script>");
+            Response.Write("<script>localStorage.setItem('companyCheck', 'vraiment');</script>");
             if (recc.Employees != null)
             {
                 Response.Write("<script>localStorage.setItem('firm', '" + JsonConvert.SerializeObject(recc.Employees) + "');</script>");
@@ -67,7 +79,8 @@ public partial class UserProfile : System.Web.UI.Page
                 "localStorage.setItem('jobR', '" + recR.CompanyName + "');" +
                 "localStorage.setItem('userTemp', '" + JsonConvert.SerializeObject(recR) + "');" +
                 "</script>");
-            if(recR.Skills != null)
+            Response.Write("<script>localStorage.setItem('companyCheck', 'faulty');</script>");
+            if (recR.Skills != null)
             {
                 skillset = String.Join(", ", recR.Skills);
             }
@@ -87,7 +100,7 @@ public partial class UserProfile : System.Web.UI.Page
         {
             reccR = (CompaniesR)Session["companyR"];
             Response.Write("<script>console.log('" + reccR.CompanyName + "');</script>");
-            //Response.Write("<script>localStorage.setItem('companyCheck', 'itis');</script>");
+            Response.Write("<script>localStorage.setItem('companyCheck', 'vraiment');</script>");
             //List<Guid> objects = new List<Guid>();
             if (reccR.Employees != null)
             {

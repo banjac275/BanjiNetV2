@@ -43,6 +43,8 @@ public class MongoService : System.Web.Services.WebService
         {
             if (w.Password == pass)
             {
+                retAllWorkersFromCollection();
+                retAllCompaniesFromCollection();
                 HttpContext.Current.Session.Add("user", w);
                 HttpContext.Current.Session.Add("database", "mongo");
                 HttpContext.Current.Session.Add("company", null);
@@ -65,6 +67,8 @@ public class MongoService : System.Web.Services.WebService
         {
             if (w.Password == pass)
             {
+                retAllWorkersFromCollection();
+                retAllCompaniesFromCollection();
                 HttpContext.Current.Session.Add("company", w);
                 HttpContext.Current.Session.Add("database", "mongo");
                 HttpContext.Current.Session.Add("user", null);
@@ -84,7 +88,9 @@ public class MongoService : System.Web.Services.WebService
         
         if (w != null)
         {
-             return JsonConvert.SerializeObject(w);            
+            retAllWorkersFromCollection();
+            retAllCompaniesFromCollection();
+            return JsonConvert.SerializeObject(w);            
         }
         else
             return "Worker not found with mail!";
@@ -98,6 +104,8 @@ public class MongoService : System.Web.Services.WebService
 
         if (w != null)
         {
+            retAllWorkersFromCollection();
+            retAllCompaniesFromCollection();
             return JsonConvert.SerializeObject(w);   
         }
         else
@@ -374,6 +382,8 @@ public class MongoService : System.Web.Services.WebService
 
         if (res != null && resm != null && changeFinal != null)
         {
+            retAllWorkersFromCollection();
+            retAllCompaniesFromCollection();
             if (dbch == "raven")
             {
                 HttpContext.Current.Session.Add("userR", res);
@@ -508,6 +518,8 @@ public class MongoService : System.Web.Services.WebService
 
         if (res != null && resm != null && changeFinal != null)
         {
+            retAllWorkersFromCollection();
+            retAllCompaniesFromCollection();
             if (dbch == "raven")
             {
                 HttpContext.Current.Session.Clear();
@@ -526,25 +538,44 @@ public class MongoService : System.Web.Services.WebService
         return fail;
     }
 
-    [System.Web.Services.WebMethod]
+    [System.Web.Services.WebMethod(EnableSession = true)]
     public List<Workers> retAllWorkersFromCollection()
     {
         List<Workers> w = mongoDbase.GetWorkers();
+        List<string> temp = new List<string>();
+        if(w.Count != 0)
+        {
+            for(int i = 0; i < w.Count; i++)
+            {
+                var ids = w[i].Id.ToString();
+                temp.Add(ids);
+            }
+            HttpContext.Current.Session.Add("ids", JsonConvert.SerializeObject(temp));
+        }
         return w;
     }
 
-    [System.Web.Services.WebMethod]
+    [System.Web.Services.WebMethod(EnableSession = true)]
     public List<Companies> retAllCompaniesFromCollection()
     {
         List<Companies> c = mongoDbase.GetCompanies();
+        List<string> temp = new List<string>();
+        if (c.Count != 0)
+        {
+            for (int i = 0; i < c.Count; i++)
+            {
+                var ids = c[i].Id.ToString();
+                temp.Add(ids);
+            }
+            HttpContext.Current.Session.Add("idsc", JsonConvert.SerializeObject(temp));
+        }
         return c;
     }
 
     [System.Web.Services.WebMethod]
-    public string retCompanyFromId(ObjectId id)
+    public string retCompanyFromId(string id)
     {
-        Companies c = mongoDbase.getCompanyById(id);
-
+        Companies c = mongoDbase.getCompanyById(ObjectId.Parse(id));
         if (c != null)
         {
             return JsonConvert.SerializeObject(c);
@@ -557,7 +588,7 @@ public class MongoService : System.Web.Services.WebService
     public string retCompanyFromName(string name)
     {
         List<Companies> c = mongoDbase.getCompanyByName(name);
-
+        
         if (c.Count != 0)
         {
             for (int i = 0; i < c.Count; i++)
@@ -578,8 +609,9 @@ public class MongoService : System.Web.Services.WebService
     public string retWorkerFromName(string name)
     {
         List<Workers> w = mongoDbase.getWorkerByName(name);
-
-        if(w.Count != 0)
+        retAllWorkersFromCollection();
+        retAllCompaniesFromCollection();
+        if (w.Count != 0)
            return JsonConvert.SerializeObject(w);
         else
            return "Worker with that name doesn't exist in our registry!";
@@ -590,8 +622,9 @@ public class MongoService : System.Web.Services.WebService
     public string retWorkerFromLastName(string name)
     {
         List<Workers> w = mongoDbase.getWorkerByLastName(name);
-
-        if(w.Count != 0)
+        retAllWorkersFromCollection();
+        retAllCompaniesFromCollection();
+        if (w.Count != 0)
            return JsonConvert.SerializeObject(w);
         else
            return "Worker with that last name doesn't exist in our registry!";
@@ -604,7 +637,8 @@ public class MongoService : System.Web.Services.WebService
         List<Companies> c = mongoDbase.getCompanyByName(name);
 
         List<ObjectId> objects = new List<ObjectId>();
-
+        retAllWorkersFromCollection();
+        retAllCompaniesFromCollection();
         for (int i = 0; i < c.Count; i++)
         {
             if (c[i] != null || c[i].CompanyName == name)
@@ -629,10 +663,8 @@ public class MongoService : System.Web.Services.WebService
     [System.Web.Services.WebMethod]
     public string retWorkerFromId(string id)
     {
-
         Workers c = mongoDbase.getWorkerById(ObjectId.Parse(id));
 
-    
         if (c != null || c.Id == ObjectId.Parse(id))
         {
             return JsonConvert.SerializeObject(c);
@@ -720,7 +752,8 @@ public class MongoService : System.Web.Services.WebService
         };
 
         Changes changeFinal = raven.addFriendChange(ch);
-
+        retAllWorkersFromCollection();
+        retAllCompaniesFromCollection();
         if (res != null && resm != null && changeFinal != null)
         {
             return "Worker deleted!";
@@ -773,7 +806,8 @@ public class MongoService : System.Web.Services.WebService
         };
 
         Changes changeFinal = raven.addFriendChange(ch);
-
+        retAllWorkersFromCollection();
+        retAllCompaniesFromCollection();
         if (res != null && resm != null && changeFinal != null)
         {
             return "Company deleted!";
@@ -862,6 +896,8 @@ public class MongoService : System.Web.Services.WebService
 
         if (tempW2 != null && change != null)
         {
+            retAllWorkersFromCollection();
+            retAllCompaniesFromCollection();
             HttpContext.Current.Session.Add("worker", id1);
             HttpContext.Current.Session.Add("user", tempWM2);
             return "Update successfull!";
@@ -965,6 +1001,8 @@ public class MongoService : System.Web.Services.WebService
 
         if (tempW2 != null && change != null)
         {
+            retAllWorkersFromCollection();
+            retAllCompaniesFromCollection();
             HttpContext.Current.Session.Add("worker", id1);
             HttpContext.Current.Session.Add("user", tempWM2);
             return "Update successfull!";

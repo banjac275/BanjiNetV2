@@ -33,5 +33,15 @@ public partial class fellowworker : System.Web.UI.Page
                 Session["worker"] = null;
             }
         }
+
+        if (Session["idsc"] != null)
+        {
+            Response.Write("<script>localStorage.setItem('idsc', '" + Session["idsc"] + "');</script>");
+        }
+
+        if (Session["ids"] != null)
+        {
+            Response.Write("<script>localStorage.setItem('ids', '" + Session["ids"] + "');</script>");
+        }
     }
 }

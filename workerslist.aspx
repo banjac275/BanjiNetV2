@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="~/Shared/user.css"/>
-        <script type="text/javascript" src="Scripts/workeers.js"></script>
+        <script type="text/javascript" src="Scripts/workeeerrrs.js"></script>
     </head>
     <body>
         <!-- top nav -->
@@ -44,7 +44,7 @@
                       <th>Last Name</th>
                       <th>Email</th>
                       <th>Company</th>
-                      <th>Friend Status</th>
+                      <th id="fstat">Friend Status</th>
                       <th>Profile</th>
                     </tr>
                   </thead>

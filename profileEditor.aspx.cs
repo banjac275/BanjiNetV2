@@ -14,6 +14,16 @@ public partial class profileEditor : System.Web.UI.Page
             Response.Write("<script>localStorage.setItem('dbres', '" + Session["database"] + "');</script>");
         }
 
+        if (Session["ids"] != null)
+        {
+            Response.Write("<script>localStorage.setItem('ids', '" + Session["ids"] + "');</script>");
+        }
+
+        if (Session["idsc"] != null)
+        {
+            Response.Write("<script>localStorage.setItem('idsc', '" + Session["idsc"] + "');</script>");
+        }
+
         Workers recv;
         if (Session["user"] != null)
         {
