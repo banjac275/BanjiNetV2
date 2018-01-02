@@ -835,17 +835,23 @@ public class RavenService : System.Web.Services.WebService
     }
 
     [System.Web.Services.WebMethod]
-    public List<WorkersR> retAllWorkersFromCollectionR()
+    public string retAllWorkersFromCollectionR()
     {
         List<WorkersR> w = raven.GetWorkers();
-        return w;
+        if (w.Count != 0)
+            return JsonConvert.SerializeObject(w);
+        else
+            return null;
     }
 
     [System.Web.Services.WebMethod]
-    public List<CompaniesR> retAllCompaniesFromCollectionR()
+    public string retAllCompaniesFromCollectionR()
     {
         List<CompaniesR> c = raven.GetCompanies();
-        return c;
+        if (c.Count != 0)
+            return JsonConvert.SerializeObject(c);
+        else
+            return null;
     }
 
     //dodavanje prijatelja

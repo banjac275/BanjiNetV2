@@ -9,9 +9,6 @@ public partial class workerslist : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session["ids"] != null)
-        {
-            Response.Write("<script>localStorage.setItem('ids', '" + Session["ids"] + "');</script>");
-        }
+        
     }
 }
