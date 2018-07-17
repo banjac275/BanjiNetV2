@@ -54,7 +54,7 @@
                 $("#fstat").show();
                 console.log(friend);
                 k = k + 1;
-                var table = '<tr><th scope= "row">' + k + '</th>'
+                let table = '<tr><th scope= "row">' + k + '</th>'
                     + '<td>' + first + '</td>'
                     + '<td>' + last + '</td>'
                     + '<td>' + mail + '</td>'
@@ -68,7 +68,7 @@
                 $("#fstat").hide();
                 console.log(friend);
                 k = k + 1;
-                var table = '<tr><th scope= "row">' + k + '</th>'
+                let table = '<tr><th scope= "row">' + k + '</th>'
                     + '<td>' + first + '</td>'
                     + '<td>' + last + '</td>'
                     + '<td>' + mail + '</td>'

@@ -18,7 +18,7 @@
         received = $title;
         console.log($title);
 
-        for (var i = $title.length-1; i => 0; i--)
+        for (var i = $title.length-1; i >= 0; i--)
         {
             count++;
             var t2 = false;
@@ -37,14 +37,14 @@
           
             if (t2 !== true)
             {
-                var not = '<hr/><div class="row"><div class="info col-lg-7">' + $title[i].children[2].innerHTML
+                let not = '<hr/><div class="row"><div class="info col-lg-7">' + $title[i].children[2].innerHTML
                     + types + $title[i].children[5].innerHTML + '</div><div class="when col-lg-5">' + times + '</div></div><hr/>';
                 $("#contents").append(not);
             }
 
             if (t2 === true)
             {
-                var not = '<hr/><div class="row"><div class="info col-lg-7">' + $title[i].children[2].innerHTML
+                let not = '<hr/><div class="row"><div class="info col-lg-7">' + $title[i].children[2].innerHTML
                     + types + '</div><div class="when col-lg-5">' + times + '</div></div><hr/>';
                 $("#contents").append(not);
             }

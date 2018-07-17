@@ -1,18 +1,18 @@
 {
   "IndexId": 3,
-  "Name": "CompaniesR/byEmail",
+  "Name": "WorkersR/byName",
   "LockMode": "Unlock",
   "IndexVersion": 1,
-  "Map": "from company in docs.CompaniesRs\nselect new {\n\tEmail = company.Email\n}",
+  "Map": "from worker in docs.WorkersRs\nselect new {\n\tFirstName = worker.FirstName\n}",
   "Maps": [
-    "from company in docs.CompaniesRs\nselect new {\n\tEmail = company.Email\n}"
+    "from worker in docs.WorkersRs\nselect new {\n\tFirstName = worker.FirstName\n}"
   ],
   "Reduce": null,
   "IsMapReduce": false,
   "IsCompiled": false,
   "Stores": {},
   "Indexes": {
-    "Email": "Analyzed"
+    "FirstName": "Analyzed"
   },
   "SortOptions": {},
   "Analyzers": {},

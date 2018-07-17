@@ -41,13 +41,13 @@ public class RavenService : System.Web.Services.WebService
             LastName = last,
             Email = mail,
             Password = pass,
-            CompanyId = "579ac770-de1b-4837-b6eb-1ff8bca0ec20",
+            CompanyId = "2e5b912a-adb9-40df-86f7-9a5b52949ad6",
             CompanyName = "unemployed"
         };
 
         var ret = raven.Create(w);
         //dodavanje novoupisanog radnike medju redove nezaposlenih
-        var comp = raven.addWorkerToCompany(w.Id, raven.getCompanyById(Guid.Parse("579ac770-de1b-4837-b6eb-1ff8bca0ec20")));
+        var comp = raven.addWorkerToCompany(w.Id, raven.getCompanyById(Guid.Parse("2e5b912a-adb9-40df-86f7-9a5b52949ad6")));
 
         //upis u mongo za nove radnike i uzimanje object id novoupisanog radnika
         Workers wm = new Workers()
@@ -56,12 +56,12 @@ public class RavenService : System.Web.Services.WebService
             LastName = last,
             Email = mail,
             Password = pass,
-            CompanyId = "5a3c3546a2bfccaa6c6a90e1",
+            CompanyId = "5b0c248a1364452a5cb3183d",
             CompanyName = "unemployed"
         };
 
         var retM = mongor.Create(wm);
-        var compmon = mongor.addWorkerToCompany(retM.Id, mongor.getCompanyById(ObjectId.Parse("5a3c3546a2bfccaa6c6a90e1")));
+        var compmon = mongor.addWorkerToCompany(retM.Id, mongor.getCompanyById(ObjectId.Parse("5b0c248a1364452a5cb3183d")));
 
         DBCheck dbc = new DBCheck()
         {
@@ -1125,11 +1125,49 @@ public class RavenService : System.Web.Services.WebService
                 if (dbc[i].Mail == mail && dbc[i].Password == pass)
                 {
                     HttpContext.Current.Session.Add("database", dbc[i].DbName);
-                    return dbc[i].DbName;
+                    return JsonConvert.SerializeObject(dbc[i].DbName);
                 }
             }
         }
-        return "raven";
+        return JsonConvert.SerializeObject("raven");
+    }
+
+    [System.Web.Services.WebMethod]
+    public string searchAll(string word, string check)
+    {
+        JArray rec = JArray.Parse(check);
+
+        int[] items = rec.Select(jv => (int)jv).ToArray();
+
+        if (items.Length != 0)
+        {
+            List<string> result = new List<string>();
+
+            foreach (int c in items)
+            {
+                switch (c)
+                {
+                    case 1:
+                        result.Add(retWorkerFromName(word));
+                        break;
+                    case 2:
+                        result.Add(retWorkerFromLastName(word));
+                        break;
+                    case 3:
+                        result.Add(returnWorkerFromEmailNoPass(word));
+                        result.Add(returnCompanyFromEmailNoPass(word));
+                        break;
+                    case 4:
+                        result.Add(retCompanyFromName(word));
+                        break;
+                    case 5:
+                        result.Add(retWorkerWithSkill(word));
+                        break;
+                }
+            }
+            return JsonConvert.SerializeObject(result);
+        }
+        return null;
     }
 
 }

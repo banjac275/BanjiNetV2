@@ -74,6 +74,7 @@
                         $xmls = $(xmldocs),
                         $titles = $xmls.find("string");
                     var parse = JSON.parse($titles.text());
+                    console.log(parse);
 
                     var add = "<div>Name: " + parse.FirstName + " " + parse.LastName + "</div><hr/>" +
                         "<div>Email: " + parse.Email + "</div><hr/>" +

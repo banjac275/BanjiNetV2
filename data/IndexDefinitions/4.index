@@ -1,18 +1,18 @@
 {
   "IndexId": 4,
-  "Name": "CompaniesR/byName",
+  "Name": "WorkersR/byLastName",
   "LockMode": "Unlock",
   "IndexVersion": 1,
-  "Map": "from company in docs.CompaniesRs\nselect new {\n\tCompanyName = company.CompanyName\n}",
+  "Map": "from worker in docs.WorkersRs\nselect new {\n\tLastName = worker.LastName\n}",
   "Maps": [
-    "from company in docs.CompaniesRs\nselect new {\n\tCompanyName = company.CompanyName\n}"
+    "from worker in docs.WorkersRs\nselect new {\n\tLastName = worker.LastName\n}"
   ],
   "Reduce": null,
   "IsMapReduce": false,
   "IsCompiled": false,
   "Stores": {},
   "Indexes": {
-    "CompanyName": "Analyzed"
+    "LastName": "Analyzed"
   },
   "SortOptions": {},
   "Analyzers": {},

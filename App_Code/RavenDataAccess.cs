@@ -74,29 +74,17 @@ public class RavenDataAccess
 
     public WorkersR getWorkerById(Guid id)
     {
-        var find = _session.Query<WorkersR>().ToList();
-        if(find != null)
-            for(int i = 0; i < find.Count; i++)
-            {
-                if(find[i].Id == id)
-                {
-                    return find[i];
-                }
-            }
+        var find = _session.Load<WorkersR>(id);
+        if (find != null)
+            return find;
         return null;
     }
 
     public CompaniesR getCompanyById(Guid id)
     {
-        var find = _session.Query<CompaniesR>().ToList();
+        var find = _session.Load<CompaniesR>(id);
         if (find != null)
-            for (int i = 0; i < find.Count; i++)
-            {
-                if (find[i].Id == id)
-                {
-                    return find[i];
-                }
-            }
+            return find;
         return null;
     }
 
