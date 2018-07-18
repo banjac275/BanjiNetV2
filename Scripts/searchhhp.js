@@ -1,12 +1,11 @@
 ﻿$(document).ready(function () {
-    var received = [];
-    var perm1 = 1, perm2 = 2, perm3 = 3, perm4 = 4, perm5 = 5;
+    let received = [];
+    let shown = [];
+    let perm1 = 1, perm2 = 2, perm3 = 3, perm4 = 4, perm5 = 5;
     //perm1 = perm2 = perm3 = perm4 = perm5 = true;
-    $("#listC").css("display", "none");
-    $("#listW").css("display", "none");
     var count = 0;
     //db
-    var basee = localStorage.getItem("dbres");
+    let basee = localStorage.getItem("dbres");
 
     //urlovi
     //var urlWMNP = "./RavenService.asmx/returnWorkerFromEmailNoPass";
@@ -46,7 +45,6 @@
 
     function findMember(propose, str) {
         console.log('search: ' + str);
-        //var name = { 'name': str };
         received = [];
         suggest.style.display = "block";
         $("#livesearch").empty();
@@ -117,14 +115,94 @@
 
             let tmp = [];
 
-            par.forEach((el) => {
+            par.forEach((el, ind) => {
                 if (el[0] === "[") {
-                    console.log(el);
-                    tmp.push(JSON.parse(el));
+                    tmp.push({'recv': JSON.parse(el), 'ind': ind });
                 }
                     
             });
             console.log(tmp);
+            if (tmp.length === 0) alert("Nothing found!");
+            else {
+                let suggested = [];
+                received = [];
+
+                if (str === "") {
+
+                } else {
+                    tmp.forEach((el) => {
+                        switch (el.ind) {
+                            case 0:
+                                el.recv.forEach((elTmp) => {
+                                    received.push(elTmp);
+                                    suggested.push({
+                                        'Id': elTmp.Id,
+                                        'val': elTmp.FirstName,
+                                        'collection': 'worker'
+                                    });
+                                });
+                                break;
+                            case 1:
+                                el.recv.forEach((elTmp) => {
+                                    received.push(elTmp);
+                                    suggested.push({
+                                        'Id': elTmp.Id,
+                                        'val': elTmp.LastName,
+                                        'collection': 'worker'
+                                    });
+                                });
+                                break;
+                            case 2:
+                                el.recv.forEach((elTmp) => {
+                                    received.push(elTmp);
+                                    suggested.push({
+                                        'Id': elTmp.Id,
+                                        'val': elTmp.Email,
+                                        'collection': 'worker'
+                                    });
+                                });
+                                break;
+                            case 3:
+                                el.recv.forEach((elTmp) => {
+                                    received.push(elTmp);
+                                    suggested.push({
+                                        'Id': elTmp.Id,
+                                        'val': elTmp.Email,
+                                        'collection': 'company'
+                                    });
+                                });
+                                break;
+                            case 4:
+                                el.recv.forEach((elTmp) => {
+                                    received.push(elTmp);
+                                    suggested.push({
+                                        'Id': elTmp.Id,
+                                        'val': elTmp.CompanyName,
+                                        'collection': 'company'
+                                    });
+                                });
+                                break;
+                            case 5:
+                                el.recv.forEach((elTmp) => {
+                                    received.push(elTmp);
+                                    suggested.push({
+                                        'Id': elTmp.Id,
+                                        'val': elTmp.Skills,
+                                        'collection': 'worker'
+                                    });
+                                });
+                                break;
+                        }
+                    });
+                }
+
+                //sklanjanje duplikata
+                suggested = eliminateDuplicates(suggested);
+                received = eliminateDuplicates(received);
+                console.log(suggested);
+                console.log(received);
+            }
+
         });
 
         ////pretraga po radnicima
@@ -429,19 +507,19 @@
 
         if (count !== 0) {
             console.log(count);
-            var j = 1, m = 1;
-            for (var i = 0; i < count; i++) {
+            let j = 1, m = 1;
+            for (let i = 0; i < count; i++) {
                 if (rec[i].type === "Workers") {
                     $("#listW").css("display", "block");
-                    var mail = rec[i].found.Email;
-                    var first = rec[i].found.FirstName;
-                    var last = rec[i].found.LastName;
-                    var company = rec[i].found.CompanyName;
-                    var skill = null;
+                    let mail = rec[i].found.Email;
+                    let first = rec[i].found.FirstName;
+                    let last = rec[i].found.LastName;
+                    let company = rec[i].found.CompanyName;
+                    let skill = null;
                     if (rec[i].found.Skills !== null) {
                         skill = rec[i].found.Skills.join();
                     }
-                    var table = '<tr><th scope= "row">' + j + '</th>'
+                    let table = '<tr><th scope= "row">' + j + '</th>'
                         + '<td>' + first + '</td>'
                         + '<td>' + last + '</td>'
                         + '<td>' + mail + '</td>'
@@ -453,11 +531,11 @@
                 }
                 else if (rec[i].type === "Companies") {
                     $("#listC").css("display", "block");
-                    var company = rec[i].found.CompanyName;
-                    var mail = rec[i].found.Email;
-                    var type = rec[i].found.Type;
-                    var loc = rec[i].found.Location;
-                    var table = '<tr><th scope= "row">' + j + '</th>'
+                    let company = rec[i].found.CompanyName;
+                    let mail = rec[i].found.Email;
+                    let type = rec[i].found.Type;
+                    let loc = rec[i].found.Location;
+                    let table = '<tr><th scope= "row">' + j + '</th>'
                         + '<td>' + company + '</td>'
                         + '<td>' + mail + '</td>'
                         + '<td>' + type + '</td>'
@@ -501,7 +579,7 @@
         var search = $("#srcinput").val();
         suggest.style.display = "none";
 
-        findMember(false, search);
+        findMember.bind(undefined, false, search);
 
         console.log(received);
         if (received.length !== 0)
@@ -538,6 +616,22 @@
         window.location.assign("./fellowworker.aspx");
 
     });
+
+    function eliminateDuplicates(arr) {
+        let tmpNoDoubles = [];
+        let i = 0;
+        while (i < arr.length) {
+            let tmpEl = arr[i];
+            tmpNoDoubles.push(tmpEl);
+            arr.forEach((el) => {
+                if (el.Id !== tmpEl.Id) tmpNoDoubles.push(el);
+            });
+            arr = tmpNoDoubles;
+            tmpNoDoubles = [];
+            i++;
+        }
+        return arr;
+    }
 
     function getAjaxResponse(arr, sstring, fn) {
 

@@ -1062,9 +1062,7 @@ public class RavenService : System.Web.Services.WebService
         List<WorkersR> w = raven.getWorkerByEmailS(name);
 
         if (w.Count != 0)
-        {
             return JsonConvert.SerializeObject(w);
-        }
         else
             return "Worker not found!";
 
@@ -1145,24 +1143,35 @@ public class RavenService : System.Web.Services.WebService
 
             foreach (int c in items)
             {
-                switch (c)
+                if (word != "")
                 {
-                    case 1:
-                        result.Add(retWorkerFromName(word));
-                        break;
-                    case 2:
-                        result.Add(retWorkerFromLastName(word));
-                        break;
-                    case 3:
-                        result.Add(returnWorkerFromEmailNoPass(word));
-                        result.Add(returnCompanyFromEmailNoPass(word));
-                        break;
-                    case 4:
-                        result.Add(retCompanyFromName(word));
-                        break;
-                    case 5:
-                        result.Add(retWorkerWithSkill(word));
-                        break;
+                    switch (c)
+                    {
+                        case 1:
+                            result.Add(retWorkerFromName(word));
+                            break;
+                        case 2:
+                            result.Add(retWorkerFromLastName(word));
+                            break;
+                        case 3:
+                            result.Add(returnWorkerFromEmailNoPass(word));
+                            result.Add(returnCompanyFromEmailNoPass(word));
+                            break;
+                        case 4:
+                            result.Add(retCompanyFromName(word));
+                            break;
+                        case 5:
+                            result.Add(retWorkerWithSkill(word));
+                            break;
+                        default:
+                            result.Add("empty");
+                            break;
+                    }
+                }
+                else
+                {
+                    result.Add(retAllWorkersFromCollectionR());
+                    result.Add(retAllCompaniesFromCollectionR());
                 }
             }
             return JsonConvert.SerializeObject(result);
