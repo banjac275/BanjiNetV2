@@ -105,8 +105,6 @@
             //prep2 = [perm3, perm4];
         }
 
-        console.log(prep1);
-
         getAjaxResponse(JSON.stringify(prep1), str, (data) => {
             let xmldoc = $.parseXML(data),
                 $xml = $(xmldoc),
@@ -184,10 +182,16 @@
                                 break;
                             case 5:
                                 el.recv.forEach((elTmp) => {
+                                    let matchedSkill = [];
+                                    if (Array.isArray(elTmp.Skills)) {
+                                        elTmp.Skills.forEach(s => {
+                                            if (s.search(new RegExp(str, "i")) !== -1) matchedSkill.push(s);
+                                        });
+                                    } else matchedSkill = elTmp.Skills;
                                     received.push(elTmp);
                                     suggested.push({
                                         'Id': elTmp.Id,
-                                        'val': elTmp.Skills,
+                                        'val': matchedSkill,
                                         'collection': 'worker'
                                     });
                                 });
@@ -197,10 +201,43 @@
                 }
 
                 //sklanjanje duplikata
-                suggested = eliminateDuplicates(suggested);
-                received = eliminateDuplicates(received);
+                suggested = eliminateDuplicates(suggested, 0);
+                received = eliminateDuplicates(received, 0);
+
+                if (str !== "") {
+                    
+                    suggested.forEach(el => {
+                        if (!Array.isArray(el.val)) el.val = addSpan(el.val, str);
+                        else {
+                            el.val.forEach(t => {
+                                t = addSpan(t, str);
+                            });
+                        }
+                    });
+                }
+
                 console.log(suggested);
                 console.log(received);
+
+                let prepHtml = [];
+                suggested.forEach(el => {
+                    if (!Array.isArray(el.val)) prepHtml.push('<div class="searchcont"><p class="searchcont--val">' + el.val + '</p><p class="searchcont--collection">' + el.collection + '</p></div>');
+                    else {
+                        el.val.forEach(t => {
+                            prepHtml.push('<div class="searchcont"><p class="searchcont--val">' + t + '</p><p class="searchcont--collection">' + el.collection + '</p></div>');
+                        });
+                    }
+                });
+
+                prepHtml = eliminateDuplicates(prepHtml, 1);
+
+                console.log(prepHtml);
+
+                if (prepHtml.length !== 0) {
+                    prepHtml.forEach(el => {
+                        $('#livesearch').append(el);
+                    });
+                }
             }
 
         });
@@ -617,20 +654,38 @@
 
     });
 
-    function eliminateDuplicates(arr) {
+    function eliminateDuplicates(arr, cond) {
+        let type1, type2;
         let tmpNoDoubles = [];
         let i = 0;
         while (i < arr.length) {
             let tmpEl = arr[i];
             tmpNoDoubles.push(tmpEl);
             arr.forEach((el) => {
-                if (el.Id !== tmpEl.Id) tmpNoDoubles.push(el);
+                if (cond === 0) { type1 = el.Id; type2 = tmpEl.Id; }
+                else { type1 = el; type2 = tmpEl; }
+                if (type1 !== type2) tmpNoDoubles.push(el);
             });
             arr = tmpNoDoubles;
             tmpNoDoubles = [];
             i++;
         }
         return arr;
+    }
+
+    function addSpan(val, str) {
+        let stringValue = val;
+        let stringValueCopy = stringValue;
+        let match;
+
+        match = new RegExp(str, "i").exec(stringValueCopy)
+        stringValueCopy = stringValueCopy.replace(match, "");
+        stringValue = stringValue.replace(match, `<span class='found'>temporary</span>`);
+
+        stringValue = stringValue.replace(/temporary/g, str);
+        let pos = String(val).search(new RegExp(str, "i"));
+        if (pos !== -1) val = stringValue;
+        return val;
     }
 
     function getAjaxResponse(arr, sstring, fn) {

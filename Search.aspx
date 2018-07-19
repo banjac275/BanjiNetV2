@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Search.aspx.cs" Inherits="Search" %>
 
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml>
+<html xmlns="http://www.w3.org/1999/xhtml">
     <head runat="server">
         <title>BanjiNet - Search</title>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
@@ -37,27 +37,25 @@
         <!-- /top nav -->
 
         <!-- Search bar -->
-        <div class="row">
-          <div class="col-lg-3"></div>
-          <div class="input-group col-lg-6">
-              <div class="input-group-btn">
+          <div class="search">
+              <div class="specify--btn">
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Specify <span class="caret"></span></button>
-                <ul class="dropdown-menu">
-                  <li><span class="input-group-addon"><input type="checkbox" aria-label="..." id="ffirst">First Name</span></li>
-                  <li><span class="input-group-addon"><input type="checkbox" aria-label="..." id="llast">Last Name</span></li>
-                  <li><span class="input-group-addon"><input type="checkbox" aria-label="..." id="mmail">E-mail</span></li>
-                  <li><span class="input-group-addon"><input type="checkbox" aria-label="..." id="ccomp">Company</span></li>
-                  <li><span class="input-group-addon"><input type="checkbox" aria-label="..." id="skiill">Skill</span></li>
+                <ul class="dropdown-menu--changed dropdown-menu">
+                  <li><span class="input-group-addon"><input type="checkbox" aria-label="..." id="ffirst"/>First Name</span></li>
+                  <li><span class="input-group-addon"><input type="checkbox" aria-label="..." id="llast"/>Last Name</span></li>
+                  <li><span class="input-group-addon"><input type="checkbox" aria-label="..." id="mmail"/>E-mail</span></li>
+                  <li><span class="input-group-addon"><input type="checkbox" aria-label="..." id="ccomp"/>Company</span></li>
+                  <li><span class="input-group-addon"><input type="checkbox" aria-label="..." id="skiill"/>Skill</span></li>
                 </ul>
               </div><!-- /btn-group -->
-              <input type="text" class="form-control" id="srcinput" placeholder="Search..."/>
-              <span class="input-group-btn">
-                <button class="btn btn-default" type="button" id="srcbttn">Go!</button>
-              </span>
+              <div class="search__wrapper">
+                  <input type="text" class="form-control" id="srcinput" placeholder="Search..."/>
+                  <div class="livesearch__wrapper">
+                      <div class="col-lg-5" id="livesearch"></div>
+                  </div>
+              </div>
+              <button class="btn btn-default" type="button" id="srcbttn">Go!</button>
             </div><!-- /input-group -->
-            <div class="col-lg-3" style="margin-right: 5.9em;"></div>
-            <div class="col-lg-5" id="livesearch"></div>
-        </div><!-- /.row -->
 
         <div class="row" id="listW">
         <div class="col-lg-2"></div>
