@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Script.Services;
 using Raven.Client;
 using Raven.Client.Document;
+using Lucene.Net.QueryParsers;
+using Raven.Client.Linq;
 
 /// <summary>
 /// Summary description for RavenDataAccess
@@ -27,6 +30,7 @@ public class RavenDataAccess
         new WorkersR_byEmail().Execute(_store);
         new WorkersR_byName().Execute(_store);
         new WorkersR_byLastName().Execute(_store);
+        new WorkersR_bySkill().Execute(_store);
         new CompaniesR_byEmail().Execute(_store);
         new CompaniesR_byName().Execute(_store);
 
@@ -156,58 +160,67 @@ public class RavenDataAccess
 
     public List<WorkersR> getWorkerByName(string name)
     {
-        //var result = _session.Query<WorkersR, WorkersR_byName>().Search(x => x.FirstName, name+"*").ToList();
-        var result = _session.Advanced.DocumentQuery<WorkersR, WorkersR_byName>().WhereStartsWith(x => x.FirstName, name).ToList();
+        var wildquery = string.Format("*{0}*", QueryParser.Escape(name));
+        var result = _session
+            .Advanced
+            .LuceneQuery<WorkersR, WorkersR_byName>()
+            .Where("FirstName: *" + wildquery + "*")
+            .ToList();
         return result;
     }
 
     public List<WorkersR> getWorkerByEmailS(string email)
     {
-        var result = _session.Advanced.DocumentQuery<WorkersR, WorkersR_byEmail>().WhereStartsWith(x => x.Email, email).ToList();
+        var wildquery = string.Format("*{0}*", QueryParser.Escape(email));
+        var result = _session
+            .Advanced
+            .LuceneQuery<WorkersR, WorkersR_byEmail>()
+            .Where("Email: *" + wildquery + "*")
+            .ToList();
         return result;
     }
 
     public List<WorkersR> getWorkerByLastNameS(string name)
     {
-        var result = _session.Advanced.DocumentQuery<WorkersR, WorkersR_byLastName>().WhereStartsWith(x => x.LastName, name).ToList();
+        var wildquery = string.Format("*{0}*", QueryParser.Escape(name));
+        var result = _session
+            .Advanced
+            .LuceneQuery<WorkersR, WorkersR_byLastName>()
+            .Where("LastName: *" + wildquery + "*")
+            .ToList();
         return result;
     }
 
     public List<WorkersR> getWorkerWithSkillS(string name)
     {
-        var result = _session.Query<WorkersR>().ToList();
-        if(result.Count > 0)
-        {
-            List<WorkersR> temp = new List<WorkersR>();
-            for (int i = 0; i<result.Count; i++)
-            {
-                if(result[i].Skills != null)
-                {
-                    for(int j = 0; j < result[i].Skills.Count; j++)
-                    {
-                        var tmp = result[i].Skills[j];
-                        if (tmp.ToLower().Contains(name.ToLower()))
-                            temp.Add(result[i]);
-                    }
-                }
-            }
-            if (temp.Count > 0)
-                result = temp;
-            else
-                result = null;
-        }
+        var wildquery = string.Format("*{0}*", QueryParser.Escape(name));
+        var result = _session
+            .Advanced
+            .LuceneQuery<WorkersR, WorkersR_bySkill>()
+            .Where("Skills: *"+wildquery+"*")
+            .ToList();
         return result;
     }
 
     public List<CompaniesR> getCompanyByEmailS(string email)
     {
-        var result = _session.Advanced.DocumentQuery<CompaniesR, CompaniesR_byEmail>().WhereStartsWith(x => x.Email, email).ToList();
+        var wildquery = string.Format("*{0}*", QueryParser.Escape(email));
+        var result = _session
+            .Advanced
+            .LuceneQuery<CompaniesR, CompaniesR_byEmail>()
+            .Where("Email: *" + wildquery + "*")
+            .ToList();
         return result;
     }
 
     public List<CompaniesR> getCompanyByNameS(string name)
     {
-        var result = _session.Advanced.DocumentQuery<CompaniesR, CompaniesR_byName>().WhereStartsWith(x => x.CompanyName, name).ToList();
+        var wildquery = string.Format("*{0}*", QueryParser.Escape(name));
+        var result = _session
+            .Advanced
+            .LuceneQuery<CompaniesR, CompaniesR_byName>()
+            .Where("CompanyName: *" + wildquery + "*")
+            .ToList();
         return result;
     }
 

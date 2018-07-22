@@ -1,0 +1,30 @@
+{
+  "IndexId": 13,
+  "Name": "WorkersR/bySkill",
+  "LockMode": "Unlock",
+  "IndexVersion": 1,
+  "Map": "from worker in docs.WorkersRs\nselect new {\n\tSkills = worker.Skills\n}",
+  "Maps": [
+    "from worker in docs.WorkersRs\nselect new {\n\tSkills = worker.Skills\n}"
+  ],
+  "Reduce": null,
+  "IsMapReduce": false,
+  "IsCompiled": false,
+  "Stores": {},
+  "Indexes": {
+    "Skills": "Analyzed"
+  },
+  "SortOptions": {},
+  "Analyzers": {},
+  "Fields": [],
+  "Suggestions": null,
+  "SuggestionsOptions": [],
+  "TermVectors": {},
+  "SpatialIndexes": {},
+  "InternalFieldsMapping": {},
+  "MaxIndexOutputsPerDocument": null,
+  "Type": "Map",
+  "DisableInMemoryIndexing": false,
+  "IsTestIndex": false,
+  "IsSideBySideIndex": false
+}

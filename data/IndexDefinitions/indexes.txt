@@ -1,6 +1,9 @@
 2 - WorkersR/byEmail
 6 - CompaniesR/byName
 3 - WorkersR/byName
+12 - Auto/WorkersRs/ByEmailAndFirstNameAndLastNameAndSkills
 4 - WorkersR/byLastName
+13 - WorkersR/bySkill
 1 - Raven/DocumentsByEntityName
 5 - CompaniesR/byEmail
+11 - Auto/CompaniesRs/ByCompanyNameAndEmail

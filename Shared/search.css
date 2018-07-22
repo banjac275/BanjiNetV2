@@ -44,6 +44,7 @@
 
 #listW, #listC {
     display: none;
+    width: 80%;
 }
 
 .search {

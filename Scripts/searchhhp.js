@@ -1,27 +1,18 @@
-﻿//mongo
-var urlWMNPM = "./MongoService.asmx/returnWorkerFromEmailNoPassSrc";
-var urlCMNPM = "./MongoService.asmx/returnCompanyFromEmailNoPassSrc";
-var urlCNM = "./MongoService.asmx/retCompanyFromNameSrc";
-var urlWNM = "./MongoService.asmx/retWorkerFromNameSrc";
-var urlWLNM = "./MongoService.asmx/retWorkerFromLastNameSrc";
-var urlWSM = "./MongoService.asmx/retWorkerWithSkill";
-var urlAM = [urlWMNPM, urlWNM, urlWLNM, urlWSM];
-var urlBM = [urlCMNPM, urlCNM];
+﻿let received = [];
+let shown = [];
+let perm1 = 1, perm2 = 2, perm3 = 3, perm4 = 4, perm5 = 5;
+let j = 1, m = 1;
 
+//db
+let basee = localStorage.getItem("dbres");
+let input = document.querySelector("#srcinput");
 
+let suggest = document.querySelector("#livesearch");
+suggest.style.display = "none";
+let timeoutID = null;
 
-//if (basee === "raven" || basee === null)
-//{
-//    urlOrderTemp1 = urlA;
-//    urlOrderTemp2 = urlB;
-//}
-//else
-//{
-//    urlOrderTemp1 = urlAM;
-//    urlOrderTemp2 = urlBM;
-//}
-
-
+let mongoUrl = './MongoService.asmx/searchAll';
+let ravenUrl = './RavenService.asmx/searchAll';
 
 $("#livesearch").on('click', '.searchcont', function () {
     $(this).css("color", "#0000CC");
@@ -85,45 +76,30 @@ $('#listingW').on('click', '.view', function () {
 
 });
 
-let input = document.querySelector("#srcinput");
 input.addEventListener("click", (e) => {
     e.stopPropagation();
     if (input.value === "" && suggest.childElementCount === 0) suggest.style.display = "none";
     else suggest.style.display = "block";
 
 });
-    
+
 (document.body || document.documentElement).addEventListener("click", (event) => {
     if (!suggest.contains(event.target))
         suggest.style.display = "none";
 
 });
 
-
-let received = [];
-let shown = [];
-let perm1 = 1, perm2 = 2, perm3 = 3, perm4 = 4, perm5 = 5;
-let j = 1, m = 1;
-
-//db
-let basee = localStorage.getItem("dbres");
-
-let suggest = document.querySelector("#livesearch");
-suggest.style.display = "none";
-let timeoutID = null;
-
-let urlOrderTemp1 = null;
-let urlOrderTemp2 = null;
-
 function findMember(propose, str) {
     console.log('search: ' + str);
     received = [];
     suggest.style.display = "block";
     $("#livesearch").empty();
-    var all = true;
-    var prep1 = [];
-    var prep2 = [];
-    count = 0;
+    let all = true;
+    let prep1 = [];
+    let searchUrl = null;
+
+    if (basee === "raven" || basee === null) searchUrl = ravenUrl;
+    else searchUrl = mongoUrl;
 
     if ($('#ffirst').not(':checked').length) {
         perm1 = 0;
@@ -173,7 +149,7 @@ function findMember(propose, str) {
         prep1 = [perm1, perm2, perm3, perm4, perm5];
     }
 
-    getAjaxResponse(JSON.stringify(prep1), str, (data) => {
+    getAjaxResponse(JSON.stringify(prep1), str, searchUrl, (data) => {
         let xmldoc = $.parseXML(data),
             $xml = $(xmldoc),
             $title = $xml.find("string");
@@ -432,10 +408,10 @@ function addSpan(val, str) {
     return val;
 }
 
-function getAjaxResponse(arr, sstring, fn) {
+function getAjaxResponse(arr, sstring, base, fn) {
 
     $.ajax({
-        url: './RavenService.asmx/searchAll',
+        url: base,
         dataType: "text",
         type: "POST",
         data: { 'word': sstring, 'check': arr },

@@ -1,0 +1,33 @@
+{
+  "IndexId": 12,
+  "Name": "Auto/WorkersRs/ByEmailAndFirstNameAndLastNameAndSkills",
+  "LockMode": "Unlock",
+  "IndexVersion": 1,
+  "Map": "from doc in docs.WorkersRs\nselect new {\n\tSkills = doc.Skills,\n\tEmail = doc.Email,\n\tLastName = doc.LastName,\n\tFirstName = doc.FirstName\n}",
+  "Maps": [
+    "from doc in docs.WorkersRs\nselect new {\n\tSkills = doc.Skills,\n\tEmail = doc.Email,\n\tLastName = doc.LastName,\n\tFirstName = doc.FirstName\n}"
+  ],
+  "Reduce": null,
+  "IsMapReduce": false,
+  "IsCompiled": false,
+  "Stores": {},
+  "Indexes": {},
+  "SortOptions": {},
+  "Analyzers": {},
+  "Fields": [],
+  "Suggestions": null,
+  "SuggestionsOptions": [],
+  "TermVectors": {},
+  "SpatialIndexes": {},
+  "InternalFieldsMapping": {
+    "Skills": "Skills",
+    "Email": "Email",
+    "LastName": "LastName",
+    "FirstName": "FirstName"
+  },
+  "MaxIndexOutputsPerDocument": null,
+  "Type": "Auto",
+  "DisableInMemoryIndexing": false,
+  "IsTestIndex": false,
+  "IsSideBySideIndex": false
+}

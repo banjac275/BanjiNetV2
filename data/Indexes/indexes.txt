@@ -4,3 +4,6 @@
 4 - WorkersR/byLastName
 5 - CompaniesR/byEmail
 6 - CompaniesR/byName
+11 - Auto/CompaniesRs/ByCompanyNameAndEmail
+12 - Auto/WorkersRs/ByEmailAndFirstNameAndLastNameAndSkills
+13 - WorkersR/bySkill

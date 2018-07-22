@@ -1,0 +1,31 @@
+{
+  "IndexId": 11,
+  "Name": "Auto/CompaniesRs/ByCompanyNameAndEmail",
+  "LockMode": "Unlock",
+  "IndexVersion": 1,
+  "Map": "from doc in docs.CompaniesRs\nselect new {\n\tCompanyName = doc.CompanyName,\n\tEmail = doc.Email\n}",
+  "Maps": [
+    "from doc in docs.CompaniesRs\nselect new {\n\tCompanyName = doc.CompanyName,\n\tEmail = doc.Email\n}"
+  ],
+  "Reduce": null,
+  "IsMapReduce": false,
+  "IsCompiled": false,
+  "Stores": {},
+  "Indexes": {},
+  "SortOptions": {},
+  "Analyzers": {},
+  "Fields": [],
+  "Suggestions": null,
+  "SuggestionsOptions": [],
+  "TermVectors": {},
+  "SpatialIndexes": {},
+  "InternalFieldsMapping": {
+    "CompanyName": "CompanyName",
+    "Email": "Email"
+  },
+  "MaxIndexOutputsPerDocument": null,
+  "Type": "Auto",
+  "DisableInMemoryIndexing": false,
+  "IsTestIndex": false,
+  "IsSideBySideIndex": false
+}

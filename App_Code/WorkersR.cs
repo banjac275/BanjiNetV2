@@ -158,3 +158,16 @@ public class WorkersR_byLastName : AbstractIndexCreationTask<WorkersR>
         Indexes.Add(x => x.LastName, FieldIndexing.Analyzed);
     }
 }
+
+public class WorkersR_bySkill : AbstractIndexCreationTask<WorkersR>
+{
+    public WorkersR_bySkill()
+    {
+        Map = workers => from worker in workers
+                         select new
+                         {
+                             worker.Skills
+                         };
+        Indexes.Add(x => x.Skills, FieldIndexing.Analyzed);
+    }
+}

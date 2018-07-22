@@ -173,7 +173,6 @@ public class MongoDataAccess
     public List<Workers> getWorkerByNameS(string name)
     {
         var collection = _dbase.GetCollection<Workers>("workers");
-        //var filter = Builders<BsonDocument>.Filter.Regex("FirstName", new BsonRegularExpression("/^" + name + "/i"));
         var filter = new BsonDocument { { "FirstName", new BsonDocument { { "$regex", name }, { "$options", "i" } } } };
         var result = collection.Find(filter).ToList();
         return result;
@@ -183,72 +182,41 @@ public class MongoDataAccess
     public List<Workers> getWorkerByEmailS(string email)
     {
         var collection = _dbase.GetCollection<Workers>("workers");
-        //var filter = Builders<BsonDocument>.Filter.Regex("FirstName", new BsonRegularExpression("/^" + name + "/i"));
         var filter = new BsonDocument { { "Email", new BsonDocument { { "$regex", email }, { "$options", "i" } } } };
         var result = collection.Find(filter).ToList();
         return result;
-        //var result = _session.Advanced.DocumentQuery<WorkersR, WorkersR_byEmail>().WhereStartsWith(x => x.Email, email).ToList();
-        //return result;
     }
 
     public List<Workers> getWorkerByLastNameS(string name)
     {
         var collection = _dbase.GetCollection<Workers>("workers");
-        //var filter = Builders<BsonDocument>.Filter.Regex("FirstName", new BsonRegularExpression("/^" + name + "/i"));
         var filter = new BsonDocument { { "LastName", new BsonDocument { { "$regex", name }, { "$options", "i" } } } };
         var result = collection.Find(filter).ToList();
         return result;
-        //var result = _session.Advanced.DocumentQuery<WorkersR, WorkersR_byLastName>().WhereStartsWith(x => x.LastName, name).ToList();
-        //return result;
     }
 
     public List<Workers> getWorkerWithSkillS(string name)
     {
         var collection = _dbase.GetCollection<Workers>("workers");
-        var result = collection.Find(Builders<Workers>.Filter.Empty).ToList();
-        if (result.Count > 0)
-        {
-            List<Workers> temp = new List<Workers>();
-            for (int i = 0; i < result.Count; i++)
-            {
-                if (result[i].Skills != null)
-                {
-                    for (int j = 0; j < result[i].Skills.Count; j++)
-                    {
-                        var tmp = result[i].Skills[j];
-                        if (tmp.ToLower().Contains(name.ToLower()))
-                            temp.Add(result[i]);
-                    }
-                }
-            }
-            if (temp.Count > 0)
-                result = temp;
-            else
-                result = null;
-        }
+        var filter = new BsonDocument { { "Skills", new BsonDocument { { "$regex", name }, { "$options", "i" } } } };
+        var result = collection.Find(filter).ToList();
         return result;
     }
 
     public List<Companies> getCompanyByEmailS(string email)
     {
         var collection = _dbase.GetCollection<Companies>("companies");
-        //var filter = Builders<BsonDocument>.Filter.Regex("FirstName", new BsonRegularExpression("/^" + name + "/i"));
         var filter = new BsonDocument { { "Email", new BsonDocument { { "$regex", email }, { "$options", "i" } } } };
         var result = collection.Find(filter).ToList();
         return result;
-        //var result = _session.Advanced.DocumentQuery<CompaniesR, CompaniesR_byEmail>().WhereStartsWith(x => x.Email, email).ToList();
-        //return result;
     }
 
     public List<Companies> getCompanyByNameS(string name)
     {
         var collection = _dbase.GetCollection<Companies>("companies");
-        //var filter = Builders<BsonDocument>.Filter.Regex("FirstName", new BsonRegularExpression("/^" + name + "/i"));
         var filter = new BsonDocument { { "CompanyName", new BsonDocument { { "$regex", name }, { "$options", "i" } } } };
         var result = collection.Find(filter).ToList();
         return result;
-        //var result = _session.Advanced.DocumentQuery<CompaniesR, CompaniesR_byName>().WhereStartsWith(x => x.CompanyName, name).ToList();
-        //return result;
     }
 
 }

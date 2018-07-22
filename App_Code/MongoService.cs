@@ -1021,4 +1021,53 @@ public class MongoService : System.Web.Services.WebService
         else
             return "Company not found!";
     }
+
+    [System.Web.Services.WebMethod]
+    public string searchAll(string word, string check)
+    {
+        JArray rec = JArray.Parse(check);
+
+        int[] items = rec.Select(jv => (int)jv).ToArray();
+
+        if (items.Length != 0)
+        {
+            List<string> result = new List<string>();
+
+            foreach (int c in items)
+            {
+                if (word != "")
+                {
+                    switch (c)
+                    {
+                        case 1:
+                            result.Add(retWorkerFromNameSrc(word));
+                            break;
+                        case 2:
+                            result.Add(retWorkerFromLastNameSrc(word));
+                            break;
+                        case 3:
+                            result.Add(returnWorkerFromEmailNoPassSrc(word));
+                            result.Add(returnCompanyFromEmailNoPassSrc(word));
+                            break;
+                        case 4:
+                            result.Add(retCompanyFromNameSrc(word));
+                            break;
+                        case 5:
+                            result.Add(retWorkerWithSkill(word));
+                            break;
+                        default:
+                            result.Add("empty");
+                            break;
+                    }
+                }
+                else
+                {
+                    result.Add(retAllWorkersFromCollection());
+                    result.Add(retAllCompaniesFromCollection());
+                }
+            }
+            return JsonConvert.SerializeObject(result);
+        }
+        return null;
+    }
 }
